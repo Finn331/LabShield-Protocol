@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  labshield-backend:
+    # GANTI 'YOUR_DOCKERHUB_USERNAME' dengan username asli kamu!
+    image: carlomuzaqi/labshield-server:latest
+    container_name: labshield-server
+    
+    # Selalu coba tarik image terbaru saat start
+    pull_policy: always
+    
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    environment:
+      - PORT=${PORT:-3000}
+      - DATA_DIR=/app/data
+    volumes:
+      - ./data:/app/data
+    restart: always

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - LabShield Protocol</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="flex-center">
+
+    <!-- Login Section -->
+    <div id="login-section" class="card fade-in active">
+        <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">👨‍🏫</div>
+        <h1 style="text-align: center; font-size: 2rem;">Teacher Login</h1>
+
+        <form onsubmit="event.preventDefault(); login();">
+            <div style="margin-bottom: 15px;">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enter Dashboard</button>
+        </form>
+
+        <div id="login-error" class="message error"></div>
+
+        <div class="mt-md" style="text-align: center;">
+            <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">&larr; Back
+                to Home</a>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="container fade-in"
+        style="display: none; padding-top: 40px; padding-bottom: 40px;">
+
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <div>
+                <h1>Teacher Dashboard</h1>
+                <p>Manage students, teachers, and view simulation progress.</p>
+            </div>
+            <button onclick="logout()" class="btn btn-danger" style="width: auto;">Logout</button>
+        </header>
+
+        <div class="dashboard-grid">
+
+            <!-- Score Section -->
+            <div class="card" style="max-width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>📊 Student Progress</h2>
+                    <button onclick="loadScores()" class="btn btn-secondary"
+                        style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Refresh</button>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table id="score-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Questions</th>
+                                <th>Score</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Student Management Section -->
+            <div class="card" style="max-width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2>🎓 Registered Students</h2>
+                    <div style="display: flex; gap: 10px;">
+                        <button id="batch-delete-btn" onclick="batchDelete()" class="btn btn-danger fade-in"
+                            style="width: auto; padding: 8px 16px; font-size: 0.8rem; display: none;">Delete
+                            Selected</button>
+                        <button onclick="loadStudents()" class="btn btn-secondary"
+                            style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Refresh</button>
+                    </div>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table id="student-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px; text-align: center;"><input type="checkbox" id="select-all"
+                                        onclick="toggleSelectAll(this)"
+                                        style="width: 16px; height: 16px; margin: 0; box-shadow: none;"></th>
+                                <th>Username</th>
+                                <th style="text-align: right;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Admin Section -->
+            <div class="card" style="max-width: 100%; grid-column: 1 / -1;">
+                <h2>🛠️ Admin Panel</h2>
+
+                <div
+                    style="background: rgba(249, 250, 251, 0.5); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--glass-border);">
+                    <h3 style="font-size: 1.1rem; margin-bottom: 15px;">Add New Teacher</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 10px; align-items: center;">
+                        <input type="text" id="new-teacher-user" placeholder="New Teacher Username" style="margin: 0;">
+                        <input type="password" id="new-teacher-pass" placeholder="New Teacher Password"
+                            style="margin: 0;">
+                        <button onclick="addTeacher()" class="btn btn-primary" style="width: auto; margin: 0;">Create
+                            Account</button>
+                    </div>
+                    <div id="admin-msg" class="message"></div>
+                </div>
+
+                <div class="mt-lg">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 1.1rem;">List of Teachers</h3>
+                        <button onclick="loadTeachers()" class="btn btn-secondary"
+                            style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Refresh</button>
+                    </div>
+                    <table id="teacher-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th style="text-align: right;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentUser = null;
+        let currentPass = null;
+
+        function login() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const errDiv = document.getElementById('login-error');
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: u, password: p })
+            })
+                .then(res => {
+                    if (res.status === 429) {
+                        return res.json().then(d => { throw new Error(d.error); });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.success && data.role === 'teacher') {
+                        currentUser = u;
+                        currentPass = p;
+                        document.getElementById('login-section').style.display = 'none';
+                        document.getElementById('dashboard-section').style.display = 'block';
+                        loadScores();
+                        loadStudents();
+                        loadTeachers();
+                    } else {
+                        errDiv.innerText = data.error || 'Login failed or not a teacher.';
+                        errDiv.className = 'message error active';
+                    }
+                })
+                .catch(err => {
+                    errDiv.innerText = err.message || err;
+                    errDiv.className = 'message error active';
+                });
+        }
+
+        function logout() {
+            location.reload();
+        }
+
+        function loadScores() {
+            fetch('/api/scores')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#score-table tbody');
+                    tbody.innerHTML = '';
+                    if (data.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color: var(--text-muted);">No scores recorded yet.</td></tr>';
+                        return;
+                    }
+                    data.reverse().forEach(row => {
+                        const date = new Date(row.timestamp).toLocaleString();
+                        tbody.innerHTML += `
+                    <tr>
+                        <td style="font-weight: 500;">${row.studentName}</td>
+                        <td>${row.questionsAnswered}</td>
+                        <td><span style="font-weight: 600; color: var(--primary-color);">${row.score}</span></td>
+                        <td style="font-size: 0.9em; color: var(--text-muted);">${date}</td>
+                    </tr>
+                `;
+                    });
+                });
+        }
+
+        function loadStudents() {
+            fetch('/api/students')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#student-table tbody');
+                    tbody.innerHTML = '';
+                    document.getElementById('select-all').checked = false;
+                    updateBatchBtn();
+
+                    if (data.length === 0) {
+                        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; color: var(--text-muted);">No students registered.</td></tr>';
+                        return;
+                    }
+                    data.forEach(user => {
+                        tbody.innerHTML += `
+                        <tr>
+                            <td style="text-align: center;"><input type="checkbox" class="student-checkbox" value="${user.username}" onclick="updateBatchBtn()" style="width: 16px; height: 16px; margin: 0; box-shadow: none;"></td>
+                            <td style="font-weight: 500;">${user.username}</td>
+                            <td style="text-align: right;">
+                                <button onclick="deleteUser('${user.username}')" class="btn btn-danger" style="width: auto; padding: 6px 12px; font-size: 0.8rem;">Delete</button>
+                            </td>
+                        </tr>
+                        `;
+                    });
+                });
+        }
+
+        function toggleSelectAll(source) {
+            const checkboxes = document.querySelectorAll('.student-checkbox');
+            checkboxes.forEach(cb => cb.checked = source.checked);
+            updateBatchBtn();
+        }
+
+        function updateBatchBtn() {
+            const checkedBoxes = document.querySelectorAll('.student-checkbox:checked');
+            const btn = document.getElementById('batch-delete-btn');
+            if (checkedBoxes.length > 0) {
+                btn.style.display = 'block';
+                btn.innerText = `Delete Selected (${checkedBoxes.length})`;
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        function batchDelete() {
+            const checkedBoxes = document.querySelectorAll('.student-checkbox:checked');
+            const usernames = Array.from(checkedBoxes).map(cb => cb.value);
+
+            if (usernames.length === 0) return;
+            if (!confirm(`Are you sure you want to delete ${usernames.length} selected students?`)) return;
+
+            fetch('/api/delete-users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    targetUsernames: usernames,
+                    requesterUsername: currentUser,
+                    requesterPassword: currentPass
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        loadStudents();
+                    } else {
+                        alert('Error: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(err => alert('Error deleting users: ' + err));
+        }
+
+        function loadTeachers() {
+            fetch('/api/teachers')
+                .then(res => res.json())
+                .then(data => {
+                    const tbody = document.querySelector('#teacher-table tbody');
+                    tbody.innerHTML = '';
+                    data.forEach(user => {
+                        let deleteBtn = `<button onclick="deleteUser('${user.username}')" class="btn btn-danger" style="width: auto; padding: 6px 12px; font-size: 0.8rem;">Delete</button>`;
+
+                        // Cosmetic checks
+                        if (user.username === currentUser) {
+                            deleteBtn = '<span style="color:var(--text-muted); font-size:0.8rem; font-style:italic;">(You)</span>';
+                        } else if (user.username === 'admin') {
+                            deleteBtn = '<span style="color:var(--text-muted); font-size:0.8rem; font-style:italic;">(Protected)</span>';
+                        }
+
+                        tbody.innerHTML += `
+                        <tr>
+                            <td style="font-weight: 500;">${user.username}</td>
+                            <td style="text-align: right;">${deleteBtn}</td>
+                        </tr>
+                        `;
+                    });
+                });
+        }
+
+        function deleteUser(targetUsername) {
+            if (!confirm(`Are you sure you want to delete user: ${targetUsername}?`)) return;
+
+            fetch('/api/delete-user', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    targetUsername: targetUsername,
+                    requesterUsername: currentUser,
+                    requesterPassword: currentPass
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('User deleted successfully');
+                        loadStudents();
+                        loadTeachers();
+                    } else {
+                        alert('Error: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(err => alert('Error deleting user: ' + err));
+        }
+
+        function addTeacher() {
+            const u = document.getElementById('new-teacher-user').value;
+            const p = document.getElementById('new-teacher-pass').value;
+            const msg = document.getElementById('admin-msg');
+
+            if (!u || !p) {
+                msg.innerText = "Please enter username and password";
+                msg.className = 'message error active';
+                return;
+            }
+
+            fetch('/api/create-teacher', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    requesterUsername: currentUser,
+                    requesterPassword: currentPass,
+                    newUsername: u,
+                    newPassword: p
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        msg.innerText = "New Teacher Added Successfully!";
+                        msg.className = 'message success active';
+                        document.getElementById('new-teacher-user').value = '';
+                        document.getElementById('new-teacher-pass').value = '';
+                        loadTeachers();
+                    } else {
+                        msg.innerText = data.error || "Failed to add user.";
+                        msg.className = 'message error active';
+                    }
+                });
+        }
+    </script>
+</body>
+
+</html>
