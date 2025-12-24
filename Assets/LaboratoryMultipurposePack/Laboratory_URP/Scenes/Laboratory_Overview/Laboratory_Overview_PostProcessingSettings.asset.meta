@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 464f0a574bdb3e645ab488aa6c93d4d9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 187342
+  packageName: Laboratory Multipurpose Pack - URP
+  packageVersion: 1.0
+  assetPath: Assets/LaboratoryMultipurposePack/Laboratory_URP/Scenes/Laboratory_Overview/Laboratory_Overview_PostProcessingSettings.asset
+  uploadId: 412246
