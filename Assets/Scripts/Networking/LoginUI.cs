@@ -23,7 +23,7 @@ public class LoginUI : MonoBehaviour
         // Initial State (Immediate set)
         bool loggedIn = AuthManager.IsLoggedIn;
         SetPanelActive(loginPanel, !loggedIn, true);
-        SetPanelActive(mainMenuPanel, loggedIn, true);
+        SetPanelActive(mainMenuPanel, true, true); // Always Active
     }
 
     void UpdateUIState()
@@ -33,8 +33,7 @@ public class LoginUI : MonoBehaviour
         // Use LeanTween for smooth transition
         if (!loggedIn)
         {
-            // Show Login, Hide Main
-            SetPanelActive(mainMenuPanel, false);
+            // Show Login (Overlay)
             SetPanelActive(loginPanel, true);
             
             // Focus Username
@@ -42,9 +41,9 @@ public class LoginUI : MonoBehaviour
         }
         else
         {
-            // Hide Login, Show Main
+            // Hide Login (Overlay)
             SetPanelActive(loginPanel, false);
-            SetPanelActive(mainMenuPanel, true);
+            // MainMenu stays active
         }
     }
 
@@ -129,7 +128,17 @@ public class LoginUI : MonoBehaviour
             }
             else
             {
-                SetStatus("Login Failed: " + msg, true);
+                // Clean Error Message (No "Login Failed:" prefix)
+                // Maps "Incorrect password" -> "Wrong Password" to match user request exactly if needed, 
+                // but usually server message is fine. Checking user request:
+                // "akan menampilkan Wrong Password" -> Server sends "Incorrect password". Close enough?
+                // Let's replace it to be exact.
+                
+                string displayMsg = msg;
+                if(msg == "Incorrect password") displayMsg = "Wrong Password";
+                if(msg == "User not found") displayMsg = "Invalid User";
+                
+                SetStatus(displayMsg, true);
                 // Shake Panel on Error
                 LeanTween.moveX(loginPanel, loginPanel.transform.position.x + 10, 0.05f).setLoopPingPong(3);
             }

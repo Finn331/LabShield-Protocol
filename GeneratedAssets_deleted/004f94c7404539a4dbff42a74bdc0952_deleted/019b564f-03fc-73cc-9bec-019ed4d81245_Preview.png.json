@@ -1,0 +1,11 @@
+{
+    "asset": "004f94c7404539a4dbff42a74bdc0952",
+    "fileName": "019b564f-03fc-73cc-9bec-019ed4d81245_Preview.png",
+    "prompt": "Create a modern, premium, UI/UX friendly design material.",
+    "negativePrompt": "",
+    "model": "44ec3749-963a-44b1-aa54-dc19f6ed8ab2",
+    "modelName": "Unity Texture2D",
+    "customSeed": 383727085,
+    "w3CTraceId": "1205ae1e4e38553fa88f9d68dcce2f00",
+    "refinementMode": "Generation"
+}

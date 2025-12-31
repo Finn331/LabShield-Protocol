@@ -48,7 +48,7 @@ const seedAdmin = () => {
 
 // --- RATE LIMITING ---
 const rateLimit = new Map();
-const WINDOW_Ms = 15 * 60 * 1000; // 15 minutes
+const WINDOW_Ms = 5 * 60 * 1000; // 5 minutes
 const MAX_ATTEMPTS = 5;
 
 const loginLimiter = (req, res, next) => {

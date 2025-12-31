@@ -1,0 +1,59 @@
+PANDUAN PEMASANGAN SCRIPT
+=======================
+
+Berikut adalah daftar script dan dimana Anda harus memasang/menaruhnya di dalam Scene Unity Anda.
+
+1. START OTOMATIS (Cara Cepat)
+   - Di menu atas Unity, klik "Tools" -> "Setup Gameplay Scene".
+   - Ini akan otomatis membuat "HUDManager", "InventoryManager", dan "Canvas" untuk Anda.
+
+2. PEMASANGAN MANUAL (Jika cara otomatis gagal)
+
+   A. Script: HUDManager.cs
+      - Buat GameObject kosong baru, beri nama "HUDManager".
+      - Tarik script "HUDManager" ke GameObject ini.
+
+   B. Script: InventoryManager.cs
+      - Buat GameObject kosong baru, beri nama "InventoryManager".
+      - Tarik script "InventoryManager" ke GameObject ini.
+
+   C. Script: PlayerInteraction.cs
+      - Klik "Main Camera" (yang ada di dalam Player/Character Anda).
+      - Tarik script "PlayerInteraction" ke Main Camera.
+
+   D. Inventory Checklist (Manual Link)
+      - Klik "InventoryManager".
+      - Di Inspector, cari list "Checklist Links".
+      - Tambahkan 4 item.
+      - Ketik nama item (misal "Jas lab") dan tarik Text UI (dari Canvas) ke slot UI Text.
+      - Ulangi untuk ke-4 item.
+
+3. SCRIPT UNTUK BARANG (WAJIB MANUAL)
+   Anda harus memasang ini satu per satu ke setiap barang 3D di game (baju, masker, dll).
+
+   Script: PickupItem.cs
+   - Pilih barang (misal: GameObject "JasLab_Model").
+   - Add Component -> "PickupItem".
+   - DI KOLOM "Item Name", KETIK NAMA YANG SAMA PERSIS DENGAN DAFTAR DI BAWAH INI.
+
+   DAFTAR NAMA BARANG (Case Sensitive - Huruf Besar/Kecil berpengaruh)
+   ------------------------------------------------------------------
+   
+   BARANG BENAR (Akan dicentang hijau):
+   - Jas lab
+   - Masker medis
+   - Sepatu tertutup
+   - Chemical Resistant Gloves
+
+   BARANG SALAH (Akan muncul peringatan merah):
+   - Sendal jepit
+   - Kacamata hitam
+   - Apron
+   - Jaket
+   - (Dan nama lain apapun yang tidak ada di daftar benar)
+
+4. TOMBOL INTERACT (Di Layar HP)
+   - Di Canvas -> Cari tombol "InteractButton".
+   - Di bagian "On Click ()":
+     - Tarik "Main Camera" ke slot kosong.
+     - Pilih fungsi: PlayerInteraction -> InteractByUI().

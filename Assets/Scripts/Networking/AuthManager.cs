@@ -84,19 +84,24 @@ public class AuthManager : MonoBehaviour
             {
                 string errorMessage = "Connection Error";
                 
-                // Try to parse server error message (e.g. "Incorrect password")
+                // 1. Try to parse JSON body
                 if (request.downloadHandler != null && !string.IsNullOrEmpty(request.downloadHandler.text))
                 {
                     try {
                         AuthResponse errorRes = JsonUtility.FromJson<AuthResponse>(request.downloadHandler.text);
                         if (!string.IsNullOrEmpty(errorRes.error)) errorMessage = errorRes.error;
                     } catch {
-                        errorMessage = request.error; // Fallback
+                        // Parsing failed, ignore
                     }
                 }
-                else
+
+                // 2. If message is still default or raw HTTP header, use Status Code
+                if (errorMessage == "Connection Error" || errorMessage.Contains("HTTP"))
                 {
-                    errorMessage = request.error;
+                    if (request.responseCode == 404) errorMessage = "Invalid User";
+                    else if (request.responseCode == 401) errorMessage = "Wrong Password";
+                    else if (request.responseCode == 429) errorMessage = "Too Many Attempts";
+                    else errorMessage = request.error; // Last resort
                 }
                 
                 callback(errorMessage);
