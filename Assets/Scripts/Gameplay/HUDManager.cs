@@ -55,4 +55,20 @@ public class HUDManager : MonoBehaviour
         if (objectiveText) objectiveText.text = objective;
         if (objectivePanel) objectivePanel.SetActive(true);
     }
+
+    public void HideObjectivePanel()
+    {
+        if (objectivePanel)
+        {
+            // LeanTween Scale Down Animation
+            LeanTween.scale(objectivePanel, Vector3.zero, 0.5f)
+                .setEase(LeanTweenType.easeInBack)
+                .setOnComplete(() =>
+                {
+                    objectivePanel.SetActive(false);
+                    // Reset scale for next time it's shown, if needed
+                    objectivePanel.transform.localScale = Vector3.one;
+                });
+        }
+    }
 }

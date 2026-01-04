@@ -60,8 +60,8 @@ public class InventoryManager : MonoBehaviour
                 checklistUIEntries[link.itemName] = link.uiText;
 
                 // Reset text to default state
-                link.uiText.text = "- " + link.itemName;
-                link.uiText.color = Color.white; // Or default color
+                link.uiText.text = link.itemName;
+                link.uiText.color = Color.black; // Or default color
             }
         }
     }
@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour
                 // Update UI
                 if (checklistUIEntries.ContainsKey(itemName))
                 {
-                    checklistUIEntries[itemName].text = $"<s>- {itemName}</s>";
+                    checklistUIEntries[itemName].text = $"<s>{itemName}</s>";
                     checklistUIEntries[itemName].color = Color.green;
                 }
 
@@ -116,6 +116,23 @@ public class InventoryManager : MonoBehaviour
     public bool HasCompletePPE()
     {
         return collectedItems.Count >= requiredItems.Count;
+    }
+
+    public void HideChecklist()
+    {
+        foreach (var link in checklistLinks)
+        {
+            if (link.uiText != null)
+                // Animated Fade Out using LeanTween.value for TMP
+                LeanTween.value(link.uiText.gameObject, link.uiText.alpha, 0f, 0.5f)
+                    .setOnUpdate((float val) => { link.uiText.alpha = val; })
+                    .setOnComplete(() =>
+                    {
+                        link.uiText.gameObject.SetActive(false);
+                        // Reset alpha for next time
+                        link.uiText.alpha = 1f;
+                    });
+        }
     }
 
     void CheckCompletion()

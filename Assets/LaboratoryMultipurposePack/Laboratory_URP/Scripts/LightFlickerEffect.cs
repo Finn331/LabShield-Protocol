@@ -57,6 +57,10 @@ public class LightFlickerEffect : MonoBehaviour
         if (light == null)
             return;
 
+        // Validasi queue null (biasa terjadi saat script recompile/editor mode)
+        if (smoothQueue == null)
+            smoothQueue = new Queue<float>(smoothing);
+
         // pop off an item if too big
         while (smoothQueue.Count >= smoothing)
         {
