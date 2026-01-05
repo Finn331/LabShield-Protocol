@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e3405665443fb0e4d9d41a9a5d6949a9
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283343
+  packageName: SGSR 1 Mobile - Upscaling for Unity
+  packageVersion: 1.3.6
+  assetPath: Packages/com.tnd.upscaling/TND Upscaler Framework - Documentation.pdf
+  uploadId: 828446

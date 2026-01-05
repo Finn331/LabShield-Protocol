@@ -826,8 +826,23 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: APP_UI_EDITOR_ONLY
-    Standalone: APP_UI_EDITOR_ONLY
+    Android: APP_UI_EDITOR_ONLY;TND_URP
+    EmbeddedLinux: TND_URP
+    GameCoreScarlett: TND_URP
+    GameCoreXboxOne: TND_URP
+    Kepler: TND_URP
+    Nintendo Switch: TND_URP
+    Nintendo Switch 2: TND_URP
+    PS4: TND_URP
+    PS5: TND_URP
+    QNX: TND_URP
+    Standalone: APP_UI_EDITOR_ONLY;TND_URP
+    VisionOS: TND_URP
+    WebGL: TND_URP
+    Windows Store Apps: TND_URP
+    XboxOne: TND_URP
+    iPhone: TND_URP
+    tvOS: TND_URP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:

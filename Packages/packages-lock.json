@@ -16,6 +16,22 @@
       },
       "hash": "b866a4cc421fa6df82d65f539be7edf79021fbd7"
     },
+    "com.tnd.upscaler.sgsr1": {
+      "version": "file:com.tnd.upscaler.sgsr1",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.tnd.upscaling": "1.0.7"
+      }
+    },
+    "com.tnd.upscaling": {
+      "version": "file:com.tnd.upscaling",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      }
+    },
     "com.unity.2d.common": {
       "version": "12.0.1",
       "depth": 1,

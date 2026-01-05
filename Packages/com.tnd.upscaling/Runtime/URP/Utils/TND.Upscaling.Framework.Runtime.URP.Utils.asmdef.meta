@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: cd41751a89786e240b219022c7a4efa1
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283343
+  packageName: SGSR 1 Mobile - Upscaling for Unity
+  packageVersion: 1.3.6
+  assetPath: Packages/com.tnd.upscaling/Runtime/URP/Utils/TND.Upscaling.Framework.Runtime.URP.Utils.asmdef
+  uploadId: 828446
