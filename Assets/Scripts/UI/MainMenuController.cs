@@ -23,6 +23,31 @@ public class MainMenuController : MonoBehaviour
     [Header("Menu references")]
     public GameObject worldSpaceMenuCanvas; // Ref User: "Canvas Worldspace"
 
+    [Header("World Menu Transform")]
+    public Vector3 menuTargetPos = new Vector3(0.1000356f, 0.7953247f, -3.670000f);
+    public Quaternion menuTargetRot = new Quaternion(0.0f, -0.8660245f, 0.0f, 0.5000017f);
+    public Vector3 menuTargetScale = new Vector3(0.1332075f, 0.1332075f, 0.1332075f);
+
+    private GameObject menuObjectToAnimate; // The actual object to move/scale
+
+    [Header("Menu Logic")]
+    public SettingsMenuController settingsController;
+    public UnityEngine.UI.Button playButton;
+    public UnityEngine.UI.Button settingsButton;
+    public UnityEngine.UI.Button exitButton;
+
+    // Optional: Reference to Gameplay components to activate on Play
+    [Header("Gameplay References")]
+    public GameObject hudCanvas;
+    public GameObject playerController; // Or FirstPersonController script reference
+
+    [Header("Settings Camera Transform")]
+    public Vector3 settingsCameraPos = new Vector3(4.006f, 1.773f, -3.553f);
+    public Quaternion settingsCameraRot = new Quaternion(0.0f, 0.6087628f, 0.0f, 0.7933524f);
+
+    [Header("Scene Configuration")]
+    public string gameplaySceneName = "GameplayScene"; // Set in Inspector
+
     void Start()
     {
         if (mainCamera == null) mainCamera = Camera.main;
@@ -30,10 +55,46 @@ public class MainMenuController : MonoBehaviour
         // Start State: Hide "Press Start" until Login is done
         // if (titleText) titleText.SetActive(false); // CHANGED: Keep Title Visible!
 
+
         if (pressStartText) pressStartText.SetActive(false);
 
-        // Ensure Worldspace Menu is hidden initially
-        if (worldSpaceMenuCanvas) worldSpaceMenuCanvas.SetActive(false);
+        // Ensure Worldspace Menu is hidden initially and reset scale for pop-up effect
+        if (worldSpaceMenuCanvas)
+        {
+            // 1. Try Specific Search for "Mainmenu Panel" (Deep Search)
+            Transform found = worldSpaceMenuCanvas.transform.Find("Canvas - Worldspace/Mainmenu Panel");
+
+            // 2. Fallback: Search just by name in all children
+            if (found == null)
+            {
+                foreach (Transform t in worldSpaceMenuCanvas.GetComponentsInChildren<Transform>(true))
+                {
+                    if (t.name == "Mainmenu Panel")
+                    {
+                        found = t;
+                        break;
+                    }
+                }
+            }
+
+            if (found != null)
+            {
+                menuObjectToAnimate = found.gameObject;
+            }
+            else
+            {
+                // Last Resort: Fallback to the assigned object 
+                menuObjectToAnimate = worldSpaceMenuCanvas;
+            }
+
+            menuObjectToAnimate.SetActive(false);
+            Debug.Log($"[MainMenu] Worldspace Menu ({menuObjectToAnimate.name}) set to INACTIVE (Waiting for Press).");
+
+            // Prepare Transform for Animation
+            menuObjectToAnimate.transform.position = menuTargetPos;
+            menuObjectToAnimate.transform.rotation = menuTargetRot;
+            menuObjectToAnimate.transform.localScale = Vector3.zero; // Start from zero scale
+        }
 
         // Start Pulsing Animation for "Press Start" (will be visible later)
         if (pressStartText != null)
@@ -105,18 +166,11 @@ public class MainMenuController : MonoBehaviour
         if (titleText) titleText.SetActive(false);
         if (pressStartText) pressStartText.SetActive(false);
 
-        // 2. Activate Worldspace Menu (Tomb Raider Style)
-        if (worldSpaceMenuCanvas)
+        // 2. Hide WorldSpace Menu initially (Wait for camera)
+        if (menuObjectToAnimate)
         {
-            worldSpaceMenuCanvas.SetActive(true);
-
-            // Optional: Fade in if it has a CanvasGroup
-            CanvasGroup cg = worldSpaceMenuCanvas.GetComponent<CanvasGroup>();
-            if (cg != null)
-            {
-                cg.alpha = 0;
-                LeanTween.alphaCanvas(cg, 1f, 1.5f).setEase(LeanTweenType.easeInOutCubic);
-            }
+            menuObjectToAnimate.SetActive(false);
+            menuObjectToAnimate.transform.localScale = Vector3.zero; // Reset scale
         }
 
         // 3. Handle Director (Reset before disable)
@@ -146,10 +200,144 @@ public class MainMenuController : MonoBehaviour
                 .setEase(LeanTweenType.easeInOutCubic)
                 .setOnComplete(() =>
                 {
-                    Debug.Log("Camera Transition Complete. Gameplay Phase.");
-                    // Gameplay starts now. Login is already done.
+                    Debug.Log("Camera Transition Complete. Opening Main Menu.");
+
+                    // Animate Worldspace Menu Opening
+                    if (menuObjectToAnimate)
+                    {
+                        Debug.Log($"[MainMenu] Worldspace Menu ({menuObjectToAnimate.name}) set to ACTIVE (User Pressed).");
+                        menuObjectToAnimate.SetActive(true);
+                        // Scale Up Animation (Open)
+                        LeanTween.scale(menuObjectToAnimate, menuTargetScale, 0.6f)
+                            .setEase(LeanTweenType.easeOutBack); // Bouncy open effect
+
+                        // Optional: Ensure Alpha is 1 just in case
+                        CanvasGroup cg = menuObjectToAnimate.GetComponent<CanvasGroup>();
+                        if (cg != null) cg.alpha = 1f;
+
+                        // Setup Buttons dynamically if not assigned, or just ensure listeners
+                        SetupMenuButtons();
+                    }
                 });
         }
+    }
+
+    private void SetupMenuButtons()
+    {
+        if (playButton)
+        {
+            playButton.onClick.RemoveAllListeners();
+            playButton.onClick.AddListener(OnPlayClicked);
+        }
+        if (settingsButton)
+        {
+            settingsButton.onClick.RemoveAllListeners();
+            settingsButton.onClick.AddListener(OnSettingsClicked);
+        }
+        if (exitButton)
+        {
+            exitButton.onClick.RemoveAllListeners();
+            exitButton.onClick.AddListener(OnExitClicked);
+        }
+    }
+
+    public void OnPlayClicked()
+    {
+        Debug.Log("[MainMenu] Play Clicked. Starting Gameplay Loop.");
+        // Hide Menu
+        if (menuObjectToAnimate) menuObjectToAnimate.SetActive(false);
+
+        // Show HUD
+        if (hudCanvas) hudCanvas.SetActive(true);
+
+        // Enable Player
+        if (playerController) playerController.SetActive(true);
+
+        // Allow Cursor Lock
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void OnSettingsClicked()
+    {
+        if (settingsController == null || menuObjectToAnimate == null) return;
+
+        // 1. Disable Main Menu Interaction
+        SetMenuButtonsInteractive(false);
+
+        // 2. Animate Main Menu OUT
+        LeanTween.scale(menuObjectToAnimate, Vector3.zero, 0.4f)
+            .setEase(LeanTweenType.easeInBack)
+            .setOnComplete(() =>
+            {
+                menuObjectToAnimate.SetActive(false);
+
+                // 3. Move Camera to Settings Position
+                MoveCameraToSettings();
+            });
+    }
+
+    private void MoveCameraToSettings()
+    {
+        if (mainCamera == null) return;
+
+        LeanTween.move(mainCamera.gameObject, settingsCameraPos, 1.0f).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.rotate(mainCamera.gameObject, settingsCameraRot.eulerAngles, 1.0f)
+            .setEase(LeanTweenType.easeInOutCubic)
+            .setOnComplete(() =>
+            {
+                // 4. Open Settings Panel
+                if (settingsController)
+                {
+                    settingsController.OpenSettings();
+                    // Setup return callback if needed, or rely on public access
+                    settingsController.onBack.RemoveAllListeners();
+                    settingsController.onBack.AddListener(OnReturnFromSettings);
+                }
+            });
+    }
+
+    // Callback passed to SettingsController
+    private void OnReturnFromSettings()
+    {
+        // 1. Settings Panel assumes it has already animated OUT by itself before calling this?
+        // Or we call Close() here? Better: Settings Controller calls this EVENT when it closes.
+
+        // 2. Move Camera Back to Main Menu
+        MoveCameraToMain();
+    }
+
+    private void MoveCameraToMain()
+    {
+        if (mainCamera == null) return;
+
+        LeanTween.move(mainCamera.gameObject, targetPosition, 1.0f).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.rotate(mainCamera.gameObject, targetRotation.eulerAngles, 1.0f)
+            .setEase(LeanTweenType.easeInOutCubic)
+            .setOnComplete(() =>
+            {
+                // 3. Animate Main Menu IN
+                if (menuObjectToAnimate)
+                {
+                    menuObjectToAnimate.SetActive(true);
+                    LeanTween.scale(menuObjectToAnimate, menuTargetScale, 0.6f)
+                        .setEase(LeanTweenType.easeOutBack)
+                        .setOnComplete(() => SetMenuButtonsInteractive(true));
+                }
+            });
+    }
+
+    private void SetMenuButtonsInteractive(bool state)
+    {
+        if (playButton) playButton.interactable = state;
+        if (settingsButton) settingsButton.interactable = state;
+        if (exitButton) exitButton.interactable = state;
+    }
+
+    public void OnExitClicked()
+    {
+        Debug.Log("[MainMenu] Exit Clicked. Quitting...");
+        Application.Quit();
     }
 
     private bool IsPointerOverUI()
