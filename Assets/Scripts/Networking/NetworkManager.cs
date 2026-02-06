@@ -5,7 +5,7 @@ using System.Text;
 
 public class NetworkManager : MonoBehaviour
 {
-    private string serverUrl = "http://31.56.56.8:3000/api/submit-score"; 
+    private string serverUrl = "http://31.56.56.8:5000/api/submit-score";
 
     public void SubmitScore(int questionsAnswered, float score)
     {

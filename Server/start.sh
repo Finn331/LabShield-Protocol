@@ -16,4 +16,4 @@ fi
 docker compose up -d --build --remove-orphans
 
 echo "✅ Server berhasil dijalankan!"
-echo "📡 Dashboard: http://localhost:3000/dashboard.html"
+echo "📡 Dashboard: http://localhost:5000/dashboard.html"

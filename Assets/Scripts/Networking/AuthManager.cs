@@ -5,8 +5,8 @@ using System.Text;
 
 public class AuthManager : MonoBehaviour
 {
-    private string baseUrl = "http://31.56.56.8:3000/api"; 
-    private string registerUrl = "http://31.56.56.8:3000/register.html";
+    private string baseUrl = "http://31.56.56.8:5000/api";
+    private string registerUrl = "http://31.56.56.8:5000/register.html";
 
     public static AuthManager Instance { get; private set; }
     public static string CurrentUsername { get; private set; }
@@ -55,7 +55,8 @@ public class AuthManager : MonoBehaviour
 
     public void Login(string username, string password, System.Action<string> callback)
     {
-        StartCoroutine(AuthRequest("/login", username, password, (result) => {
+        StartCoroutine(AuthRequest("/login", username, password, (result) =>
+        {
             if (result == "Success")
             {
                 CurrentUsername = username;
@@ -83,14 +84,17 @@ public class AuthManager : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 string errorMessage = "Connection Error";
-                
+
                 // 1. Try to parse JSON body
                 if (request.downloadHandler != null && !string.IsNullOrEmpty(request.downloadHandler.text))
                 {
-                    try {
+                    try
+                    {
                         AuthResponse errorRes = JsonUtility.FromJson<AuthResponse>(request.downloadHandler.text);
                         if (!string.IsNullOrEmpty(errorRes.error)) errorMessage = errorRes.error;
-                    } catch {
+                    }
+                    catch
+                    {
                         // Parsing failed, ignore
                     }
                 }
@@ -103,7 +107,7 @@ public class AuthManager : MonoBehaviour
                     else if (request.responseCode == 429) errorMessage = "Too Many Attempts";
                     else errorMessage = request.error; // Last resort
                 }
-                
+
                 callback(errorMessage);
             }
             else

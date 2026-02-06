@@ -10,9 +10,9 @@ services:
     pull_policy: always
     
     ports:
-      - "${PORT:-3000}:${PORT:-3000}"
+      - "${PORT:-5000}:${PORT:-5000}"
     environment:
-      - PORT=${PORT:-3000}
+      - PORT=${PORT:-5000}
       - DATA_DIR=/app/data
     volumes:
       - ./data:/app/data
