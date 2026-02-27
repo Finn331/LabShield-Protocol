@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7961628d1af96524cb962f178d0babe6, type: 3}
+  m_Name: Soal10
+  m_EditorClassIdentifier: Assembly-CSharp::QuizData
+  questionID: Soal_10
+  questionText: Apa yang sebaiknya dilakukan jika terkena bahan kimia pada mata?
+  answers:
+  - Mencuci mata dengan air mengalir selama 10 detik dan segera meminta bantuan medis
+  - Membilas mata dengan minyak
+  - Menyeka mata dengan tisu kering
+  - Membiarkan bahan kimia tersebut tetapterperosok pada mata.
+  correctAnswerIndex: 0
+  evaluationText: 

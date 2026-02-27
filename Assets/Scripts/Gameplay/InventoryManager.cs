@@ -16,16 +16,27 @@ public class InventoryManager : MonoBehaviour
     [Header("Checklist UI")]
     public List<ChecklistLink> checklistLinks; // Manually assigned in Inspector
 
-    [Header("Mission Settings")]
+    // ==========================================
+    // BAGIAN: SOAL 1 (PEMILIHAN APD)
+    // ==========================================
+    [Space(10)]
+    [Header("--- SOAL 1: PENGATURAN MISI ---")]
+    [Tooltip("Instruksi soal 1 untuk pemain")]
     [TextArea] public string missionPrompt = "Praktikum hanya dapat dimulai setelah siswa mengenakan alat pelindung diri. Silahkan pilih dan gunakan APD yang benar untuk mengurangi risiko cedera dan kecelakaan di dalam laboratorium kimia";
 
     // The exact 4 items required
-    private List<string> correctPPE = new List<string> { "Jas lab", "Masker medis", "Sepatu tertutup", "Chemical Resistant Gloves" };
+    [Tooltip("Daftar APD yang benar untuk Soal 1")]
+    [SerializeField] private List<string> correctPPE = new List<string> { "Jas lab", "Masker medis", "Sepatu tertutup", "Chemical Resistant Gloves" };
 
-    [Header("Scoring")]
+    [Header("--- SOAL 1: PENILAIAN ---")]
+    [Tooltip("Jumlah kesalahan pemain saat memilih APD (Soal 1)")]
     public int wrongItemScore = 0; // Tracks number of mistakes
 
-    [Header("Debug/Data")]
+    // ==========================================
+    // BAGIAN: SISTEM INVENTORY UMUM
+    // ==========================================
+    [Space(10)]
+    [Header("--- INVENTORY UMUM: DEBUG & DATA ---")]
     public List<string> requiredItems = new List<string>();
     private List<string> collectedItems = new List<string>();
     private Dictionary<string, TextMeshProUGUI> checklistUIEntries = new Dictionary<string, TextMeshProUGUI>();
@@ -66,9 +77,12 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    // ==========================================
+    // LOGIKA SOAL 1 & PENGUMPULAN ITEM INVENTORY
+    // ==========================================
     public void AddItem(string itemName)
     {
-        // Validate Item
+        // Validate Item (Pengecekan Soal 1)
         if (requiredItems.Contains(itemName))
         {
             // Correct Item

@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7961628d1af96524cb962f178d0babe6, type: 3}
+  m_Name: Soal6
+  m_EditorClassIdentifier: Assembly-CSharp::QuizData
+  questionID: Soal_6
+  questionText: 'Perhatikan kondisi laboratorium berikut:
+
+    (1) Bahan kimia mudah
+    menguap disimpan pada rak terbuka
+
+    (2) Label bahan kimia sebagian tidak
+    terbaca
+
+    (3) Ventilasi berfungsi namun jalur evakuasi terhalang
+
+    (4)
+    APD tersedia tetapi tidak seluruh siswa menggunakannya'
+  answers:
+  - (1) dan (2)
+  - (1) dan (3)
+  - (2) dan (4)
+  - (3) dan (4)
+  correctAnswerIndex: 1
+  evaluationText: 
