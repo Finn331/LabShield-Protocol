@@ -331,7 +331,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_151EC30: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
+    - Color_151EC30: {r: 0, g: 0, b: 0, a: 1}
     - Color_481E7554: {r: 0.25882354, g: 0.2627451, b: 0.26666668, a: 1}
     - Color_51092829: {r: 1, g: 1, b: 1, a: 0}
     - Color_CB7CD8: {r: 0, g: 0.38964462, b: 1, a: 1}

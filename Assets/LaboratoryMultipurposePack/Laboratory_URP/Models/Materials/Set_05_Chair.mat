@@ -319,7 +319,7 @@ Material:
     - Color_151EC30: {r: 1, g: 1, b: 1, a: 0}
     - Color_481E7554: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
     - Color_51092829: {r: 1, g: 1, b: 1, a: 0}
-    - Color_CB7CD8: {r: 0.25489497, g: 0.3140153, b: 0.3773585, a: 1}
+    - Color_CB7CD8: {r: 0.627451, g: 0.3215686, b: 0.1764706, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
