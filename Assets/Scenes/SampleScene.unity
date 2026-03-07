@@ -5675,7 +5675,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5773,6 +5773,7 @@ MonoBehaviour:
   yOffset: -0.32
   standUpDelay: 2
   cameraTransitionTime: 1
+  targetQuiz: {fileID: 889564774}
   playerFollowCamera: {fileID: 1037004932}
   mainCamera: {fileID: 810972311}
   sittingCameraPosition: {fileID: 937027998}
