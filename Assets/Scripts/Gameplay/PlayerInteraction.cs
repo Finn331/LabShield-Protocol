@@ -14,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private Camera cam;
     private Interactable currentInteractable;
+    [HideInInspector] public Interactable forcedInteractable; // Dipakai agar tombol tidak hilang saat kamera pindah saat duduk
 
     void Start()
     {
@@ -23,6 +24,26 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
+        // Jika sedang dipaksa fokus pada rupa interaksi tertentu (misal: Sedang duduk di kursi)
+        if (forcedInteractable != null)
+        {
+            if (currentInteractable != forcedInteractable)
+            {
+                if (currentInteractable != null) currentInteractable.OnLoseFocus();
+                currentInteractable = forcedInteractable;
+                currentInteractable.OnFocus();
+                HUDManager.Instance.ToggleInteractionButton(true, currentInteractable.promptMessage);
+            }
+
+            // Tetap deteksi input E keyboard
+            if (UnityEngine.InputSystem.Keyboard.current != null &&
+                UnityEngine.InputSystem.Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                InteractByUI();
+            }
+            return; // Lewati pengecekan Raycast
+        }
+
         CheckForInteractable();
 
         // Debug Raycast to visualize where the camera is looking

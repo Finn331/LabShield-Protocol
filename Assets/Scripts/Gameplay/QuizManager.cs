@@ -56,7 +56,11 @@ public class QuizManager : MonoBehaviour
         onQuizFinishedCallback = onFinish;
 
         // Setup Teks Pertanyaan
-        questionText.text = currentQuiz.questionText;
+        if (questionText != null)
+        {
+            questionText.gameObject.SetActive(true);
+            questionText.text = currentQuiz.questionText;
+        }
 
         // Setup Teks Tombol (A, B, C, D)
         for (int i = 0; i < answerButtons.Length; i++)
@@ -85,9 +89,10 @@ public class QuizManager : MonoBehaviour
         // Refresh Skor UI Top Bar
         UpdateScoreUI();
 
-        // Tampilkan Panel
-        quizPanel.SetActive(true);
-        evaluationPanel.SetActive(false);
+        // Tampilkan Panel (jika ditonaktifkan dari luar)
+        if (quizPanel != null) quizPanel.SetActive(true);
+        if (evaluationPanel != null) evaluationPanel.SetActive(false);
+        if (timerText != null) timerText.gameObject.SetActive(true);
     }
 
     private void OnAnswerSelected(int selectedIndex)
@@ -146,11 +151,22 @@ public class QuizManager : MonoBehaviour
 
     public void HideQuiz()
     {
-        quizPanel.SetActive(false);
+        // quizPanel.SetActive(false); // <--- Dihapus, biarkan panel (layar/background) tetap menyala
         isTimerRunning = false;
 
-        // Kembalikan tombol agar bisa dipencet lagi untuk kuis berikutnya
-        foreach (var btn in answerButtons) btn.interactable = true;
+        // Sembunyikan elemen teks
+        if (questionText != null) questionText.gameObject.SetActive(false);
+        if (timerText != null) timerText.gameObject.SetActive(false);
+
+        // Kembalikan tombol agar bisa dipencet lagi dan sembunyikan dari layar
+        foreach (var btn in answerButtons) 
+        {
+            if (btn != null)
+            {
+                btn.interactable = true;
+                btn.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void UpdateTimerUI()

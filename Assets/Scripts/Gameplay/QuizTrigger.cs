@@ -18,29 +18,27 @@ public class QuizTrigger : MonoBehaviour
 
     private void Start()
     {
-        // Pastikan collider adalah trigger
-        GetComponent<Collider>().isTrigger = true;
+        // Pastikan collider adalah trigger (Jika masih dipakai untuk mencegah lewat, atau bisa diabaikan jika tidak pakai collider lagi)
+        if (GetComponent<Collider>() != null)
+        {
+            GetComponent<Collider>().isTrigger = true;
+        }
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Fungsi ini dipanggil manual oleh ChairInteraction saat player duduk, bukan lewat BoxCollider lagi
+    public void TriggerQuizManual()
     {
-        // Cek apakah yang masuk adalah Player (bisa dicek via tag "Player" atau komponen spesifik)
-        if (other.CompareTag("Player") && !hasBeenTriggered)
+        if (!hasBeenTriggered)
         {
             hasBeenTriggered = true; // Langsung kunci agar tidak trigger dobel
-            Debug.Log($"Pemain memasuki area kuis: {roomQuizData?.questionID}");
+            Debug.Log($"Memulai Kuis Manual Dari Kursi: {roomQuizData?.questionID}");
 
-            // 1. Bekukan pemain (Opsional, tergantung sistem movementmu)
-            // other.GetComponent<PlayerMovement>().enabled = false; 
-
-            // 2. Jalankan Animasi / Skenario Ruangan (Lewat Event Unity)
-            // Misalnya: Memutar animasi guru, animasi ledakan, dll.
+            // 1. Jalankan Animasi / Skenario Ruangan (Lewat Event Unity)
             if (onPlayerEnterRoom != null)
                 onPlayerEnterRoom.Invoke();
 
-            // 3. Setelah animasi selesai, munculkan UI Soal.
-            // Untuk sekarang, kita asumsikan animasinya instan, jadi langsung memanggil QuizManager:
-            ShowQuizDelay(1.0f); // Contoh delay transisi 1 detik 
+            // 2. Setelah animasi selesai, munculkan UI Soal.
+            ShowQuizDelay(1.0f); // Delay transisi 1 detik 
         }
     }
 

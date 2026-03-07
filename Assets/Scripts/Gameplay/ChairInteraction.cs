@@ -1,9 +1,10 @@
 using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
 
-public class ChairInteraction : MonoBehaviour
+public class ChairInteraction : Interactable
 {
     [Header("Titik Duduk (Snap Point)")]
     [Tooltip("UBAH! Taruh titik ini tepat di LANTAI tempat PIJAKAN KAKI, bukan di bantalan sofa!")]
@@ -12,12 +13,20 @@ public class ChairInteraction : MonoBehaviour
     [Tooltip("Koreksi posisi tinggi karakter jika animasi masih mengambang / mendem ke lantai (misal isi: -0.5 untuk turunkan).")]
     public float yOffset = 0f;
 
-    [Header("Interaksi")]
-    public float interactionDistance = 1.5f;
+    [Tooltip("Waktu penundaan (detik) hingga animasi berdiri selesai sebelum player bisa jalan lagi.")]
+    public float standUpDelay = 1.5f;
+
+    [Tooltip("Durasi perpindahan kamera (detik) agar halus dari posisi awal ke posisi duduk.")]
+    public float cameraTransitionTime = 1f;
+
+    [Header("Fitur Kuis (Opsional)")]
+    [Tooltip("Pilih objek komponen QuizTrigger di ruangan ini (jika ada). Kuis akan dimulai saat player sudah selesai duduk.")]
+    public QuizTrigger targetQuiz;
 
     private GameObject player;
     private PlayerCustomAnim playerAnimScript;
     private CharacterController charController;
+    private Coroutine cameraCoroutine; // Menyimpan referensi coroutine efek kamera
     
     // Untuk mengunci gerak bawaan ThirdPersonController
     private MonoBehaviour thirdPersonScript;
@@ -36,6 +45,9 @@ public class ChairInteraction : MonoBehaviour
 
     void Start()
     {
+        // Inisialisasi teks UI saat disorot kamera
+        promptMessage = "";
+
         // Cari player di scene menggunakan tag
         player = GameObject.FindGameObjectWithTag("Player");
         
@@ -56,35 +68,7 @@ public class ChairInteraction : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (player == null || playerAnimScript == null) return;
-
-        // Cek Jarak antara player dan kursi
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-
-        // Jika player dekat dengan kursi
-        if (distance <= interactionDistance)
-        {
-            // Tampilkan ikon/teks "Tekan F untuk duduk" (Bisa diimplementasikan nanti)
-
-            // Deteksi input F (Input System Baru)
-#if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
-            {
-                OnInteract();
-            }
-#else
-            // Input System Lama
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                OnInteract();
-            }
-#endif
-        }
-    }
-
-    private void OnInteract()
+    protected override void ExecuteInteraction()
     {
         // Jika sedang BERDIRI -> DUDUK
         if (!playerAnimScript.isSitting) 
@@ -109,8 +93,9 @@ public class ChairInteraction : MonoBehaviour
 
             if (mainCamera != null && sittingCameraPosition != null)
             {
-                mainCamera.transform.position = sittingCameraPosition.position;
-                mainCamera.transform.rotation = sittingCameraPosition.rotation;
+                // Hentikan transisi kamera yang mungkin masih berjalan sebelumnya
+                if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
+                cameraCoroutine = StartCoroutine(SmoothCameraTransition());
             }
 
             // Membuka Kursor agar bisa di-klik di HP/PC
@@ -121,17 +106,30 @@ public class ChairInteraction : MonoBehaviour
             }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
+            // -- BARU: Pasang forcedInteractable agar UI Interact Mobile tidak hilang memudar! --
+            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindObjectOfType<PlayerInteraction>();
+            if (playerInteractionLogic != null)
+            {
+                promptMessage = "";
+                playerInteractionLogic.forcedInteractable = this;
+                
+                // PENTING: Refresh Paksa UI agar terbaca update hilangnya teks
+                if (HUDManager.Instance != null)
+                {
+                    HUDManager.Instance.ToggleInteractionButton(true, promptMessage);
+                }
+            }
         }
         // Jika sedang DUDUK di KURSI INI -> BERDIRI
         else 
         {
             playerAnimScript.ToggleSit(); // Panggil animasi berdiri
             
-            // Kembalikan Kontrol Jalan
-            if (thirdPersonScript != null) thirdPersonScript.enabled = true;
-            if (charController != null) charController.enabled = true;
+            // Hentikan transisi kamera menuju ke kursi (jika belum selesai)
+            if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
 
-            // Kembalikan Kamera Semula
+            // Kembalikan Kamera Semula (agar user bisa langsung melihat playernya dari belakang lagi)
             if (playerFollowCamera != null) playerFollowCamera.SetActive(true);
 
             // Kunci kembali Kursor (Mode Standar StarterAssets)
@@ -142,6 +140,68 @@ public class ChairInteraction : MonoBehaviour
             }
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            // -- BARU: Lepas forcedInteractable agar pencarian objek dengan Raycast kembali bekerja --
+            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindObjectOfType<PlayerInteraction>();
+            if (playerInteractionLogic != null)
+            {
+                promptMessage = "";
+                playerInteractionLogic.forcedInteractable = null;
+                
+                // Matikan paksa UI sesaat, jika kursor kena kursi lagi nanti otomatis hidup
+                if (HUDManager.Instance != null)
+                {
+                    HUDManager.Instance.ToggleInteractionButton(false);
+                }
+            }
+
+            // Jangan langsung kembalikan kontrol jalan! Tunggu durasi berdiri selesai
+            StartCoroutine(EnableMovementRoutine());
+        }
+    }
+
+    private IEnumerator EnableMovementRoutine()
+    {
+        // Berikan jeda waktu
+        yield return new WaitForSeconds(standUpDelay);
+
+        if (player != null)
+        {
+            // Kembalikan Kontrol Jalan SETELAH animasi selesai
+            if (thirdPersonScript != null) thirdPersonScript.enabled = true;
+            if (charController != null) charController.enabled = true;
+        }
+    }
+
+    private IEnumerator SmoothCameraTransition()
+    {
+        Vector3 startPos = mainCamera.transform.position;
+        Quaternion startRot = mainCamera.transform.rotation;
+        
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < cameraTransitionTime)
+        {
+            // Menghitung perpindahan posisi (Lerp) secara halus dari 0% ke 100%
+            float t = elapsedTime / cameraTransitionTime;
+            // Gunakan SmoothStep agar pergerakan kamera halus di awal dan akhir
+            t = t * t * (3f - 2f * t);
+
+            mainCamera.transform.position = Vector3.Lerp(startPos, sittingCameraPosition.position, t);
+            mainCamera.transform.rotation = Quaternion.Lerp(startRot, sittingCameraPosition.rotation, t);
+            
+            elapsedTime += Time.deltaTime;
+            yield return null; // Tunggu ke frame berikutnya
+        }
+        
+        // Pastikan posisi tertempel sempurna di akhir durasi
+        mainCamera.transform.position = sittingCameraPosition.position;
+        mainCamera.transform.rotation = sittingCameraPosition.rotation;
+
+        // --- BARU: Jalankan Event Kuis setelah Kamera Berhenti ---
+        if (targetQuiz != null)
+        {
+            targetQuiz.TriggerQuizManual();
         }
     }
 
