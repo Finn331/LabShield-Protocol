@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
         if (collectedItems.Count >= requiredItems.Count)
         {
             Debug.Log("All PPE Collected!");
-            HUDManager.Instance.UpdateObjective("APD Lengkap! Akses ke instrumen laboratorium terbuka.");
+            HUDManager.Instance.UpdateObjective("APD Lengkap! Silahkan menuju Ruang Ganti untuk mengganti pakaian.");
             // Trigger next game phase here
         }
     }

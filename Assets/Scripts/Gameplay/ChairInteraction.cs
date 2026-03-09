@@ -70,6 +70,9 @@ public class ChairInteraction : Interactable
 
     protected override void ExecuteInteraction()
     {
+        // BARU: Selalu perbarui referensi player saat berinteraksi agar mendeteksi player yang aktif
+        RefreshPlayerReference();
+
         // Jika sedang BERDIRI -> DUDUK
         if (!playerAnimScript.isSitting) 
         {
@@ -157,6 +160,28 @@ public class ChairInteraction : Interactable
 
             // Jangan langsung kembalikan kontrol jalan! Tunggu durasi berdiri selesai
             StartCoroutine(EnableMovementRoutine());
+        }
+    }
+
+    private void RefreshPlayerReference()
+    {
+        // Temukan player yang AKTIF saat ini
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject p in players)
+        {
+            if(p.activeInHierarchy)
+            {
+                player = p;
+                break;
+            }
+        }
+
+        if (player != null)
+        {
+            playerAnimScript = player.GetComponent<PlayerCustomAnim>();
+            charController = player.GetComponent<CharacterController>();
+            thirdPersonScript = player.GetComponent("ThirdPersonController") as MonoBehaviour;
+            starterInputs = player.GetComponent<StarterAssets.StarterAssetsInputs>();
         }
     }
 

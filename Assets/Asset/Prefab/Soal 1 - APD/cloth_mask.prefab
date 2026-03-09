@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3508443741485498417
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.028545
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.035413224
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0009768
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000001545431
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.000000015454306
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.70710665
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_Name
+      value: cloth_mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830800883302417027}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4023254068800424410}
+  m_SourcePrefab: {fileID: 100100000, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+--- !u!1 &4355287807047155040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c466ec5caa698df45b1d21fa671999f0, type: 3}
+  m_PrefabInstance: {fileID: 3508443741485498417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1830800883302417027
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355287807047155040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0038067452, y: 0.0024234368, z: 0.0028809372}
+  m_Center: {x: -0.00033390484, y: -0.00019030088, z: 0.000006511749}
+--- !u!114 &4023254068800424410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4355287807047155040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de66243f7fc4d341809967f7f248729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  promptMessage: Masker Kain
+  isInteractable: 1
+  itemName: Masker Kain

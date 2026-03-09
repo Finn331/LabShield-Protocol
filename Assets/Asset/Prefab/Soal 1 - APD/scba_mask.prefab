@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5378820251171841184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.773
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0056962445
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.125508
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000003774895
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_Name
+      value: scba_mask
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4499419636803010928}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7187662825334080203}
+  m_SourcePrefab: {fileID: 100100000, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+--- !u!1 &5072180544000449009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 050961c89047b87498becb9a2987d65d, type: 3}
+  m_PrefabInstance: {fileID: 5378820251171841184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4499419636803010928
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072180544000449009}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0046511795, y: 0.0034784395, z: 0.0031081042}
+  m_Center: {x: -0.000039724866, y: 0.0016646062, z: 0.00003768236}
+--- !u!114 &7187662825334080203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072180544000449009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de66243f7fc4d341809967f7f248729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupItem
+  promptMessage: Masker SCBA
+  isInteractable: 1
+  itemName: Masker SCBA
