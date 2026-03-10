@@ -61,33 +61,55 @@ public class PlayerInteraction : MonoBehaviour
     void CheckForInteractable()
     {
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
-        RaycastHit hit;
+        // Gunakan RaycastAll untuk menebus objek (karena kamera Third Person biasanya menabrak punggung pemeran utama dulu)
+        RaycastHit[] hits = Physics.RaycastAll(ray, interactionDistance, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+        
+        // Urutkan dari yang terdekat dengan menara kamera hingga yang terjauh
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
 
-        if (Physics.Raycast(ray, out hit, interactionDistance, interactionLayer))
+        bool foundInteractable = false;
+
+        foreach (RaycastHit h in hits)
         {
-            Interactable interactable = hit.collider.GetComponent<Interactable>();
-
-            if (interactable != null && interactable.isInteractable)
+            // 1. Abaikan tubuh pemain itu sendiri (Kamera pasti ada di belakang/dekat kepala pemain)
+            if (h.collider.CompareTag("Player") || h.collider.transform.root.CompareTag("Player"))
             {
-                if (currentInteractable != interactable)
-                {
-                    if (currentInteractable != null) currentInteractable.OnLoseFocus();
-                    currentInteractable = interactable;
-                    currentInteractable.OnFocus();
-                    // Notify HUD Manager to enable Mobile Button
-                    HUDManager.Instance.ToggleInteractionButton(true, currentInteractable.promptMessage);
-                }
-                return;
+                continue;
             }
+
+            // 2. Cek apakah objek ini ada di dalam layer Interaksi yang Anda izinkan
+            if (((1 << h.collider.gameObject.layer) & interactionLayer) != 0)
+            {
+                Interactable interactable = h.collider.GetComponent<Interactable>();
+
+                if (interactable != null && interactable.isInteractable)
+                {
+                    if (currentInteractable != interactable)
+                    {
+                        if (currentInteractable != null) currentInteractable.OnLoseFocus();
+                        currentInteractable = interactable;
+                        currentInteractable.OnFocus();
+                        HUDManager.Instance.ToggleInteractionButton(true, currentInteractable.promptMessage);
+                    }
+                    foundInteractable = true;
+                    return; // Selesai, kita menemukan target!
+                }
+            }
+            
+            // 3. Jika bukan Player dan bukan Interactable, berarti ini Tembok / Meja penghalang! (Sistem Raycast berhenti di sini)
+            break; 
         }
 
-        // Nothing found or lost focus
-        if (currentInteractable != null)
+        if (!foundInteractable)
         {
-            currentInteractable.OnLoseFocus();
-            currentInteractable = null;
-            // Notify HUD Manager to disable Mobile Button
-            HUDManager.Instance.ToggleInteractionButton(false);
+            // Nothing found or lost focus
+            if (currentInteractable != null)
+            {
+                currentInteractable.OnLoseFocus();
+                currentInteractable = null;
+                // Notify HUD Manager to disable Mobile Button
+                HUDManager.Instance.ToggleInteractionButton(false);
+            }
         }
     }
 

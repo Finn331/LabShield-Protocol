@@ -36,15 +36,40 @@ public class ChangingRoom : Interactable
     public bool preserveVelocity = false;
 
     private bool hasChanged = false;
+    private bool isChanging = false;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Jangan lakukan apapun jika pemain sedang/sudah ganti baju untuk mencegah spam/trigger berulang
+            if (hasChanged || isChanging) return;
+
+            // Hanya izinkan trigger otomatis JIKA APD sudah lengkap.
+            // Ini untuk mencegah spam pesan UI jika pemain tidak sengaja menyentuh trigger saat belum lengkap.
+            if (InventoryManager.Instance != null && InventoryManager.Instance.HasCompletePPE())
+            {
+                TryChangeClothes();
+            }
+        }
+    }
 
     protected override void ExecuteInteraction()
     {
+        TryChangeClothes();
+    }
+
+    private void TryChangeClothes()
+    {
         Debug.Log("ChangingRoom: Interaction Started.");
 
-        if (hasChanged)
+        if (hasChanged || isChanging)
         {
-            Debug.Log("ChangingRoom: Already changed clothes.");
-            HUDManager.Instance.ShowInteraction("Anda sudah siap masuk ke laboratorium.");
+            if (hasChanged)
+            {
+                Debug.Log("ChangingRoom: Already changed clothes.");
+                HUDManager.Instance.ShowInteraction("Anda sudah siap masuk ke laboratorium.");
+            }
             return;
         }
 
@@ -53,6 +78,7 @@ public class ChangingRoom : Interactable
             if (InventoryManager.Instance.HasCompletePPE())
             {
                 Debug.Log("ChangingRoom: PPE Complete. Starting change sequence.");
+                isChanging = true;
                 StartCoroutine(ChangeClothesRoutine());
             }
             else
@@ -113,14 +139,14 @@ public class ChangingRoom : Interactable
             if (newFollowTarget != null)
             {
                 virtualCamera.Follow = newFollowTarget;
-                virtualCamera.LookAt = newFollowTarget;
+                // virtualCamera.LookAt = newFollowTarget; // Mencegah rotasi kamera rusak di StarterAssets
                 Debug.Log($"ChangingRoom: Camera now following {newFollowTarget.name}");
             }
             else
             {
                 // Fallback to player root
                 virtualCamera.Follow = player1Lab.transform;
-                virtualCamera.LookAt = player1Lab.transform;
+                // virtualCamera.LookAt = player1Lab.transform; // Mencegah rotasi kamera rusak
                 Debug.LogWarning("ChangingRoom: PlayerCameraRoot not found, using player root.");
             }
         }

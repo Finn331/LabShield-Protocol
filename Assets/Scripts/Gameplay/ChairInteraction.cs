@@ -7,8 +7,22 @@ using UnityEngine.InputSystem;
 public class ChairInteraction : Interactable
 {
     [Header("Titik Duduk (Snap Point)")]
-    [Tooltip("UBAH! Taruh titik ini tepat di LANTAI tempat PIJAKAN KAKI, bukan di bantalan sofa!")]
+    [Tooltip("Titik final saat karakter sudah duduk tepat di bantalan/kursi!")]
     public Transform sitPoint;
+
+    [Header("Posisi Animasi Duduk (Opsional)")]
+    [Tooltip("Titik pemain memulai animasi duduk (di depan kursi). Jika kosong, langsung ke sitPoint.")]
+    public Transform sitAnimPosition;
+    
+    [Tooltip("Durasi transisi pergerakan karakter dari posisi 'Anim Duduk' ke 'Snap Point Duduk'.")]
+    public float sitTransitionTime = 0.5f;
+
+    [Header("Posisi Animasi Berdiri (Opsional)")]
+    [Tooltip("Titik awal karakter bergerak untuk bangun dari kursi. Jika kosong, tetap di tempat.")]
+    public Transform standAnimPosition;
+
+    [Tooltip("Titik akhir karakter setelah selesai berdiri (di luar kursi) agar bisa jalan tanpa nabrak.")]
+    public Transform standFinalPosition;
 
     [Tooltip("Koreksi posisi tinggi karakter jika animasi masih mengambang / mendem ke lantai (misal isi: -0.5 untuk turunkan).")]
     public float yOffset = 0f;
@@ -80,16 +94,25 @@ public class ChairInteraction : Interactable
             if (thirdPersonScript != null) thirdPersonScript.enabled = false;
             if (charController != null) charController.enabled = false;
 
-            // 2. Pindahkan Player tepat ke titik "sitPoint" LANTAI ditambah koreksi Y manual
-            Vector3 finalSitPos = sitPoint.position;
-            finalSitPos.y += yOffset;
-            player.transform.position = finalSitPos;
+            // 2. Tentukan posisi awal animasi duduk (sitAnimPosition jika ada, atau langsung sitPoint)
+            Transform targetSitAnim = sitAnimPosition != null ? sitAnimPosition : sitPoint;
+            Vector3 startSitPos = targetSitAnim.position;
+            startSitPos.y += yOffset;
+            player.transform.position = startSitPos;
             
-            // 3. Putar badan Player agar menghadap arah yang sama dengan kursi
-            player.transform.rotation = sitPoint.rotation;
+            // 3. Putar badan Player agar menghadap arah target
+            player.transform.rotation = targetSitAnim.rotation;
 
             // 4. Mainkan Animasi Duduk
             playerAnimScript.ToggleSit();
+
+            // 5. Perpindahan Halus (Lerp) ke titik final duduk (sitPoint) agar tidak tembus/ngambang
+            if (sitAnimPosition != null)
+            {
+                Vector3 finalSitPos = sitPoint.position;
+                finalSitPos.y += yOffset;
+                StartCoroutine(MovePlayerRoutine(startSitPos, finalSitPos, targetSitAnim.rotation, sitPoint.rotation, sitTransitionTime));
+            }
 
             // 5. Pindahkan Kamera & Lepas Kursor
             if (playerFollowCamera != null) playerFollowCamera.SetActive(false);
@@ -127,6 +150,15 @@ public class ChairInteraction : Interactable
         // Jika sedang DUDUK di KURSI INI -> BERDIRI
         else 
         {
+            // Pindahkan player ke titik stand anim (jika ada) agar animasi berdiri tidak bertabrakan dengan mesh kursi
+            if (standAnimPosition != null)
+            {
+                Vector3 finalStandPos = standAnimPosition.position;
+                finalStandPos.y += yOffset;
+                player.transform.position = finalStandPos;
+                player.transform.rotation = standAnimPosition.rotation;
+            }
+
             playerAnimScript.ToggleSit(); // Panggil animasi berdiri
             
             // Hentikan transisi kamera menuju ke kursi (jika belum selesai)
@@ -192,10 +224,39 @@ public class ChairInteraction : Interactable
 
         if (player != null)
         {
+            // Pindahkan ke posisi final berdiri (jika ada) setelah animasi usai
+            if (standFinalPosition != null)
+            {
+                Vector3 finalStandPos = standFinalPosition.position;
+                finalStandPos.y += yOffset;
+                
+                // Gunakan CharacterController agar tidak terjadi bentrokan saat pindah posisi drastis
+                if (charController != null) charController.enabled = false;
+                
+                player.transform.position = finalStandPos;
+                player.transform.rotation = standFinalPosition.rotation;
+            }
+
             // Kembalikan Kontrol Jalan SETELAH animasi selesai
-            if (thirdPersonScript != null) thirdPersonScript.enabled = true;
             if (charController != null) charController.enabled = true;
+            if (thirdPersonScript != null) thirdPersonScript.enabled = true;
         }
+    }
+
+    // BARU: Coroutine untuk menggeser posisi player secara mulus saat animasi duduk berlangsung
+    private IEnumerator MovePlayerRoutine(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            player.transform.position = Vector3.Lerp(startPos, endPos, t);
+            player.transform.rotation = Quaternion.Lerp(startRot, endRot, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        player.transform.position = endPos;
+        player.transform.rotation = endRot;
     }
 
     private IEnumerator SmoothCameraTransition()
