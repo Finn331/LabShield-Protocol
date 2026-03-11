@@ -11,17 +11,30 @@ public class InventoryManager : MonoBehaviour
     {
         public string itemName;
         public TextMeshProUGUI uiText;
+        [Tooltip("Opsional: Tarik objek ikon panah biru (atau parent barisnya) ke sini agar bisa disembunyikan total.")]
+        public GameObject rowContainer;
     }
 
     [Header("Checklist UI")]
     public List<ChecklistLink> checklistLinks; // Manually assigned in Inspector
 
     // ==========================================
+    // BAGIAN: PENGATURAN AWAL (GAME START)
+    // ==========================================
+    [Space(10)]
+    [Header("--- AWAL PERMAINAN: PENGATURAN TEKS ---")]
+    [Tooltip("Teks yang muncul pertama kali di pojok kiri atas (sebelum daftar asli muncul).")]
+    public string initialChecklistHint = "Pergi ke Ruang Ganti";
+
+    [Tooltip("Warna teks petunjuk awal di atas.")]
+    public Color initialHintColor = Color.black; // Sama seperti warna default lainnya.
+
+    // ==========================================
     // BAGIAN: SOAL 1 (PEMILIHAN APD)
     // ==========================================
     [Space(10)]
-    [Header("--- SOAL 1: PENGATURAN MISI ---")]
-    [Tooltip("Instruksi soal 1 untuk pemain")]
+    [Header("--- PENGATURAN MISI (SETELAH KE RUANG GANTI) ---")]
+    [Tooltip("Instruksi soal 1 untuk pemain saat sampai di ruang ganti.")]
     [TextArea] public string missionPrompt = "Praktikum hanya dapat dimulai setelah siswa mengenakan alat pelindung diri. Silahkan pilih dan gunakan APD yang benar untuk mengurangi risiko cedera dan kecelakaan di dalam laboratorium kimia";
 
     // The exact 4 items required
@@ -54,8 +67,7 @@ public class InventoryManager : MonoBehaviour
 
         InitializeChecklist();
 
-        // Show Mission Prompt
-        HUDManager.Instance.UpdateObjective(missionPrompt);
+        // (We remove the HUD UpdateObjective here because GameplayManager handles the initial objective now)
     }
 
     // Initialize UI based on manual links
@@ -63,16 +75,29 @@ public class InventoryManager : MonoBehaviour
     {
         checklistUIEntries.Clear();
 
-        foreach (var link in checklistLinks)
+        for (int i = 0; i < checklistLinks.Count; i++)
         {
+            var link = checklistLinks[i];
             if (link.uiText != null && !string.IsNullOrEmpty(link.itemName))
             {
-                // Ensure required items match the manual links if needed, or just map them
                 checklistUIEntries[link.itemName] = link.uiText;
 
-                // Reset text to default state
-                link.uiText.text = link.itemName;
-                link.uiText.color = Color.black; // Or default color
+                if (i == 0)
+                {
+                    // Item pertama dijadikan petunjuk awal
+                    link.uiText.text = initialChecklistHint;
+                    link.uiText.color = initialHintColor;
+
+                    // Nyalakan text & row containernya
+                    link.uiText.gameObject.SetActive(true);
+                    if (link.rowContainer != null) link.rowContainer.SetActive(true);
+                }
+                else
+                {
+                    // Sisanya disembunyikan total 
+                    link.uiText.gameObject.SetActive(false);
+                    if (link.rowContainer != null) link.rowContainer.SetActive(false);
+                }
             }
         }
     }
@@ -137,15 +162,39 @@ public class InventoryManager : MonoBehaviour
         foreach (var link in checklistLinks)
         {
             if (link.uiText != null)
+            {
                 // Animated Fade Out using LeanTween.value for TMP
                 LeanTween.value(link.uiText.gameObject, link.uiText.alpha, 0f, 0.5f)
                     .setOnUpdate((float val) => { link.uiText.alpha = val; })
                     .setOnComplete(() =>
                     {
                         link.uiText.gameObject.SetActive(false);
+                        if (link.rowContainer != null) link.rowContainer.SetActive(false);
                         // Reset alpha for next time
                         link.uiText.alpha = 1f;
                     });
+            }
+        }
+    }
+
+    public void ShowChecklist()
+    {
+        foreach (var link in checklistLinks)
+        {
+            if (link.uiText != null)
+            {
+                // Kembalikan nama dan warna ke semula
+                link.uiText.text = link.itemName;
+                link.uiText.color = Color.black;
+
+                // Tampilkan text dan containernya
+                link.uiText.gameObject.SetActive(true);
+                if (link.rowContainer != null) link.rowContainer.SetActive(true);
+
+                // Animated Fade In using LeanTween.value for TMP
+                LeanTween.value(link.uiText.gameObject, 0f, 1f, 0.5f)
+                    .setOnUpdate((float val) => { link.uiText.alpha = val; });
+            }
         }
     }
 
@@ -155,7 +204,12 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.Log("All PPE Collected!");
             HUDManager.Instance.UpdateObjective("APD Lengkap! Silahkan menuju Ruang Ganti untuk mengganti pakaian.");
-            // Trigger next game phase here
+            
+            // Tampilkan kembali Waypoint, kali ini menunjuk ke Ruang Ganti
+            if (GameplayManager.Instance != null && GameplayManager.Instance.changingRoomWaypoint != null)
+            {
+                HUDManager.Instance.SetWaypointTarget(GameplayManager.Instance.changingRoomWaypoint);
+            }
         }
     }
 }

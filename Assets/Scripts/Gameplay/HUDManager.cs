@@ -11,6 +11,10 @@ public class HUDManager : MonoBehaviour
     public GameObject objectivePanel;
     public TextMeshProUGUI objectiveText;
 
+    [Header("Waypoints")]
+    [Tooltip("Sistem waypoint untuk memandu arah player (Opsional).")]
+    public WaypointMarker autoWaypoint;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -69,6 +73,35 @@ public class HUDManager : MonoBehaviour
                     // Reset scale for next time it's shown, if needed
                     objectivePanel.transform.localScale = Vector3.one;
                 });
+        }
+    }
+
+    // ==========================================
+    // BAGIAN: WAYPOINT (PETUNJUK ARAH)
+    // ==========================================
+    
+    /// <summary>
+    /// Mengubah arah target Waypoint. Jika null, marker akan disembunyikan.
+    /// </summary>
+    /// <param name="target">Posisi 3D tujuan.</param>
+    public void SetWaypointTarget(Transform target)
+    {
+        if (autoWaypoint != null)
+        {
+            autoWaypoint.SetTarget(target);
+        }
+        else
+        {
+            // Fallback: Jika tidak dipasang di Inspector, cari otomatis
+            autoWaypoint = FindObjectOfType<WaypointMarker>();
+            if (autoWaypoint != null)
+            {
+                autoWaypoint.SetTarget(target);
+            }
+            else
+            {
+                Debug.LogWarning("HUDManager: WaypointMarker belum dipasang di Canvas!");
+            }
         }
     }
 }

@@ -37,16 +37,16 @@ public class ChangingRoom : Interactable
 
     private bool hasChanged = false;
     private bool isChanging = false;
+    private bool hasRevealedChecklist = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Jangan lakukan apapun jika pemain sedang/sudah ganti baju untuk mencegah spam/trigger berulang
+            // Jangan lakukan apapun jika pemain sedang/sudah ganti baju
             if (hasChanged || isChanging) return;
 
-            // Hanya izinkan trigger otomatis JIKA APD sudah lengkap.
-            // Ini untuk mencegah spam pesan UI jika pemain tidak sengaja menyentuh trigger saat belum lengkap.
+            // Trigger otomatis HANYA JIKA APD sudah lengkap.
             if (InventoryManager.Instance != null && InventoryManager.Instance.HasCompletePPE())
             {
                 TryChangeClothes();
@@ -85,11 +85,22 @@ public class ChangingRoom : Interactable
             {
                 Debug.Log("ChangingRoom: PPE Incomplete. Access Denied.");
                 HUDManager.Instance.ShowInteraction("Dilarang Masuk! Lengkapi APD terlebih dahulu.");
+                // Jika player ngeyel klik ruang ganti padahal belum ambil APD, kita bisa bantu memunculkannya juga.
+                RevealChecklist();
             }
         }
-        else
+    }
+
+    private void RevealChecklist()
+    {
+        if (!hasRevealedChecklist && InventoryManager.Instance != null)
         {
-            Debug.LogError("ChangingRoom: InventoryManager Instance is NULL!");
+            hasRevealedChecklist = true;
+            InventoryManager.Instance.ShowChecklist();
+            if (HUDManager.Instance != null)
+            {
+                HUDManager.Instance.UpdateObjective("Temukan dan gunakan semua APD pada daftar!");
+            }
         }
     }
 
@@ -170,8 +181,14 @@ public class ChangingRoom : Interactable
         yield return new WaitForSeconds(0.5f);
         HUDManager.Instance.ShowInteraction("APD Terpasang. Akses Lab Dibuka.");
 
-        // Hide Objectives and Checklist as requested
-        HUDManager.Instance.HideObjectivePanel();
+        // Update Objective and Waypoint to Chemistry Lab
+        HUDManager.Instance.UpdateObjective("Pergi ke Laboratorium Kimia.");
+        if (GameplayManager.Instance != null && GameplayManager.Instance.chemLabWaypoint != null)
+        {
+            HUDManager.Instance.SetWaypointTarget(GameplayManager.Instance.chemLabWaypoint);
+        }
+
+        // Hide Checklist as requested
         if (InventoryManager.Instance) InventoryManager.Instance.HideChecklist();
     }
 

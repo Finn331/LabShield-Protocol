@@ -144,6 +144,11 @@ public class ChairInteraction : Interactable
                 if (HUDManager.Instance != null)
                 {
                     HUDManager.Instance.ToggleInteractionButton(true, promptMessage);
+                    
+                    // Hilangkan arah panah Waypoint secara permanen saat player mulai duduk
+                    HUDManager.Instance.SetWaypointTarget(null);
+                    // Sembunyikan panel objektif saat kuis dimulai
+                    HUDManager.Instance.HideObjectivePanel();
                 }
             }
         }

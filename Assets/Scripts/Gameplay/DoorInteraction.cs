@@ -17,6 +17,13 @@ public class DoorInteraction : Interactable
     [Tooltip("Pesan penolakan jika gender pemain tidak sesuai.")]
     public string accessDeniedMessage = "Akses Ditolak: Bukan Toilet Anda!";
 
+    [Header("Door Access (Akses APD)")]
+    [Tooltip("Centang jika pintu ini hanya bisa dibuka setelah pemain menggunakan APD lengkap.")]
+    public bool requiresPPE = false;
+
+    [Tooltip("Pesan penolakan jika APD belum lengkap.")]
+    public string ppeDeniedMessage = "Akses Ditolak: Anda belum menggunakan APD lengkap!";
+
     [Header("Door Settings")]
     [Tooltip("Pivot/Engsel pintu yang akan diputar. Biarkan kosong jika pivot ada di objek ini sendiri.")]
     public Transform doorPivot;
@@ -73,35 +80,49 @@ public class DoorInteraction : Interactable
     {
         if (isAnimating) return; // Jangan izinkan spam interaksi saat pintu masih bergerak
 
-        // CEK AKSES GENDER
-        if (allowedGender != AllowedGender.BebasSemua && !isOpen)
+        // CEK AKSES GENDER & APD HANYA SAAT PINTU AKAN DIBUKA
+        if (!isOpen)
         {
-            // Temukan player yang sedang aktif
-            GameObject activePlayer = GetActivePlayer();
-            if (activePlayer != null)
+            // CEK AKSES APD
+            if (requiresPPE)
             {
-                PlayerIdentity identity = activePlayer.GetComponent<PlayerIdentity>();
-                if (identity != null)
+                if (InventoryManager.Instance != null && !InventoryManager.Instance.HasCompletePPE())
                 {
-                    // Apakah player ini Laki-Laki mencoba masuk pintu Perempuan?
-                    if (allowedGender == AllowedGender.HanyaPerempuan && identity.gender != PlayerGender.Female)
-                    {
-                        if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
-                        return; // Batal buka
-                    }
-                    // Apakah player ini Perempuan mencoba masuk pintu Laki-Laki?
-                    else if (allowedGender == AllowedGender.HanyaLakiLaki && identity.gender != PlayerGender.Male)
-                    {
-                        if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
-                        return; // Batal buka
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Pemain tidak memiliki komponen PlayerIdentity. Mengizinkan masuk karena tidak ada data gender.");
+                    if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(ppeDeniedMessage);
+                    return; // Batal buka
                 }
             }
-        }
+
+            // CEK AKSES GENDER
+            if (allowedGender != AllowedGender.BebasSemua)
+            {
+                // Temukan player yang sedang aktif
+                GameObject activePlayer = GetActivePlayer();
+                if (activePlayer != null)
+                {
+                    PlayerIdentity identity = activePlayer.GetComponent<PlayerIdentity>();
+                    if (identity != null)
+                    {
+                        // Apakah player ini Laki-Laki mencoba masuk pintu Perempuan?
+                        if (allowedGender == AllowedGender.HanyaPerempuan && identity.gender != PlayerGender.Female)
+                        {
+                            if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                            return; // Batal buka
+                        }
+                        // Apakah player ini Perempuan mencoba masuk pintu Laki-Laki?
+                        else if (allowedGender == AllowedGender.HanyaLakiLaki && identity.gender != PlayerGender.Male)
+                        {
+                            if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                            return; // Batal buka
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Pemain tidak memiliki komponen PlayerIdentity. Mengizinkan masuk karena tidak ada data gender.");
+                    }
+                }
+            }
+        } // Penutup if (!isOpen)
 
         StartCoroutine(ToggleDoorRoutine());
     }
