@@ -8702,7 +8702,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 739630605904587930, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: m_Intensity
-      value: 0.03924784
+      value: 0.043115392
       objectReference: {fileID: 0}
     - target: {fileID: 768610824830200836, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -25626,7 +25626,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4982554904981358312, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_Intensity
-      value: 0.050376493
+      value: 0.053336732
       objectReference: {fileID: 0}
     - target: {fileID: 5029538020231890548, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_RootOrder
@@ -52806,6 +52806,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f36aece841e39f44a849bb31ff5197c8, type: 3}
+    - target: {fileID: 1610518158174425488, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1610518158174425489, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
@@ -52814,9 +52818,17 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3565718862856713686, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3836120556624306387, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
       propertyPath: m_Name
       value: UI_Canvas_StarterAssetsInputs_Joysticks Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196849706626457217, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5240890655647363113, guid: 650974d6d0a93ef40862ec80936946e8, type: 3}
       propertyPath: m_Sprite
@@ -59161,13 +59173,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935660436}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071053, w: 0.7071084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.22928, y: 0.22928, z: 0.22928}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1567532886}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -58.695847, y: -97.47165}
@@ -59189,7 +59201,7 @@ MonoBehaviour:
   mainCamera: {fileID: 22923445}
   offset: {x: 0, y: 2, z: 0}
   edgePadding: 50
-  rotateToTarget: 1
+  rotateToTarget: 0
   angleOffset: -90
 --- !u!114 &1935660439
 MonoBehaviour:
@@ -59211,7 +59223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ac338113beb8fa545987aa80f5f2c1e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1d2f165841efca459e082274967314e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
