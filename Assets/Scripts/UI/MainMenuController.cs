@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using TMPro;
+using System.Collections;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -37,7 +39,7 @@ public class MainMenuController : MonoBehaviour
     public UnityEngine.UI.Button exitButton;
 
     // Optional: Reference to Gameplay components to activate on Play
-    [Header("Gameplay References")]
+    [Header("Gameplay References (Optional if loading new scene)")]
     public GameObject hudCanvas;
     public GameObject playerController; // Or FirstPersonController script reference
 
@@ -45,12 +47,22 @@ public class MainMenuController : MonoBehaviour
     public Vector3 settingsCameraPos = new Vector3(4.006f, 1.773f, -3.553f);
     public Quaternion settingsCameraRot = new Quaternion(0.0f, 0.6087628f, 0.0f, 0.7933524f);
 
-    [Header("Scene Configuration")]
-    public string gameplaySceneName = "GameplayScene"; // Set in Inspector
+    [Header("Scene Configuration & Loading")]
+    public string gameplaySceneName = "Gameplay"; // Set in Inspector
+    
+    [Tooltip("Opsional: Masukkan panel/Gameobject Loading Screen di sini")]
+    public GameObject loadingScreenUI;
+    [Tooltip("Opsional: Masukkan Slider untuk progress bar loading")]
+    public UnityEngine.UI.Slider loadingSlider;
+    [Tooltip("Opsional: Masukkan TextMeshProUGUI untuk animasi teks (Loading...)")]
+    public TextMeshProUGUI loadingText;
 
     void Start()
     {
         if (mainCamera == null) mainCamera = Camera.main;
+
+        // Hide Loading Screen if it exists
+        if (loadingScreenUI != null) loadingScreenUI.SetActive(false);
 
         // Start State: Hide "Press Start" until Login is done
         // if (titleText) titleText.SetActive(false); // CHANGED: Keep Title Visible!
@@ -243,19 +255,65 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayClicked()
     {
-        Debug.Log("[MainMenu] Play Clicked. Starting Gameplay Loop.");
-        // Hide Menu
+        Debug.Log("[MainMenu] Play Clicked. Loading Scene Asynchronously...");
+        
+        // Hide Main Menu
         if (menuObjectToAnimate) menuObjectToAnimate.SetActive(false);
 
-        // Show HUD
-        if (hudCanvas) hudCanvas.SetActive(true);
+        // Show Loading Screen if Assigned
+        if (loadingScreenUI != null)
+        {
+            loadingScreenUI.SetActive(true);
+        }
 
-        // Enable Player
-        if (playerController) playerController.SetActive(true);
+        StartCoroutine(LoadGameplayScene());
+    }
 
-        // Allow Cursor Lock
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+    private IEnumerator LoadGameplayScene()
+    {
+        // Add a slight delay just to let the Loading Screen UI pop up smoothly
+        yield return new WaitForSeconds(0.2f);
+
+        // Start Loading the Scene 
+        AsyncOperation operation = SceneManager.LoadSceneAsync(gameplaySceneName);
+        
+        // Prevent activation immediately if you want to ensure the min loading time (Optional)
+        // operation.allowSceneActivation = false; 
+
+        float dotTimer = 0f;
+        int dotCount = 0;
+
+        while (!operation.isDone)
+        {
+            // Calculate progress (Unity's progress stops at 0.9f before activation)
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            // Update Slider if Assigned
+            if (loadingSlider != null)
+            {
+                loadingSlider.value = progress;
+            }
+
+            // Optional Typing Animation for Text
+            if (loadingText != null)
+            {
+                dotTimer += Time.deltaTime;
+                if (dotTimer >= 0.3f) // Speed of adding dots
+                {
+                    dotTimer = 0f;
+                    dotCount++;
+                    if (dotCount > 3) dotCount = 0;
+
+                    string dots = new string('.', dotCount);
+                    loadingText.text = "Loading" + dots;
+                }
+            }
+
+            yield return null;
+        }
+
+        // If you used operation.allowSceneActivation = false, you would check 
+        // if progress >= 0.9f here and wait for user input or just set it to true.
     }
 
     public void OnSettingsClicked()

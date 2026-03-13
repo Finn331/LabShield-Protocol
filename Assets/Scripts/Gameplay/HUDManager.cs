@@ -93,7 +93,7 @@ public class HUDManager : MonoBehaviour
         else
         {
             // Fallback: Jika tidak dipasang di Inspector, cari otomatis
-            autoWaypoint = FindObjectOfType<WaypointMarker>();
+            autoWaypoint = FindFirstObjectByType<WaypointMarker>();
             if (autoWaypoint != null)
             {
                 autoWaypoint.SetTarget(target);

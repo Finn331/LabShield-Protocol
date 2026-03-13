@@ -147,7 +147,6 @@ public class LoginUI : MonoBehaviour
 
                 // Trigger Main Menu "Press Start"
                 MainMenuController mm = FindFirstObjectByType<MainMenuController>();
-                if (mm == null) mm = FindObjectOfType<MainMenuController>();
                 if (mm != null) mm.OnLoginSuccess();
             }
             else

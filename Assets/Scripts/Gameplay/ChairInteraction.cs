@@ -134,7 +134,7 @@ public class ChairInteraction : Interactable
             Cursor.visible = true;
 
             // -- BARU: Pasang forcedInteractable agar UI Interact Mobile tidak hilang memudar! --
-            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindObjectOfType<PlayerInteraction>();
+            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindFirstObjectByType<PlayerInteraction>();
             if (playerInteractionLogic != null)
             {
                 promptMessage = "";
@@ -182,7 +182,7 @@ public class ChairInteraction : Interactable
             Cursor.visible = false;
 
             // -- BARU: Lepas forcedInteractable agar pencarian objek dengan Raycast kembali bekerja --
-            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindObjectOfType<PlayerInteraction>();
+            PlayerInteraction playerInteractionLogic = mainCamera != null ? mainCamera.GetComponent<PlayerInteraction>() : FindFirstObjectByType<PlayerInteraction>();
             if (playerInteractionLogic != null)
             {
                 promptMessage = "";

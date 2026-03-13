@@ -30,6 +30,11 @@ public class SettingsMenuController : MonoBehaviour
     public TMP_Dropdown qualityDropdown; // For SGSR/Quality selection
     public TMP_Dropdown framerateDropdown; // Changed from Resolution to MaxFPS
 
+    [Header("Audio Settings")]
+    public Slider masterVolSlider;
+    public Slider musicVolSlider;
+    public Slider sfxVolSlider;
+
     /* 
      * TND / SGSR INTEGRATION NOTE:
      * If using TND Upscaler or SGSR, you typically need to reference their specific script or shader global properties.
@@ -58,6 +63,7 @@ public class SettingsMenuController : MonoBehaviour
         // Initialize Options & Load Saves
         InitializeQualityDropdown();
         InitializeFramerateDropdown();
+        InitializeAudioSliders();
 
         // Setup Tab Listeners
         if (videoTabButton) videoTabButton.onClick.AddListener(ShowVideoTab);
@@ -99,6 +105,37 @@ public class SettingsMenuController : MonoBehaviour
         int savedQuality = PlayerPrefs.GetInt("GraphicsQuality", 2); // Default to Quality
         qualityDropdown.value = savedQuality;
         SetGraphicsQuality(savedQuality, false); // Set without saving again
+    }
+
+    private void InitializeAudioSliders()
+    {
+        // Set slider values based on what is saved, defaulting to 1 (max volume)
+        if (masterVolSlider != null)
+        {
+            masterVolSlider.value = PlayerPrefs.GetFloat("SavedMasterVol", 1f);
+            masterVolSlider.onValueChanged.AddListener((val) => 
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.SetMasterVolume(val);
+            });
+        }
+
+        if (musicVolSlider != null)
+        {
+            musicVolSlider.value = PlayerPrefs.GetFloat("SavedMusicVol", 1f);
+            musicVolSlider.onValueChanged.AddListener((val) => 
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.SetMusicVolume(val);
+            });
+        }
+
+        if (sfxVolSlider != null)
+        {
+            sfxVolSlider.value = PlayerPrefs.GetFloat("SavedSFXVol", 1f);
+            sfxVolSlider.onValueChanged.AddListener((val) => 
+            {
+                if (AudioManager.Instance != null) AudioManager.Instance.SetSFXVolume(val);
+            });
+        }
     }
 
     // ... (OpenSettings, CloseSettings, Tab methods remain unchanged)
@@ -200,6 +237,10 @@ public class SettingsMenuController : MonoBehaviour
 
         SetMaxFramerate(1); // 60 FPS
         if (framerateDropdown) framerateDropdown.value = 1;
+
+        if (masterVolSlider) masterVolSlider.value = 1f;
+        if (musicVolSlider) musicVolSlider.value = 1f;
+        if (sfxVolSlider) sfxVolSlider.value = 1f;
     }
     private void InitializeFramerateDropdown()
     {
