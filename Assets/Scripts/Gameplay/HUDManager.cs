@@ -76,6 +76,51 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    public void HideAllHUD()
+    {
+        HideInteraction();
+        HideObjectivePanel();
+        if (crosshair != null) crosshair.SetActive(false);
+        if (autoWaypoint != null) autoWaypoint.gameObject.SetActive(false);
+
+        // Turn off StarterAssets Mobile Controls to prevent them from blocking Canvas Clicks
+        Transform moveJoy = transform.Find("UI_Virtual_Joystick_Move");
+        if (moveJoy != null) moveJoy.gameObject.SetActive(false);
+        
+        Transform lookJoy = transform.Find("UI_Virtual_Joystick_Look");
+        if (lookJoy != null) lookJoy.gameObject.SetActive(false);
+
+        Transform jumpBtn = transform.Find("UI_Virtual_Button_Jump");
+        if (jumpBtn != null) jumpBtn.gameObject.SetActive(false);
+
+        Transform sprintBtn = transform.Find("UI_Virtual_Button_Sprint");
+        if (sprintBtn != null) sprintBtn.gameObject.SetActive(false);
+        
+        UnityEngine.UI.GraphicRaycaster raycaster = GetComponent<UnityEngine.UI.GraphicRaycaster>();
+        if (raycaster != null) raycaster.enabled = false;
+    }
+    
+    public void ShowAllHUD()
+    {
+        if (crosshair != null) crosshair.SetActive(true);
+        if (autoWaypoint != null) autoWaypoint.gameObject.SetActive(true);
+
+        Transform moveJoy = transform.Find("UI_Virtual_Joystick_Move");
+        if (moveJoy != null) moveJoy.gameObject.SetActive(true);
+        
+        Transform lookJoy = transform.Find("UI_Virtual_Joystick_Look");
+        if (lookJoy != null) lookJoy.gameObject.SetActive(true);
+
+        Transform jumpBtn = transform.Find("UI_Virtual_Button_Jump");
+        if (jumpBtn != null) jumpBtn.gameObject.SetActive(true);
+
+        Transform sprintBtn = transform.Find("UI_Virtual_Button_Sprint");
+        if (sprintBtn != null) sprintBtn.gameObject.SetActive(true);
+
+        UnityEngine.UI.GraphicRaycaster raycaster = GetComponent<UnityEngine.UI.GraphicRaycaster>();
+        if (raycaster != null) raycaster.enabled = true;
+    }
+
     // ==========================================
     // BAGIAN: WAYPOINT (PETUNJUK ARAH)
     // ==========================================

@@ -16,6 +16,7 @@ MonoBehaviour:
   questionText: "Saat praktikum berlangsung, seorang peserta didik terkena percikan
     asam kuat bersifat korosif pada lengan. Sebagai laboran, tindakan K3 yang paling
     tepat sesuai urutan penanganan darurat adalah \u2026"
+  questionAudio: {fileID: 0}
   answers:
   - Menghentikan praktikum dan membersihkan area kejadian
   - Memberikan pertolongan pertama tanpa mengamankan area
@@ -23,3 +24,4 @@ MonoBehaviour:
   - Menunda penanganan hingga praktikum selesai
   correctAnswerIndex: 2
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: 464c0eeafcaa26b49999e1bdcd8113ac, type: 3}

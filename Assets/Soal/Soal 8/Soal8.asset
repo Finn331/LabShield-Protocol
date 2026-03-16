@@ -16,6 +16,7 @@ MonoBehaviour:
   questionText: "Berikut ini merupakan bentuk perencanaan yang dapat dilakukan untuk
     mendukung\r\npenerapan keselamatan dan kesehatan kerja (K3) di tempat kerja,
     kecuali \u2026"
+  questionAudio: {fileID: 0}
   answers:
   - Pengurangan beban kerja dan kegiatan pengangkutan material
   - Penyediaan ruang gerak yang aman serta permukaan lantai yang tidak licin
@@ -23,3 +24,4 @@ MonoBehaviour:
   - Peningkatan gaji dan pemberian tunjangan kepada karyawan
   correctAnswerIndex: 3
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: 8a77207c07e914b4dac50f1a1b3ac267, type: 3}

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizData
   questionID: Soal_10
   questionText: Apa yang sebaiknya dilakukan jika terkena bahan kimia pada mata?
+  questionAudio: {fileID: 0}
   answers:
   - Mencuci mata dengan air mengalir selama 10 detik dan segera meminta bantuan medis
   - Membilas mata dengan minyak
@@ -21,3 +22,4 @@ MonoBehaviour:
   - Membiarkan bahan kimia tersebut tetapterperosok pada mata.
   correctAnswerIndex: 0
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: d961c2c49851b9e439c867d2aab67fb9, type: 3}

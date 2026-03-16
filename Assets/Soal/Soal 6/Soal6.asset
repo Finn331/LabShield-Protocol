@@ -18,13 +18,14 @@ MonoBehaviour:
     (1) Bahan kimia mudah
     menguap disimpan pada rak terbuka
 
-    (2) Label bahan kimia sebagian tidak
-    terbaca
+    (2) Label bahan kimia sebagian tidak terbaca
 
-    (3) Ventilasi berfungsi namun jalur evakuasi terhalang
+    (3)
+    Ventilasi berfungsi namun jalur evakuasi terhalang
 
-    (4)
-    APD tersedia tetapi tidak seluruh siswa menggunakannya'
+    (4) APD tersedia tetapi
+    tidak seluruh siswa menggunakannya'
+  questionAudio: {fileID: 0}
   answers:
   - (1) dan (2)
   - (1) dan (3)
@@ -32,3 +33,4 @@ MonoBehaviour:
   - (3) dan (4)
   correctAnswerIndex: 1
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: 912d39afc99666e4daa4167a4c835517, type: 3}

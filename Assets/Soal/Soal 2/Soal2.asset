@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizData
   questionID: Soal_2
   questionText: "Undang-Undang Nomor 1 Tahun 1970 mengatur tentang \u2026"
+  questionAudio: {fileID: 0}
   answers:
   - Kesehatan lingkungan kerja
   - Keselamatan kerja di tempat kerja
@@ -21,3 +22,4 @@ MonoBehaviour:
   - Perlindungan tenaga medis
   correctAnswerIndex: 1
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: d314f535b1b80c642b47041c85880b31, type: 3}

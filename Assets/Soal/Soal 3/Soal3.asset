@@ -15,6 +15,7 @@ MonoBehaviour:
   questionID: Soal_3
   questionText: Lengkapilah penamaan pada gambar yang masih ditandai dengan tanda
     tanya!
+  questionAudio: {fileID: 0}
   answers:
   - 'Korosif '
   - Iritant
@@ -22,3 +23,4 @@ MonoBehaviour:
   - Toksik
   correctAnswerIndex: 0
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: 34d3a3cd2e5d8e54f86c4b12901d279c, type: 3}

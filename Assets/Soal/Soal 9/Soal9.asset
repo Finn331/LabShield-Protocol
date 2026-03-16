@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizData
   questionID: Soal_9
   questionText: Apa yang sebaiknya dilakukan jika terjadi ledakan di laboratorium?
+  questionAudio: {fileID: 0}
   answers:
   - Berlari menuju pintu keluar tanpa memeriksa kondisi lain
   - Menggunakan bahan kimia untuk memadamkan api
@@ -21,3 +22,4 @@ MonoBehaviour:
   - Segera menyelamatkan diri dan mengikuti prosedur darurat yang telah ditetapkan
   correctAnswerIndex: 3
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: 40ca0a83ab2cc90458f6e84f044511b3, type: 3}

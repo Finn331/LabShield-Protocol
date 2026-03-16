@@ -5,7 +5,8 @@ using UnityEngine.Events;
 public class QuizTrigger : MonoBehaviour
 {
     [Header("Data Soal di Ruangan Ini")]
-    public QuizData roomQuizData;
+    [Tooltip("Daftar pertanyaan yang akan ditanyakan secara beruntun")]
+    public QuizData[] roomQuizDataList;
 
     [Header("Event Ruangan (Opsional)")]
     [Tooltip("Dipanggil saat pemain masuk trigger (contoh: Memulai animasi ledakan/kecipratan)")]
@@ -31,7 +32,7 @@ public class QuizTrigger : MonoBehaviour
         if (!hasBeenTriggered)
         {
             hasBeenTriggered = true; // Langsung kunci agar tidak trigger dobel
-            Debug.Log($"Memulai Kuis Manual Dari Kursi: {roomQuizData?.questionID}");
+            Debug.Log($"Memulai Kuis Manual Dari Kursi, jumlah soal: {roomQuizDataList?.Length}");
 
             // 1. Jalankan Animasi / Skenario Ruangan (Lewat Event Unity)
             if (onPlayerEnterRoom != null)
@@ -50,20 +51,20 @@ public class QuizTrigger : MonoBehaviour
     private void TriggerQuizPanel()
     {
         // Panggil QuizManager untuk menampilkan soal ini
-        if (QuizManager.Instance != null && roomQuizData != null)
+        if (QuizManager.Instance != null && roomQuizDataList != null && roomQuizDataList.Length > 0)
         {
-            // Lempar callback (fungsi) yang akan dijalankan SETELAH pemain selesai menjawab Soal ini
-            QuizManager.Instance.StartQuiz(roomQuizData, OnPlayerFinishedQuiz);
+            // Lempar array soal dan callback yang akan dijalankan SETELAH semua soal selesai dijawab
+            QuizManager.Instance.StartQuizSequence(roomQuizDataList, OnPlayerFinishedQuiz);
         }
         else
         {
-            Debug.LogError("QuizManager belum terpasang di Scene, atau QuizData di Trigger belum di-assign!");
+            Debug.LogError("QuizManager belum terpasang di Scene, atau daftar soal di Trigger masih kosong!");
         }
     }
 
     private void OnPlayerFinishedQuiz()
     {
-        Debug.Log($"Kuis di ruangan {roomQuizData?.questionID} selesai!");
+        Debug.Log("Semua Kuis di ruangan ini selesai!");
 
         // Berikan kebebasan akses / buka pintu ke ruangan selanjutnya (via event)
         if (onQuizCompleted != null)

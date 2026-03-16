@@ -129,6 +129,7 @@ public class ChairInteraction : Interactable
             {
                 starterInputs.cursorLocked = false;
                 starterInputs.cursorInputForLook = false;
+                starterInputs.SetCursorState(false);
             }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -140,15 +141,10 @@ public class ChairInteraction : Interactable
                 promptMessage = "";
                 playerInteractionLogic.forcedInteractable = this;
                 
-                // PENTING: Refresh Paksa UI agar terbaca update hilangnya teks
+                // Sembunyikan semua UI Gameplay saat mulai Kuis (termasuk crosshair)
                 if (HUDManager.Instance != null)
                 {
-                    HUDManager.Instance.ToggleInteractionButton(true, promptMessage);
-                    
-                    // Hilangkan arah panah Waypoint secara permanen saat player mulai duduk
-                    HUDManager.Instance.SetWaypointTarget(null);
-                    // Sembunyikan panel objektif saat kuis dimulai
-                    HUDManager.Instance.HideObjectivePanel();
+                    HUDManager.Instance.HideAllHUD();
                 }
             }
         }
@@ -177,6 +173,7 @@ public class ChairInteraction : Interactable
             {
                 starterInputs.cursorLocked = true;
                 starterInputs.cursorInputForLook = true;
+                starterInputs.SetCursorState(true);
             }
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -188,9 +185,10 @@ public class ChairInteraction : Interactable
                 promptMessage = "";
                 playerInteractionLogic.forcedInteractable = null;
                 
-                // Matikan paksa UI sesaat, jika kursor kena kursi lagi nanti otomatis hidup
+                // Kembalikan semua UI yang tadi disembunyikan
                 if (HUDManager.Instance != null)
                 {
+                    HUDManager.Instance.ShowAllHUD();
                     HUDManager.Instance.ToggleInteractionButton(false);
                 }
             }

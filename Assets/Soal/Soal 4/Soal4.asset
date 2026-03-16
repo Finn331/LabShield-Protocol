@@ -16,10 +16,12 @@ MonoBehaviour:
   questionText: Selama praktikum di laboratorium, tidak diperbolehkan melakukan tindakan
     yang dapat mengganggu kegiatan atau membahayakan diri sendiri maupun orang lain.
     Menurut Anda, sikap manakah berikut ini yang berbahaya di laboratorium?
+  questionAudio: {fileID: 0}
   answers:
   - Tidak di perbolehkan makan dan minum di dalam laboratorium
   - Tidak di izinkan bercanda dan bermain-main dengan alat atau bahan kimia
   - Dilarang keras melakukan percobaan tanpa adanya guru pembimbing/laboran
   - Semua benar
-  correctAnswerIndex: 0
+  correctAnswerIndex: 3
   evaluationText: 
+  explainAudio: {fileID: 8300000, guid: a49180670f5e4264cbc56eebfb69f5a7, type: 3}

@@ -17,10 +17,6 @@ public class QuizFeedbackManager : MonoBehaviour
     [SerializeField] private Sprite wrongCrossSprite;
     [SerializeField] private float iconDisplayDuration = 2.0f;
 
-    [Header("Karakter Guru")]
-    [Tooltip("Target script Guru yang memiliki Animator")]
-    [SerializeField] private TeacherController teacherController;
-
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -46,15 +42,6 @@ public class QuizFeedbackManager : MonoBehaviour
         {
             feedbackIcon.sprite = isCorrect ? correctTickSprite : wrongCrossSprite;
             StartCoroutine(ShowIconRoutine());
-        }
-
-        // 3. Trigger Animasi Guru
-        if (teacherController != null)
-        {
-            if (isCorrect) 
-                teacherController.PlayPraiseAnimation(); // Senyum & Jempol
-            else 
-                teacherController.PlayWarningAnimation(); // Peringatan
         }
     }
 

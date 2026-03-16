@@ -69,8 +69,8 @@ public class QuizSessionManager : MonoBehaviour
     {
         if (saveData.currentAttempt == null)
         {
-            Debug.LogError("QuizSessionManager: currentAttempt kosong! Pastikan StartNewAttempt dipanggil di Main Menu.");
-            return;
+            Debug.LogWarning("QuizSessionManager: currentAttempt kosong! Membuat sesi baru otomatis (Mungkin sedang testing di Gameplay scene).");
+            StartNewAttempt();
         }
 
         if (isCorrect) saveData.currentAttempt.totalCorrect++;
