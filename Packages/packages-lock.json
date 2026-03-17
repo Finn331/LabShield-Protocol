@@ -8,13 +8,14 @@
       "url": "https://packages.unity.com"
     },
     "com.coplaydev.unity-mcp": {
-      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity",
+      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.nuget.newtonsoft-json": "3.0.2"
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.test-framework": "1.1.31"
       },
-      "hash": "b866a4cc421fa6df82d65f539be7edf79021fbd7"
+      "hash": "b2d95d2638063e7bb36025df64bf02a9eba8a7c8"
     },
     "com.tnd.upscaler.sgsr1": {
       "version": "file:com.tnd.upscaler.sgsr1",

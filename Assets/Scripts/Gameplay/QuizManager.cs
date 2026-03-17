@@ -19,6 +19,7 @@ public class QuizManager : MonoBehaviour
     [Header("Referensi Video (Opsional)")]
     [SerializeField] private GameObject videoPanel;
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private RawImage videoRawImage;
 
     [Header("Referensi UI Jawaban")]
     [SerializeField] private Button[] answerButtons;
@@ -89,6 +90,9 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    private bool introVideoFinished = false;
+    private bool isPlayingQuestionVideos = false;
+
     /// <summary>
     /// Memulai serangkaian pertanyaan kuis
     /// </summary>
@@ -130,8 +134,8 @@ public class QuizManager : MonoBehaviour
 
         currentQuiz = currentQuizSequence[currentQuestionIndex];
 
-        // Cek apakah soal ini punya Video Pembuka?
-        if (currentQuiz.questionVideo != null && videoPlayer != null && videoPanel != null)
+        // Cek apakah soal ini punya Video Pembuka (1 atau lebih)?
+        if (currentQuiz.questionVideos != null && currentQuiz.questionVideos.Length > 0 && videoPlayer != null && videoPanel != null)
         {
             StartCoroutine(PlayVideoBeforeQuestionRoutine());
             return; // Hentikan fungsi ini sementara, biarkan coroutine yang melanjutkannya nanti
@@ -143,32 +147,117 @@ public class QuizManager : MonoBehaviour
 
     private IEnumerator PlayVideoBeforeQuestionRoutine()
     {
+        isPlayingQuestionVideos = true;
+
         // 1. Matikan UI Kuis (supaya bersih saat nonton video)
         HideQuizContentOnly();
         
-        // 2. Siapkan VideoPlayer
-        videoPanel.SetActive(true);
-        videoPlayer.clip = currentQuiz.questionVideo;
-        videoPlayer.Prepare();
+        // 2. Tampilkan panel video dengan animasi LeanTween
+        ShowVideoPanel();
+        yield return new WaitForSeconds(0.5f); // Tunggu animasi masuk selesai
 
-        // 3. Tunggu sampai video siap diputar
-        while (!videoPlayer.isPrepared)
+        // 3. Putar setiap video satu per satu
+        for (int i = 0; i < currentQuiz.questionVideos.Length; i++)
         {
-            yield return null;
+            if (currentQuiz.questionVideos[i] == null) continue; // Skip jika slot kosong
+
+            introVideoFinished = false;
+
+            // Siapkan video
+            videoPlayer.clip = currentQuiz.questionVideos[i];
+            videoPlayer.Prepare();
+
+            // Tunggu sampai siap
+            while (!videoPlayer.isPrepared)
+            {
+                yield return null;
+            }
+
+            // Tampilkan texture video ke RawImage (texture sudah tersedia setelah Prepare)
+            if (videoRawImage != null)
+            {
+                videoRawImage.texture = videoPlayer.texture;
+                videoRawImage.enabled = true;
+            }
+
+            // Putar
+            videoPlayer.Play();
+
+            Debug.Log($"[QuizManager] Memutar video soal {i + 1}/{currentQuiz.questionVideos.Length}: {currentQuiz.questionVideos[i].name}");
+
+            // Tunggu sampai video selesai (flag diset oleh OnVideoFinished)
+            while (!introVideoFinished)
+            {
+                yield return null;
+            }
         }
 
-        // 4. Putar Video
-        videoPlayer.Play();
-        // Sisa alurnya akan dilanjutkan otomatis oleh 'OnVideoFinished' event
+        // 4. Semua video selesai, matikan panel video dengan animasi LeanTween
+        isPlayingQuestionVideos = false;
+        HideVideoPanel();
+        yield return new WaitForSeconds(0.4f); // Tunggu animasi keluar selesai
+
+        // 5. Lanjutkan menampilkan soal
+        ShowQuestionContent();
+    }
+
+    // =============================================
+    // VIDEO PANEL ANIMATION (LeanTween)
+    // =============================================
+
+    /// <summary>
+    /// Menampilkan panel video dengan animasi fade-in (LeanTween)
+    /// </summary>
+    private void ShowVideoPanel()
+    {
+        if (videoPanel == null) return;
+
+        // Cancel animasi LeanTween yang sedang berjalan di panel ini
+        LeanTween.cancel(videoPanel);
+
+        videoPanel.SetActive(true);
+
+        // Pastikan CanvasGroup ada untuk efek fade
+        CanvasGroup cg = videoPanel.GetComponent<CanvasGroup>();
+        if (cg == null) cg = videoPanel.AddComponent<CanvasGroup>();
+
+        // Set state awal
+        cg.alpha = 0f;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
+
+        // Animasi Fade In (tanpa ubah scale)
+        LeanTween.alphaCanvas(cg, 1f, 0.4f).setEaseOutCubic();
+    }
+
+    /// <summary>
+    /// Menyembunyikan panel video dengan animasi fade-out (LeanTween)
+    /// </summary>
+    private void HideVideoPanel()
+    {
+        if (videoPanel == null) return;
+
+        // Cancel animasi LeanTween yang sedang berjalan di panel ini
+        LeanTween.cancel(videoPanel);
+
+        CanvasGroup cg = videoPanel.GetComponent<CanvasGroup>();
+        if (cg == null) cg = videoPanel.AddComponent<CanvasGroup>();
+
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+
+        // Animasi Fade Out (tanpa ubah scale)
+        LeanTween.alphaCanvas(cg, 0f, 0.3f).setEaseInCubic()
+            .setOnComplete(() =>
+            {
+                videoPanel.SetActive(false);
+            });
     }
 
     private void OnVideoFinished(VideoPlayer vp)
     {
-        // 5. Video selesai, matikan panel video
-        if (videoPanel != null) videoPanel.SetActive(false);
-
-        // 6. Lanjutkan menampilkan soal
-        ShowQuestionContent();
+        // Set flag agar coroutine tahu video sudah selesai
+        introVideoFinished = true;
     }
 
     private void ShowQuestionContent()

@@ -8,6 +8,8 @@ public class LoginUI : MonoBehaviour
     // public AuthManager authManager; // Removed: We use Singleton now
     public GameObject loginPanel;
     public GameObject mainMenuPanel;
+    [Tooltip("Drag the 'Title Screen' GameObject here. It will be hidden during login and shown after login succeeds.")]
+    public GameObject titleScreenObject;
     public TMP_InputField usernameInput; // Changed to TMP
     public TMP_InputField passwordInput; // Changed to TMP
     public TMP_Text statusText; // Changed to TMP
@@ -28,6 +30,9 @@ public class LoginUI : MonoBehaviour
         if (showOnStart || !AuthManager.IsLoggedIn)
         {
             ShowLogin();
+
+            // Hide Title Screen while login/register is active
+            if (titleScreenObject) titleScreenObject.SetActive(false);
         }
         else
         {
@@ -143,6 +148,10 @@ public class LoginUI : MonoBehaviour
             if (msg == "Success")
             {
                 SetStatus("Login Successful!", false);
+
+                // Re-activate Title Screen after successful login
+                if (titleScreenObject) titleScreenObject.SetActive(true);
+
                 UpdateUIState();
 
                 // Trigger Main Menu "Press Start"

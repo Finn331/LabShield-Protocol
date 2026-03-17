@@ -26,6 +26,12 @@ MonoBehaviour:
     (4) APD tersedia tetapi
     tidak seluruh siswa menggunakannya'
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionVideos:
+  - {fileID: 32900000, guid: 7ff6cbb46dede0348bbe569f7a822517, type: 3}
+  - {fileID: 32900000, guid: 6b65bb2544247a94ba42046bbe4f2e58, type: 3}
+  - {fileID: 32900000, guid: 8fd0c5cc6bf88a744bbd66cd6a42a0d3, type: 3}
+  - {fileID: 32900000, guid: 2e12495ca965f874ab86fa9b8068e20f, type: 3}
   answers:
   - (1) dan (2)
   - (1) dan (3)

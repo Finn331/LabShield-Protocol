@@ -17,6 +17,9 @@ MonoBehaviour:
     yang dapat mengganggu kegiatan atau membahayakan diri sendiri maupun orang lain.
     Menurut Anda, sikap manakah berikut ini yang berbahaya di laboratorium?
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionVideos:
+  - {fileID: 32900000, guid: f3ff7f41a9245e342974c8bdab80f375, type: 3}
   answers:
   - Tidak di perbolehkan makan dan minum di dalam laboratorium
   - Tidak di izinkan bercanda dan bermain-main dengan alat atau bahan kimia

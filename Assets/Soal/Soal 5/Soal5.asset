@@ -17,6 +17,9 @@ MonoBehaviour:
     asam kuat bersifat korosif pada lengan. Sebagai laboran, tindakan K3 yang paling
     tepat sesuai urutan penanganan darurat adalah \u2026"
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionVideos:
+  - {fileID: 32900000, guid: 65772550afb4e7b42a7268c4a362c44f, type: 3}
   answers:
   - Menghentikan praktikum dan membersihkan area kejadian
   - Memberikan pertolongan pertama tanpa mengamankan area

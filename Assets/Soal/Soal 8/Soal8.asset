@@ -17,6 +17,9 @@ MonoBehaviour:
     mendukung\r\npenerapan keselamatan dan kesehatan kerja (K3) di tempat kerja,
     kecuali \u2026"
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionVideos:
+  - {fileID: 32900000, guid: c51f51e3e8e16c040881057a9c886994, type: 3}
   answers:
   - Pengurangan beban kerja dan kegiatan pengangkutan material
   - Penyediaan ruang gerak yang aman serta permukaan lantai yang tidak licin

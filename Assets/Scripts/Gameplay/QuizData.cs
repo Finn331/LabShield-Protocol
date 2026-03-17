@@ -18,8 +18,8 @@ public class QuizData : ScriptableObject
     [Tooltip("Gambar referensi untuk soal (Boleh kosong, misalnya untuk tabel/simbol)")]
     public Sprite questionImage;
 
-    [Tooltip("Video pembuka yang akan diputar sebelum soal ini muncul (Opsional)")]
-    public VideoClip questionVideo;
+    [Tooltip("Video pembuka yang akan diputar sebelum soal ini muncul (Opsional, bisa lebih dari 1)")]
+    public VideoClip[] questionVideos;
 
     [Tooltip("Pilihan jawaban A, B, C, D")]
     public string[] answers = new string[4];
