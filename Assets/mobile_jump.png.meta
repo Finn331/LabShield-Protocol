@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f36aece841e39f44a849bb31ff5197c8
+guid: 0770eb7f93e8d084286cce72293b03b7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mobile_base_0
+      name: mobile_jump_0
       rect:
         serializedVersion: 2
         x: 25
@@ -138,8 +138,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d56bc0a4697a7d47a0f6c9ae7ae59c5
-      internalID: -1492046112
+      spriteID: 55914abb521819d47828ef513820a731
+      internalID: -1974162556
       vertices: []
       indices: 
       edges: []
@@ -160,7 +160,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      mobile_base_0: -1492046112
+      mobile_jump_0: -1974162556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

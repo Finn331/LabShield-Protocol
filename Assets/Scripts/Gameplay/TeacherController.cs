@@ -19,6 +19,8 @@ public class TeacherController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private Coroutine currentCoroutine;
+
     private void SetAnimTrigger(string triggerName)
     {
         if (animator == null || string.IsNullOrEmpty(triggerName)) return;
@@ -28,6 +30,12 @@ public class TeacherController : MonoBehaviour
         if (!string.IsNullOrEmpty(clappingTrigger)) animator.ResetTrigger(clappingTrigger);
         if (!string.IsNullOrEmpty(wrongTrigger)) animator.ResetTrigger(wrongTrigger);
         if (!string.IsNullOrEmpty(explainTrigger)) animator.ResetTrigger(explainTrigger);
+
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
 
         animator.SetTrigger(triggerName);
     }
@@ -41,7 +49,15 @@ public class TeacherController : MonoBehaviour
     {
         SetAnimTrigger(clappingTrigger);
         Debug.Log("Guru: (Clapping - Benar)");
+        currentCoroutine = StartCoroutine(AutoIdleAfterAnimation(2.0f));
     }
+
+    private System.Collections.IEnumerator AutoIdleAfterAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayIdleAnimation();
+    }
+
 
     public void PlayWrongAnimation()
     {
