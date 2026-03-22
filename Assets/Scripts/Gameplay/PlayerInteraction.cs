@@ -20,6 +20,18 @@ public class PlayerInteraction : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         if (promptText) promptText.gameObject.SetActive(false);
+
+        // --- Auto-wire UI Button Interact agar user tidak perlu setting manual di Inspector ---
+        if (HUDManager.Instance != null && HUDManager.Instance.mobileInteractButton != null)
+        {
+            HUDManager.Instance.mobileInteractButton.onClick.RemoveListener(InteractByUI);
+            HUDManager.Instance.mobileInteractButton.onClick.AddListener(InteractByUI);
+            Debug.Log("[PlayerInteraction] Successfully auto-wired Mobile Interact Button!");
+        }
+        else
+        {
+            Debug.LogWarning("[PlayerInteraction] HUDManager or Mobile Interact Button is missing! Interaction UI will not work.");
+        }
     }
 
     void Update()

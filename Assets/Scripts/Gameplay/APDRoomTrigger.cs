@@ -25,6 +25,12 @@ public class APDRoomTrigger : MonoBehaviour
                     // Hilangkan arah panah Waypoint saat pemain sibuk mencari APD dengan animasi Pop-out
                     HUDManager.Instance.SetWaypointTarget(null); 
                 }
+
+                // Munculkan Score System UI untuk APD
+                if (ScoreSystemManager.Instance != null)
+                {
+                    ScoreSystemManager.Instance.ShowAPDScore(0, InventoryManager.Instance.requiredItems.Count, 0);
+                }
                 
                 Debug.Log("APDRoomTrigger: Player memasuki ruang APD, checklist diaktifkan.");
             }

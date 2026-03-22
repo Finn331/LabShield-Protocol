@@ -120,6 +120,19 @@ public class QuizManager : MonoBehaviour
         if (evaluationPanel != null) evaluationPanel.SetActive(false);
         if (timerText != null) timerText.gameObject.SetActive(true);
 
+        // Selalu mulai Sesi Baru (reset skor ke 0) saat Quiz dimulai
+        if (QuizSessionManager.Instance != null)
+        {
+            QuizSessionManager.Instance.StartNewAttempt();
+        }
+
+        // Munculkan Score Panel dengan animasi LeanTween
+        if (ScoreSystemManager.Instance != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
+        {
+            var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
+            ScoreSystemManager.Instance.ShowQuizScore(attempt.totalCorrect, attempt.totalWrong);
+        }
+
         LoadNextQuestion();
     }
 
@@ -453,6 +466,12 @@ public class QuizManager : MonoBehaviour
     {
         if (teacherController != null) teacherController.PlayIdleAnimation();
 
+        // Sembunyikan Score Panel
+        if (ScoreSystemManager.Instance != null)
+        {
+            ScoreSystemManager.Instance.HideScore();
+        }
+
         yield return new WaitForSeconds(0.5f);
         HideQuiz();
         onQuizFinishedCallback?.Invoke(); // Memanggil trigger ruangan untuk membuka pintu/lanjut jalan
@@ -497,10 +516,19 @@ public class QuizManager : MonoBehaviour
 
     private void UpdateScoreUI()
     {
-        if (correctScoreText != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
-            correctScoreText.text = "Benar: " + QuizSessionManager.Instance.saveData.currentAttempt.totalCorrect.ToString();
+        var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
+        if (attempt == null) return;
+
+        if (correctScoreText != null)
+            correctScoreText.text = "Benar: " + attempt.totalCorrect.ToString();
             
-        if (wrongScoreText != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
-            wrongScoreText.text = "Salah: " + QuizSessionManager.Instance.saveData.currentAttempt.totalWrong.ToString();
+        if (wrongScoreText != null)
+            wrongScoreText.text = "Salah: " + attempt.totalWrong.ToString();
+
+        // Update Global UI Score System
+        if (ScoreSystemManager.Instance != null)
+        {
+            ScoreSystemManager.Instance.UpdateQuizScore(attempt.totalCorrect, attempt.totalWrong);
+        }
     }
 }

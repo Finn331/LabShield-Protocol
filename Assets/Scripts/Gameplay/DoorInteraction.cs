@@ -44,6 +44,13 @@ public class DoorInteraction : Interactable
     [Tooltip("Pilih apakah teks interaksi 'Buka/Tutup Pintu' akan ditampilkan di layar atau tidak.")]
     public bool showPrompt = true;
 
+    [Header("Audio Settings")]
+    [Tooltip("Suara saat pintu mulai dibuka")]
+    public AudioClip openDoorSound;
+    [Tooltip("Suara saat pintu mulai ditutup")]
+    public AudioClip closeDoorSound;
+    private AudioSource audioSource;
+
     private string openPrompt = "Buka Pintu";
     private string closePrompt = "Tutup Pintu";
 
@@ -52,6 +59,16 @@ public class DoorInteraction : Interactable
         if (doorPivot == null)
         {
             doorPivot = transform;
+        }
+
+        // Setup AudioSource
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // Otomatis tambahkan jika belum ada, buat sebagai suara 3D
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = 1f; // 3D Sound
+            audioSource.playOnAwake = false;
         }
 
         // Set prompt awal berdasarkan status pintu
@@ -143,6 +160,16 @@ public class DoorInteraction : Interactable
     private IEnumerator ToggleDoorRoutine()
     {
         isAnimating = true;
+
+        // Memutar Suara Buka / Tutup
+        if (!isOpen && openDoorSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(openDoorSound);
+        }
+        else if (isOpen && closeDoorSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(closeDoorSound);
+        }
 
         Vector3 startRot = doorPivot.localEulerAngles;
         Vector3 endRot = isOpen ? closedRotation : openRotation;

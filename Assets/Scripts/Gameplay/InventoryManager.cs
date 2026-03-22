@@ -127,6 +127,11 @@ public class InventoryManager : MonoBehaviour
                 HUDManager.Instance.ShowInteraction($"Menggunakan {itemName}");
                 Invoke("ClearFeedback", 2f);
 
+                if (ScoreSystemManager.Instance != null)
+                {
+                    ScoreSystemManager.Instance.UpdateAPDScore(collectedItems.Count, requiredItems.Count, wrongItemScore);
+                }
+
                 CheckCompletion();
             }
         }
@@ -142,6 +147,11 @@ public class InventoryManager : MonoBehaviour
 
             // IMPORTANT: We do NOT add it to 'collectedItems' so it doesn't count towards progress, 
             // but we might want to record it for the final score report.
+            
+            if (ScoreSystemManager.Instance != null)
+            {
+                ScoreSystemManager.Instance.UpdateAPDScore(collectedItems.Count, requiredItems.Count, wrongItemScore);
+            }
         }
     }
 
@@ -205,6 +215,14 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("All PPE Collected!");
             HUDManager.Instance.UpdateObjective("APD Lengkap! Silahkan menuju Ruang Ganti untuk mengganti pakaian.");
             
+            if (ScoreSystemManager.Instance != null)
+            {
+                ScoreSystemManager.Instance.HideScore();
+            }
+
+            // Menonaktifkan semua APD sisa di scene agar tidak bisa di-interact lagi
+            PickupItem.DisableAllPickups();
+
             // Tampilkan kembali Waypoint, kali ini menunjuk ke Ruang Ganti
             if (GameplayManager.Instance != null && GameplayManager.Instance.changingRoomWaypoint != null)
             {
