@@ -30,6 +30,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private GameObject evaluationPanel;
     [SerializeField] private TextMeshProUGUI evaluationText;
 
+    [Header("Referensi Ending Screen")]
+    [SerializeField] private GameObject endingScreenPanel;
+    [SerializeField] private TextMeshProUGUI endingPerformanceText;
+
     [Header("Referensi Guru")]
     [SerializeField] private TeacherController teacherController;
 
@@ -130,7 +134,7 @@ public class QuizManager : MonoBehaviour
         if (ScoreSystemManager.Instance != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
         {
             var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
-            ScoreSystemManager.Instance.ShowQuizScore(attempt.totalCorrect, attempt.totalWrong);
+            ScoreSystemManager.Instance.ShowQuizScore(attempt.quizTotalCorrect, attempt.quizTotalWrong);
         }
 
         LoadNextQuestion();
@@ -474,6 +478,43 @@ public class QuizManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
         HideQuiz();
+
+        // Munculkan Ending Screen
+        if (endingScreenPanel != null)
+        {
+            endingScreenPanel.SetActive(true);
+            
+            // Animasi LeanTween (opsional)
+            CanvasGroup cg = endingScreenPanel.GetComponent<CanvasGroup>();
+            if (cg == null) cg = endingScreenPanel.AddComponent<CanvasGroup>();
+            cg.alpha = 0f;
+            LeanTween.alphaCanvas(cg, 1f, 0.5f);
+        }
+
+        // Tampilkan Teks Performa Siswa
+        if (QuizSessionManager.Instance != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
+        {
+            var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
+            if (endingPerformanceText != null)
+            {
+                endingPerformanceText.text = $"<b>Laporan Performa Kamu</b>\n\n" +
+                                             $"<color=#FFD700>Pemilihan APD:</color>\n" +
+                                             $"  • Benar: <color=green>{attempt.apdTotalCorrect}</color>\n" +
+                                             $"  • Salah: <color=red>{attempt.apdTotalWrong}</color>\n" +
+                                             $"  • Waktu: {attempt.apdTimeTakenSeconds:F1} detik\n\n" +
+                                             $"<color=#FFD700>Pengerjaan Kuis:</color>\n" +
+                                             $"  • Benar: <color=green>{attempt.quizTotalCorrect}</color>\n" +
+                                             $"  • Salah: <color=red>{attempt.quizTotalWrong}</color>";
+            }
+
+            // Simpan Ke Server
+            NetworkManager ns = FindFirstObjectByType<NetworkManager>();
+            if (ns != null)
+            {
+                ns.SubmitFullScore();
+            }
+        }
+
         onQuizFinishedCallback?.Invoke(); // Memanggil trigger ruangan untuk membuka pintu/lanjut jalan
     }
 
@@ -520,15 +561,15 @@ public class QuizManager : MonoBehaviour
         if (attempt == null) return;
 
         if (correctScoreText != null)
-            correctScoreText.text = "Benar: " + attempt.totalCorrect.ToString();
+            correctScoreText.text = "Benar: " + attempt.quizTotalCorrect.ToString();
             
         if (wrongScoreText != null)
-            wrongScoreText.text = "Salah: " + attempt.totalWrong.ToString();
+            wrongScoreText.text = "Salah: " + attempt.quizTotalWrong.ToString();
 
         // Update Global UI Score System
         if (ScoreSystemManager.Instance != null)
         {
-            ScoreSystemManager.Instance.UpdateQuizScore(attempt.totalCorrect, attempt.totalWrong);
+            ScoreSystemManager.Instance.UpdateQuizScore(attempt.quizTotalCorrect, attempt.quizTotalWrong);
         }
     }
 }

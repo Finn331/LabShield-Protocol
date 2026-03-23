@@ -24,6 +24,7 @@ public class MainMenuController : MonoBehaviour
 
     [Header("Menu references")]
     public GameObject worldSpaceMenuCanvas; // Ref User: "Canvas Worldspace"
+    public GameObject characterSelectionPanel; // Referensi ke panel baru
 
     [Header("World Menu Transform")]
     public Vector3 menuTargetPos = new Vector3(0.1000356f, 0.7953247f, -3.670000f);
@@ -255,10 +256,45 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayClicked()
     {
-        Debug.Log("[MainMenu] Play Clicked. Loading Scene Asynchronously...");
+        Debug.Log("[MainMenu] Play Clicked. Switching to Character Selection...");
+
+        // Disable interaction
+        SetMenuButtonsInteractive(false);
         
-        // Hide Main Menu
-        if (menuObjectToAnimate) menuObjectToAnimate.SetActive(false);
+        if (menuObjectToAnimate)
+        {
+            // Animate Menu Keluar
+            LeanTween.scale(menuObjectToAnimate, Vector3.zero, 0.4f)
+                .setEase(LeanTweenType.easeInBack)
+                .setOnComplete(() =>
+                {
+                    menuObjectToAnimate.SetActive(false);
+                    SetMenuButtonsInteractive(true); // Restore for when we back
+
+                    // Memunculkan Character Selection
+                    if (characterSelectionPanel)
+                    {
+                        characterSelectionPanel.SetActive(true);
+                        // Scale up animation
+                        characterSelectionPanel.transform.localScale = Vector3.zero;
+                        LeanTween.scale(characterSelectionPanel, menuTargetScale, 0.6f)
+                            .setEase(LeanTweenType.easeOutBack);
+                    }
+                });
+        }
+        else
+        {
+            // Fallback
+            if (characterSelectionPanel) characterSelectionPanel.SetActive(true);
+        }
+    }
+
+    // Fungsi baru ini dipanggil oleh CharacterSelectionManager saat tombol Start Game pada menu pemilihan karakter ditekan
+    public void StartGameFromSelection()
+    {
+        Debug.Log("[MainMenu] Start Game Clicked from Selection. Loading Scene Asynchronously...");
+        
+        if (characterSelectionPanel) characterSelectionPanel.SetActive(false);
 
         // Show Loading Screen if Assigned
         if (loadingScreenUI != null)

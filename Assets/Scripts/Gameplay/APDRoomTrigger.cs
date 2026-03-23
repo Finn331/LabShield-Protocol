@@ -31,6 +31,12 @@ public class APDRoomTrigger : MonoBehaviour
                 {
                     ScoreSystemManager.Instance.ShowAPDScore(0, InventoryManager.Instance.requiredItems.Count, 0);
                 }
+
+                // Mulai pelacakan waktu APD
+                if (QuizSessionManager.Instance != null)
+                {
+                    QuizSessionManager.Instance.StartAPDTimer();
+                }
                 
                 Debug.Log("APDRoomTrigger: Player memasuki ruang APD, checklist diaktifkan.");
             }

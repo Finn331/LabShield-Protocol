@@ -6,8 +6,15 @@ using System.IO;
 public class QuizAttemptData
 {
     public int attemptNumber;
-    public int totalCorrect;
-    public int totalWrong;
+    
+    // --- KLASIFIKASI 1: PENILAIAN APD ---
+    public int apdTotalCorrect;
+    public int apdTotalWrong;
+    public float apdTimeTakenSeconds;
+    
+    // --- KLASIFIKASI 2: PENILAIAN QUIZ ---
+    public int quizTotalCorrect;
+    public int quizTotalWrong;
     public List<QuestionTimeData> questionTimes = new List<QuestionTimeData>();
 }
 
@@ -56,8 +63,11 @@ public class QuizSessionManager : MonoBehaviour
         saveData.currentAttempt = new QuizAttemptData
         {
             attemptNumber = saveData.highestAttemptCount,
-            totalCorrect = 0,
-            totalWrong = 0,
+            apdTotalCorrect = 0,
+            apdTotalWrong = 0,
+            apdTimeTakenSeconds = 0f,
+            quizTotalCorrect = 0,
+            quizTotalWrong = 0,
             questionTimes = new List<QuestionTimeData>()
         };
         SaveData(); // Langsung amankan state "Attempt Baru" ke file.
@@ -73,8 +83,8 @@ public class QuizSessionManager : MonoBehaviour
             StartNewAttempt();
         }
 
-        if (isCorrect) saveData.currentAttempt.totalCorrect++;
-        else saveData.currentAttempt.totalWrong++;
+        if (isCorrect) saveData.currentAttempt.quizTotalCorrect++;
+        else saveData.currentAttempt.quizTotalWrong++;
 
         // Cek apakah soal ini udah pernah direkam sebelumnya (misal crash trus load ulang)
         QuestionTimeData existingData = saveData.currentAttempt.questionTimes.Find(q => q.questionID == qID);
@@ -88,7 +98,42 @@ public class QuizSessionManager : MonoBehaviour
         }
 
         SaveData(); // Auto-save setelah tiap pertanyaan (Offline-Safe / Checkpoint)
-        Debug.Log($"Recorded {qID}: {timeTaken} detik. Benar: {saveData.currentAttempt.totalCorrect}, Salah: {saveData.currentAttempt.totalWrong}");
+        Debug.Log($"Recorded {qID}: {timeTaken} detik. Benar: {saveData.currentAttempt.quizTotalCorrect}, Salah: {saveData.currentAttempt.quizTotalWrong}");
+    }
+
+    // ==========================================
+    // BAGIAN: TIMERS & SCORE APD
+    // ==========================================
+    private float apdStartTime;
+    private bool isApdTimerRunning;
+
+    public void StartAPDTimer()
+    {
+        if (saveData.currentAttempt == null) StartNewAttempt();
+        apdStartTime = Time.time;
+        isApdTimerRunning = true;
+        Debug.Log("QuizSessionManager: Timer APD Dimulai.");
+    }
+
+    public void StopAPDTimer()
+    {
+        if (isApdTimerRunning && saveData.currentAttempt != null)
+        {
+            saveData.currentAttempt.apdTimeTakenSeconds = Time.time - apdStartTime;
+            isApdTimerRunning = false;
+            Debug.Log($"QuizSessionManager: Timer APD Berhenti ({saveData.currentAttempt.apdTimeTakenSeconds} detik).");
+        }
+    }
+
+    public void RecordAPDResult(int correct, int wrong)
+    {
+        if (saveData.currentAttempt != null)
+        {
+            saveData.currentAttempt.apdTotalCorrect = correct;
+            saveData.currentAttempt.apdTotalWrong = wrong;
+            SaveData();
+            Debug.Log($"Recorded APD Result: {correct} Benar, {wrong} Salah.");
+        }
     }
 
     // Jika ingin paksa membersihkan semua data history di memori lokal PC

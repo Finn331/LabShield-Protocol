@@ -220,6 +220,13 @@ public class InventoryManager : MonoBehaviour
                 ScoreSystemManager.Instance.HideScore();
             }
 
+            // Hentikan Timer APD dan Simpan Skor APD ke JSON
+            if (QuizSessionManager.Instance != null)
+            {
+                QuizSessionManager.Instance.StopAPDTimer();
+                QuizSessionManager.Instance.RecordAPDResult(collectedItems.Count, wrongItemScore);
+            }
+
             // Menonaktifkan semua APD sisa di scene agar tidak bisa di-interact lagi
             PickupItem.DisableAllPickups();
 

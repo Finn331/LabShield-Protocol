@@ -143,10 +143,11 @@ app.post('/api/login', loginLimiter, (req, res) => {
 
 // --- SCORE ROUTES ---
 
-// Submit Score (Called by Unity)
+// Submit Score (Called by Unity - New Rich Payload)
+// Expected payload: { studentName, attemptNumber, apdTotalCorrect, apdTotalWrong, apdTimeTakenSeconds, quizTotalCorrect, quizTotalWrong, questionTimes: [{questionID, timeTaken, isCorrect}] }
 app.post('/api/submit-score', (req, res) => {
-    const scoreData = req.body; // { studentName, questionsAnswered, score }
-    console.log('Received Score:', scoreData);
+    const scoreData = req.body;
+    console.log('Received Score:', JSON.stringify(scoreData).substring(0, 300));
 
     const scores = readJSON(SCORES_DB);
     scores.push({
@@ -158,11 +159,18 @@ app.post('/api/submit-score', (req, res) => {
     res.json({ message: 'Score saved' });
 });
 
-// Get Scores (Called by Dashboard)
+// Get All Scores (Called by Teacher Dashboard)
 app.get('/api/scores', (req, res) => {
-    // In real app, check for teacher session/token here
     const scores = readJSON(SCORES_DB);
     res.json(scores);
+});
+
+// Get Scores for a specific student (Called by Student Dashboard)
+app.get('/api/student-scores/:username', (req, res) => {
+    const { username } = req.params;
+    const scores = readJSON(SCORES_DB);
+    const studentScores = scores.filter(s => s.studentName === username);
+    res.json(studentScores);
 });
 
 // --- USER MANAGEMENT ROUTES ---

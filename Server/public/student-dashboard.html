@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - LabShield Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Student Dashboard Specific Styles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-card .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-top: 4px;
+        }
+
+        .stat-card.green .stat-value { color: var(--secondary-color); }
+        .stat-card.red .stat-value { color: var(--danger-color); }
+        .stat-card.violet .stat-value { color: var(--accent-color); }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .attempt-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .attempt-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+        }
+
+        .attempt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .attempt-badge {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .attempt-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .two-col { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .sub-section-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .no-data {
+            text-align: center;
+            color: var(--text-muted);
+            padding: 40px 20px;
+            font-size: 1rem;
+        }
+
+        .no-data .no-data-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 30px 40px;
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome-banner h2 {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .welcome-banner p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body class="flex-center">
+
+    <!-- Login Section -->
+    <div id="login-section" class="card fade-in active">
+        <div style="font-size: 3rem; text-align: center; margin-bottom: 1rem;">🎓</div>
+        <h1 style="text-align: center; font-size: 2rem;">Student Portal</h1>
+        <p style="text-align: center; margin-bottom: 25px;">Login to view your simulation results.</p>
+
+        <form onsubmit="event.preventDefault(); login();">
+            <div style="margin-bottom: 15px;">
+                <input type="text" id="username" placeholder="Username" required>
+            </div>
+            <div style="margin-bottom: 25px;">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">View My Results</button>
+        </form>
+
+        <div id="login-error" class="message error"></div>
+
+        <div class="mt-md" style="text-align: center;">
+            <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">&larr; Back
+                to Home</a>
+        </div>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" class="container fade-in" style="display: none; padding-top: 40px; padding-bottom: 40px;">
+
+        <!-- Welcome Banner -->
+        <div class="welcome-banner">
+            <div>
+                <h2>Selamat Datang, <span id="display-name">Student</span>! 👋</h2>
+                <p>Berikut adalah ringkasan hasil simulasi Anda.</p>
+            </div>
+            <button onclick="logout()" class="btn btn-danger" style="width: auto; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4);">Logout</button>
+        </div>
+
+        <!-- Summary Stats -->
+        <div id="summary-stats" class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-value" id="stat-attempts">-</div>
+                <div class="stat-label">Total Percobaan</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-icon">🛡️</div>
+                <div class="stat-value" id="stat-apd-correct">-</div>
+                <div class="stat-label">APD Benar</div>
+            </div>
+            <div class="stat-card red">
+                <div class="stat-icon">❌</div>
+                <div class="stat-value" id="stat-apd-wrong">-</div>
+                <div class="stat-label">APD Salah</div>
+            </div>
+            <div class="stat-card violet">
+                <div class="stat-icon">📝</div>
+                <div class="stat-value" id="stat-quiz-correct">-</div>
+                <div class="stat-label">Quiz Benar</div>
+            </div>
+        </div>
+
+        <!-- Attempt History -->
+        <div class="card" style="max-width: 100%; margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2 class="section-title">📋 Riwayat Percobaan</h2>
+                <button onclick="loadStudentData()" class="btn btn-secondary" style="width: auto; padding: 8px 16px; font-size: 0.8rem;">Refresh</button>
+            </div>
+            <div id="attempts-container">
+                <div class="no-data">
+                    <div class="no-data-icon">📭</div>
+                    <p>Belum ada data percobaan. Mainkan simulasi terlebih dahulu!</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; font-size: 0.85rem; color: var(--text-muted); opacity: 0.8; margin-top: 20px;">
+            &copy; Space Studio - 2025
+        </div>
+    </div>
+
+    <script>
+        let currentUser = null;
+
+        function login() {
+            const u = document.getElementById('username').value;
+            const p = document.getElementById('password').value;
+            const errDiv = document.getElementById('login-error');
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: u, password: p })
+            })
+                .then(res => {
+                    if (res.status === 429) {
+                        return res.json().then(d => { throw new Error(d.error); });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    if (data.success && data.role === 'student') {
+                        currentUser = u;
+                        document.getElementById('login-section').style.display = 'none';
+                        document.getElementById('dashboard-section').style.display = 'block';
+                        document.getElementById('display-name').textContent = u;
+                        loadStudentData();
+                    } else if (data.success && data.role === 'teacher') {
+                        errDiv.innerText = 'Akun ini adalah akun Guru. Silahkan gunakan Teacher Portal.';
+                        errDiv.className = 'message error active';
+                    } else {
+                        errDiv.innerText = data.error || 'Login gagal.';
+                        errDiv.className = 'message error active';
+                    }
+                })
+                .catch(err => {
+                    errDiv.innerText = err.message || err;
+                    errDiv.className = 'message error active';
+                });
+        }
+
+        function logout() {
+            location.reload();
+        }
+
+        function loadStudentData() {
+            fetch(`/api/student-scores/${encodeURIComponent(currentUser)}`)
+                .then(res => res.json())
+                .then(data => {
+                    renderDashboard(data);
+                });
+        }
+
+        function renderDashboard(scores) {
+            // Summary
+            const totalAttempts = scores.length;
+            let apdCorrectSum = 0, apdWrongSum = 0, quizCorrectSum = 0;
+
+            scores.forEach(s => {
+                apdCorrectSum += (s.apdTotalCorrect || 0);
+                apdWrongSum += (s.apdTotalWrong || 0);
+                quizCorrectSum += (s.quizTotalCorrect || 0);
+            });
+
+            document.getElementById('stat-attempts').textContent = totalAttempts;
+            document.getElementById('stat-apd-correct').textContent = apdCorrectSum;
+            document.getElementById('stat-apd-wrong').textContent = apdWrongSum;
+            document.getElementById('stat-quiz-correct').textContent = quizCorrectSum;
+
+            // Attempts
+            const container = document.getElementById('attempts-container');
+            if (scores.length === 0) {
+                container.innerHTML = `
+                    <div class="no-data">
+                        <div class="no-data-icon">📭</div>
+                        <p>Belum ada data percobaan. Mainkan simulasi terlebih dahulu!</p>
+                    </div>`;
+                return;
+            }
+
+            let html = '';
+            // Show newest first
+            const reversed = [...scores].reverse();
+            reversed.forEach((s, idx) => {
+                const date = s.timestamp ? new Date(s.timestamp).toLocaleString('id-ID') : '-';
+                const apdTime = s.apdTimeTakenSeconds ? s.apdTimeTakenSeconds.toFixed(1) : '0.0';
+                const attemptNum = s.attemptNumber || (reversed.length - idx);
+
+                html += `
+                <div class="attempt-card fade-in">
+                    <div class="attempt-header">
+                        <span class="attempt-badge">Percobaan #${attemptNum}</span>
+                        <span class="attempt-date">🕐 ${date}</span>
+                    </div>
+                    <div class="two-col">
+                        <div>
+                            <div class="sub-section-title">🛡️ Pemilihan APD</div>
+                            <table>
+                                <tr><td style="color: var(--text-muted);">Benar</td><td style="font-weight: 600; color: var(--secondary-color);">${s.apdTotalCorrect || 0}</td></tr>
+                                <tr><td style="color: var(--text-muted);">Salah</td><td style="font-weight: 600; color: var(--danger-color);">${s.apdTotalWrong || 0}</td></tr>
+                                <tr><td style="color: var(--text-muted);">Waktu</td><td style="font-weight: 600;">${apdTime} detik</td></tr>
+                            </table>
+                        </div>
+                        <div>
+                            <div class="sub-section-title">📝 Kuis</div>
+                            <table>
+                                <tr><td style="color: var(--text-muted);">Benar</td><td style="font-weight: 600; color: var(--secondary-color);">${s.quizTotalCorrect || 0}</td></tr>
+                                <tr><td style="color: var(--text-muted);">Salah</td><td style="font-weight: 600; color: var(--danger-color);">${s.quizTotalWrong || 0}</td></tr>
+                            </table>
+                            ${renderQuestionTimes(s.questionTimes)}
+                        </div>
+                    </div>
+                </div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function renderQuestionTimes(questionTimes) {
+            if (!questionTimes || questionTimes.length === 0) return '<p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px;">Belum ada detail soal.</p>';
+
+            let html = '<table style="margin-top: 8px; font-size: 0.85rem;">';
+            html += '<thead><tr><th style="font-size: 0.7rem;">Soal</th><th style="font-size: 0.7rem;">Waktu</th><th style="font-size: 0.7rem;">Status</th></tr></thead><tbody>';
+            questionTimes.forEach(qt => {
+                const statusIcon = qt.isCorrect ? '✅' : '❌';
+                const timeStr = qt.timeTaken ? qt.timeTaken.toFixed(1) + 's' : '-';
+                html += `<tr><td>${qt.questionID || '-'}</td><td>${timeStr}</td><td style="text-align: center;">${statusIcon}</td></tr>`;
+            });
+            html += '</tbody></table>';
+            return html;
+        }
+    </script>
+
+</body>
+
+</html>

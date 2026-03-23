@@ -63,10 +63,13 @@
                     <table id="score-table">
                         <thead>
                             <tr>
-                                <th>Student Name</th>
-                                <th>Questions</th>
-                                <th>Score</th>
-                                <th>Time</th>
+                                <th>Student</th>
+                                <th>APD ✅</th>
+                                <th>APD ❌</th>
+                                <th>APD ⏱️</th>
+                                <th>Quiz ✅</th>
+                                <th>Quiz ❌</th>
+                                <th>Waktu</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -191,16 +194,20 @@
                     const tbody = document.querySelector('#score-table tbody');
                     tbody.innerHTML = '';
                     if (data.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color: var(--text-muted);">No scores recorded yet.</td></tr>';
+                        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color: var(--text-muted);">No scores recorded yet.</td></tr>';
                         return;
                     }
                     data.reverse().forEach(row => {
-                        const date = new Date(row.timestamp).toLocaleString();
+                        const date = row.timestamp ? new Date(row.timestamp).toLocaleString() : '-';
+                        const apdTime = row.apdTimeTakenSeconds ? row.apdTimeTakenSeconds.toFixed(1) + 's' : '-';
                         tbody.innerHTML += `
                     <tr>
-                        <td style="font-weight: 500;">${row.studentName}</td>
-                        <td>${row.questionsAnswered}</td>
-                        <td><span style="font-weight: 600; color: var(--primary-color);">${row.score}</span></td>
+                        <td style="font-weight: 500;">${row.studentName || '-'}</td>
+                        <td style="color: var(--secondary-color); font-weight: 600;">${row.apdTotalCorrect || 0}</td>
+                        <td style="color: var(--danger-color); font-weight: 600;">${row.apdTotalWrong || 0}</td>
+                        <td>${apdTime}</td>
+                        <td style="color: var(--secondary-color); font-weight: 600;">${row.quizTotalCorrect || 0}</td>
+                        <td style="color: var(--danger-color); font-weight: 600;">${row.quizTotalWrong || 0}</td>
                         <td style="font-size: 0.9em; color: var(--text-muted);">${date}</td>
                     </tr>
                 `;

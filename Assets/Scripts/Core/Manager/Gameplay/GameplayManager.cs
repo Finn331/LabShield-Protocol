@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameplayManager : MonoBehaviour
@@ -74,5 +75,16 @@ public class GameplayManager : MonoBehaviour
 
     // Removed unused Score region and Update() loop to prevent conflicts with ScoreSystemManager
 
+    public void LoadMainMenu()
+    {
+        // Pastikan time scale kembali normal sebelum pindah scene
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
 
+    public void QuitGame()
+    {
+        Debug.Log("Keluar dari game...");
+        Application.Quit();
+    }
 }
