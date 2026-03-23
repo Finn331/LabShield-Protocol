@@ -35,6 +35,8 @@ public class APDRoomTrigger : MonoBehaviour
                 // Mulai pelacakan waktu APD
                 if (QuizSessionManager.Instance != null)
                 {
+                    // APD selalu menandai awal percobaan baru.
+                    QuizSessionManager.Instance.StartNewAttempt();
                     QuizSessionManager.Instance.StartAPDTimer();
                 }
                 

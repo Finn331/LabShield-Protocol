@@ -21,6 +21,7 @@ public class MainMenuController : MonoBehaviour
 
     private bool hasStarted = false;
     private bool isLoggedIn = false; // New flag
+    private float startInputUnlockTime = 0f;
 
     [Header("Menu references")]
     public GameObject worldSpaceMenuCanvas; // Ref User: "Canvas Worldspace"
@@ -58,9 +59,15 @@ public class MainMenuController : MonoBehaviour
     [Tooltip("Opsional: Masukkan TextMeshProUGUI untuk animasi teks (Loading...)")]
     public TextMeshProUGUI loadingText;
 
+    private void OnEnable()
+    {
+        PrepareMenuInputState();
+    }
+
     void Start()
     {
         if (mainCamera == null) mainCamera = Camera.main;
+        PrepareMenuInputState();
 
         // Hide Loading Screen if it exists
         if (loadingScreenUI != null) loadingScreenUI.SetActive(false);
@@ -116,12 +123,20 @@ public class MainMenuController : MonoBehaviour
                 .setEase(LeanTweenType.easeInOutSine)
                 .setLoopPingPong();
         }
+
+        // Jika user sudah login sebelumnya (balik dari Gameplay), langsung aktifkan state menu login-sukses
+        if (AuthManager.IsLoggedIn)
+        {
+            OnLoginSuccess();
+        }
     }
 
     // Called by LoginUI when login is successful
     public void OnLoginSuccess()
     {
         isLoggedIn = true;
+        // Wajib tap terpisah setelah login, jangan langsung kebaca dari tap tombol login.
+        startInputUnlockTime = Time.unscaledTime + 0.2f;
 
         // Show Title Screen Sequence
         if (titleText)
@@ -150,20 +165,21 @@ public class MainMenuController : MonoBehaviour
     {
         // Only allow Start if Logged In AND Not Started Yet
         if (!isLoggedIn || hasStarted) return;
+        if (Time.unscaledTime < startInputUnlockTime) return;
 
-        // Ignore clicks if over UI
-        if (IsPointerOverUI()) return;
-
-        // Check Input (New Input System)
+        // Touch-first input untuk mobile (tanpa keyboard).
         bool pressed = false;
 
-        // Check Mouse/Touch
+        // New Input System pointer (mouse/touch unified)
         if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
             pressed = true;
 
-        // Check Keyboard (Any Key)
-        if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.anyKey.wasPressedThisFrame)
+        // Explicit touchscreen fallback
+        if (UnityEngine.InputSystem.Touchscreen.current != null &&
+            UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+        {
             pressed = true;
+        }
 
         if (pressed)
         {
@@ -171,8 +187,16 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+    private void PrepareMenuInputState()
+    {
+        Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void StartGameSequence()
     {
+        if (hasStarted) return;
         hasStarted = true;
 
         // 1. Hide UI
@@ -442,4 +466,5 @@ public class MainMenuController : MonoBehaviour
         }
         return false;
     }
+
 }

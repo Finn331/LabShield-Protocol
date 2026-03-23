@@ -78,11 +78,79 @@ public class QuizManager : MonoBehaviour
         // Pastikan Video UI mati di awal
         if (videoPanel != null) videoPanel.SetActive(false);
         if (videoPlayer != null) videoPlayer.loopPointReached += OnVideoFinished;
+
+        // Rapikan UI ending agar tombol selalu bisa diklik dan teks ringkas pakai Total Nilai Panel
+        SetupEndingScreenUI();
     }
 
     private void OnDestroy()
     {
         if (videoPlayer != null) videoPlayer.loopPointReached -= OnVideoFinished;
+    }
+
+    private void SetupEndingScreenUI()
+    {
+        if (endingScreenPanel == null) return;
+
+        Canvas endingCanvas = endingScreenPanel.GetComponentInParent<Canvas>();
+        if (endingCanvas != null)
+        {
+            GraphicRaycaster raycaster = endingCanvas.GetComponent<GraphicRaycaster>();
+            if (raycaster != null)
+            {
+                raycaster.enabled = true;
+            }
+        }
+
+        // Paksa gunakan teks dari Total Nilai Panel agar muat dan konsisten
+        TextMeshProUGUI totalNilaiText = endingScreenPanel.transform
+            .Find("Total Nilai Panel/Text (TMP)")
+            ?.GetComponent<TextMeshProUGUI>();
+
+        if (totalNilaiText != null)
+        {
+            endingPerformanceText = totalNilaiText;
+        }
+
+        // Non-interaktif panel dekoratif agar tidak menutup raycast tombol
+        SetGraphicRaycast(endingScreenPanel.GetComponent<Image>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Finished Text Panel")?.GetComponent<Image>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Total Nilai Panel")?.GetComponent<Image>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Total Nilai Panel/BL Border")?.GetComponent<Image>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Total Nilai Panel/TR Border")?.GetComponent<Image>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Total Nilai Panel/Text (TMP)")?.GetComponent<TextMeshProUGUI>(), false);
+        SetGraphicRaycast(endingScreenPanel.transform.Find("Button Pause Panel")?.GetComponent<Image>(), false);
+
+        GameplayManager gameplayManager = FindFirstObjectByType<GameplayManager>();
+        if (gameplayManager == null) return;
+
+        Button backToMainMenuButton = endingScreenPanel.transform
+            .Find("Button Pause Panel/Back To Main Menu Button")
+            ?.GetComponent<Button>();
+
+        if (backToMainMenuButton != null)
+        {
+            backToMainMenuButton.onClick.RemoveListener(gameplayManager.LoadMainMenu);
+            backToMainMenuButton.onClick.AddListener(gameplayManager.LoadMainMenu);
+            backToMainMenuButton.interactable = true;
+        }
+
+        Button exitButton = endingScreenPanel.transform
+            .Find("Button Pause Panel/Exit Button")
+            ?.GetComponent<Button>();
+
+        if (exitButton != null)
+        {
+            exitButton.onClick.RemoveListener(gameplayManager.QuitGame);
+            exitButton.onClick.AddListener(gameplayManager.QuitGame);
+            exitButton.interactable = true;
+        }
+    }
+
+    private static void SetGraphicRaycast(Graphic graphic, bool isEnabled)
+    {
+        if (graphic == null) return;
+        graphic.raycastTarget = isEnabled;
     }
 
     private void Update()
@@ -124,8 +192,9 @@ public class QuizManager : MonoBehaviour
         if (evaluationPanel != null) evaluationPanel.SetActive(false);
         if (timerText != null) timerText.gameObject.SetActive(true);
 
-        // Selalu mulai Sesi Baru (reset skor ke 0) saat Quiz dimulai
-        if (QuizSessionManager.Instance != null)
+        // Jangan reset data APD saat kuis dimulai.
+        // Fallback: buat sesi baru hanya jika gameplay dibuka langsung ke quiz (tanpa fase APD).
+        if (QuizSessionManager.Instance != null && QuizSessionManager.Instance.saveData.currentAttempt == null)
         {
             QuizSessionManager.Instance.StartNewAttempt();
         }
@@ -479,6 +548,16 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         HideQuiz();
 
+        // Lepas forced interaction kursi supaya UI ending tidak menunggu tombol E lagi
+        PlayerInteraction playerInteraction = FindFirstObjectByType<PlayerInteraction>();
+        if (playerInteraction != null)
+        {
+            playerInteraction.ReleaseForcedInteraction();
+        }
+
+        // Pastikan wiring tombol/raycast tetap benar sebelum panel ditampilkan
+        SetupEndingScreenUI();
+
         // Munculkan Ending Screen
         if (endingScreenPanel != null)
         {
@@ -491,28 +570,36 @@ public class QuizManager : MonoBehaviour
             LeanTween.alphaCanvas(cg, 1f, 0.5f);
         }
 
-        // Tampilkan Teks Performa Siswa
+        // Tampilkan teks ringkas di Total Nilai Panel
         if (QuizSessionManager.Instance != null && QuizSessionManager.Instance.saveData.currentAttempt != null)
         {
             var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
             if (endingPerformanceText != null)
             {
-                endingPerformanceText.text = $"<b>Laporan Performa Kamu</b>\n\n" +
-                                             $"<color=#FFD700>Pemilihan APD:</color>\n" +
-                                             $"  • Benar: <color=green>{attempt.apdTotalCorrect}</color>\n" +
-                                             $"  • Salah: <color=red>{attempt.apdTotalWrong}</color>\n" +
-                                             $"  • Waktu: {attempt.apdTimeTakenSeconds:F1} detik\n\n" +
-                                             $"<color=#FFD700>Pengerjaan Kuis:</color>\n" +
-                                             $"  • Benar: <color=green>{attempt.quizTotalCorrect}</color>\n" +
-                                             $"  • Salah: <color=red>{attempt.quizTotalWrong}</color>";
+                int totalCorrect = attempt.apdTotalCorrect + attempt.quizTotalCorrect;
+                int totalWrong = attempt.apdTotalWrong + attempt.quizTotalWrong;
+                int totalJawaban = totalCorrect + totalWrong;
+                int nilaiStandar = totalJawaban > 0
+                    ? Mathf.RoundToInt((totalCorrect / (float)totalJawaban) * 100f)
+                    : 0;
+
+                int apdAnswered = attempt.apdTotalCorrect + attempt.apdTotalWrong;
+                int quizAnswered = attempt.quizTotalCorrect + attempt.quizTotalWrong;
+                float apdAccuracy = apdAnswered > 0
+                    ? (attempt.apdTotalCorrect / (float)apdAnswered) * 100f
+                    : 0f;
+                float quizAccuracy = quizAnswered > 0
+                    ? (attempt.quizTotalCorrect / (float)quizAnswered) * 100f
+                    : 0f;
+                float weightedK3 = (apdAccuracy * 0.6f) + (quizAccuracy * 0.4f);
+                int apdPenalty = Mathf.Min(20, attempt.apdTotalWrong * 5);
+                int nilaiK3 = Mathf.Clamp(Mathf.RoundToInt(weightedK3 - apdPenalty), 0, 100);
+
+                endingPerformanceText.text = $"Std:{nilaiStandar} | K3:{nilaiK3}";
             }
 
             // Simpan Ke Server
-            NetworkManager ns = FindFirstObjectByType<NetworkManager>();
-            if (ns != null)
-            {
-                ns.SubmitFullScore();
-            }
+            NetworkManager.SubmitFullScoreSafe();
         }
 
         onQuizFinishedCallback?.Invoke(); // Memanggil trigger ruangan untuk membuka pintu/lanjut jalan
@@ -573,3 +660,4 @@ public class QuizManager : MonoBehaviour
         }
     }
 }
+

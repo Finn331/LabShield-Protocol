@@ -134,6 +134,22 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
+    public void ReleaseForcedInteraction(bool hideInteractionButton = true)
+    {
+        if (currentInteractable != null)
+        {
+            currentInteractable.OnLoseFocus();
+        }
+
+        currentInteractable = null;
+        forcedInteractable = null;
+
+        if (hideInteractionButton && HUDManager.Instance != null)
+        {
+            HUDManager.Instance.ToggleInteractionButton(false);
+        }
+    }
+
     void UpdatePrompt(bool active, string msg = "")
     {
         // Deprecated in favor of HUDManager

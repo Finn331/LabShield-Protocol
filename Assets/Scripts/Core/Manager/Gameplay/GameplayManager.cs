@@ -79,6 +79,8 @@ public class GameplayManager : MonoBehaviour
     {
         // Pastikan time scale kembali normal sebelum pindah scene
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
     }
 

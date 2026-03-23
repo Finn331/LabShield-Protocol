@@ -1,0 +1,11425 @@
+Sumber: MSDS2.pdf
+Total Halaman: 108
+
+===== HALAMAN 1 =====
+MSDS  
+(Material Safety Data Sheet) 
+ 
+ 
+No 
+ 
+Nama Bahan 
+Rumus 
+Kimia 
+Sifat Bahaya 
+Utama 
+Dampak Kesehatan Pertolongan 
+Pertama 
+Penyimpanan 
+ fisik Kimia 
+1. Asam Nitrat HNO₃(I) Wujud: Cairan 
+bening (kadang 
+kekuningan jika 
+terurai) 
+Massa molar: 
+63,01 g/mol 
+Massa jenis: ± 
+1,51 g/mL (pada 
+68%) 
+Titik leleh: −42 
+°C 
+Titik didih: 83 
+°C (asam nitrat 
+pekat) 
+Bau: Tajam dan 
+menyengat 
+Kelarutan: 
+Sangat larut 
+dalam air 
+(membentuk 
+larutan azeotrop) 
+ 
+• Asam kuat 
+Oksidator 
+kuat 
+• Reaksi 
+dengan basa 
+→ garam 
+nitrat + H₂O 
+• Reaksi 
+dengan logam 
+→ garam 
+nitrat + 
+NO/NO₂ 
+• Mudah terurai 
+oleh 
+panas/cahaya 
+• Sangat korosif 
+• Dapat 
+menitrasi 
+senyawa 
+organik 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Dapat korosif 
+terhadap 
+logam. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan 
+mata. 
+• Fatal jika 
+terhirup. 
+• Menyebabkan kulit 
+terbakar yang parah dan 
+kerusakan mata. 
+• Menyebabkan kerusakan 
+mata yang 
+serius. 
+• Toksisitas akut. 
+• Mutagenisitas pada sel 
+nutfah 
+ 
+• Kenakan sarung 
+tangan pelindung/ 
+pakaian pelindung/ 
+pelindung mata/ 
+pelindung wajah. 
+• Jika terkena kulit 
+(atau rambut ): 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilas kulit dengan 
+air. 
+• Jika terhirup: 
+Pindahkan korban 
+ke udara segar dan 
+posisikan yang 
+nyaman untuk 
+bernapas. Segera 
+hubungi SENTRA 
+INFORMASI 
+KERACUNAN 
+atau dokter/ tenaga 
+medis. 
+• Wadah jangan 
+terbuat dari logam 
+atau logam ringan 
+hingga berat. 
+Wadah yang tidak  
+mengandung 
+logam. 
+• Lindungi dari 
+cahaya. Tertutup 
+sangat rapat. 
+Simpan dalam 
+tempat terkunci 
+atau di tempat yang 
+hanya bisa 
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang. Secara 
+terpisah atau 
+bersama-sama 
+dengan bahan 
+pengoksidasi lain 
+saja dan
+
+===== HALAMAN 2 =====
+• Jika terkena mata: 
+Bilas dengan 
+seksama dengan air 
+untuk beberapa 
+menit. Lepaskan 
+lensa kontak jika 
+memakainya dan 
+mudah 
+melakukannya.Lanj
+utkan membilas. 
+• Jauhkan dari  
+sumber nyala dan 
+panas. 
+Dikarenakan 
+potensial untuk 
+beroksidasi, 
+produk-produk ini 
+dapat 
+meningkatkan 
+kebakaran atau 
+memicu kebakaran 
+bahan yang mudah 
+meledak jika 
+berkontak dengan 
+mereka. 
+• Suhu penyimpanan 
+yang 
+direkomendasikan, 
+lihat label produk. 
+2. Asam Asetat CH₃COO
+H(I) 
+Wujud: Cairan 
+tidak berwarna 
+Bau: Tajam khas 
+cuka 
+Massa molar : 
+60,05 g/mol 
+Densitas: ± 1,05 
+g/cm³ (25 °C) 
+Titik didih : ± 
+118 °C 
+Titik leleh : ± 
+16,6 °C 
+• Asam lemah 
+(pKa ≈ 4,76) 
+• Bereaksi 
+dengan basa 
+→ garam 
+asetat + H₂O 
+• Bereaksi 
+dengan 
+alkohol → 
+ester + H₂O 
+(esterifikasi) 
+• Bereaksi 
+dengan logam 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008 
+Data tidak tersedia • Jika terhirup : hirup 
+udara segar 
+• Jika kontak dengan 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak dengan 
+mata: bilaslah 
+dengan air yang 
+• Tertutup sangat 
+rapat. 
+• Suhu penyimpanan 
+yang 
+direkomendasikan, 
+lihat label produk.
+
+===== HALAMAN 3 =====
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+aktif → garam 
+asetat + H₂ 
+• Bersifat 
+korosif pada 
+konsentrasi 
+tinggi 
+• Dapat 
+mengalami 
+dimerisasi 
+melalui ikatan 
+hidrogen 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi kepada 
+dokter jika merasa 
+tidak sehat. 
+3. Asam Fosfat H₃PO₄(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Tidak 
+berbau 
+Massa molar: 
+98,00 g/mol 
+Densitas: ± 1,88 
+g/cm³ (pekat, 25 
+°C) 
+Titik didih: ± 
+158 °C (terurai) 
+Titik leleh: ± 42 
+°C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+ 
+• Asam lemah 
+triprotik 
+(pKa₁ ≈ 2,15; 
+pKa₂ ≈ 7,20; 
+pKa₃ ≈ 12,35) 
+• Bereaksi 
+dengan basa 
+→ garam 
+fosfat + H₂O 
+• Bereaksi 
+dengan logam 
+aktif → garam 
+fosfat + H₂ 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat 
+korosif pada 
+konsentrasi 
+tinggi 
+• Dapat 
+mengalami 
+• Dapat korosif 
+terhadap logam. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Bila termakan, luka 
+bakar hebat di mulut dan 
+kerongkongan, 
+disamping juga bahaya 
+berlubangnya esophagus 
+dan perut. 
+• iritasi mukosa, Batuk, 
+Napas tersengal, 
+Kerusakan yang 
+mungkin : , kerusakan 
+saluran pernapasan 
+• Menyebabkan kulit 
+terbakar yang  parah dan 
+kerusakan mata. 
+Jika terhirup: hirup 
+udara segar. Panggil 
+dokter. 
+Jika kontak 
+dengan kulit : 
+Tanggalkan segera 
+semua pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. Segera 
+panggil dokter. 
+Jika kontak 
+dengan mata : 
+bilaslah dengan air 
+yang banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+• Wadah yang tidak 
+mengandung 
+logam. 
+• Tertutup sangat 
+rapat. 
+• Suhu penyimpanan 
+yang 
+direkomendasikan, 
+lihat label produk.
+
+===== HALAMAN 4 =====
+kondensasi 
+membentuk 
+polifosfat saat 
+dipanaskan 
+Jika tertelan : beri 
+air minum kepada  
+korban (paling 
+banyak dua gelas), 
+hidari muntah 
+(resiko perforasi!). 
+Segera panggil 
+dokter. Jangan 
+mencoba 
+menetralisir. 
+4. Asam Borat H₃BO₃(I) Wujud: Padatan 
+kristal putih 
+(larutan: cair 
+tidak berwarna) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+61,83 g/mol 
+Densitas: ± 1,44 
+g/cm³ 
+Titik leleh: ± 170 
+°C (terurai) 
+Kelarutan: Larut 
+dalam air (lebih 
+larut dalam air 
+panas) 
+ 
+• Asam lemah 
+(pKa ≈ 9,24)  
+• Bersifat asam 
+Lewis 
+(menerima 
+pasangan 
+elektron) 
+• Bereaksi 
+dengan basa → 
+garam borat + 
+H₂O 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat 
+antiseptik 
+lemah 
+• Terdehidrasi 
+saat dipanaskan 
+membentuk 
+B₂O₃ 
+• Korosivitas 
+rendah 
+• Dapat merusak 
+kesuburan, 
+Dapat merusak 
+janin. 
+Setelah penyerapan 
+dengan jumlah besar: 
+• Muntah 
+• Mual 
+• Diare 
+• agitasi, sesak 
+• Kecapekan 
+• ataxia (kerusakan 
+koordinasi alat gerak) 
+• penurunan suhu 
+Toksisitas terhadap 
+Reproduksi 
+• Dapat merusak 
+kesuburan. 
+• Dapat merusak janin. 
+Jika terhirup: hirup 
+udara segar. Panggil 
+dokter. 
+Jika kontak 
+dengan kulit : 
+Tanggalkan segera 
+semua pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata : 
+bilaslah dengan air 
+yang banyak. 
+Hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Kondisi 
+penyimpanan 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang. 
+Suhu penyimpanan 
+yang 
+direkomendasikan, 
+lihat label produk.
+
+===== HALAMAN 5 =====
+dibanding asam 
+kuat 
+Jika tertelan : 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+5. Asam Oksalat H₂C₂O₄(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+90,03 g/mol 
+(anhidrat) 
+Densitas: ± 1,90 
+g/cm³ 
+Titik leleh: ± 189 
+°C (terurai) 
+Kelarutan: Larut 
+dalam air 
+ 
+• Asam lemah 
+diprotik (pKa₁ ≈ 
+1,25; pKa₂ ≈ 
+4,27) 
+• Bersifat 
+pereduksi 
+(reduktor) 
+• Bereaksi 
+dengan basa → 
+garam oksalat + 
+H₂O 
+• Bereaksi 
+dengan ion Ca²⁺ 
+→ endapan 
+kalsium oksalat 
+• Dapat terurai 
+menghasilkan 
+CO dan CO₂ 
+saat dipanaskan 
+• Bersifat toksik 
+dan iritan 
+• Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam 
+• Berbahaya jika 
+tertelan atau 
+terkena kulit. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+Efek akibat termakan 
+dapat meliputi:  
+• Mual,  
+• Muntah,  
+• Iritasi lokal 
+Penghirupan dapat 
+memicu gejala berikut:,  
+• Batuk,  
+• Napas tersengal 
+• Cedera ginjal dapat 
+terjadi.,  
+efek kardiovaskular. 
+Setelah terserap : 
+• agitasi, sesak 
+• Mual 
+• Muntah 
+• Sistem peredaran 
+terganggu 
+• pingsan 
+• gangguan keseimbangan 
+elekrolit cairan tubuh. 
+Jika terhirup: hirup 
+udara segar. 
+Jika kontak 
+dengan kulit : 
+Tanggalkan segera 
+semua pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata : 
+bilaslah dengan air 
+yang banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan : 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Kondisi 
+penyimpanan 
+Tertutup sangat 
+rapat. Kering. 
+Suhu penyimpanan 
+yang 
+direkomendasikan, 
+lihat label produk.
+
+===== HALAMAN 6 =====
+6. Asam Sitrat C₆H₈O₇(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Rasa: Asam 
+Massa molar: 
+192,12 g/mol 
+Densitas: ± 1,66 
+g/cm³ 
+Titik leleh: ± 153 
+°C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+• Asam lemah 
+triprotik 
+(pKa₁ ≈ 3,13; 
+pKa₂ ≈ 4,76; 
+pKa₃ ≈ 6,40) 
+• Bereaksi 
+dengan basa 
+→ garam 
+sitrat + H₂O 
+• Bersifat agen 
+pengkelat 
+(chelating 
+agent) 
+• Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam 
+• Stabil pada 
+suhu ruang 
+• Bersifat 
+antioksidan 
+lemah 
+• Menyebabkan 
+iritasi mata 
+yang serius. 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Muntah, 
+• Diare, 
+• Kerusakan enamel gigi., 
+• Dermatitis 
+• Iritasi selaput lendir,  
+• Nyeri,  
+• Muntah berdarah 
+• Gejala iritasi pada 
+saluran pernapasan. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering. 
+7. Asam Formiat HCOOH(I) Wujud: Cairan 
+tidak berwarna 
+• Asam lemah 
+(pKa ≈ 3,75) 
+• Cairan dan uap 
+mudah menyala.  
+• Bila termakan, luka 
+bakar hebat di mulut dan 
+kerongkongan, 
+• Jika tertelan: Basuh 
+mulut. jangan 
+Simpan wadah 
+tertutup rapat di 
+tempat yang kering
+
+===== HALAMAN 7 =====
+Bau: Tajam 
+menyengat 
+Massa molar: 
+46,03 g/mol 
+Densitas: ± 1,22 
+g/cm³ (25 °C) 
+Titik didih: ± 
+100,8 °C 
+Titik leleh: ± 8,4 
+°C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+• Bersifat 
+reduktor (lebih 
+kuat dari asam 
+asetat) 
+• Bereaksi 
+dengan basa → 
+garam format + 
+H₂O 
+• Bereaksi 
+dengan logam 
+aktif → garam 
+format + H₂ 
+• Mudah 
+teroksidasi 
+menjadi CO₂ 
+dan H₂O 
+• Bersifat korosif 
+dan iritan pada 
+konsentrasi 
+tinggi 
+• Berbahaya jika 
+tertelan.  
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata.  
+• Toksik jika 
+terhirup.  
+• Bersifat korosif 
+terhadap saluran 
+pernafasan. 
+disamping juga bahaya 
+berlubangnya esophagus 
+dan perut. 
+• terbakar pada membran 
+mukosa, Batuk, Napas 
+tersengal, Kerusakan 
+yang mungkin :, 
+kerusakan saluran 
+pernapasan, Edema paru 
+• Mengakibatkan luka 
+bakar yang parah. 
+• Menyebabkan kerusakan 
+mata yang serius. 
+konjungtivitas Iritasi 
+lacrimal karena uap. 
+Resiko kebutaan! 
+merangsang 
+muntah.  
+• Jika terhirup : 
+Pindahkan korban 
+ke tempat berudara 
+segar dan jaga tetap 
+relaks pada posisi 
+yang nyaman untuk 
+bernafas.  
+• Jika terkena mata : 
+Bilas dengan 
+seksama dengan air 
+untuk beberapa 
+menit. Lepaskan 
+lensa kontak jika 
+memakainya dan 
+mudah 
+melakukannya.Lanj
+utkan membilas.  
+• Jika terpapar atau 
+dikuatirkan: Segera 
+hubungi SENTRA 
+INFORMASI 
+KERACUNANata
+u dokter/tenaga 
+medis. 
+dan berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang mempunyai 
+kualifikasi atau 
+berwenang. Dapat 
+terurai membentuk 
+produk-produk gas, 
+khususnya ketika 
+disimpan dalam 
+periode yang lama. 
+Tutup wadah 
+dengan cara tertentu 
+agar 
+memungkinkan 
+tekanan internal 
+untuk keluar (misal 
+katup tekanan 
+berlebih). Lindungi 
+dari cahaya. 
+8. Kalium 
+Permanganat 
+KMnO₄(s) Wujud: Padatan 
+kristal ungu tua 
+Bau: Tidak 
+berbau 
+Massa molar: 
+158,04 g/mol 
+• Oksidator 
+sangat kuat 
+• Dalam suasana 
+asam → 
+direduksi 
+menjadi Mn²⁺ 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Berbahaya jika 
+tertelan. 
+• Korosi/iritasi kulit 
+• Menyebabkan kerusakan 
+mata yang serius. 
+• Kontak dengan kulit 
+dapat menyebabkan:, 
+Edema, Nekrosis, Efek 
+• Jika terhirup: hirup 
+udara segar. 
+Panggil dokter. 
+• Jika kontak dengan 
+kulit: Tanggalkan 
+segera semua 
+• Jangan gunakan 
+dekat bahan -bahan 
+yang mudah 
+terbakar. 
+• Jauhkan dari nyala 
+terbuka,
+
+===== HALAMAN 8 =====
+Densitas: ± 2,70 
+g/cm³ 
+Titik leleh: ± 240 
+°C (terurai) 
+Kelarutan: Larut 
+dalam air 
+menghasilkan 
+larutan ungu 
+ 
+• Dalam suasana 
+netral/basa → 
+membentuk 
+MnO₂ 
+• Bereaksi 
+dengan 
+reduktor 
+menghasilkan 
+perubahan 
+warna khas 
+• Bersifat 
+antiseptik dan 
+disinfektan 
+• Dapat terurai 
+oleh panas atau 
+cahaya 
+• Bersifat korosif 
+dan dapat 
+menodai bahan 
+organik 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata. 
+• Diduga dapat 
+merusak janin. 
+• Dapat 
+menyebabkan 
+kerusakan pada 
+organ (Otak) 
+melalui paparan 
+yang lama atau 
+berulang jika 
+terhirup. 
+• Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+akibat termakan dapat  
+meliputi:, 
+methemoglobinema, 
+gangguan psikologis, 
+Muntah, Mual, Diare 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Segera panggil 
+dokter. 
+• Jika kontak dengan 
+mata: bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+permukaan panas, 
+dan sumber 
+penyulut. 
+9. Kalium 
+Dikromat 
+K₂Cr₂O₇(s) Wujud: Padatan 
+kristal oranye 
+terang 
+Bau: Tidak 
+berbau 
+Massa molar: 
+294,18 g/mol 
+Densitas: ± 2,68 
+g/cm³ 
+Titik leleh: ± 398 
+°C 
+• Oksidator kuat 
+• Dalam suasana 
+asam → 
+direduksi 
+menjadi Cr³⁺ 
+(warna hijau) 
+• Bereaksi 
+dengan reduktor 
+menghasilkan 
+perubahan 
+warna khas 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Toksik bila 
+tertelan. 
+• Berbahaya jika 
+terkena kulit. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata. 
+• Toksisitas akut 
+• Korosi/iritasi kulit 
+• Kerusakan mata 
+serius/iritasi mata 
+• Sensitisasi saluran 
+pernafasan atau pada 
+kulit 
+• Dapat meyebabkan 
+kerusakan genetik. 
+• Jika terkena kulit 
+(atau rambut): 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilas kulit dengan 
+air. 
+• Jika terhirup: 
+Pindahkan korban 
+ke udara segar dan  
+posisikan yang 
+Wadah yang tidak 
+mengandung 
+logam. Tertutup 
+sangat rapat. 
+Simpan dalam 
+tempat terkunci 
+atau di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang mempunyai  
+kualifikasi atau
+
+===== HALAMAN 9 =====
+Kelarutan: Larut 
+dalam air 
+menghasilkan 
+larutan oranye 
+ 
+• Bersifat toksik 
+dan 
+karsinogenik 
+(senyawa 
+Cr(VI)) 
+• Bersifat korosif 
+dan iritan 
+• Stabil pada 
+suhu ruang 
+(kering) 
+• Dapat 
+mengoksidasi 
+senyawa organi 
+• Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+• Fatal jika 
+terhirup. 
+• Dapat 
+menyebabkan 
+alergi atau 
+gejala asma atau 
+kesulitan 
+bernafas jka 
+terhrup. 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Dapat 
+meyebabkan 
+kerusakan 
+genetik. 
+• Dapat 
+meyebabkan 
+kanker. 
+• Dapat merusak 
+kesuburan. 
+Dapat merusak 
+janin. 
+• Menyebabkan 
+kerusakan pada 
+organ (Sistem 
+• Dianggap bersifat 
+potensial karsinogenik 
+pada manusia 
+• Dapat merusak janin. 
+• Dapat merusak 
+kesuburan. 
+• Dapat menyebabkan 
+iritasi pada saluran 
+pernafasan. 
+• Menyebabkan 
+kerusakan organ -organ 
+melalui eksposur yang 
+lama atau  berulang-
+ulang. 
+nyaman untuk 
+bernapas. Segera 
+hubungi SENTRA 
+INFORMASI 
+KERACUNAN 
+atau dokter/ tenaga 
+medis. 
+• Jika terkena  mata : 
+Bilas dengan 
+seksama dengan air 
+untuk beberapa 
+menit. Lepaskan 
+lensa kontak jika 
+memakainya dan  
+mudah 
+melakukannya.Lan
+jutkan membilas. 
+berwenang. Jangan 
+gunakan dekat 
+bahan-bahan yang 
+mudah terbakar
+
+===== HALAMAN 10 =====
+kardiovaskular) 
+melalui paparan 
+yang lama atau 
+berulang jika 
+terhirup. 
+• Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka  
+panjang. 
+10. Kalium Klorida KCl(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+74,55 g/mol 
+Densitas: ± 1,98 
+g/cm³ 
+Titik leleh: ± 770 
+°C 
+Titik didih: ± 
+1420 °C 
+Kelarutan: Larut 
+dalam air 
+ 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → K⁺ 
+dan Cl⁻ 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Stabil secara 
+kimia pada suhu 
+ruang 
+• Bereaksi 
+dengan AgNO₃ 
+→ endapan 
+AgCl 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan 
+Hiperkalemia, Mual, 
+Muntah, Sakit perut, 
+Diare, Sembelit., 
+Paresthesia., Haus, 
+Pening, 
+Ruam, pruritus, 
+Kelemahan, kram otot, 
+perubahan kejiwaan 
+ringan, perubahan visual 
+Minor 
+ 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata: bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 11 =====
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas).  
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+11. Kalium Nitrat KNO₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+101,10 g/mol 
+Densitas: ± 2,11 
+g/cm³ 
+Titik leleh: ± 334 
+°C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: Larut 
+dalam air (lebih 
+larut pada suhu 
+tinggi) 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Oksidator kuat 
+saat dipanaskan 
+• Terionisasi 
+dalam air → K⁺ 
+dan NO₃⁻ 
+• Stabil pada 
+suhu ruang 
+(kering) 
+• Bereaksi 
+dengan reduktor 
+dapat 
+menyebabkan 
+pembakaran 
+• Terurai saat 
+dipanaskan → 
+KNO₂ + O₂ 
+Dapat 
+mengintensifkan 
+api; 
+pengoksidasi 
+• Penyerapan ke dalam 
+tubuh menyebabkan 
+pembentukan 
+methemoglobin yang 
+dalam konsentrasi yang 
+cukup menyebabkan 
+sianosis. Onset mungkin 
+tertunda 2 sampai 4 jam  
+atau lebih. 
+• Setelah penyerapan 
+dengan jumlah besar : 
+Methaemoglobinaemia 
+dengan sakit kepala, 
+aritmia jantung, tekanan 
+darah turun, dyspnoea 
+dan sesak , gejala 
+kuncinya : cyanosis 
+(darah berwarna biru). 
+ 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+Tertutup sangat 
+rapat. Jangan 
+gunakan dekat 
+bahan-bahan yang 
+mudah terbakar.
+
+===== HALAMAN 12 =====
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+12. Kalium Iodida KI(s) Wujud: Padatan 
+kristal putih 
+(dapat 
+menguning bila 
+teroksidasi) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+166,00 g/mol 
+Densitas: ± 3,13 
+g/cm³ 
+Titik leleh: ± 681 
+°C 
+Titik didih: ± 
+1330 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → K⁺ 
+dan I⁻ 
+• I⁻ mudah 
+teroksidasi 
+menjadi I₂ 
+(menyebabkan 
+warna 
+kuning/coklat) 
+• Bereaksi 
+dengan 
+oksidator kuat 
+→ 
+menghasilkan 
+iodin (I₂) 
+• Stabil pada 
+kondisi kering 
+dan gelap 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+Menyebabkan 
+kerusakan pada 
+organ (Tiroid) 
+melalui paparan 
+yang lama atau 
+berulang jika 
+tertelan. 
+• Kontak yang terlalu lama 
+untuk iodida dapat 
+menghasilkan iodism 
+pada individu yang  
+sensitif. Gejala -gejala 
+pemaparan termasuk: 
+ruam kulit, hidung 
+berjalan, sakit kepala dan 
+iritasi selaput lendir.  
+Untuk kasus  yang parah 
+kulit dapat menunjukkan 
+jerawat,  
+bisul, 
+gatal-gatal, lecet dan 
+bintik-bintik hitam dan 
+biru. Iodida dapat segera 
+disebarkan melalui  
+plasenta. kematian 
+neonatal dari gangguan 
+pernapasan sekunder 
+untuk gondok telah  
+dilaporkan. Iodida telah 
+diketahui menyebabkan 
+demam akibat obat, yang 
+biasanya berlangsung 
+singkat. 
+• Setelah penyerapan 
+sejumlah toksik : tekanan 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 13 =====
+darah, turun , gejala 
+kelumpuhan, agitasi, 
+Muntah 
+ 
+ 
+13. Kalium 
+Bromida 
+KBr(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+119,00 g/mol 
+Densitas: ± 2,75 
+g/cm³ 
+Titik leleh: ± 734 
+°C 
+Titik didih: ± 
+1435 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → K⁺ 
+dan Br⁻ 
+• Br⁻ dapat 
+teroksidasi 
+menjadi Br₂ 
+oleh oksidator 
+kuat 
+• Stabil pada 
+suhu ruang 
+(kering) 
+• Bereaksi 
+dengan AgNO₃ 
+→ endapan 
+AgBr 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+Mengiritasi mata. Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 14 =====
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+14. Natrium 
+Karbonat 
+Na₂CO₃(s) Rumus: Na₂CO₃ 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+105,99 g/mol 
+(anhidrat) 
+Densitas: ± 2,54 
+g/cm³ 
+Titik leleh: ± 851 
+°C 
+Kelarutan: Larut 
+dalam air 
+ 
+• Bersifat basa 
+(garam dari 
+basa kuat dan 
+asam lemah) 
+• Terionisasi 
+dalam air → 
+2Na⁺ dan CO₃²⁻ 
+• Bereaksi 
+dengan asam → 
+garam + CO₂ + 
+H₂O 
+• Bereaksi 
+dengan Ca²⁺ → 
+endapan CaCO₃ 
+• Stabil pada 
+suhu ruang 
+(kering) 
+• Larutan bersifat 
+elektrolit kuat 
+• Dapat 
+membentuk 
+hidrat 
+(misalnya 
+Na₂CO₃·10H₂O
+) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+• Kerusakan mata 
+serius/iritasi mata 
+• iritasi mukosa 
+• Iritasi pada membran 
+mukosa mulut, pharink, 
+oeseophagus dan 
+• saluran gastrointestinal. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+Tertutup sangat 
+rapat.
+
+===== HALAMAN 15 =====
+15. Natrium 
+Bikarbonat 
+NaHCO₃(s
+) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+84,01 g/mol 
+Densitas: ± 2,20 
+g/cm³ 
+Titik leleh: 
+Terurai ± 50–100 
+°C 
+Kelarutan: Larut 
+dalam air 
+ 
+• Bersifat basa 
+lemah 
+• Terionisasi 
+dalam air → 
+Na⁺ dan HCO₃⁻ 
+• Bereaksi 
+dengan asam → 
+CO₂ + H₂O + 
+garam 
+• Terurai saat 
+dipanaskan → 
+Na₂CO₃ + CO₂ 
++ H₂O 
+• Bersifat buffer 
+lemah 
+• Stabil pada 
+suhu ruang 
+(kering) 
+• Larutan bersifat 
+elektrolit lemah 
+hingga sedang 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+Jika terkena mata : 
+Bilas dengan 
+seksama dengan air 
+untuk 
+beberapa menit. 
+Lepaskan lensa 
+kontak jika 
+memakainya dan 
+mudah 
+melakukannya.Lanj
+utkan membilas. 
+Jika iritasi mata 
+tidak segera 
+sembuh: Cari 
+pertolongan medis. 
+Tertutup sangat 
+rapat. Kering. 
+16. Natrium Nitrat NaNO₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+84,99 g/mol 
+Densitas: ± 2,26 
+g/cm³ 
+Titik leleh: ± 308 
+°C 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → Na⁺ 
+dan NO₃⁻ 
+• Oksidator kuat 
+saat dipanaskan 
+• Stabil pada suhu 
+ruang (kering) 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Methaemoglobinaemia 
+dengan sakit kepala, 
+• Aritmia jantung,  
+• Tekanan darah turun, 
+• Dyspnoea dan sesak , 
+• Cyanosis (darah 
+berwarna biru). 
+• Kerusakan mata 
+serius/iritasi mata 
+• Toksisitas akut 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+Jangan gunakan 
+dekat bahan -bahan 
+yang mudah 
+terbakar.
+
+===== HALAMAN 16 =====
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+• Bereaksi dengan 
+reduktor dapat 
+mendukung 
+pembakaran 
+• Terurai saat 
+dipanaskan → 
+NaNO₂ + O₂ 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+17. Natrium Nitrit NaNO₂(s) Wujud: Padatan 
+kristal putih 
+kekuningan 
+Bau: Tidak 
+berbau 
+Massa molar: 
+69,00 g/mol 
+Densitas: ± 2,17 
+g/cm³ 
+Titik leleh: ± 271 
+°C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+• Garam dari 
+asam lemah dan 
+basa kuat 
+(bersifat basa 
+lemah) 
+• Terionisasi 
+dalam air → Na⁺ 
+dan NO₂⁻ 
+• Bersifat 
+oksidator 
+sekaligus 
+reduktor lemah 
+• Dalam suasana 
+asam → 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Toksik bila 
+tertelan. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Sangat toksik 
+pada kehidupan 
+perairan. 
+• Sakit kepala,  
+• Mual,  
+• Ketiadaan koordinasi.,  
+• Penyerapan ke dalam 
+tubuh menyebabkan 
+pembentukan 
+methemoglobin yang 
+dalam konsentrasi yang 
+cukup menyebabkan 
+sianosis.  
+Onset mungkin tertunda 2 
+sampai 4 jam atau lebih. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Tertutup sangat 
+rapat. Simpan 
+dalam tempat 
+terkunci atau di 
+tempat yang hanya 
+bisa 
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang. Jangan 
+gunakan
+
+===== HALAMAN 17 =====
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+membentuk 
+HNO₂ (tidak 
+stabil) 
+• Dapat 
+teroksidasi 
+menjadi nitrat 
+(NO₃⁻) 
+• Bersifat toksik 
+dan dapat 
+membentuk 
+nitrosamin 
+berbahaya 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Jika tertelan: beri air 
+minum (paling 
+banyak dua gelas). 
+Segera cari anjuran 
+pengobatan. 
+Hanya di dalam 
+kasus khusus, jika 
+pertolongan tidak 
+tersedia dalam satu 
+jam, rangsang 
+untuk muntah 
+(hanya jika korban 
+tidak sadarkan diri), 
+telan karbon aktif 
+and konsultasikan 
+kepada dokter 
+secepatnya. 
+dekat bahan -bahan 
+yang mudah 
+terbakar. 
+18. Natrium 
+Tiosulfat 
+Na₂S₂O₃(s) Wujud: Padatan 
+kristal putih 
+(umumnya 
+sebagai 
+pentahidrat) 
+• Garam dari 
+asam lemah dan 
+basa kuat 
+(sedikit basa) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Bukan bahan atau 
+campuran berbahaya 
+menurut Peraturan (EC) 
+No 1272/2008. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bukan bahan atau 
+campuran 
+berbahaya menurut 
+Peraturan (EC) No 
+1272/2008.
+
+===== HALAMAN 18 =====
+Bau: Tidak 
+berbau 
+Massa molar: 
+158,11 g/mol 
+(anhidrat) 
+Densitas: ± 1,67 
+g/cm³ 
+(pentahidrat) 
+Titik leleh: ± 48 
+°C (pentahidrat, 
+terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+• Terionisasi 
+dalam air → 
+2Na⁺ dan S₂O₃²⁻ 
+• Bersifat 
+reduktor 
+• Bereaksi dengan 
+asam kuat → 
+SO₂ + S + H₂O 
+• Membentuk 
+kompleks 
+dengan Ag⁺ 
+(digunakan 
+dalam fotografi) 
+• Dapat 
+teroksidasi 
+menjadi sulfat 
+(SO₄²⁻) 
+• Stabil pada suhu 
+ruang (kering) 
+Peraturan (EC) 
+No 1272/2008. 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat 
+19. Natrium Fosfat Na₃PO₄(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+163,94 g/mol 
+(anhidrat) 
+Densitas: ± 1,62 
+g/cm³ 
+• Bersifat basa 
+kuat (garam dari 
+basa kuat dan 
+asam lemah) 
+• Terionisasi 
+dalam air → 
+3Na⁺ dan PO₄³⁻ 
+• Bereaksi dengan 
+asam → garam 
+Tidak ada bahan 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No. 1907/2006.  
+ 
+Kami tidak memiliki 
+penjelasan berbagai 
+gejala toksik.  
+ 
+Setelah menghirup: 
+hirup udara segar.  
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 19 =====
+Titik leleh: ± 
+1583 °C 
+(anhidrat) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+fosfat asam + 
+H₂O 
+• Bereaksi dengan 
+ion Ca²⁺/Mg²⁺ 
+→ endapan 
+fosfat 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Stabil pada suhu 
+ruang (kering) 
+• Dapat 
+membentuk 
+berbagai hidrat 
+(mis. 
+Na₃PO₄·12H₂O) 
+dengan air/ 
+pancuran air.  
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak.  
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi kepada 
+dokter jika merasa 
+tidak sehat.  
+ 
+20. Natrium Asetat CH₃COO
+Na(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Hampir 
+tidak berbau 
+(kadang bau 
+lemah seperti 
+asam asetat) 
+Massa molar: 
+82,03 g/mol 
+(anhidrat) 
+Densitas: ± 1,53 
+g/cm³ 
+Titik leleh: ± 324 
+°C (anhidrat) 
+• Bersifat basa 
+lemah (garam 
+dari basa kuat 
+dan asam lemah) 
+• Terionisasi 
+dalam air → Na⁺ 
+dan CH₃COO⁻ 
+• Bereaksi dengan 
+asam kuat → 
+asam asetat + 
+garam 
+• Bersifat buffer 
+bersama asam 
+asetat 
+• Stabil pada suhu 
+ruang (kering) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Sakit perut, Mual, 
+Muntah 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 20 =====
+Kelarutan: 
+Sangat larut 
+dalam air 
+ 
+• Larutan bersifat 
+elektrolit kuat 
+• Dapat 
+membentuk 
+hidrat (mis. 
+CH₃COONa·3H
+₂O) 
+Setelah kontak pada 
+mata: bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+21. Kalsium 
+Karbonat 
+CaCO₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+100,09 g/mol 
+Densitas: ± 2,71 
+g/cm³ 
+Titik leleh: 
+Terurai ± 825 °C 
+Kelarutan: 
+Sangat sukar 
+larut dalam air 
+ 
+• Bersifat basa 
+lemah 
+• Terionisasi 
+sangat sedikit 
+dalam air → 
+Ca²⁺ dan CO₃²⁻ 
+• Bereaksi dengan 
+asam → Ca²⁺ + 
+CO₂ + H₂O 
+• Terurai saat 
+dipanaskan → 
+CaO + CO₂ 
+• Dapat 
+membentuk 
+endapan dari 
+larutan Ca²⁺ dan 
+CO₃²⁻ 
+• Stabil pada suhu 
+ruang (kering) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Bukan bahan atau 
+campuran berbahaya 
+menurut Peraturan (EC) 
+No 1272/2008. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+Tertutup sangat 
+rapat. Kering
+
+===== HALAMAN 21 =====
+• Bersifat 
+elektrolit lemah 
+dalam larutan 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+22. Kalsium 
+Klorida 
+CaCl₂(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+110,98 g/mol 
+(anhidrat) 
+Densitas: ± 2,15 
+g/cm³ 
+Titik leleh: ± 772 
+°C 
+Titik didih: ± 
+1935 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+(higroskopis/deli
+kuesen) 
+ 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → 
+Ca²⁺ dan 2Cl⁻ 
+• Bersifat 
+higroskopis dan 
+mudah 
+menyerap air 
+• Pelarutan dalam 
+air bersifat 
+eksoterm 
+• Bereaksi dengan 
+CO₃²⁻ → 
+endapan CaCO₃ 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+ 
+ 
+• iritasi mukosa 
+• Iritasi sedang pada 
+mata 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 22 =====
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+23. Kalsium Oksida CaO(s) Wujud: Padatan 
+putih (kapur 
+tohor) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+56,08 g/mol 
+Densitas: ± 3,34 
+g/cm³ 
+Titik leleh: ± 
+2572 °C 
+Titik didih: ± 
+2850 °C 
+Kelarutan: 
+Sedikit larut 
+dalam air 
+ 
+• Bersifat basa 
+kuat 
+• Bereaksi dengan 
+air → Ca(OH)₂ 
+(reaksi 
+eksoterm) 
+• Bereaksi dengan 
+asam → garam 
+kalsium + H₂O 
+• Bereaksi dengan 
+CO₂ → CaCO₃ 
+• Bersifat 
+higroskopis 
+• Bersifat korosif 
+dan iritan 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Iritasi parah pada kulit 
+• Risiko cedera serius pada 
+mata. 
+• Dapat menyebabkan 
+iritasi pada saluran 
+pernafasan. 
+• Batuk, Napas tersengal, 
+Sakit kepala, Mual, 
+Muntah 
+Jika terhirup: hirup 
+udara segar. 
+Jika kontak 
+dengan kulit : 
+Tanggalkan segera 
+semua pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata : 
+bilaslah dengan air 
+yang banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+• Jangan gunakan 
+wadah yang 
+terbuat dari logam 
+ringan. 
+• Tertutup sangat 
+rapat. Kering. 
+ 
+24. Kalsium 
+Hidroksida 
+Ca(OH)₂(s) Wujud: Padatan 
+putih (kapur 
+mati) 
+Bau: Tidak 
+berbau 
+• Bersifat basa 
+kuat (dalam 
+larutan jenuh) 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Mengiristasi kulit. 
+• Resiko kornea berkabut. 
+Resiko kebutaan! 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+• Jangan gunakan 
+wadah yang 
+terbuat dari logam 
+ringan.
+
+===== HALAMAN 23 =====
+Massa molar: 
+74,09 g/mol 
+Densitas: ± 2,24 
+g/cm³ 
+Titik leleh: 
+Terurai ± 580 °C 
+Kelarutan: 
+Sedikit larut 
+dalam air 
+(membentuk air 
+kapur) 
+ 
+• Terionisasi 
+dalam air → 
+Ca²⁺ dan 2OH⁻ 
+• Bereaksi dengan 
+asam → garam 
+kalsium + H₂O 
+• Bereaksi dengan 
+CO₂ → CaCO₃ + 
+H₂O 
+• Larutan bersifat 
+alkalis (pH 
+tinggi) 
+• Bersifat 
+iritan/korosif 
+ringan 
+• Stabil pada suhu 
+ruang (kering) 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Penghirupan dapat 
+menyebabkan iritasi pada 
+saluran pernafasan. 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+• Tertutup sangat 
+rapat. Kering. 
+25. Magnesium 
+Sulfat 
+MgSO₄(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+120,37 g/mol 
+(anhidrat) 
+• Garam netral 
+(dari asam kuat 
+dan basa lemah) 
+• Terionisasi 
+dalam air → 
+Mg²⁺ dan SO₄²⁻ 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Bukan bahan atau 
+campuran berbahaya 
+menurut Peraturan  (EC) 
+No 1272/2008. 
+Jika terhirup Setelah 
+menghirup: hirup 
+udara segar. Jika 
+kontak dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 24 =====
+Densitas: ± 2,66 
+g/cm³ 
+Titik leleh: ± 
+1124 °C 
+(anhidrat) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Bentuk umum: 
+Sering sebagai 
+heptahidrat 
+(MgSO₄·7H₂O, 
+garam Epsom) 
+ 
+• Bereaksi dengan 
+basa kuat → 
+endapan 
+Mg(OH)₂ 
+• Stabil pada suhu 
+ruang (kering) 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Dapat 
+membentuk 
+berbagai hidrat 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. Jika 
+kontak dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. Jika 
+tertelan Setelah 
+tertelan: beri air 
+minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi kepada 
+dokter jika merasa 
+tidak sehat. 
+26. Magnesium 
+Klorida 
+MgCl₂(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+95,21 g/mol 
+(anhidrat) 
+Densitas: ± 2,32 
+g/cm³ 
+Titik leleh: ± 714 
+°C 
+Titik didih: ± 
+1412 °C 
+• Garam netral 
+(dari asam kuat 
+dan basa lemah) 
+• Terionisasi 
+dalam air → 
+Mg²⁺ dan 2Cl⁻ 
+• Bersifat 
+higroskopis, 
+mudah 
+menyerap air 
+• Pelarutan dalam 
+air bersifat 
+eksoterm 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 25 =====
+Kelarutan: 
+Sangat larut 
+dalam air 
+(higroskopis/deli
+kuesen) 
+ 
+• Bereaksi dengan 
+basa kuat → 
+endapan 
+Mg(OH)₂ 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+27. Magnesium 
+Oksida 
+MgO(s) Wujud: Padatan 
+putih 
+(serbuk/kristal) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+40,30 g/mol 
+Densitas: ± 3,58 
+g/cm³ 
+Titik leleh: ± 
+2852 °C 
+Titik didih: ± 
+3600 °C 
+Kelarutan: 
+Sangat sukar 
+larut dalam air 
+ 
+• Bersifat basa 
+kuat (oksida 
+basa) 
+• Bereaksi dengan 
+air → Mg(OH)₂ 
+(lambat) 
+• Bereaksi dengan 
+asam → garam 
+magnesium + 
+H₂O 
+• Bereaksi dengan 
+CO₂ → MgCO₃ 
+• Stabil secara 
+termal pada 
+suhu tinggi 
+• Bersifat iritan 
+pada debu halus 
+• Padatan mudah 
+menyala. 
+• Menjadi panas 
+sendiri; dapat 
+menyebabkan 
+kebakaran. 
+• Jika kontak 
+dengan air 
+melepaskan gas-
+gas mudah 
+menyala. 
+Sensasi terbakar, Batuk, 
+mengi, radang 
+tenggorokan, Napas 
+tersengal, Sakit kepala, 
+Mual, Muntah, panas 
+dingin, Demam, 
+kelelahan, nyeri otot, 
+nyeri sendi, ruam, 
+Anoreksia. Untuk yang 
+terbaik dari pengetahuan 
+kita, kimia, fisik, dan 
+sifat toksikologi belum 
+diselidiki 
+secara menyeluruh. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+Kering. Tertutup 
+sangat rapat. 
+Jauhkan dari panas 
+dan sumber 
+api.Tertutup sangat 
+rapat. 
+Jauhkan dari panas 
+dan sumber api.
+
+===== HALAMAN 26 =====
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+28. Aluminium 
+Sulfat 
+Al₂(SO₄)₃(
+s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+342,15 g/mol 
+(anhidrat) 
+Densitas: ± 2,71 
+g/cm³ 
+Titik leleh: 
+Terurai ± 770 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Bentuk umum: 
+Sering sebagai 
+hidrat (mis. 
+Al₂(SO₄)₃·18H₂
+O) 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan bersifat 
+asam) 
+• Terionisasi 
+dalam air → 
+2Al³⁺ dan 
+3SO₄²⁻ 
+• Mengalami 
+hidrolisis 
+membentuk 
+larutan asam 
+• Bereaksi dengan 
+basa → endapan 
+Al(OH)₃ 
+• Stabil pada suhu 
+ruang (kering) 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Dapat korosif 
+terhadap logam.  
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata.  
+ 
+• Mengakibatkan luka 
+bakar yang parah. 
+• Menyebabkan kerusakan 
+mata yang serius. 
+Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit  
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. Segera 
+panggil dokter. 
+Jika kontak 
+dengan mata  
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 27 =====
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+Jika tertelan  
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas), 
+hidari muntah 
+(resiko perforasi!). 
+Segera panggil 
+dokter. Jangan 
+mencoba 
+menetralisir. 
+29. Aluminium 
+Klorida 
+AlCl₃(s) Rumus: AlCl₃ 
+Wujud: Padatan 
+kristal putih 
+kekuningan 
+Bau: Tajam 
+(terutama jika 
+lembap) 
+Massa molar: 
+133,34 g/mol 
+Densitas: ± 2,48 
+g/cm³ 
+Titik leleh: ± 192 
+°C (menyublim) 
+Titik didih: ± 180 
+°C (menyublim) 
+Kelarutan: 
+Sangat larut 
+• Bersifat asam 
+Lewis kuat 
+• Terhidrolisis 
+dalam air → 
+Al(OH)₃ + HCl 
+• Bereaksi dengan 
+basa → endapan 
+Al(OH)₃ 
+• Bersifat korosif 
+dan iritan 
+• Stabil dalam 
+kondisi kering 
+tertutup 
+• Banyak 
+digunakan 
+sebagai katalis 
+(mis. reaksi 
+Friedel–Crafts) 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata. 
+• Menyebabkan 
+kerusakan pada 
+organ (Paru) 
+melalui paparan  
+yang lama atau 
+berulang. 
+• Batuk, Napas tersengal, 
+Sakit kepala, Mual, 
+Muntah 
+• Korosif 
+• Menyebabkan kerusakan 
+mata yang serius. 
+• Bersifat korosif terhadap 
+saluran pernafasan. 
+• Menyebabkan kerusakan 
+organ-organ melalui 
+eksposur yang lama atau 
+berulang-ulang. 
+- Paru 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. Segera 
+panggil dokter. 
+Jika kontak 
+dengan mata 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 28 =====
+dalam air 
+(reaktif) 
+Sifat khusus: 
+Sangat 
+higroskopis 
+ 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas), 
+hidari muntah 
+(resiko perforasi!). 
+Segera panggil 
+dokter. Jangan 
+mencoba 
+menetralisir. 
+30. Aluminium 
+Oksida 
+Al₂O₃(s) Wujud: Padatan 
+kristal putih 
+(alumina) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+101,96 g/mol 
+Densitas: ± 3,95 
+g/cm³ 
+Titik leleh: ± 
+2072 °C 
+Titik didih: ± 
+2977 °C 
+• Bersifat amfoter 
+(asam dan basa) 
+• Bereaksi dengan 
+asam kuat → 
+garam Al³⁺ + 
+H₂O 
+• Bereaksi dengan 
+basa kuat → 
+aluminat (mis. 
+[Al(OH)₄]⁻) 
+Sangat stabil 
+secara termal  
+• Dapat 
+menyebabkan 
+kanker jika 
+terhirup. 
+Karsinogenisitas 
+Dapat menyebabkan 
+kanker jika terhirup. 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 29 =====
+Kelarutan: Tidak 
+larut dalam air 
+ 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat isolator 
+listrik pada suhu 
+ruang 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+31. Besi(II) Sulfat FeSO₄(s) Wujud: Padatan 
+kristal hijau 
+pucat (umumnya 
+sebagai 
+heptahidrat) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+151,91 g/mol 
+(anhidrat) 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan agak 
+asam) 
+• Terionisasi 
+dalam air → 
+Fe²⁺ dan SO₄²⁻ 
+• Mudah 
+teroksidasi oleh 
+udara → Fe³⁺ 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Mengiristasi kulit. 
+• Menyebabkan iritasi 
+mata yang serius. 
+• Mengiristasi kulit. 
+Jika terhirup: hirup 
+udara segar. 
+Jika kontak 
+dengan kulit : 
+Tanggalkan segera 
+semua pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata : 
+Lindungi dari 
+cahaya. 
+Tertutup sangat 
+rapat.  
+Kering.
+
+===== HALAMAN 30 =====
+Densitas: ± 1,90 
+g/cm³ 
+(heptahidrat) 
+Titik leleh: 
+Terurai ± 680 °C 
+(anhidrat) 
+Kelarutan: Larut 
+dalam air 
+Bentuk umum: 
+FeSO₄·7H₂O 
+(vitriol hijau) 
+ 
+(menguning/cok
+lat) 
+• Bereaksi dengan 
+basa → endapan 
+Fe(OH)₂ 
+• Bersifat 
+reduktor lemah 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+bilaslah dengan air 
+yang banyak. 
+Hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan : 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+32. Besi(III) 
+Klorida 
+FeCl₃(s) Rumus: FeCl₃ 
+Wujud: Padatan 
+kristal coklat 
+kekuningan 
+Bau: Tajam 
+(terutama jika 
+lembap) 
+Massa molar: 
+162,20 g/mol 
+Densitas: ± 2,90 
+g/cm³ 
+Titik leleh: ± 306 
+°C 
+Titik didih: ± 315 
+°C (menyublim) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+(higroskopis) 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan bersifat 
+asam) 
+• Terionisasi 
+dalam air → 
+Fe³⁺ dan 3Cl⁻ 
+• Mengalami 
+hidrolisis dalam 
+air → Fe(OH)₃ + 
+HCl 
+• Bereaksi dengan 
+basa → endapan 
+Fe(OH)₃ coklat 
+• Bersifat 
+oksidator 
+sedang 
+• Bersifat korosif 
+dan iritan 
+• Dapat korosif 
+terhadap logam. 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+• Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+kejang, peradangan dan 
+edema laring, kejang, 
+peradangan dan edema 
+pada bronkus, 
+pneumonitis, edema paru, 
+Overdosis senyawa besi 
+mungkin memiliki efek 
+korosif pada 
+mukosa gastrointestinal 
+dan diikuti oleh nekrosis, 
+perforasi, dan 
+pembentukan striktur. 
+Beberapa jam mungkin 
+dilalui sebelum gejala -
+gejala yang dapat 
+mencakup nyeri 
+epigastrium, diare, 
+muntah, mual, dan 
+hematemesis terjadi. 
+Setelah pemulihan jelas 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 31 =====
+seseorang bisa 
+mengalami asidosis, 
+kejang, dan jam koma 
+metabolik atau hari 
+kemudian. 
+komplikasi lebih lanjut 
+dapat mengembangkan 
+menyebabkan nekrosis 
+hati akut yang dapat 
+mengakibatkan kematian 
+karena koma hepatik. 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+33. Besi(II) Klorida FeCl₂(s) Wujud: Padatan 
+kristal hijau 
+pucat 
+Bau: Tidak 
+berbau 
+Massa molar: 
+126,75 g/mol 
+Densitas: ± 3,16 
+g/cm³ 
+Titik leleh: ± 677 
+°C 
+Titik didih: ± 
+1023 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+(higroskopis) 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan agak 
+asam) 
+• Terionisasi 
+dalam air → 
+Fe²⁺ dan 2Cl⁻ 
+• Mudah 
+teroksidasi oleh 
+udara → Fe³⁺ 
+• Bereaksi dengan 
+basa → endapan 
+Fe(OH)₂ 
+• Bersifat 
+reduktor lemah 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+Overdosis senyawa besi 
+mungkin memiliki efek 
+korosif pada mukosa 
+gastrointestinal dan 
+diikuti oleh nekrosis, 
+perforasi, dan 
+pembentukan striktur. 
+Beberapa jam mungkin 
+dilalui 
+sebelum gejala -gejala 
+yang dapat mencakup 
+nyeri epigastrium, diare, 
+muntah, mual, dan 
+hematemesis terjadi. 
+Setelah pemulihan jelas 
+seseorang bisa 
+mengalami asidosis, 
+kejang, 
+dan jam koma metabolik 
+atau hari kemudian. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 32 =====
+komplikasi lebih lanjut 
+dapat 
+mengembangkan 
+menyebabkan nekrosis 
+hati akut yang dapat 
+mengakibatkan kematian 
+karena koma hepatik., 
+Gejala dapat tertunda., 
+Efek akibat termakan 
+dapat meliputi:, nyeri 
+epigastrium., Diare, 
+Muntah, Mual, 
+hematemesis 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Hal berikut ini berlaku 
+untuk senyawa besi (iron) 
+telarut secara umum: 
+mual dan muntah 
+setelah tertelan. 
+Penyerapan dalam jumlah 
+besar diikuti oleh 
+gangguan kardiovaskular. 
+Efek toksik pada liver dan 
+ginjal. 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+34. Seng Sulfat ZnSO₄(s) Wujud: Padatan 
+kristal putih 
+(sering sebagai 
+hidrat) 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+• Berbahaya jika 
+tertelan. 
+debu oksida seng atau 
+asap dapat mengiritasi 
+saluran pernapasan. 
+kontak kulit yang lama 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 33 =====
+Bau: Tidak 
+berbau 
+Massa molar: 
+161,47 g/mol 
+(heptahidrat) 
+Densitas: ± 1,97 
+g/cm³ 
+(heptahidrat) 
+Titik leleh: 
+Terurai ± 680 °C 
+(anhidrat) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Bentuk umum: 
+ZnSO₄·7H₂O 
+(white vitriol) 
+ 
+(larutan agak 
+asam) 
+• Terionisasi 
+dalam air → 
+Zn²⁺ dan SO₄²⁻ 
+• Bereaksi dengan 
+basa → endapan 
+Zn(OH)₂ 
+• Bersifat amfoter 
+lemah (Zn(OH)₂ 
+larut dalam basa 
+kuat) 
+• Stabil pada suhu 
+ruang (kering) 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+dapat menghasilkan 
+dermatitis yang parah 
+disebut cacar oksida. 
+Paparan tingkat tinggi 
+debu atau asap dapat 
+menyebabkan rasa 
+logam, ditandai rasa 
+haus, batuk, kelelahan, 
+kelemahan, nyeri otot, 
+dan mual diikuti dengan 
+demam dan menggigil. 
+overexposure parah 
+dapat menyebabkan 
+bronkitis atau pneumonia 
+dengan warna kebiruan 
+pada kulit., Untuk 
+yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat 
+toksikologi belum 
+diselidiki secara 
+menyeluruh. 
+Muntah, Diare, tekanan 
+darah turun, 
+gangguan kardiovaskular, 
+pingsan 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+ 
+35. Seng Klorida ZnCl₂(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+kulit terbakar 
+Seng klorida dan larutan 
+air yang bersifat korosif 
+terhadap mata dan kulit. 
+Mereka 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 34 =====
+Massa molar: 
+136,32 g/mol 
+Densitas: ± 2,91 
+g/cm³ 
+Titik leleh: ± 290 
+°C 
+Titik didih: ± 732 
+°C 
+Kelarutan: 
+Sangat larut 
+dalam air (sangat 
+higroskopis/deli
+kuesen) 
+ 
+(larutan bersifat 
+asam) 
+• Terionisasi 
+dalam air → 
+Zn²⁺ dan 2Cl⁻ 
+• Mengalami 
+hidrolisis dalam 
+air → larutan 
+asam 
+• Bereaksi dengan 
+basa → endapan 
+Zn(OH)₂ 
+• Bersifat asam 
+Lewis (dapat 
+membentuk 
+kompleks) 
+• Bersifat korosif 
+dan elektrolit 
+kuat dalam 
+larutan 
+yang parah dan 
+kerusakan mata. 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+menyebabkan 
+konjungtivitis dan luka 
+bakar pada kornea mata 
+dan menghasilkan luka 
+bakar kimia, terutama 
+pada daerah di mana kulit 
+rusak. Kegiatan tertelan 
+menghasilkan 
+tindakan korosif pada 
+mulut, tenggorokan, dan 
+saluran pencernaan yang 
+dapat mencakup 
+gejala sakit perut, mual, 
+muntah, diare berdarah, 
+pembengkakan 
+tenggorokan, darah 
+dalam urin, dan shock. 
+Inhalasi mengiritasi 
+hidung dan tenggorokan 
+memproduksi batuk, 
+nyeri dada, kulit 
+kebiruan, demam, mual 
+dan muntah, sesak napas, 
+kesulitan bernafas 
+(onset mungkin tertunda 
+beberapa jam), dan 
+radang paru -paru. 
+Kematian terjadi jika 
+terhirup dan menelan., 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. Segera 
+panggil dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas), 
+hidari muntah 
+(resiko perforasi!). 
+Segera panggil 
+dokter. Jangan 
+mencoba 
+menetralisir.
+
+===== HALAMAN 35 =====
+toksikologi belum 
+diselidiki secara 
+menyeluruh. 
+36. Perak Nitrat AgNO₃(s) Wujud: Padatan 
+kristal putih 
+bening 
+Bau: Tidak 
+berbau 
+Massa molar: 
+169,87 g/mol 
+Densitas: ± 4,35 
+g/cm³ 
+Titik leleh: ± 212 
+°C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Sensitif terhadap 
+cahaya (dapat 
+menggelap) 
+ 
+• Oksidator 
+sedang 
+• Terionisasi 
+dalam air → Ag⁺ 
+dan NO₃⁻ 
+• Bereaksi dengan 
+halida (Cl⁻, Br⁻, 
+I⁻) → endapan 
+perak halida 
+• Bereaksi dengan 
+basa → endapan 
+Ag₂O/AgOH 
+(tidak stabil) 
+• Bersifat korosif 
+dan dapat 
+menodai kulit 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Dapat korosif 
+terhadap logam. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata.  
+• Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang.  
+• Mengiritasi kulit. 
+• Menyebabkan iritasi 
+mata yang serius. 
+• Iritasi mukosa, Batuk, 
+Napas tersengal, 
+• Kerusakan yang mungkin 
+:, kerusakan saluran 
+pernapasan  
+Jika tertelan : Basuh 
+mulut. J angan 
+merangsang 
+muntah.  
+Jika terkena mata: 
+Bilas dengan 
+seksama dengan air 
+untuk beberapa 
+menit. Lepaskan 
+lensa kontak jika 
+memakainya dan 
+mudah 
+melakukannya.Lanj
+utkan membilas.  
+Jika terpapar atau 
+dikuatirkan: Segera 
+hubungi sentra 
+informasi keracunan 
+atau dokter/tenaga 
+medis.  
+Persyaratan bagi 
+area penyimpanan 
+Wadah yang tidak 
+mengandung 
+logam.  
+Tertutup sangat 
+rapat.  
+ 
+ 
+37. Timbal(II) 
+Nitrat 
+Pb(NO₃)₂(s
+) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+331,21 g/mol 
+Densitas: ± 4,53 
+g/cm³ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan agak 
+asam) 
+• Terionisasi 
+dalam air → 
+Pb²⁺ dan 2NO₃⁻ 
+•Berbahaya jika 
+tertelan atau bila 
+terhirup. 
+•Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+Salivasi/berliur 
+Muntah 
+tekanan darah turun 
+karena rendahnya 
+kemampuan 
+menyerap melalui saluran 
+pencernaan, hanya dosis 
+ 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara bersih. 
+Segera hubungi 
+dokter. Jika napas 
+terhenti: segera 
+Tertutup sangat 
+rapat. Simpan 
+dalam tempat 
+terkunci atau di 
+tempat yang hanya 
+bisa 
+dimasuki oleh 
+orang-orang yang
+
+===== HALAMAN 36 =====
+Titik leleh: ± 470 
+°C (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Stabil pada suhu 
+ruang (kering) 
+ 
+• Oksidator 
+sedang saat 
+dipanaskan 
+• Bereaksi dengan 
+basa → endapan 
+Pb(OH)₂ 
+• Bereaksi dengan 
+halida (mis. I⁻) 
+→ endapan PbI₂ 
+• Bersifat sangat 
+toksik (senyawa 
+timbal) 
+•Menyebabkan 
+kerusakan mata 
+yang serius. 
+•Diduga 
+menyebabkan 
+kanker. 
+•Dapat merusak 
+janin. Diduga 
+dapat merusak 
+kesuburan. 
+•Menyebabkan 
+kerusakan pada 
+organ (Darah, 
+Sistem saraf  
+pusat, Sistem 
+imun, Ginjal)  
+melalui paparan  
+yang lama atau 
+berulang.  
+•Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+yang sangat tinggi 
+menyebabkan kasus 
+intoksikasi akut. Setelah 
+periode laten beberapa 
+jam, rasa logam, mual, 
+muntah dan kolik 
+terjadi, dan pada banyak 
+contoh diikuti dengan 
+shock. Penyerapan kronis 
+menyebabkan 
+kelemahan otot periheral 
+("drop-wrist"), anemia 
+dan gangguan syaraf 
+pusat. Wanita usia 
+produktif tidak boleh 
+terpapar bahan dalam 
+waktu lebih lama 
+(pengamatan ambang 
+batas 
+kritis). 
+berikan pernapasan 
+buatan secara 
+mekanik, jika 
+diperlukan berikan 
+oksigen. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+mempunyai 
+kualifikasi atau 
+berwenang. Jangan 
+gunakan 
+dekat bahan -bahan 
+yang mudah 
+terbakar.
+
+===== HALAMAN 37 =====
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+38. Barium Klorida BaCl₂(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+208,23 g/mol 
+(anhidrat) 
+Densitas: ± 3,86 
+g/cm³ 
+Titik leleh: ± 962 
+°C 
+Titik didih: ± 
+1560 °C 
+Kelarutan: Larut 
+dalam air 
+Bentuk umum: 
+Sering sebagai 
+dihidrat 
+(BaCl₂·2H₂O) 
+ 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → 
+Ba²⁺ dan 2Cl⁻ 
+• Bereaksi dengan 
+SO₄²⁻ → 
+endapan BaSO₄ 
+putih 
+• Stabil pada suhu 
+ruang (kering) 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Bersifat toksik 
+(senyawa 
+barium larut 
+• Toksik bila 
+tertelan. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Berbahaya jika 
+terhirup. 
+setelah tertelan : 
+iritasi mukosa, mual, 
+mengeluarkan air liur, 
+muntah, pusing, nyeri, 
+kolik dan diare. Efek 
+sistemik termasuk : detak 
+jantung tak beraturan, 
+bradycardia (aktivitas 
+jantung 
+berkurang), peningkatan 
+tekanan darah, shock dan 
+sistem sirkulasi 
+mengalami kolaps serta 
+otot kaku. 
+Intoksikasi kronis: 
+kerusakan saluran 
+pernapasan 
+konjungtivitas 
+Dermatitis 
+gangguan kardiovaskular 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+napas buatan mulut 
+ke 
+mulut atau secara 
+mekanik. Berikan 
+masker oksigen jika 
+mungkin. Segera 
+hubungi dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 38 =====
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Jika tertelan: beri air 
+minum (paling 
+banyak dua gelas). 
+Segera cari anjuran 
+pengobatan. 
+Hanya di dalam 
+kasus khusus, jika 
+pertolongan tidak 
+tersedia dalam satu 
+jam, rangsang 
+untuk muntah 
+(hanya jika korban 
+tidak sadarkan diri), 
+telan karbon aktif 
+and konsultasikan 
+kepada dokter 
+secepatnya. 
+39. Barium Nitrat Ba(NO₃)₂(
+s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+261,34 g/mol 
+Densitas: ± 3,24 
+g/cm³ 
+Titik leleh: ± 592 
+°C 
+• Garam netral 
+(dari asam kuat 
+dan basa kuat) 
+• Terionisasi 
+dalam air → 
+Ba²⁺ dan 2NO₃⁻ 
+• Oksidator 
+sedang saat 
+dipanaskan 
+• Bereaksi dengan 
+SO₄²⁻ → 
+endapan BaSO₄ 
+• Dapat 
+mengintensifkan 
+api; 
+pengoksidasi. 
+• Toksik bila 
+tertelan. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Berbahaya jika 
+terhirup. 
+• Toksik bila tertelan. 
+• Menyebabkan iritasi mata 
+yang serius 
+• Berbahaya jika terhirup. 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+napas buatan mulut 
+ke 
+mulut atau secara 
+mekanik. Berikan 
+masker oksigen jika 
+mungkin. Segera 
+hubungi dokter. 
+Tertutup sangat 
+rapat. Simpan 
+dalam tempat 
+terkunci atau di 
+tempat yang hanya 
+bisa 
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang. Jangan 
+gunakan
+
+===== HALAMAN 39 =====
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: Larut 
+dalam air 
+Stabil pada suhu 
+ruang (kering) 
+ 
+• Dapat 
+mendukung 
+pembakaran 
+dengan reduktor 
+• Bersifat toksik 
+(senyawa 
+barium larut) 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Jika tertelan: beri air 
+minum (paling 
+banyak dua gelas). 
+Segera cari anjuran 
+pengobatan. 
+Hanya di dalam 
+kasus khusus, jika 
+pertolongan tidak 
+tersedia dalam satu 
+jam, rangsang 
+untuk muntah 
+(hanya jika korban 
+dekat bahan -bahan 
+yang mudah 
+terbakar.
+
+===== HALAMAN 40 =====
+tidak sadarkan diri), 
+telan karbon aktif 
+and konsultasikan 
+kepada dokter 
+secepatnya. 
+40. Amonium 
+Klorida 
+NH₄Cl(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau / sedikit 
+amonia 
+Massa molar: 
+53,49 g/mol 
+Densitas: ± 1,53 
+g/cm³ 
+Titik leleh: ± 338 
+°C 
+(menyublim/teru
+rai) 
+Titik didih: Tidak 
+berlaku 
+(menyublim) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+pH larutan (5%): 
+± 4,5 –6 (sedikit 
+asam) 
+ 
+• Garam dari basa 
+lemah dan asam 
+kuat (larutan 
+bersifat asam) 
+• Terionisasi 
+dalam air → 
+NH₄⁺ dan Cl⁻ 
+• Terurai saat 
+dipanaskan → 
+NH₃ dan HCl 
+• Bereaksi dengan 
+basa kuat → 
+melepaskan NH₃ 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+pada konsentrasi 
+tinggi 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+Setelah tertelan: gejala 
+iritasi lokal, mual, 
+muntah, diare. Efek 
+sistemik: setelah 
+pemasukan dalam jumlah 
+sangat 
+banyak: penurunan 
+tekanan darah, pingsan, 
+gangguan CNS, sesak, 
+kondisi narkosis, 
+paralisis pernapasan, 
+hemolisa. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+Tertutup sangat 
+rapat.  
+Kering. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 41 =====
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+41. Amonium 
+Nitrat 
+NH₄NO₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+80,04 g/mol 
+Densitas: ± 1,72 
+g/cm³ 
+Titik leleh: ± 169 
+°C 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya 
+(mudah 
+menyerap 
+kelembapan) 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan sedikit 
+asam) 
+• Terionisasi 
+dalam air → 
+NH₄⁺ dan NO₃⁻ 
+• Oksidator kuat 
+• Terurai saat 
+dipanaskan → 
+N₂O, NOₓ, H₂O 
+(dapat eksplosif 
+pada kondisi 
+tertentu) 
+• Bereaksi hebat 
+dengan bahan 
+pereduksi/organ
+ik 
+• Stabil pada suhu 
+ruang jika 
+kering dan 
+murni 
+• Bersifat iritan  
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+Gangguan saluran cerna, 
+Kelainan darah 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Setelah penyerapan 
+dengan jumlah besar : 
+Methaemoglobinaemia 
+dengan sakit kepala, 
+aritmia jantung, tekanan 
+darah turun, 
+dyspnoea dan sesak, 
+gejala kuncinya: cyanosis 
+(darah berwarna biru). 
+Setelah tertelan: gejala 
+iritasi lokal, mual, 
+muntah, diare. Efek 
+sistemik: setelah 
+pemasukan dalam jumlah 
+sangat 
+banyak: penurunan 
+tekanan darah, pingsan, 
+gangguan CNS, sesak, 
+kondisi narkosis, 
+paralisis pernapasan, 
+hemolisa. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Tertutup sangat 
+rapat. Kering. 
+Lindungi dari 
+cahaya. Jauhkan 
+dari bahan yang 
+mudah 
+menyala dan 
+sumber nyala dan 
+panas. TRGS 511 
+harus 
+ditinjau.Tertutup 
+sangat rapat. 
+Jauhkan dari bahan 
+yang mudah 
+menyala dan 
+sumber nyala dan 
+panas. TRGS 511 
+harus 
+ditinjau.
+
+===== HALAMAN 42 =====
+42. Amonium 
+Sulfat 
+(NH₄)₂SO₄
+(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+132,14 g/mol 
+Densitas: ± 1,77 
+g/cm³ 
+Titik leleh: ± 
+235–280 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: 
+Sedikit 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan sedikit 
+asam) 
+• Terionisasi 
+dalam air → 
+2NH₄⁺ dan SO₄²⁻ 
+• Terurai saat 
+dipanaskan → 
+NH₃, SO₂/SO₃, 
+H₂O 
+• Bereaksi dengan 
+basa kuat → 
+melepaskan NH₃ 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+ringan 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Setelah tertelan: gejala 
+iritasi lokal, mual, 
+muntah, diare. Efek 
+sistemik: setelah 
+pemasukan dalam jumlah 
+sangat 
+banyak: penurunan 
+tekanan darah, pingsan, 
+gangguan CNS, sesak, 
+kondisi narkosis, 
+paralisis pernapasan, 
+hemolisa. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+Tertutup sangat 
+rapat. Kering. 
+43. Amonium 
+Karbonat 
+(NH₄)₂CO
+₃(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Amonia 
+tajam 
+• Garam dari 
+asam lemah dan 
+basa lemah 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+Setelah tertelan: gejala 
+iritasi lokal, mual, 
+muntah, diare. Efek 
+sistemik: setelah 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 43 =====
+Massa molar: 
+96,09 g/mol 
+Densitas: ± 1,50 
+g/cm³ 
+Titik leleh: 
+Terurai ± 58 –60 
+°C 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+V olatilitas: 
+Mudah 
+menguap/terurai 
+di udara 
+ 
+(larutan bersifat 
+basa lemah) 
+• Terionisasi 
+dalam air → 
+2NH₄⁺ dan 
+CO₃²⁻ 
+• Mudah terurai 
+→ NH₃, CO₂, 
+dan H₂O 
+• Bereaksi dengan 
+asam → garam 
++ CO₂ + H₂O 
+• Bereaksi dengan 
+basa kuat → 
+pelepasan NH₃ 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+pemasukan dalam jumlah 
+sangat 
+banyak: penurunan 
+tekanan darah, pingsan, 
+gangguan CNS, sesak, 
+kondisi narkosis, 
+paralisis pernapasan, 
+hemolisa. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+44. Amonium 
+Asetat 
+CH₃COO
+NH₄(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Lemah khas 
+asam 
+asetat/amonia 
+• Garam dari 
+asam lemah dan 
+basa lemah 
+(larutan hampir 
+netral) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+setelah tertelan: gejala 
+iritasi lokal, mual, 
+muntah, diare. Efek 
+sistemik: setelah 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 44 =====
+Massa molar: 
+77,08 g/mol 
+Densitas: ± 1,07 
+g/cm³ 
+Titik leleh: ± 
+110–114 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya 
+(mudah 
+menyerap 
+kelembapan) 
+ 
+• Terionisasi 
+dalam air → 
+NH₄⁺ dan 
+CH₃COO⁻ 
+• Terurai saat 
+dipanaskan → 
+NH₃, asam 
+asetat, dan 
+produk lain 
+• Bersifat buffer 
+lemah (sistem 
+asetat) 
+• Stabil pada 
+kondisi normal 
+(kering) 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+ringan 
+Peraturan (EC) 
+No 1272/2008. 
+pemasukan dalam jumlah 
+sangat 
+banyak: penurunan 
+tekanan darah, pingsan, 
+gangguan CNS, sesak, 
+kondisi narkosis, 
+paralisis pernapasan, 
+hemolisa. 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+45. Urea CO(NH₂)₂(
+s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau / sangat 
+lemah 
+Massa molar: 
+60,06 g/mol 
+Densitas: ± 1,32 
+g/cm³ 
+• Senyawa 
+organik netral 
+(bukan 
+asam/basa kuat) 
+• Terhidrolisis → 
+NH₃ dan CO₂ 
+(oleh enzim 
+urease/asam-
+basa) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Bahan yang dijumpai di 
+alam 
+Diharapkan tidak 
+terdapat efek toksik jika 
+produk ditangani dengan 
+tepat. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 45 =====
+Titik leleh: ± 
+132–135 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: 
+Sedikit 
+ 
+• Terurai saat 
+dipanaskan → 
+biuret, NH₃, dan 
+produk lain 
+• Dapat 
+membentuk 
+kompleks 
+dengan 
+beberapa ion 
+logam 
+• Stabil pada 
+kondisi normal 
+(kering) 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+ringan 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+46. Glukosa C₆H₁₂O₆(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Rasa: Manis 
+Massa molar: 
+180,16 g/mol 
+Densitas: ± 1,54 
+g/cm³ 
+Titik leleh: ± 
+146–150 °C 
+(terurai/karameli
+sasi) 
+• Gula pereduksi 
+(reducing sugar) 
+• Dapat 
+teroksidasi → 
+asam glukonat 
+• Mengalami 
+fermentasi → 
+etanol + CO₂ 
+(oleh ragi) 
+• Stabil pada 
+kondisi normal 
+(kering) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Bahan yang terbentuk 
+dalam tubuh manusia 
+akibat kondisi fisiologis. 
+Bahan yang dijumpai di 
+alam 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 46 =====
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: 
+Sedikit 
+ 
+• Tidak bersifat 
+oksidator kuat 
+• Dapat 
+mengalami 
+karamelisasi 
+saat dipanaskan 
+• Bersifat iritan 
+sangat rendah 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+47. Sukrosa C₁₂H₂₂O₁₁(
+s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Rasa: Manis 
+Massa molar: 
+342,30 g/mol 
+Densitas: ± 1,59 
+g/cm³ 
+Titik leleh: ± 
+185–186 °C 
+(terurai/karameli
+sasi) 
+Titik didih: Tidak 
+berlaku (terurai) 
+• Gula non -
+pereduksi 
+• Terhidrolisis → 
+glukosa + 
+fruktosa (oleh 
+asam/enzim) 
+• Mengalami 
+karamelisasi 
+saat dipanaskan 
+• Stabil pada 
+kondisi normal 
+(kering) 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 47 =====
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: 
+Rendah 
+ 
+• Dapat 
+mengalami 
+fermentasi 
+setelah 
+hidrolisis 
+• Bersifat iritan 
+sangat rendah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+48. Fruktosa C₆H₁₂O₆(s) Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Rasa: Sangat 
+manis 
+Massa molar: 
+180,16 g/mol 
+Densitas: ± 1,69 
+g/cm³ 
+Titik leleh: ± 
+103–105 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya 
+(mudah 
+• Gula pereduksi 
+(reducing sugar) 
+• Dapat 
+teroksidasi → 
+asam organik 
+terkait 
+• Mengalami 
+fermentasi → 
+etanol + CO₂ 
+(oleh ragi) 
+• Mudah 
+mengalami 
+karamelisasi 
+saat dipanaskan 
+• Stabil pada 
+kondisi normal 
+(kering) 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+sangat rendah 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Bukan bahan atau 
+campuran berbahaya 
+menurut Peraturan (EC) 
+No 1272/2008. 
+Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 48 =====
+menyerap 
+kelembapan) 
+ 
+Setelah tertelan: beri 
+air minum kepada 
+korban (paling 
+banyak dua gelas). 
+Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+49. Metanol CH₃OH(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Alkohol 
+ringan khas 
+Massa molar: 
+32,04 g/mol 
+Densitas: ± 0,79 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−97,6 °C 
+Titik didih: ± 
+64,7 °C 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air 
+Tekanan uap: 
+Tinggi (mudah 
+menguap) 
+Titik nyala: ± 11 
+°C (sangat 
+mudah terbakar) 
+ 
+• Alkohol primer 
+• Mudah terbakar 
+(oksidasi → 
+CO₂ + H₂O) 
+• Dapat 
+teroksidasi → 
+formaldehida → 
+asam format 
+• Bereaksi dengan 
+logam alkali → 
+metoksida + H₂ 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+• Sangat toksik 
+• Cairan dan uap 
+amat mudah 
+menyala.  
+• Toksik bila 
+tertelan, terkena 
+kulit atau bila 
+terhirup. 
+• Menyebabkan 
+kerusakan pada 
+organ (Mata). 
+Efek akut:, Sakit kepala, 
+Pening, Mengantuk, 
+narkosis, Kebutaan, 
+Gangguan penglihatan, 
+efek iritan, Mual, 
+Muntah, agitasi, sesak, 
+inebriation, Koma 
+Efek mengeringkan kulit 
+menyebabkan kulit 
+menjadi kasar dan 
+merekah. 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Efek sistemik : 
+Asidosis, tekanan darah 
+turun, agitasi, sesak, 
+inebriation, Pening, 
+Mengantuk, Sakit kepala, 
+Gangguan penglihatan , 
+Kebutaan, narcosis, 
+Koma 
+Kerusakan pada : 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara bersih. 
+Segera hubungi 
+dokter. Jika napas 
+terhenti: segera 
+berikan pernapasan 
+buatan secara 
+mekanik, jika 
+diperlukan berikan 
+oksigen. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. Segera 
+panggil dokter. 
+Jika kontak 
+dengan mata 
+Simpan wadah 
+tertutup rapat di 
+tempat yang kering 
+dan berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 49 =====
+Hati, Ginjal, Jantung, 
+Kerusakan tetap pada 
+saraf optik. 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah penelanan: 
+udara segar. Paksa 
+korban meminum 
+ethanol (misal, 1 
+gelas minuman 
+yang mengandung 
+40% alkohol). 
+Hubungi segera 
+dokter (dan beritahu 
+adanya penelanan 
+methanol). Hanya 
+untuk kasus khusus, 
+apabila tidak ada 
+pertolongan medis 
+dalam satu 
+jam, paksakan 
+korban untuk 
+muntah (hanya 
+apabila korban sadar 
+sepenuhnya) dan 
+paksa 
+korban minum 
+ethanol lagi (sekitar 
+0.3 ml minuman
+
+===== HALAMAN 50 =====
+40% alkohol per kg 
+berat badan per 
+jam). 
+50. Propanol C₃H₇OH(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Alkohol 
+khas 
+Massa molar: 
+60,10 g/mol 
+Densitas: ± 0,80 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−127 °C (1 -
+propanol) 
+Titik didih: ± 97 
+°C (1-propanol) 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air 
+Tekanan uap: 
+Sedang (mudah 
+menguap) 
+Titik nyala: ± 15 
+°C (mudah 
+terbakar) 
+ 
+• Alkohol primer 
+(untuk 1 -
+propanol) 
+• Mudah terbakar 
+→ CO₂ + H₂O 
+• Dapat 
+teroksidasi → 
+aldehida → 
+asam propionat 
+• Bereaksi dengan 
+logam alkali → 
+propoksida + H₂ 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat iritan 
+dan berbahaya 
+jika 
+tertelan/terhirup 
+Cairan dan uap 
+amat mudah 
+menyala. 
+H318 
+Menyebabkan 
+kerusakan mata 
+yang serius. 
+H336 Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+Depresi sistim syarat 
+sentral, lama atau paparan 
+berulang dapat 
+menyebabkan:, narkosis, 
+Iritasi kulit 
+Efek sistemik : 
+Sakit kepala 
+Vertigo 
+inebriation 
+Tidak sadar 
+narkosis 
+Setelah penggunaan 
+dalam jumlah besar : 
+Koma 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+Simpan wadah 
+tertutup rapat di 
+tempat yang kering 
+dan berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 51 =====
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+51. Isopropanol C₃H₈O(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Alkohol 
+tajam khas 
+Massa molar: 
+60,10 g/mol 
+Densitas: ± 0,785 
+g/cm³ (25 °C) 
+Titik leleh: ± −89 
+°C 
+Titik didih: ± 
+82,5 °C 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air 
+Tekanan uap: 
+Tinggi (mudah 
+menguap) 
+Titik nyala: ± 12 
+°C (sangat 
+mudah terbakar) 
+ 
+• Alkohol 
+sekunder 
+• Sangat mudah 
+terbakar → 
+CO₂ + H₂O 
+• Teroksidasi → 
+aseton 
+• Bereaksi 
+dengan logam 
+alkali → 
+isopropoksida 
++ H₂ 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat iritan; 
+uap dapat 
+menyebabkan 
+pusing 
+• Cairan dan uap 
+amat mudah 
+menyala. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+paparan berulang dapat 
+menyebabkan:, Mual, 
+Sakit kepala, Muntah, 
+narkosis, Mengantuk, 
+Overexposure dapat 
+menyebabkan ringan, 
+efek hati reversibel., 
+Aspirasi dapat 
+menyebabkan:, Edema 
+paru, Pneumonia 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Setelah terserap : 
+Sakit kepala 
+Pening 
+inebriation 
+Tidak sadar 
+Narcosis 
+Setelah penggunaan 
+dalam jumlah besar : 
+Koma 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+Lindungi dari 
+cahaya. Simpan 
+wadah tertutup rapat 
+di tempat yang 
+kering dan 
+berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 52 =====
+ke dokter. 
+52. Aseton C₃H₆O(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis 
+tajam khas 
+Massa molar: 
+58,08 g/mol 
+Densitas: ± 0,79 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−94,7 °C 
+Titik didih: ± 
+56,1 °C 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air 
+Tekanan uap: 
+Tinggi (sangat 
+mudah menguap) 
+Titik nyala: ± 
+−20 °C (sangat 
+mudah terbakar) 
+ 
+• Keton 
+sederhana 
+• Sangat mudah 
+terbakar → CO₂ 
++ H₂O 
+• Dapat 
+mengalami 
+reduksi → 
+isopropanol 
+• Dapat 
+mengalami 
+kondensasi 
+aldol (dengan 
+basa kuat) 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat iritan; 
+uap dapat 
+menyebabkan 
+pusing 
+• Cairan dan uap 
+amat mudah 
+menyala. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+Sakit kepala , Salivasi/ 
+berliur, Mual, Muntah, 
+Pening, narcosis, Koma, 
+Ginjal 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Lindungi dari 
+cahaya.Simpan 
+wadah tertutup rapat 
+di tempat yang 
+kering dan 
+berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 53 =====
+53. Etil Asetat C₄H₈O₂(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis buah 
+khas ester 
+Massa molar: 
+88,11 g/mol 
+Densitas: ± 0,90 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−83,6 °C 
+Titik didih: ± 
+77,1 °C 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam pelarut 
+organik 
+Tekanan uap : 
+Tinggi (mudah 
+menguap) 
+Titik nyala: ± −4 
+°C (sangat 
+mudah terbakar) 
+ 
+• Ester (hasil 
+reaksi asam 
+asetat + etanol) 
+• Mudah terbakar 
+→ CO₂ + H₂O 
+• Terhidrolisis 
+(asam/basa) → 
+etanol + asam 
+asetat 
+• Dapat 
+mengalami 
+reaksi 
+transesterifikas 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+• Uap bersifat 
+iritan dan dapat 
+menyebabkan 
+pusing 
+•Cairan dan uap 
+amat mudah 
+menyala. 
+•Menyebabkan 
+iritasi mata yang 
+serius. 
+•Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+Menyebabkan iritasi mata 
+yang serius, Sakit kepala, 
+Mengantuk, Pening, 
+Muntah, narkosis, 
+anemia, Depresi sistim 
+syarat sentral.  
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Lindungi dari 
+cahaya.Simpan 
+wadah tertutup rapat 
+di tempat yang 
+kering dan 
+berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 54 =====
+54. Dietil Eter C₄H₁₀O(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis khas 
+eter 
+Massa molar: 
+74,12 g/mol 
+Densitas: ± 0,71 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−116 °C 
+Titik didih: ± 
+34,6 °C 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam pelarut 
+organik 
+Tekanan uap: 
+Sangat tinggi 
+(sangat mudah 
+menguap) 
+Titik nyala: ± 
+−45 °C (sangat 
+mudah terbakar) 
+Sifat khusus: 
+Mudah 
+membentuk 
+peroksida 
+eksplosif saat 
+penyimpanan 
+ 
+• Eter sederhana 
+• Sangat mudah 
+terbakar → CO₂ 
++ H₂O 
+• Dapat 
+membentuk 
+peroksida 
+berbahaya oleh 
+oksidasi udara 
+• Relatif inert 
+terhadap banyak 
+reagen (pelarut 
+nonpolar baik) 
+• Stabil jika 
+disimpan 
+dengan inhibitor 
+dan tertutup 
+rapat 
+• Tidak bersifat 
+oksidator 
+• Uap bersifat 
+narkotik/iritan 
+• Cairan dan uap 
+sangat mudah 
+menyala. 
+• Berbahaya jika 
+tertelan. 
+• Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+Penghirupan dapat 
+memicu gejala berikut: 
+Batuk, nyeri dada, Sulit 
+bernapas, Pening, 
+Mengantuk, Kontak 
+dengan mata dapat 
+menyebabkan:, 
+Kemerahan, Memancing 
+air mata., Penglihatan 
+kabur, Waktu lama atau 
+berulang paparan kepada 
+kulit menyebabkan 
+defatting dan dermatitis. 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+Lindungi dari 
+cahaya.Simpan 
+wadah tertutup rapat 
+di tempat yang 
+kering dan 
+berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 55 =====
+55. Kloroform CHCl₃(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis khas 
+kloroform 
+Massa molar: 
+119,38 g/mol 
+Densitas: ± 1,48 
+g/cm³ (25 °C) 
+Titik leleh: ± 
+−63,5 °C 
+Titik didih: ± 
+61,2 °C 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam pelarut 
+organik 
+Tekanan uap: 
+Sedang (mudah 
+menguap) 
+Titik nyala: 
+Tidak mudah 
+terbakar (non -
+flammable) 
+Sensitif 
+cahaya/udara: 
+Dapat 
+membentuk 
+fosgen jika 
+teroksidasi 
+ 
+• Haloalkana 
+(trihalometana 
+• Dapat 
+teroksidasi oleh 
+udara/cahaya → 
+fosgen (COCl₂) 
+beracun 
+• Relatif stabil 
+pada kondisi 
+normal dengan 
+stabilizer 
+• Tidak bersifat 
+oksidator 
+• Tidak mudah 
+terbakar 
+• Bereaksi dengan 
+basa kuat pada 
+kondisi tertentu 
+• Bersifat toksik 
+dan anestetik; 
+uap berbahaya 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Toksik jika 
+terhirup. 
+• Dapat 
+menyebabkan 
+mengantuk dan 
+pusing. 
+• Diduga 
+menyebabkan 
+kanker. 
+• Diduga dapat 
+merusak janin. 
+• Menyebabkan 
+kerusakan pada 
+organ (Hati, 
+Ginjal) melalui 
+paparan yang 
+lama atau 
+berulang jika 
+tertelan. 
+Pening, Mual, agitasi, 
+sesak, inebriation, Sakit 
+kepala, Kelainan 
+perut/usus, ataxia 
+(kerusakan koordinasi 
+alat gerak), gangguan 
+kardiovaskular 
+(Chloroform) 
+Efek mengeringkan kulit 
+menyebabkan kulit 
+menjadi kasar dan 
+merekah. (Chloroform) 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+(Chloroform) 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara bersih. 
+Segera hubungi 
+dokter. Jika napas 
+terhenti: segera 
+berikan pernapasan 
+buatan secara 
+mekanik, jika 
+diperlukan berikan 
+oksigen. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+Lindungi dari 
+cahaya.Tertutup 
+sangat rapat. 
+Simpan di tempat 
+yang berventilasi 
+baik. 
+Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang-orang 
+yang mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 56 =====
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+56. Karbon 
+Tetraklorida 
+CCl₄(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis khas 
+kloroform 
+Massa molar: 
+153,82 g/mol 
+Densitas: ± 1,59 
+g/cm³ (25 °C) 
+Titik leleh: ± −23 
+°C 
+Titik didih: ± 
+76,7 °C 
+Kelarutan: Tidak 
+larut dalam air; 
+larut dalam 
+pelarut organic 
+Tekanan uap: 
+Sedang 
+Titik nyala: 
+Tidak mudah 
+terbakar (non -
+flammable) 
+V olatilitas: 
+Mudah menguap 
+ 
+• Haloalkana 
+(tetrahalkana) 
+• Stabil pada 
+kondisi normal 
+• Dapat terurai 
+oleh panas/UV 
+→ fosgen 
+(COCl₂) beracun 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Tidak mudah 
+terbakar 
+• Relatif inert 
+terhadap banyak 
+reagen 
+• Sangat toksik 
+terhadap hati dan 
+ginjal 
+• Toksisitas Akut: 
+Toksik 
+(beracun) jika 
+tertelan, terkena 
+kulit, atau 
+terhirup 
+(H301+H311+H
+331) 
+• Karsinogenik: 
+Diduga 
+menyebabkan 
+kanker 
+(Suspected of 
+causing cancer) 
+(H351) 
+• Kerusakan 
+Organ: 
+Menyebabkan 
+kerusakan hati 
+dan ginjal 
+melalui paparan 
+jangka panjang 
+atau berulang 
+(H372) 
+Kerusakan Organ: 
+Paparan kronis atau 
+berulang melalui inhalasi 
+atau tertelan 
+menyebabkan kerusakan 
+hati dan ginjal yang 
+serius, serta kelainan 
+fungsi hati 
+(hepatitis/sirosis). 
+Sistem Saraf Pusat: Dapat 
+mempengaruhi sistem 
+saraf pusat, menyebabkan 
+depresi dan kerusakan 
+saraf. 
+Karsinogenik (Pemicu 
+Kanker): Berdasarkan 
+IARC (badan 
+internasional penelitian 
+kanker),  
+ diklasifikasikan sebagai 
+zat yang "mungkin 
+menyebabkan kanker 
+pada manusia" (Group 
+2B/Probable human 
+carcinogen). 
+• Inhalasi: Pindahk
+an korban ke udara 
+segar. Jika tidak 
+bernapas, berikan 
+pernapasan 
+buatan. Segera 
+cari pertolongan 
+medis. 
+• Kontak 
+Kulit: Cuci segera 
+dengan banyak air 
+dan sabun selama 
+minimal 15 menit. 
+Lepas pakaian 
+yang 
+terkontaminasi. 
+• Kontak 
+Mata: Bilas 
+dengan air yang 
+banyak, juga di 
+bawah kelopak 
+mata, selama 
+minimal 15 menit. 
+• Tertelan: Jangan 
+paksakan muntah. 
+Simpan di tempat 
+sejuk, kering, dan 
+berventilasi baik. 
+Jauhkan dari sinar 
+matahari langsung. 
+Pastikan wadah 
+tertutup rapat.
+
+===== HALAMAN 57 =====
+• Iritasi: Dapat 
+menyebabkan 
+iritasi kulit dan 
+reaksi alergi 
+(H317) 
+• Lingkungan: 
+Berbahaya bagi 
+organisme 
+akuatik dan 
+merusak lapisan 
+ozon (H420)  
+Reproduksi: Beberapa 
+studi menunjukkan 
+potensi efek embriotoksik 
+atau fetotoksik pada 
+hewan.  
+Jangan 
+memberikan 
+apapun melalui 
+mulut kepada 
+orang yang tidak 
+sadar. Segera cari 
+pertolongan 
+medis. 
+ 
+57. Fenol C₆H₅OH(s) Wujud: Padatan 
+kristal putih 
+(dapat mencair 
+dekat suhu 
+ruang) 
+Bau: Tajam khas 
+fenolik 
+Massa molar: 
+94,11 g/mol 
+Densitas: ± 1,07 
+g/cm³ (cair, 25 
+°C) 
+Titik leleh: ± 40–
+41 °C 
+Titik didih: ± 
+181–182 °C 
+Kelarutan: 
+Moderat dalam 
+air; larut dalam 
+pelarut organik 
+Tekanan uap:  
+• Asam lemah 
+(pKa ≈ 10) 
+• Bersifat asam 
+lebih kuat dari 
+alkohol alifatik 
+• Bereaksi 
+dengan basa 
+kuat → 
+fenoksida + 
+H₂O 
+• Mudah 
+mengalami 
+substitusi 
+elektrofilik 
+aromatik 
+• Dapat 
+teroksidasi → 
+quinon 
+• Stabil pada 
+kondisi normal 
+• Toksik bila 
+tertelan, terkena 
+kulit atau bila 
+terhirup. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan mata. 
+• Diduga 
+menyebabkan 
+kerusakan 
+genetik.  
+• Dapat 
+menyebabkan 
+kerusakan pada 
+organ (Sistem 
+saraf pusat,  
+• Ginjal, Hati, 
+Kulit) melalui 
+perpanjangan 
+Gangguan sistem saraf 
+pusat (pusing, sakit 
+kepala, kebingungan, 
+kejang). 
+Urin berwarna gelap 
+(indikasi kerusakan 
+ginjal). 
+Detak jantung tidak 
+teratur (aritmia) dan 
+tekanan darah rendah 
+(hipotensi). 
+Kesulitan bernapas 
+Pemberi 
+pertolongan pertama 
+harus melindungi 
+dirinya. Setelah 
+terhirup: Setelah 
+kontak dengan kulit 
+Setelah kontak pada 
+mata : hirup udara 
+bersih. Segera 
+hubungi dokter. Jika 
+napas terhenti: 
+segera berikan 
+pernapasan buatan 
+secara mekanik, jika 
+diperlukan berikan 
+oksigen. bilas 
+dengan 
+polyethylene glycol 
+400 atau campuran 
+polyethylene glycol 
+300/ethanol 2:1 dan 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang mempunyai 
+kualifikasi atau 
+berwenang. 
+Lindungi dari 
+cahaya.
+
+===== HALAMAN 58 =====
+Rendah–sedang 
+Titik nyala: ± 79 
+°C (mudah 
+terbakar) 
+ 
+• Bersifat 
+korosif dan 
+toksik 
+atau paparan 
+berulang. 
+cuci dengan air yang 
+banyak. Jika tidak 
+tersedia, cuci 
+dengan air yang 
+banyak .Segera 
+lepaskan pakaian 
+yang 
+terkontaminasi. 
+Temui penasehat 
+medik secepatnya 
+bilaslah dengan air 
+yang banyak. Segera 
+hubungi dokter 
+mata. 
+Jika tertelan: No. 
+MSDS : 038 beri air 
+minum (paling 
+banyak dua gelas). 
+Segera cari anjuran 
+pengobatan. Hanya 
+di dalam kasus 
+khusus, jika 
+pertolongan tidak 
+tersedia dalam satu 
+jam, rangsang untuk 
+muntah (hanya jika 
+korban tidak 
+sadarkan diri), telan 
+karbon aktif and 
+konsultasikan 
+kepada dokter 
+secepatnya.
+
+===== HALAMAN 59 =====
+58. Anilin C₆H₅NH₂(I
+) 
+Wujud: Cairan 
+tidak berwarna 
+hingga 
+kekuningan 
+Bau: Tajam khas 
+amina aromatik 
+Massa molar: 
+93,13 g/mol 
+Densitas: ± 1,02 
+g/cm³ (25 °C) 
+Titik leleh: ± −6 
+°C 
+Titik didih: ± 184 
+°C 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam pelarut 
+organik 
+Tekanan uap: 
+Rendah 
+Titik nyala: ± 70 
+°C (mudah 
+terbakar) 
+ 
+• Basa lemah 
+(amina 
+aromatik) 
+• Membentuk 
+garam anilinium 
+dengan asam 
+• Mudah 
+teroksidasi oleh 
+udara → 
+menggelap 
+• Mengalami 
+substitusi 
+elektrofilik 
+aromatik 
+• Dapat 
+didiazotasi → 
+garam 
+diazonium 
+• Stabil pada 
+kondisi normal 
+tertutup 
+• Bersifat toksik 
+dan dapat 
+diserap melalui 
+kulit 
+• Potensi Efek 
+Kesehatan Akut: 
+Berbahaya jika 
+berkontak 
+dengan kulit 
+(iritan, 
+permeator), 
+kontak mata 
+(iritan), 
+menelan, 
+menghirup. 
+paparan berlebih 
+dapat 
+mengakibatkan 
+kematian.  
+• Potensi Efek 
+Kesehatan 
+kronis: 
+berbahaya jika 
+berkontak 
+dengan kulit 
+(sensitizer).  
+• Efek 
+karsinogenik: 
+bersifat 
+karsinogenik 
+(Terbukti untuk 
+hewan.)  
+• Efek mutagenik: 
+mutagenik untuk 
+sel somatik 
+mamalia. 
+Dapat mempengaruhi  
+bahan genetic dan 
+menyebabkan   efek  
+reproduksi yang   
+merugikan. Hal tersebut  
+dapat menyebabkan  
+kanker. Namun,  IARC 
+menemukan  bukti bahwa 
+hal tersebut tidak  
+memadai pada manusia. 
+Kontak  Mata: 
+Periksadanlepaskan  
+lensa  kontak. 
+Segera  basuh  mata 
+denganair dingin 
+mengalirselama  
+minimal15menitden
+gan  kelopak mata 
+tetapterbuka. Segera 
+hubungi 
+dokter.•Kontak  
+Kulit: jika  
+mengenai  
+kulit,segerasiram  
+kulitdengan  banyak 
+air. Tutupikulit yang 
+teriritasidengan yg 
+melunakkan. Segera 
+hubungi 
+dokter.•KontakKulit  
+yang  serius: Cuci  
+dengansabun  
+desinfektandantutup
+i kulit  
+yangterkontaminasi  
+dengan krimanti -
+bakteri. Carilah 
+perawatanmedis 
+segera•inhalasi:Jika  
+terhirup, pindahkan  
+ke  ud arasegar. Jika  
+tidak  bernapas, 
+Tindakan  
+pencegahan:Simpan  
+dalam  tempat  
+terkunci.Jauhkan  
+dari panas. Jauhkan  
+darisumber  api. 
+Janganmenghirupga
+s/asap/uap/semprot
+an. Kenakan  
+pakaianpelindung  
+yang  sesuai. 
+Letakkan  dalam 
+ruangan  
+denganventilasi  
+cukup,  
+pakaiperalatanperna
+pasan  yang sesuai. 
+Jikatertelan, segera  
+dapatkan  saran  
+medisdantunjukkan 
+wadah ataulabel. 
+Hindarikontak 
+dengankulit dan 
+mata. Jauhkan 
+dariincompatiblesse
+perti agenoksidasi, 
+logam, asam, 
+alkali.•Tempat 
+Penyimpanan:Udar
+a dan cahayayang 
+sensitif. Simpan 
+dalamcahaya-tahan
+
+===== HALAMAN 60 =====
+mutagenik untuk 
+bakteri dan / atau 
+ragi.  
+• Efek 
+teratogenik: 
+Tidak tersedia.  
+• Efek Toksisitas: 
+analine menjadi 
+racun bagi 
+darah, ginjal, 
+hati, kandung 
+kemih, limpa, 
+sistem 
+kardiovaskular, 
+sistem saraf 
+pusat (SSP). 
+Terpapar secara 
+berulang oleh 
+analine dapat 
+merusak organ 
+sasaran.  
+ 
+ 
+berikanpernapasan   
+buatan. Jika   sulit 
+bernapas, berikan   
+oksigen. 
+Dapatkanperawatan 
+medis 
+segera.•inhalasi 
+serius:Evakuasikorb
+anke  daerah  yang  
+amansesegera 
+mungkin. 
+Kendurkanpakaian  
+ketatsepertikerah, 
+dasi, ikat  pinggang 
+ataupinggang. 
+Jikasulit  bernafas, 
+berikan  oksigen. 
+Jika  korbantidak 
+bernafas, lakukan 
+resusitasidari  mulut  
+ke  mulut. 
+PERINGATAN: 
+Mungkinberbahaya  
+bagiorang  yang  
+memberikan  
+bantuanresusitasi 
+darimulutke  
+mulutresusitasibila  
+bahanyang terhirup 
+dihirupadalah racun, 
+infeksi ataukorosif. 
+Segera cari 
+kontainer. Simpan   
+wadahdi   tempat    
+yang   sejuk, 
+berventilasi  baik. 
+Jaga  agar  
+wadahditutup  
+dandisegelsampai  
+siap untuk   
+digunakan. Hindari   
+semuasumber   yang   
+memungkinkan 
+penyulutan(percika
+n api atau nyala 
+api).
+
+===== HALAMAN 61 =====
+perawatanmedis.•Te
+rtelan:JANGANme
+maksakan   
+muntahkecualidiara
+hkanuntuk 
+melakukannya   
+olehtenaga   medis. 
+Dilarang   
+memberikan   
+apapun 
+melaluimulut 
+kepadasadarorang. 
+Jika bahan ini 
+tertelandalam 
+jumlah besar,  
+panggil  dokter 
+segera. 
+Kendurkanpakaian  
+ketatsepertikerah,da
+si, ikat pinggang 
+ataupinggang. 
+Material 
+ 
+59. Benzena C₆H₆(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis 
+aromatik khas 
+Massa molar: 
+78,11 g/mol 
+Densitas: ± 0,88 
+g/cm³ (25 °C) 
+• Hidrokarbon 
+aromatic 
+• Sangat mudah 
+terbakar → CO₂ 
++ H₂O 
+• Mengalami 
+substitusi 
+elektrofilik 
+aromatik 
+• Dapat 
+meyebabkan 
+kerusakan 
+genetik. 
+• Dapat 
+meyebabkan 
+kanker. 
+Setelah terserap :  agitasi, 
+eufhoria, Sakit kepala, 
+Pening, inebriation, 
+Kecapekan, Gangguan 
+CNS, narkosis,  
+pertahanan saluran 
+pernapasan 
+Toksisitas subakut 
+• JIKA TERTELAN : 
+Basuh mulut. 
+JANGAN 
+merangsang 
+muntah. 
+• JIKA TERKENA 
+KULIT: Cuci 
+dengan banyak 
+sabun dan air. 
+Simpan di tempat 
+berventilasi baik. 
+Jaga wadah tertutup 
+kedap/rapat.
+
+===== HALAMAN 62 =====
+Titik leleh: ± 5,5 
+°C 
+Titik didih: ± 
+80,1 °C 
+Kelarutan: 
+Sangat sedikit 
+larut dalam air; 
+larut dalam 
+pelarut organik 
+Tekanan uap: 
+Tinggi (mudah 
+menguap) 
+Titik nyala: ± 
+−11 °C (sangat 
+mudah terbakar) 
+ 
+(nitrasi, 
+sulfonasi, dll.) 
+• Relatif stabil 
+terhadap 
+oksidasi ringan 
+• Tidak bersifat 
+oksidator 
+• Stabil pada 
+kondisi normal  
+17. Bersifat 
+sangat toksik 
+dan 
+karsinogenik  
+• Cairan dan uap 
+amat mudah 
+menyala. 
+• Mungkin fatal 
+jika tertelan dan 
+memasuki 
+saluran/jalan 
+udara. 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+iritasi mata yang 
+serius. 
+• Menyebabkan 
+kerusakan pada 
+organ (Darah) 
+melalui paparan 
+yanglama atau 
+berulang. 
+• berbahaya pada 
+kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+Setelah masa laten:  
+Perubahan komponen sel 
+darah, hemolisis 
+• JIKA TERKENA 
+MATA : Bilas 
+dengan seksama 
+dengan air 
+untukbeberapa  
+menit.   Lepaskan  
+lensa   kontak  jika   
+memakainya   
+danmudah 
+melakukannya.  
+60. Toluena C₇H₈(I) Wujud: Cairan 
+tidak berwarna 
+Bau: Manis 
+aromatik khas 
+Massa molar: 
+92,14 g/mol 
+Densitas: ± 0,87 
+g/cm³ (25 °C) 
+• Hidrokarbon 
+aromatik 
+(metilbenzena 
+• Mudah terbakar 
+→ CO₂ + H₂O 
+• Mengalami 
+substitusi 
+• Cairan mudah 
+terbakar 
+• Iritasi kulit,  
+• Toksisitas pada 
+organ sasaran 
+spesifik - 
+paparan 
+berulang, 
+Mengantuk,  efek  iritan,  
+Pening,  Konvulsi/ 
+kejang-kejang,  Sakit  
+kepala,  Mual,  Muntah,  
+Sistem  peredaran 
+terganggu, perasaan 
+mengantuk, inebriation, 
+Tidak sadar, pertahanan 
+• Jika terhirup, 
+pindahkan orang 
+tersebut ke udara 
+segar. Jika korban  
+tidak bernafas, 
+berikan pernafasan 
+buatan. 
+Simpan wadah 
+tertutup rapat di 
+tempat yang kering 
+dan berventilasi 
+baik. Kontener yang 
+terbuka harus 
+ditutup lagi dengan 
+hati-hati dan dijaga
+
+===== HALAMAN 63 =====
+Titik leleh: ± −95 
+°C 
+Titik didih: ± 
+110,6 °C 
+Kelarutan: 
+Sangat sedikit 
+larut dalam air; 
+larut dalam 
+pelarut organik 
+Tekanan uap: 
+Sedang (mudah 
+menguap) 
+Titik nyala: ± 4 
+°C (sangat 
+mudah terbakar) 
+ 
+elektrofilik 
+aromatic 
+• Gugus metil 
+mudah 
+teroksidasi → 
+asam benzoat 
+• Relatif stabil 
+pada kondisi 
+normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat toksik 
+dan uap dapat 
+menyebabkan 
+pusing 
+• Sistem saraf 
+pusat,  
+• Toksisitas 
+terhadap 
+reproduksi, 
+• Bahaya 
+aspirasi,  
+• Toksisitas pada 
+organ sasaran 
+spesifik - 
+paparan 
+tunggal,  
+• Sistem saraf 
+pusat,  
+saluran pernapasan, 
+Gangguan CNS, 
+kelumpuhan  pernapasan,  
+kematian  Untuk  yang  
+terbaik  dari  
+pengetahuan  kita,  
+kimia,  fisik,  dan  
+sifattoksikologi belum 
+diselidiki secara 
+menyeluruh 
+• Dalam kasus 
+kontak dengan 
+kulit Cuci bersih 
+dengan sabun dan 
+banyak air. 
+• Dalam kasus 
+kontak pada mata 
+Siram mata dengan 
+air sebagai 
+tindakan 
+pencegahan. 
+• Jika tertelan 
+JANGAN pancing 
+supaya muntah. 
+Jangan sekali -kali 
+memberikan apa 
+pun lewat mulut 
+kepada orang yang 
+tidak sadar. 
+Berkumurlah 
+dengan air. 
+Periksakan ke 
+dokter. 
+tetap berdiri untuk 
+mencegah 
+kebocoran. Simpan 
+di tempat dingin. 
+61. Xilena C₈H₁₀(I) Rumus: C₇H₈ 
+Wujud: Cairan 
+tidak berwarna 
+Bau: Manis 
+aromatik khas 
+Massa molar: 
+92,14 g/mol 
+Densitas: ± 0,87 
+g/cm³ (25 °C) 
+• Hidrokarbon 
+aromatik 
+(metilbenzena) 
+• Mudah 
+terbakar → 
+CO₂ + H₂O 
+• Mengalami 
+substitusi 
+• Cairan dan uap 
+mudah menyala. 
+• Berbahaya jika 
+terkena kulit 
+atau bila 
+terhirup. 
+• Menyebabkan 
+iritasi kulit. 
+perasaan mengantuk, 
+Pening, Sakit kepala, 
+eufhoria, agitasi, sesak, 
+narkosis 
+• Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+napas buatan mulut 
+ke mulut atau 
+secara mekanik. 
+Berikan masker 
+oksigen jika  
+Simpan wadah 
+tertutup rapat di 
+tempat yang kering 
+dan berventilasi 
+baik. Jauhkan dari 
+panas dan sumber 
+api.
+
+===== HALAMAN 64 =====
+Titik leleh: ± −95 
+°C 
+Titik didih: ± 
+110,6 °C 
+Kelarutan: 
+Sangat sedikit 
+larut dalam air; 
+larut dalam 
+pelarut organik 
+Tekanan uap: 
+Sedang (mudah 
+menguap) 
+Titik nyala: ± 4 
+°C (sangat 
+mudah terbakar) 
+ 
+elektrofilik 
+aromatic 
+• Gugus metil 
+mudah 
+teroksidasi → 
+asam benzoat 
+• Relatif stabil 
+pada kondisi 
+normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat toksik 
+dan uap dapat 
+menyebabkan 
+pusing 
+mungkin. Segera 
+hubungi dokter. 
+• Bila terjadi 
+kontak kulit : 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Setelah kontak 
+pada mata : 
+bilaslah dengan air 
+yang banyak. 
+• Setelah tertelan : 
+perhatian jika 
+korban muntah. 
+Resiko 
+pengeluaran! Jaga 
+agar aliran  udara 
+tetap bebas. 
+Kerusakan paru -
+paru mungkin 
+terjadi setelah  
+pengeluaran 
+muntah. Segera 
+panggil dokter.
+
+===== HALAMAN 65 =====
+62. Naftalena C₁₀H₈(2) Rumus: C₁₀H₈ 
+Wujud: Padatan 
+kristal putih 
+Bau: Aromatik 
+khas (seperti 
+kapur barus) 
+Massa molar: 
+128,17 g/mol 
+Densitas: ± 1,14 
+g/cm³ 
+Titik leleh: ± 
+80,2 °C 
+Titik didih: ± 218 
+°C 
+Kelarutan: 
+Sangat sedikit 
+larut dalam air; 
+larut dalam 
+pelarut organik 
+V olatilitas: 
+Mudah 
+menyublim pada 
+suhu ruang 
+Titik nyala: ± 79 
+°C 
+ 
+• Hidrokarbon 
+aromatik 
+polisiklik 
+• Mudah 
+terbakar → 
+CO₂ + H₂O 
+• Mengalami 
+substitusi 
+elektrofilik 
+aromatic 
+• Dapat 
+teroksidasi → 
+anhidrida ftalat 
+• Relatif stabil 
+pada kondisi 
+normal 
+• Tidak bersifat 
+oksidator 
+• Bersifat toksik 
+dan iritan 
+• Padatan mudah 
+terbakar 
+• Berbahaya jika 
+tertelan 
+• Diduga 
+menyebabkan 
+kanker  
+• Sangat beracun 
+bagi kehidupan 
+akuatik dengan 
+efek jangka 
+panjang 
+Terhirup (Inhalation) 
+• Menyebabkan 
+iritasi pada 
+saluran 
+pernapasan, sakit 
+kepala, mual, dan 
+pusing. 
+• Paparan tinggi 
+dapat 
+menyebabkan 
+gangguan pada 
+darah. 
+b. Kontak Kulit (Skin 
+Contact) 
+• Menyebabkan 
+iritasi, 
+kemerahan, dan 
+rasa terbakar 
+ringan pada kulit. 
+c. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi, mata 
+merah, dan rasa 
+perih. 
+d. Tertelan (Ingestion) 
+• Menyebabkan 
+mual, muntah, 
+sakit perut, dan 
+dapat merusak sel 
+darah merah 
+ 
+• Setelah terhirup: 
+Berikan udara 
+segar. Jika ragu, 
+atau jika gejalanya 
+menetap, segera 
+konsultasikan ke 
+dokter.  
+• Setelah kontak 
+dengan kulit: Cuci 
+dengan banyak 
+sabun dan air. Jika 
+terjadi iritasi kulit, 
+konsultasikan 
+dengan dokter.  
+• Setelah kontak 
+dengan mata: Bilas 
+dengan hati -hati 
+menggunakan air 
+selama beberapa 
+menit. Jika ragu, 
+atau jika gejalanya 
+menetap, segera 
+konsultasikan ke 
+dokter.  
+• Setelah tertelan: 
+Bilas mulut dengan 
+air (hanya jika 
+orang tersebut 
+sadar). Jika terjadi 
+kecelakaan atau 
+merasa tidak enak 
+badan, segera 
+Simpan di tempat 
+kering. Perhatikan 
+petunjuk untuk 
+penyimpanan 
+gabungan. 
+Jauhkan/simpan 
+dari zat 
+pengoksidasi. 
+Pertimbangan saran 
+lain: Persyaratan 
+ventilasi. Gunakan 
+ventilasi lokal dan 
+umum. Desain 
+khusus untuk ruang 
+penyimpanan atau 
+wadah. Suhu 
+penyimpanan yang 
+disarankan: 15 –25 
+°C
+
+===== HALAMAN 66 =====
+konsultasikan ke 
+dokter (tunjukkan 
+petunjuk 
+penggunaan atau 
+lembar data 
+keselamatan jika 
+memungkinkan). 
+Hubungi dokter. 
+63. EDTA C₁₀H₁₆N₂O
+₈(s) 
+Rumus: 
+C₁₀H₁₆N₂O₈ 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+292,24 g/mol 
+Densitas: ± 0,86 
+g/cm³ 
+Titik leleh: ± 
+240–245 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sedikit larut 
+dalam air; lebih 
+larut dalam 
+bentuk garam 
+(mis. Na₂EDTA) 
+Stabilitas: Stabil 
+pada kondisi 
+norma 
+• Asam 
+polikarboksilat 
+(asam lemah 
+multiprotik) 
+• Bersifat agen 
+pengkelat kuat 
+(chelating 
+agent) 
+• Membentuk 
+kompleks 
+stabil dengan 
+ion logam 
+(Ca²⁺, Mg²⁺, 
+Fe³⁺, dll.) 
+• Terionisasi 
+dalam air 
+membentuk 
+berbagai 
+spesies 
+EDTA⁴⁻ 
+• Stabil pada pH 
+netral–basa 
+• Tidak bersifat 
+oksidator 
+• Dapat korosif 
+terhadap 
+logam.\ 
+• Menyebabkan 
+iritasi kulit. 
+• Menyebabkan 
+iritasi mata 
+yang serius 
+• Iritasi pada membran 
+mukosa mulut, 
+pharink, oeseophagus 
+dan saluran  
+gastrointestinal. 
+• Campuran 
+menyebabkan 
+gangguan pada kulit. 
+• Campuran 
+menyebabkan 
+gangguan mata berat. 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat.
+
+===== HALAMAN 67 =====
+maupun 
+reduktor kuat 
+• Dapat 
+mengikat ion 
+logam 
+sehingga 
+mencegah 
+presipitasi 
+• Bersifat iritan 
+ringan ( 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+64. Indikator 
+Fenolftalein 
+C₂₀H₁₄O₄(s
+) 
+Rumus: C₂₀H₁₄O₄ 
+Wujud: Padatan 
+kristal putih 
+hingga kuning 
+pucat 
+Bau: Tidak 
+berbau 
+Massa molar: 
+318,32 g/mol 
+Densitas: ± 1,30 
+g/cm³ 
+Titik leleh: ± 
+258–263 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Tidak 
+larut dalam air; 
+larut dalam 
+alkohol dan 
+pelarut organik 
+• Senyawa 
+organik 
+aromatik 
+(indikator 
+asam–basa) 
+• Tidak 
+berwarna 
+dalam larutan 
+asam 
+• Berwarna 
+merah muda 
+hingga merah 
+dalam larutan 
+basa (pH ± 
+8,2–10) 
+• Mengalami 
+perubahan 
+struktur ionik 
+sesuai pH 
+• Stabil pada 
+kondisi normal 
+jika terlindung 
+• Cairan dan uap 
+mudah 
+menyala. 
+• Menyebabkan 
+iritasi mata 
+yang serius. 
+• Diduga 
+menyebabkan 
+kerusakan 
+genetic. 
+• Dapat 
+meyebabkan 
+kanker. 
+Gejala yang mungkin 
+terjadi:, iritasi mukosa 
+Campuran menyebabkan 
+gangguan mata berat. 
+• Jika terhirup 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+• Simpan wadah 
+tertutup rapat di 
+tempat yang kering 
+dan berventilasi 
+baik. Jauhkan dari  
+panas dan sumber 
+api.  
+• Simpan dalam 
+tempat terkunci 
+atau di tempat yang 
+hanya bisa  
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 68 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+ 
+dari cahaya 
+kuat 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat 
+mengalami 
+dekomposisi 
+pada suhu 
+tinggi 
+• Bersifat iritan 
+ringan 
+banyak. Hubungi 
+dokter mata. 
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+65. Metil Jingga C₁₄H₁₄N₃N
+aO₃S(s) 
+Rumus: 
+C₁₄H₁₄N₃NaO₃S 
+Wujud: Padatan 
+serbuk kristal 
+oranye 
+Bau: Tidak 
+berbau 
+Massa molar: 
+327,33 g/mol 
+Densitas: ± 1,28 
+g/cm³ 
+Titik leleh: ± 300 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air dan 
+alkohol 
+• Senyawa azo 
+aromatik 
+(indikator 
+asam–basa) 
+• Berwarna 
+merah dalam 
+suasana asam 
+• Berwarna 
+kuning dalam 
+suasana basa 
+• Rentang 
+perubahan 
+warna pH ± 
+3,1–4,4 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+ 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan. 
+• Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+Tertutup sangat 
+rapat.
+
+===== HALAMAN 69 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+ 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat terurai 
+pada suhu 
+tinggi 
+• Bersifat iritan 
+ringan 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi   
+kepada dokter jika 
+merasa tidak sehat. 
+66. Metil Merah C₁₅H₁₅N₃O
+₂(s) 
+Rumus: 
+C₁₅H₁₅N₃O₂ 
+Wujud: Padatan 
+serbuk kristal 
+merah tua 
+Bau: Tidak 
+berbau 
+Massa molar: 
+269,30 g/mol 
+Densitas: ± 1,28 
+g/cm³ 
+Titik leleh: ± 
+179–182 °C 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam alkohol 
+dan pelarut 
+organik 
+• Senyawa azo 
+aromatik 
+(indikator 
+asam–basa) 
+• Berwarna 
+merah dalam 
+suasana asam 
+• Berwarna 
+kuning dalam 
+suasana basa 
+• Rentang 
+perubahan 
+warna pH ± 
+4,4–6,2 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan. 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 70 =====
+   Stabilitas: 
+Stabil pada 
+kondisi normal 
+ 
+• Dapat terurai 
+pada suhu 
+tinggi 
+• Bersifat iritan 
+ringan 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+67. Bromtimol Biru C₂₇H₂₈Br₂
+O₅S(s) 
+Rumus: 
+C₂₇H₂₈Br₂O₅S 
+Wujud: Padatan 
+serbuk kristal 
+hijau tua hingga 
+biru 
+Bau: Tidak 
+berbau 
+Massa molar: 
+624,38 g/mol 
+Densitas: ± 1,25 
+g/cm³ 
+Titik leleh: ± 
+200–202 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam alkohol 
+dan pelarut 
+organik 
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+• Senyawa 
+sulfonftalein 
+(indikator 
+asam–basa) 
+• Berwarna 
+kuning dalam 
+suasana asam 
+• Berwarna 
+hijau pada pH 
+netral 
+• Berwarna biru 
+dalam suasana 
+basa 
+• Rentang 
+perubahan 
+warna pH ± 
+6,0–7,6 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan. 
+• Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata 
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 71 =====
+• Dapat terurai 
+pada suhu 
+tinggi 
+• Bersifat iritan 
+ringan 
+kepada dokter jika 
+merasa tidak sehat. 
+68. Amilum (Pati) (C₆H₁₀O₅)ₙ
+(s) 
+Rumus umum: 
+(C₆H₁₀O₅)ₙ 
+Wujud: Serbuk 
+putih halus 
+Bau: Tidak 
+berbau 
+Massa molar: 
+Polimer 
+(bervariasi 
+tergantung 
+panjang rantai) 
+Densitas: ± 1,5 
+g/cm³ 
+Titik leleh: Tidak 
+memiliki titik 
+leleh pasti 
+(terurai saat 
+dipanaskan) 
+Titik didih: Tidak 
+berlaku 
+Kelarutan: Tidak 
+larut dalam air 
+dingin; 
+membentuk 
+koloid/pasta 
+dalam air panas 
+• Polisakarida 
+alami (polimer 
+glukosa) 
+• Terdiri dari 
+amilosa dan 
+amilopektin 
+• Mengalami 
+hidrolisis → 
+glukosa atau 
+maltosa (oleh 
+asam/enzim) 
+• Membentuk 
+kompleks biru 
+dengan iodin 
+(uji amilum) 
+• Dapat 
+mengalami 
+gelatinisasi 
+dalam air 
+panas 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat terurai 
+saat 
+dipanaskan 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada bahan  
+berbahaya menurut 
+Peraturan (EC) No 
+1907/2008. 
+• Jika terhirup 
+• Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+• Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+• kulit dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+• Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 72 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+menghasilkan 
+karbon dan gas 
+• Bersifat iritan 
+sangat rendah 
+• kepada dokter jika 
+merasa tidak sehat. 
+69. Agar polisakari
+da 
+kompleks(
+s) 
+Rumus umum: 
+Polisakarida 
+kompleks (unit 
+galaktosa 
+berulang) 
+Wujud: Serbuk 
+atau serpihan 
+putih hingga 
+kekuningan 
+Bau: Tidak 
+berbau 
+Massa molar: 
+Polimer 
+(bervariasi) 
+Densitas: ± 1,6 
+g/cm³ 
+Titik leleh: ± 85–
+95 °C (gel 
+meleleh) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Tidak 
+larut dalam air 
+dingin; larut 
+dalam air panas 
+membentuk gel 
+• Polisakarida 
+alami dari alga 
+merah 
+• Tersusun dari 
+agarosa dan 
+agaropektin 
+• Membentuk 
+gel kuat saat 
+larutan panas 
+didinginkan 
+• Stabil pada 
+rentang pH 
+luas (sekitar 
+pH 5–8) 
+• Dapat 
+mengalami 
+hidrolisis oleh 
+asam kuat atau 
+enzim tertentu 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Stabil secara 
+kimia pada 
+suhu ruang 
+• Bersifat iritan 
+sangat rendah 
+Bahan ini tidak 
+diklasifikasikan 
+sebagai 
+berbahaya 
+menurut 
+undang-undang 
+Uni Eropa. 
+Kumpulan gejala / efek 
+terpenting, baik akut 
+maupun tertunda Diare  
+ 
+• Setelah menghirup: 
+hirup udara segar.  
+• Setelah kontak 
+pada kulit: cuci 
+dengan air yang 
+banyak. Lepaskan 
+pakaian yang 
+terkontaminasi.  
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak.  
+• Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+kepada dokter jika 
+merasa tidak sehat.  
+ 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 73 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+70 Gelatin protein 
+kompleks(
+s) 
+Rumus umum: 
+Protein 
+kompleks 
+(turunan 
+kolagen) 
+Wujud: Serbuk 
+atau lembaran 
+padat putih 
+hingga 
+kekuningan 
+Bau: Hampir 
+tidak berbau 
+Massa molar: 
+Polimer protein 
+(bervariasi) 
+Densitas: ± 1,3 –
+1,4 g/cm³ 
+Titik leleh: ± 35–
+40 °C (gel 
+mencair) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Mengembang 
+dalam air dingin; 
+larut dalam air 
+panas 
+• Protein hasil 
+hidrolisis 
+kolagen 
+• Tersusun dari 
+rantai 
+polipeptida 
+(asam amino) 
+• Membentuk 
+gel saat larutan 
+panas 
+didinginkan 
+• Dapat 
+mengalami 
+denaturasi oleh 
+panas atau pH 
+ekstrem 
+• Mengalami 
+hidrolisis → 
+asam amino 
+oleh 
+asam/enzim 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Stabil pada pH 
+netral hingga 
+sedikit asamB 
+Preparat ini tidak 
+diklasifikasikan 
+sebagai 
+berbahaya 
+menurut 
+undang-undang 
+Uni Eropa. 
+Kumpulan gejala / efek 
+terpenting, baik akut 
+maupun tertunda Diare  
+ 
+• Setelah menghirup: 
+hirup udara segar. 
+• Setelah kontak 
+pada kulit: cuci 
+dengan air yang 
+banyak. Lepaskan 
+pakaian yang 
+terkontaminasi. 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. 
+• Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+kepada dokter jika 
+merasa tidak sehat. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 74 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• ersifat iritan 
+sangat rendah 
+71. Natrium 
+Benzoat 
+C₇H₅NaO₂
+(s) 
+Rumus: 
+C₇H₅NaO₂ 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau / sangat 
+lemah 
+Massa molar: 
+144,11 g/mol 
+Densitas: ± 1,44 
+g/cm³ 
+Titik leleh: ± 410 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Garam dari 
+asam lemah 
+(asam benzoat) 
+dan basa kuat 
+• Terionisasi 
+dalam air → 
+Na⁺ dan 
+C₆H₅COO⁻ 
+• Bersifat sedikit 
+basa dalam 
+larutan 
+• Bereaksi 
+dengan asam 
+kuat → asam 
+benzoate 
+• Stabil pada 
+suhu ruang 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat terurai 
+pada suhu 
+tinggi 
+menghasilkan 
+CO₂ dan 
+senyawa 
+aromatic 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+Kerusakan mata 
+serius/iritasi mata 
+ 
+• Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 75 =====
+• Bersifat iritan 
+ringan 
+Periksakan ke 
+dokter. 
+72. Kalium Sorbat C₆H₇KO₂(s
+) 
+Rumus: 
+C₆H₇KO₂ 
+Wujud: Padatan 
+kristal putih 
+Bau: Hampir 
+tidak berbau 
+Massa molar: 
+150,22 g/mol 
+Densitas: ± 1,36 
+g/cm³ 
+Titik leleh: ± 270 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Garam dari 
+asam sorbat 
+dan basa kuat 
+• Terionisasi 
+dalam air → 
+K⁺ dan sorbat 
+(C₆H₇O₂⁻) 
+• Bersifat sedikit 
+basa dalam 
+larutan 
+• Bereaksi 
+dengan asam 
+kuat → asam 
+sorbat 
+• Stabil pada 
+suhu ruang jika 
+terlindung dari 
+cahaya dan 
+udara 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat 
+teroksidasi 
+perlahan oleh 
+udara 
+• Bersifat iritan 
+ringan 
+• Umumnya 
+berbahaya 
+rendah, tetapi 
+dapat 
+menyebabkan 
+iritasi ringan  
+pada mata, 
+kulit, dan 
+saluran 
+pernapasan. 
+• Debu dapat 
+menyebabkan 
+ketidaknyama
+nan 
+pernapasan. 
+• Pada suhu 
+tinggi dapat 
+terurai 
+menghasilkan 
+asap iritan. 
+• Dalam jumlah 
+besar dapat 
+berbahaya bagi 
+lingkungan 
+perairan 
+ 
+a. Terhirup (Inhalation) 
+• Debu dapat 
+menyebabkan 
+batuk, iritasi 
+tenggorokan, dan 
+rasa tidak nyaman 
+pada pernapasan. 
+b. Kontak Kulit (Skin 
+Contact) 
+• Dapat 
+menyebabkan 
+iritasi ringan 
+seperti kemerahan 
+atau gatal. 
+c. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi, mata 
+berair, dan rasa 
+perih. 
+d. Tertelan (Ingestion) 
+• Dalam jumlah 
+kecil umumnya 
+tidak berbahaya. 
+• Dalam jumlah 
+besar dapat 
+menyebabkan 
+mual, muntah, dan 
+gangguan 
+pencernaan. 
+Terhirup 
+• Pindahkan 
+korban ke 
+tempat 
+dengan 
+udara segar. 
+• Jika gejala 
+berlanjut, 
+cari bantuan 
+medis. 
+Kontak Kulit 
+• Cuci dengan 
+sabun dan air 
+mengalir. 
+• Lepaskan 
+pakaian 
+yang 
+terkontamin
+asi. 
+Kontak Mata 
+• Bilas mata 
+dengan air 
+bersih 
+selama 
+minimal 15 
+menit. 
+• Cari bantuan 
+medis jika 
+iritasi tidak 
+hilang. 
+• Simpan dalam 
+wadah tertutup 
+rapat. 
+• Letakkan di 
+tempat sejuk, 
+kering, dan 
+berventilasi baik. 
+• Jauhkan dari 
+kelembapan 
+tinggi dan sumber 
+panas. 
+• Hindari kontak 
+dengan oksidator 
+kuat
+
+===== HALAMAN 76 =====
+Tertelan 
+• Bilas mulut 
+dengan air. 
+• Minum air 
+secukupnya. 
+• Hubungi 
+tenaga medis 
+jika timbul 
+keluhan. 
+ 
+73. Natrium Sulfit Na₂SO₃(s) Rumus: Na₂SO₃ 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau (dapat 
+berbau SO₂ jika 
+terurai) 
+Massa molar: 
+126,04 g/mol 
+Densitas: ± 2,63 
+g/cm³ 
+Titik leleh: ± 500 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+kering 
+ 
+• Garam dari 
+asam lemah 
+dan basa kuat 
+(larutan sedikit 
+basa) 
+• Terionisasi 
+dalam air → 
+2Na⁺ dan SO₃²⁻ 
+• Bersifat 
+reduktor 
+• Mudah 
+teroksidasi 
+oleh udara → 
+Na₂SO₄ 
+• Bereaksi 
+dengan asam 
+→ SO₂ + H₂O 
++ garam 
+• Stabil pada 
+suhu ruang jika 
+disimpan 
+kering 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008 
+Dapat menyebabkan 
+iritasi pada:, Saluran 
+cerna, kolik berat, Diare, 
+Gangguan:, sistem 
+sirkulasi, Depresi sistim 
+syarat sentral, kematian, 
+Orang dengan alergi dan / 
+atau asma 
+mungkin menunjukkan 
+hipersensitivitas terhadap 
+sulfit.,  
+ 
+• Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 77 =====
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+74. Natrium Bisulfit NaHSO₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Tajam khas 
+sulfur dioksida 
+(SO₂) 
+Massa molar: 
+104,06 g/mol 
+Densitas: ± 1,48 
+g/cm³ 
+Titik leleh: ± 150 
+°C (terurai) 
+   Titik didih: 
+Tidak berlaku 
+(terurai) 
+   Kelarutan: 
+Sangat larut 
+dalam air 
+   Stabilitas: 
+Stabil pada 
+kondisi kering 
+ 
+• Garam asam 
+dari asam sulfit 
+Terionisasi 
+dalam air → 
+Na⁺ dan HSO₃⁻ 
+• Bersifat 
+reduktor 
+• Mudah 
+teroksidasi 
+oleh udara → 
+NaHSO₄ / 
+Na₂SO₄ 
+• Bereaksi 
+dengan asam 
+kuat → SO₂ + 
+H₂O 
+• Bersifat sedikit 
+asam dalam 
+larutan 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+dan dapat 
+melepaskan 
+gas SO₂ 
+Berbahaya jika 
+tertelan. 
+Menyebabkan 
+kerusakan mata 
+yang serius. 
+Menyebabkan kerusakan 
+mata yang serius. 
+Gejala-gejala pemaparan 
+mungkin mencakup 
+perasaan terbakar, batuk, 
+mengi, radang 
+tenggorokan, sesak nafas, 
+sakit kepala, mual , dan 
+muntah., nyeri dada, Sulit 
+bernapas, 
+Tidak enak perut, 
+Muntah, Diare, Orang 
+dengan alergi dan / atau 
+asma mungkin 
+menunjukkan 
+hipersensitivitas terhadap 
+sulfit. 
+• Jika terhirup 
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata 
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+Tertutup sangat 
+rapat. Kering. 
+Jangan disimpan 
+dekat asam.
+
+===== HALAMAN 78 =====
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+75. Natrium Sulfida Na₂S(s) Wujud: Padatan 
+kristal putih 
+hingga kuning 
+pucat 
+Bau: Bau khas 
+telur busuk (H₂S 
+jika 
+lembap/terurai) 
+Massa molar: 
+78,04 g/mol 
+Densitas: ± 1,86 
+g/cm³ 
+Titik leleh: ± 
+1180 °C 
+Titik didih: ± 
+1740 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya, 
+mudah menyerap 
+air dari udara 
+ 
+• Garam dari 
+basa kuat  dan 
+asam lemah 
+(larutan 
+bersifat basa 
+kuat) 
+• Terionisasi 
+dalam air → 
+2Na⁺ dan S²⁻ 
+• Bereaksi 
+dengan air 
+menghasilkan 
+NaOH dan H₂S 
+• Beraksi 
+dengan asam 
+→ H₂S (gas 
+beracun) + 
+garam 
+• Bersifat 
+reduktor kuat 
+• Mudah 
+teroksidasi 
+oleh udara → 
+tiosulfat atau 
+sulfat 
+• Stabil jika 
+disimpan 
+• Bersifat korosif 
+dan beracun.  
+Bereaksi 
+dengan asam 
+menghasilkan 
+gas hidrogen 
+sulfida (H₂S) 
+yang sangat 
+beracun dan 
+mudah 
+terbakar. 
+• Menyebabkan 
+iritasi serius 
+atau luka bakar 
+pada kulit dan 
+mata. 
+• Berbahaya jika 
+terhirup atau 
+tertelan. 
+• Dapat 
+berbahaya bagi 
+lingkungan 
+perairan 
+ 
+a. Terhirup (Inhalation) 
+• Debu atau gas H₂S 
+dapat 
+menyebabkan 
+iritasi saluran 
+pernapasan, 
+batuk, pusing, 
+mual, hingga 
+gangguan 
+pernapasan serius. 
+b. Kontak Kulit  (Skin 
+Contact) 
+• Menyebabkan 
+iritasi kuat, 
+kemerahan, dan 
+dapat 
+menimbulkan 
+luka bakar kimia. 
+c. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi berat, nyeri, 
+mata berair, 
+bahkan kerusakan 
+jaringan mata. 
+d. Tertelan (Ingestion) 
+• Menyebabkan 
+iritasi saluran 
+Terhirup 
+• Segera 
+pindahkan 
+korban ke 
+tempat 
+dengan 
+udara segar. 
+• Jika sulit 
+bernapas, 
+berikan 
+oksigen dan 
+segera cari 
+bantuan 
+medis. 
+Kontak Kulit 
+• Lepaskan 
+pakaian 
+yang 
+terkontamin
+asi. 
+• Cuci bagian 
+kulit dengan 
+air mengalir 
+selama 
+minimal 15 
+menit. 
+Kontak Mata 
+• Simpan dalam 
+wadah tertutup 
+rapat dan tahan 
+korosi. 
+• Letakkan di tempat 
+sejuk, kering, dan 
+berventilasi baik. 
+• Jauhkan dari asam, 
+kelembapan, dan 
+sumber panas. 
+• Simpan di area 
+khusus bahan 
+kimia korosif dan 
+beracun.
+
+===== HALAMAN 79 =====
+kering dan 
+tertutup 
+• Bersifat 
+korosif dan 
+toksik 
+pencernaan, mual, 
+muntah, nyeri 
+perut, dan efek 
+toksik sistemik. 
+ 
+• Bilas mata 
+dengan air 
+bersih 
+selama 
+minimal 15 
+menit sambil 
+membuka 
+kelopak 
+mata. 
+• Segera 
+dapatkan 
+pertolongan 
+medis. 
+Tertelan 
+• Bilas mulut 
+dengan air. 
+• Jangan 
+memicu 
+muntah. 
+• Segera cari 
+pertolongan 
+medis. 
+ 
+76. Kalium 
+Hidrogen Ftalat 
+KHC₈H₄O
+₄(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+204,22 g/mol 
+Densitas: ± 1,64 
+g/cm³ 
+• Garam asam 
+dari asam ftalat 
+• Terionisasi 
+dalam air → 
+K⁺ dan 
+HC₈H₄O₄⁻ 
+• Bersifat asam 
+lemah dalam 
+larutan 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Tidak ada piktogram 
+tentang bahaya, tidak ada 
+kata sinyal, tidak ada 
+pernyataan tentang 
+bahaya, tidak ada 
+pernyataan pencegahan 
+yang diperlukan 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 80 =====
+Titik leleh: ± 
+295–300 °C 
+(terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Bereaksi 
+dengan basa 
+kuat → garam 
+ftalat + H₂O 
+• Stabil pada 
+suhu ruang 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Digunakan 
+sebagai 
+standar primer 
+dalam titrasi 
+asam–basa 
+• Bersifat iritan 
+ringan 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+77. Perak Klorida AgCl(s) Rumus: AgCl 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+143,32 g/mol 
+Densitas: ± 5,56 
+g/cm³ 
+Titik leleh: ± 455 
+°C 
+Titik didih: ± 
+1550 °C 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+• Sangat sedikit 
+terionisasi 
+dalam air → 
+Ag⁺ dan Cl⁻ 
+• Terurai oleh 
+cahaya → Ag 
+(logam) + Cl₂ 
+• Larut dalam 
+larutan amonia 
+membentuk 
+• Dapat korosif 
+terhadap 
+logam. 
+• Sangat toksik 
+pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+a. Terhirup (Inhalation) 
+• Debu dapat 
+menyebabkan 
+iritasi saluran 
+pernapasan, 
+batuk, dan rasa 
+tidak nyaman saat 
+bernapas. 
+b. Kontak Kulit (Skin 
+Contact) 
+• Menyebabkan 
+iritasi ringan 
+hingga sedang 
+• Jika terhirup 
+• Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit 
+• Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+• kulit dengan air/ 
+pancuran air. 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 81 =====
+Kelarutan: 
+Sangat sukar 
+larut dalam air 
+Sensitif terhadap 
+cahaya 
+ 
+kompleks 
+[Ag(NH₃)₂]⁺ 
+• Dapat larut 
+dalam larutan 
+tiosulfat 
+membentuk 
+kompleks 
+• Stabil pada 
+kondisi normal 
+jika terlindung 
+dari cahaya 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+ringan 
+seperti 
+kemerahan. 
+• Paparan kronis 
+dapat 
+menyebabkan 
+perubahan warna 
+kulit (argyria). 
+c. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi, 
+kemerahan, nyeri, 
+dan mata berair. 
+d. Tertelan (Ingestion) 
+• Menyebabkan 
+mual, muntah, 
+sakit perut, dan 
+gangguan 
+pencernaan. 
+• Dosis besar dapat 
+menimbulkan 
+efek toksik 
+sistemik. 
+ 
+• Jika kontak 
+dengan mata 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+• Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+• kepada dokter jika 
+merasa tidak sehat. 
+78. Tembaga(II) 
+Oksida 
+CuO(s) Wujud: Padatan 
+serbuk hitam 
+Bau: Tidak 
+berbau 
+Massa molar: 
+79,55 g/mol 
+Densitas: ± 6,31 
+g/cm³ 
+• Oksida logam 
+bersifat basa 
+• Bereaksi 
+dengan asam 
+→ garam 
+tembaga(II) + 
+H₂O 
+Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+Gejala keracunan 
+tembaga sistemik 
+mungkin termasuk: 
+kerusakan kapiler, sakit 
+kepala, 
+keringat dingin, nadi 
+lemah, dan ginjal dan 
+• Jika kontak 
+dengan kulit 
+• Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 82 =====
+Titik leleh: ± 
+1326 °C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: Tidak 
+larut dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+ 
+• Dapat 
+direduksi oleh 
+hidrogen atau 
+karbon → Cu 
+(logam) 
+• Stabil pada 
+suhu ruang 
+• Tidak bersifat 
+oksidator kuat 
+• Dapat bereaksi 
+dengan asam 
+kuat 
+menghasilkan 
+ion Cu²⁺ 
+• Tidak larut 
+dalam basa 
+kuat 
+• Bersifat iritan 
+jika terhirup 
+atau tertelan 
+kerusakan hati, pusat 
+eksitasi sistem saraf 
+diikuti oleh depresi, sakit 
+kuning, kejang, 
+kelumpuhan, dan koma. 
+Kematian dapat terjadi 
+dari shock atau gagal 
+ginjal. keracunan 
+tembaga kronis ditandai 
+oleh sirosis hati, 
+kerusakan otak dan 
+demielinasi, cacat ginjal, 
+dan deposisi tembaga di 
+kornea sebagaimana 
+dicontohkan oleh 
+manusia dengan penyakit 
+Wilson. Ini juga telah 
+melaporkan bahwa 
+keracunan tembaga telah 
+menyebabkan anemia 
+hemolitik dan 
+mempercepat 
+arteriosklerosis. 
+• kulit dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+• Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi 
+• kepada dokter jika 
+merasa tidak sehat. 
+79. Tembaga(I) 
+Oksida 
+Cu₂O(s) Wujud: Padatan 
+serbuk kristal 
+merah bata 
+Bau: Tidak 
+berbau 
+Massa molar: 
+143,09 g/mol 
+Densitas: ± 6,00 
+g/cm³ 
+• Oksida logam 
+bersifat basa 
+lemah 
+• Bereaksi 
+dengan asam 
+→ garam 
+tembaga(I) + 
+H₂O 
+• Sangat toksik 
+pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+Gejala keracunan 
+tembaga sistemik 
+mungkin termasuk: 
+kerusakan kapiler, sakit 
+kepala, 
+keringat dingin, nadi 
+lemah, dan ginjal dan 
+kerusakan hati, pusat 
+eksitasi sistem saraf 
+• Jika terhirup 
+• Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 83 =====
+Titik leleh: ± 
+1235 °C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: Tidak 
+larut dalam air 
+   Stabilitas: 
+Stabil pada 
+kondisi normal 
+ 
+• Mudah 
+teroksidasi 
+oleh udara → 
+CuO 
+• Dapat 
+direduksi 
+menjadi Cu 
+(logam) oleh 
+reduktor kuat  
+• Tidak bersifat 
+oksidator kuat 
+• Stabil pada 
+suhu ruang 
+jika terlindung 
+dari oksidasi 
+• Dapat bereaksi 
+dengan asam 
+oksidator kuat 
+• Bersifat iritan 
+jika terhirup 
+atau tertelan 
+• Hindarkan 
+pelepasan ke 
+lingkungan. 
+• Kumpulkan 
+tumpahan. 
+• Buang isi/ 
+wadah ke 
+tempat 
+pembuangan 
+limbah yang 
+disetujui. 
+diikuti oleh depresi, sakit 
+kuning, kejang, 
+kelumpuhan, dan koma. 
+Kematian dapat terjadi 
+dari shock atau gagal 
+ginjal. keracunan 
+tembaga kronis ditandai 
+oleh sirosis hati, 
+kerusakan otak dan 
+demielinasi, cacat ginjal, 
+dan deposisi tembaga di 
+kornea sebagaimana 
+dicontohkan oleh 
+manusia dengan penyakit 
+Wilson. Ini juga telah 
+melaporkan bahwa 
+keracunan tembaga telah 
+menyebabkan anemia 
+hemolitik dan 
+mempercepat 
+arteriosklerosis. 
+terkontaminasi. 
+Bilaslahkulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan 
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+80. Nikel(II) Sulfat NiSO₄(s) Wujud: Padatan 
+kristal hijau 
+(umumnya 
+sebagai hidrat) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+154,75 g/mol 
+(anhidrat) 
+Densitas: ± 3,68 
+g/cm³ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan 
+bersifat asam) 
+• Terionisasi 
+dalam air → 
+Ni²⁺ dan SO₄²⁻ 
+• Bereaksi 
+dengan basa 
+Berbahaya jika 
+tertelan. 
+Berbahaya jika 
+terhirup. 
+Iritasi kulit, 
+Menyebabkan 
+iritasi kulit. 
+Dapat 
+menyebabkan 
+alergi atau gejala 
+asma atau 
+1. Terhirup (Inhalation) 
+• Debu atau aerosol 
+dapat 
+menyebabkan 
+iritasi saluran 
+pernapasan, 
+batuk, dan sesak 
+napas. 
+• Paparan berulang 
+dapat memicu 
+asma kerja 
+• Jika terhirup 
+Setelah terhirup: 
+hirup udara bersih. 
+Segera hubungi 
+dokter. Jika napas 
+terhenti: segera  
+berikan pernapasan 
+buatan secara 
+mekanik, jika 
+diperlukan berikan 
+oksigen. 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang
+
+===== HALAMAN 84 =====
+Titik leleh: ± 840 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Bentuk umum: 
+NiSO₄·6H₂O 
+atau 
+NiSO₄·7H₂O 
+ 
+→ endapan 
+Ni(OH)₂ 
+• Dapat 
+membentuk 
+kompleks 
+dengan ligan 
+(NH₃, EDTA, 
+dll.) 
+• Stabil pada 
+kondisi normal 
+jika kering 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Bersifat toksik 
+dan dapat 
+menyebabkan 
+iritasi 
+kesulitan 
+bernafas jka 
+terhrup. 
+Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+Diduga 
+menyebabkan 
+kerusakan 
+genetik. 
+Dapat 
+menyebabkan 
+kanker jika 
+terhirup. 
+Dapat merusak 
+janin. 
+Menyebabkan 
+kerusakan pada 
+organ 
+melalui paparan 
+yang lama atau 
+berulang 
+jika terhirup. 
+Sangat toksik 
+pada kehidupan 
+perairan. 
+Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+(occupational 
+asthma). 
+• Paparan kronis 
+berpotensi 
+menyebabkan 
+kerusakan paru -
+paru. 
+2. Kontak Kulit (Skin 
+Contact) 
+• Dapat 
+menyebabkan 
+iritasi dan 
+dermatitis alergi  
+(sensitisasi kulit). 
+• Kontak berulang 
+dapat 
+menimbulkan 
+ruam, gatal, dan 
+kemerahan. 
+3. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi, 
+kemerahan, 
+nyeri, dan mata 
+berair. 
+• Paparan tinggi 
+dapat 
+menyebabkan 
+kerusakan 
+jaringan mata. 
+4. Tertelan (Ingestion) 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Jika kontak 
+dengan mat a 
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 85 =====
+• Menyebabkan 
+mual, muntah, 
+sakit perut, dan 
+diare. 
+• Dalam jumlah 
+besar dapat 
+menimbulkan 
+efek toksik 
+sistemik. 
+5. Efek Jangka Panjang 
+(Chronic Effects) 
+• Senyawa nikel 
+tertentu termasuk 
+diduga 
+karsinogenik 
+(berpotensi 
+menyebabkan 
+kanker). 
+• Dapat 
+menyebabkan 
+sensitisasi 
+pernapasan dan 
+kulit. 
+• Paparan kronis 
+dapat 
+memengaruhi 
+ginjal dan sistem 
+pernapasan 
+ 
+81. Kobalt(II) 
+Klorida 
+CoCl₂(s) Wujud: Padatan 
+kristal biru 
+(anhidrat) / 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+• Berbahaya jika 
+tertelan. 
+Bahan ini sangat merusak 
+jaringan selaput lendir 
+• Jika terhirup Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat
+
+===== HALAMAN 86 =====
+merah muda 
+(hidrat) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+129,84 g/mol 
+(anhidrat) 
+Densitas: ± 3,36 
+g/cm³ 
+Titik leleh: ± 735 
+°C 
+Titik didih: ± 
+1049 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Bentuk umum: 
+CoCl₂·6H₂O 
+(kristal merah 
+muda) 
+ 
+(larutan 
+bersifat asam)  
+Terionisasi 
+dalam air → 
+Co²⁺ dan 2Cl⁻ 
+• Dapat berubah 
+warna 
+tergantung 
+hidrasi 
+(indikator 
+kelembapan) 
+• Bereaksi 
+dengan basa 
+→ endapan 
+Co(OH)₂ 
+• Dapat 
+membentuk 
+kompleks 
+dengan ligan 
+(NH₃, Cl⁻, dll.) 
+• Stabil pada 
+kondisi normal 
+jika kering 
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat toksik 
+dan iritan 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Dapat 
+menyebabkan 
+alergi atau  
+gejala asma 
+atau kesulitan 
+bernafas jka  
+terhrup. 
+• Dapat 
+menyebabkan 
+reaksi alergi  
+pada kulit. 
+• Diduga 
+menyebabkan 
+kerusakan 
+genetik.  
+• Dapat 
+menyebabkan 
+kanker jika  
+terhirup. 
+• Dapat merusak 
+kesuburan. 
+• Dapat merusak 
+janin. 
+• Sangat toksik 
+pada 
+kehidupan 
+perairan. 
+• Sangat toksik 
+pada 
+dan saluran pernapasan 
+bagian atas, 
+mata, dan kulit. 
+Gejala dari intoksikasi 
+akut cobalt : diare, 
+kehilangan napsu makan, 
+penurunan suhu 
+tubuh, penurunan tekanan 
+darah. Efek toksik pada 
+ginjal (proteinurea, 
+anurea), jantung 
+dan pankreas. 
+• Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit 
+• Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+• kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Jika kontak 
+dengan mata 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+• Lepaskan lensa 
+kontak. 
+• Jika tertelan 
+• Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 87 =====
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+• ke dokter. 
+82. Mangan(II) 
+Sulfat 
+MnSO₄(s) Wujud: Padatan 
+kristal merah 
+muda pucat 
+Bau: Tidak 
+berbau 
+Massa molar: 
+151,00 g/mol 
+(anhidrat) 
+Densitas: ± 3,25 
+g/cm³ 
+Titik leleh: ± 700 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Bentuk umum: 
+MnSO₄·H₂O atau 
+MnSO₄·4H₂O 
+ 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan 
+bersifat sedikit 
+asam) 
+• Terionisasi 
+dalam air → 
+Mn²⁺ dan 
+SO₄²⁻ 
+• Bereaksi 
+dengan basa 
+→ endapan 
+Mn(OH)₂ 
+• Mudah 
+teroksidasi 
+oleh udara → 
+MnO₂ 
+• Dapat 
+membentuk 
+kompleks 
+dengan ligan 
+tertentu 
+• Stabil pada 
+kondisi normal 
+jika kering 
+• Berbahaya 
+jika tertelan 
+atau terhirup  
+dalam jumlah 
+besar. 
+• Debu dapat 
+menyebabkan 
+iritasi pada 
+mata, kulit, 
+dan saluran 
+pernapasan. 
+• Paparan jangka 
+panjang dapat 
+menyebabkan 
+gangguan 
+sistem saraf  
+(efek 
+manganisme). 
+• Dapat 
+berbahaya bagi 
+lingkungan 
+perairan. 
+ 
+a. Terhirup (Inhalation) 
+• Menyebabkan 
+iritasi hidung dan 
+tenggorokan, 
+batuk, dan sesak 
+napas. 
+• Paparan kronis 
+dapat 
+menyebabkan 
+gangguan 
+neurologis seperti 
+tremor dan 
+gangguan 
+koordinasi. 
+b. Kontak Kulit (Skin 
+Contact) 
+• Menyebabkan 
+iritasi ringan 
+hingga sedang 
+seperti kemerahan 
+dan gatal. 
+c. Kontak Mata (Eye 
+Contact) 
+• Menyebabkan 
+iritasi, rasa perih, 
+kemerahan, dan 
+mata berair. 
+• Terhirup 
+Pindahkan korban 
+ke udara segar. Jika 
+gejala berlanjut, 
+segera cari bantuan 
+medis. 
+• Kontak Kulit Cuci 
+dengan sabun dan 
+air mengalir.  
+Lepaskan pakaian 
+yang 
+terkontaminasi. 
+• Kontak Mata  
+Bilas mata dengan 
+air bersih selama 
+minimal 15 menit.  
+Cari pertolongan 
+medis jika iritasi 
+berlanjut. 
+• Tertelan Bilas 
+mulut dengan air 
+dan minum air 
+secukupnya. 
+Segera cari bantuan 
+medis jika timbul 
+keluhan. 
+ 
+• Simpan dalam 
+wadah tertutup 
+rapat 
+• Letakkan di 
+tempat sejuk, 
+kering, dan 
+berventilasi baik. 
+• Jauhkan dari 
+kelembapan, 
+asam kuat, dan 
+bahan oksidator 
+kuat. 
+• Simpan di area 
+penyimpanan 
+bahan kimia 
+berbahaya.
+
+===== HALAMAN 88 =====
+• Tidak bersifat 
+oksidator kuat 
+• Bersifat iritan 
+dan toksik 
+pada 
+konsentrasi 
+tinggi 
+d. Tertelan (Ingestion) 
+• Menyebabkan 
+mual, muntah, 
+nyeri perut, dan 
+gangguan 
+pencernaan. 
+• Dalam jumlah 
+besar dapat 
+menyebabkan 
+efek toksik pada 
+sistem saraf 
+ 
+ 
+83. Kalium 
+Hidroksida 
+KOH(s) Wujud: Padatan 
+kristal putih 
+(pelet/serpihan) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+56,11 g/mol 
+Densitas: ± 2,04 
+g/cm³ 
+Titik leleh: ± 360 
+°C 
+Titik didih: ± 
+1327 °C 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: 
+Sangat 
+higroskopis dan 
+• Basa kuat 
+(alkali kuat) 
+• Terionisasi 
+dalam air → 
+K⁺ dan OH⁻ 
+• Pelarutan 
+dalam air 
+bersifat 
+eksoterm 
+• Bereaksi 
+dengan asam 
+→ garam 
+kalium + H₂O 
+• Bereaksi 
+dengan CO₂ → 
+K₂CO₃ atau 
+KHCO₃ 
+• Dapat bereaksi 
+dengan logam 
+• Dapat korosif 
+terhadap 
+logam. 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan 
+mata. 
+Mengakibatkan luka 
+bakar. 
+Menyebabkan kerusakan 
+mata yang serius. 
+Setelah penyerapan: 
+Muntah 
+guncangan 
+ 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Segera panggil 
+dokter. 
+• Jika kontak 
+dengan mata 
+Bukan wadah 
+aluminium, timah 
+atau seng. Wadah 
+yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 89 =====
+mudah menyerap 
+CO₂ dari udara 
+ 
+tertentu 
+menghasilkan 
+H₂ 
+• Stabil pada 
+kondisi normal 
+jika disimpan 
+kering 
+• Bersifat sangat 
+korosif 
+• Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+• Jika tertelan 
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas), hidari 
+muntah (resiko 
+perforasi!). Segera 
+panggil dokter. 
+Jangan mencoba 
+menetralisir. 
+84. Litium Klorida LiCl(s) 
+    Wujud: 
+Padatan kristal 
+putih 
+   Bau: Tidak 
+berbau 
+   Massa molar: 
+42,39 g/mol 
+   Densitas: ± 
+2,07 g/cm³ 
+   Titik leleh: ± 
+605 °C 
+   Titik didih: ± 
+1382 °C 
+• Garam dari 
+asam kuat dan 
+basa kuat 
+• Terionisasi 
+dalam air → 
+Li⁺ dan Cl⁻ 
+• Larutan 
+bersifat hampir 
+netral 
+• Stabil pada 
+kondisi normal 
+jika disimpan 
+kering 
+Berbahaya jika 
+tertelan. 
+Menyebabkan 
+iritasi kulit. 
+Menyebabkan 
+iritasi mata yang 
+serius. 
+Menyebabkan iritasi kulit 
+Menyebabkan iritasi mata 
+yang serius. 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+• Jika terkena kulit: 
+Segera lepaskan 
+semua pakaian 
+yang 
+terkontaminasi. 
+• Bilas kulit dengan  
+air/mandi. 
+• Jika terkena mata  
+Setelah terkena 
+mata: bilas dengan 
+Tertutup rapat. 
+Kering.
+
+===== HALAMAN 90 =====
+   Kelarutan: 
+Sangat larut 
+dalam air 
+   Higroskopis: 
+Sangat 
+higroskopis 
+(mudah 
+menyerap air 
+dari udara 
+ 
+• Dapat 
+membentuk 
+hidrat dalam 
+kondisi 
+lembap 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat 
+elektrolit kuat 
+dalam larutan 
+• Bersifat iritan 
+jika tertelan 
+atau terhirup 
+banyak air. 
+Hubungi dokter 
+mata. Lepaskan 
+lensa kontak.  Jika 
+tertelan 
+• Setelah tertelan: 
+segera berikan 
+korban minum air 
+(maksimal dua 
+gelas). 
+Konsultasikan 
+dengan dokter. 
+85. Natrium Boraks Na₂B₄O₇·1
+0(s)H₂O(s) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+381,37 g/mol 
+Densitas: ± 1,73 
+g/cm³ 
+Titik leleh: ± 75 
+°C (kehilangan 
+air kristal) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+• Garam dari 
+asam borat dan 
+basa kuat 
+• Terionisasi 
+dalam air → 
+Na⁺ dan ion 
+borat 
+• Larutan 
+bersifat basa 
+lemah 
+• Bereaksi 
+dengan asam 
+→ asam borat 
+• Kehilangan air 
+kristal saat 
+dipanaskan → 
+• Menyebabkan 
+iritasi mata 
+yang serius. 
+• Dapat merusak 
+kesuburan. 
+• Dapat merusak 
+janin. 
+Menyebabkan iritasi mata 
+yang serius. 
+Menyebabkan mual, 
+muntah, diare, dan nyeri 
+perut. 
+Paparan dalam jumlah 
+besar dapat menyebabkan 
+efek toksik sistemik 
+ 
+• Jika terhiru p 
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Tertutup sangat 
+rapat. Kering.  
+• Simpan di tempat 
+yang berventilasi 
+baik.  
+• Simpan dalam  
+tempat terkunci 
+atau di tempat yang 
+hanya bisa 
+dimasuki oleh 
+orang-orang yang  
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 91 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+boraks 
+anhidrat 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam 
+17. Bersifat 
+iritan ringan 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+86. Titanium 
+Dioksida 
+TiO₂(s) Wujud: Padatan 
+serbuk putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+79,87 g/mol 
+Densitas: ± 4,23 
+g/cm³ (rutile) 
+Titik leleh: ± 
+1843 °C 
+Titik didih: ± 
+2972 °C 
+Kelarutan: Tidak 
+larut dalam air 
+• Oksida logam 
+bersifat 
+amfoter 
+• Bereaksi 
+dengan asam 
+kuat atau basa 
+kuat pada 
+kondisi 
+tertentu 
+• Stabil terhadap 
+panas dan 
+cahaya 
+• Tidak bersifat 
+oksidator 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Menghirup debu harus 
+dihindari karena debu 
+inert dapat merusak 
+fungsi organ pernapasan. 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 92 =====
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+ 
+maupun 
+reduktor kuat 
+• Dapat 
+bertindak 
+sebagai 
+fotokatalis di 
+bawah sinar 
+UV 
+• Tahan 
+terhadap 
+korosi kimia 
+• Tidak reaktif 
+dengan 
+sebagian besar 
+bahan kimia 
+pada kondisi 
+normal 
+• Debu dapat 
+menyebabkan 
+iritasi ringan 
+jika terhirup 
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+ 
+87. Seng Oksida ZnO(s) Wujud: Padatan 
+serbuk putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+81,38 g/mol 
+Densitas: ± 5,61 
+g/cm³ 
+Titik leleh: ± 
+1975 °C 
+• Oksida logam 
+bersifat 
+amfoter 
+• Bereaksi 
+dengan asam 
+→ garam seng  
+H₂O 
+• Bereaksi 
+dengan basa 
+kuat → zincat 
+Berbahaya jika 
+tertelan. 
+Menyebabkan 
+kerusakan mata 
+yang serius. 
+Sangat toksik 
+pada kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+debu oksida seng atau 
+asap dapat mengiritasi 
+saluran pernapasan. 
+kontak kulit yang lama 
+dapat menghasilkan  
+dermatitis yang parah 
+disebut cacar oksida. 
+Paparan tingkat tinggi  
+debu atau asap dapat 
+menyebabkan rasa logam, 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+Wadah yang tidak 
+mengandung 
+logam. 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 93 =====
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: Tidak 
+larut dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal 
+ 
+• Stabil pada 
+suhu ruang 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat bereaksi 
+dengan asam 
+kuat 
+menghasilkan 
+ion Zn²⁺ 
+• Tahan 
+terhadap 
+banyak bahan 
+kimia pada 
+kondisi normal 
+• Debu dapat 
+menyebabkan 
+iritasi jika 
+terhirup 
+ditandai rasa haus, batuk, 
+kelelahan, 
+kelemahan, nyeri otot, 
+dan mual diikuti dengan 
+demam dan menggigil. 
+overexposure parah 
+dapat menyebabkan 
+bronkitis atau pneumonia 
+dengan warna kebiruan 
+pada kulit., sensasi 
+terbakar, Batuk, mengi, 
+radang tenggorokan, 
+Napas tersengal, Sakit 
+kepala, Mual, Muntah, 
+resistensi saluran napas, 
+efek kardiovaskular., 
+edema paru, gagal 
+jantung kongestif 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+89. Asam Salisilat C₇H₆O₃(s) Wujud: Padatan 
+kristal putih 
+Bau: Ringan 
+khas fenolik 
+Massa molar: 
+138,12 g/mol 
+Densitas: ± 1,44 
+g/cm³ 
+• Asam organik 
+aromatik 
+(mengandung 
+gugus –COOH 
+dan –OH 
+fenolik) 
+• Bersifat asam 
+lemah 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Diduga dapat 
+merusak janin. 
+Keracunan ringan salisilat 
+kronis disebut salicylism. 
+Gejala termasuk: sakit 
+kepala, pusing, 
+telinga berdenging, 
+kesulitan dalam 
+pendengaran, 
+keremangan penglihatan, 
+kebingungan 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+Tertutup sangat 
+rapat. Kering.
+
+===== HALAMAN 94 =====
+Titik leleh: ± 
+158–161 °C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sedikit larut 
+dalam air; larut 
+dalam alkohol 
+dan pelarut 
+organik 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Bereaksi 
+dengan basa 
+→ garam 
+salisilat + H₂O 
+• Dapat 
+mengalami 
+esterifikasi → 
+ester salisilat 
+• Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam tertentu 
+• Stabil pada 
+suhu ruang 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+pada kulit, 
+mata, dan 
+saluran 
+pernapasan 
+mental, kelelahan, 
+mengantuk, berkeringat, 
+rasa haus, hiperventilasi, 
+mual, muntah, dan 
+kadang-kadang diare. 
+tingkatan yang lebih 
+parah dari keracunan 
+salisilat ditandai dengan 
+gangguan CNS lebih jelas 
+(termasuk kejang umum 
+dan koma), erupsi kulit, 
+dan perubahan 
+ditandai dalam 
+keseimbangan asam -
+basa. 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). 
+Periksakan ke 
+dokter. 
+90. Natrium 
+Hipoklorit 
+NaClO(aq) Rumus: NaClO 
+Wujud: Larutan 
+cair berwarna 
+kuning pucat 
+hingga kehijauan 
+Bau: Tajam khas 
+klorin 
+• Oksidator kuat 
+• Terionisasi 
+dalam air → 
+Na⁺ dan ClO⁻ 
+• Bersifat basa 
+dalam larutan 
+• Dapat korosif 
+terhadap 
+logam. 
+• Menyebabkan 
+kulit terbakar 
+yang 
+parah dan 
+kerusakan mata. 
+iritasi mukosa, Batuk, 
+Napas tersengal, 
+Campuran 
+mengakibatkan luka 
+bakar. 
+Campuran menyebabkan 
+kerusakan mata berat. 
+Resiko kebutaan! 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+• Wadah yang 
+tidak 
+mengandung 
+logam. 
+• Lindungi dari 
+cahaya.Tertutup 
+sangat rapat.
+
+===== HALAMAN 95 =====
+Massa molar: 
+74,44 g/mol 
+Densitas: ± 1,10 
+g/cm³ (larutan 
+±5–15%) 
+Titik leleh: Tidak 
+berlaku (larutan) 
+Titik didih: ± 101 
+°C (tergantung 
+konsentrasi) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Stabilitas: Tidak 
+stabil terhadap 
+panas, cahaya, 
+dan logam 
+tertentu 
+ 
+• Bereaksi 
+dengan asam 
+→ 
+menghasilkan 
+gas klorin (Cl₂) 
+beracun 
+• Terurai → 
+NaCl + 
+NaClO₃ + O₂ 
+(dipengaruhi 
+cahaya/panas 
+• Bereaksi 
+dengan amonia 
+→ kloramin 
+• Dapat 
+mengoksidasi 
+senyawa 
+organik dan 
+anorganik 
+• Bersifat 
+korosif dan 
+iritan 
+Menyebabkan 
+kerusakan mata 
+yang serius 
+Sangat toksik 
+pada kehidupan 
+perairan. 
+Toksik pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka panjang. 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Segera panggil 
+dokter. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas), hidari 
+muntah (resiko 
+perforasi!). Segera 
+panggil dokter. 
+Jangan mencoba 
+menetralisir. 
+• Jangan disimpan 
+dekat asam. 
+91. Natrium 
+tiosianat 
+NaSCN(s) Wujud: Padatan 
+kristal putih 
+hingga tidak 
+berwarna 
+• Garam dari 
+asam lemah 
+(asam 
+tiosianat) 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Bukan bahan atau 
+campuran berbahaya 
+menurut Peraturan (EC) 
+No 1272/2008. 
+• Jika terhirup  
+Setelah menghirup: 
+hirup udara segar. 
+Tertutup sangat 
+rapat.
+
+===== HALAMAN 96 =====
+Bau: Tidak 
+berbau 
+Massa molar: 
+81,07 g/mol 
+Densitas: ± 1,73 
+g/cm³ 
+Titik leleh: ± 287 
+°C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sangat larut 
+dalam air dan 
+alkohol 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+Terionisasi 
+dalam air → 
+Na⁺ dan SCN⁻ 
+• Dapat 
+membentuk 
+kompleks 
+berwarna 
+dengan ion 
+Fe³⁺ 
+• Terurai pada 
+pemanasan 
+kuat 
+menghasilkan 
+gas beracun 
+(mis. SO₂, 
+NOₓ) 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak bersifat 
+oksidator kuat 
+• Dapat bereaksi 
+dengan 
+oksidator kuat 
+• Bersifat toksik 
+dan iritan 
+Peraturan (EC) 
+No 1272/2008. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslahkulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : bilaslah 
+dengan air yang 
+banyak. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak dua 
+gelas). Konsultasi  
+kepada dokter jika 
+merasa tidak sehat. 
+92. Kalium 
+tiosianat 
+KSCN(s) Wujud: Padatan 
+kristal putih 
+hingga tidak 
+berwarna 
+• Garam dari 
+asam lemah 
+(asam 
+tiosianat) dan 
+basa kuat 
+• Berbahaya jika 
+tertelan, 
+terkena kulit 
+atau bila 
+terhirup. 
+Menyebabkan kerusakan 
+mata yang serius 
+Mual, Sakit kepala, 
+Muntah 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+Tertutup sangat 
+rapat. Kering. 
+Jangan disimpan 
+dekat asam.
+
+===== HALAMAN 97 =====
+Bau: Tidak 
+berbau 
+Massa molar: 
+97,18 g/mol 
+Densitas: ± 1,89 
+g/cm³ 
+Titik leleh: ± 172 
+°C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sangat larut 
+dalam air dan 
+alkohol 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Terionisasi 
+dalam air → 
+K⁺ dan SCN⁻ 
+• Membentuk 
+kompleks 
+berwarna 
+merah darah 
+dengan ion 
+Fe³⁺ 
+• Terurai pada 
+pemanasan 
+kuat 
+menghasilkan 
+gas beracun 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak bersifat 
+oksidator kuat 
+• Dapat bereaksi 
+dengan 
+oksidator kuat 
+• Bersifat toksik 
+dan iritan 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Berbahaya 
+pada 
+kehidupan 
+perairan 
+dengan efek 
+jangkapanjang. 
+Untuk yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat toksikologi 
+belum diselidiki 
+secara menyeluruh. 
+Setelah terserap : 
+agitasi, sesak 
+ataxia (kerusakan 
+koordinasi alat gerak) 
+napas buatan mulut 
+ke 
+mulut atau secara 
+mekanik. Berikan 
+masker oksigen jika 
+mungkin. Segera 
+hubungi dokter. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban
+
+===== HALAMAN 98 =====
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+ 
+93. Amonium 
+tiosianat 
+NH₄SCN(s
+) 
+Wujud: Padatan 
+kristal putih 
+hingga tidak 
+berwarna 
+Bau: Tidak 
+berbau 
+Massa molar: 
+76,12 g/mol 
+Densitas: ± 1,31 
+g/cm³ 
+Titik leleh: ± 
+149–152 °C 
+Titik didih: 
+Terurai sebelum 
+mendidih 
+Kelarutan: 
+Sangat larut 
+dalam air dan 
+alcohol 
+Higroskopis: Ya 
+ 
+• Garam dari 
+asam lemah 
+(asam 
+tiosianat) dan 
+basa lemah 
+(amonia) 
+• Terionisasi 
+dalam air → 
+NH₄⁺ dan 
+SCN⁻ 
+• Membentuk 
+kompleks 
+berwarna 
+merah dengan 
+ion Fe³⁺ 
+• Terurai saat 
+dipanaskan → 
+NH₃, CS₂, dan 
+gas lain 
+• Dapat bereaksi 
+dengan 
+oksidator kuat 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+16. Tidak 
+• Berbahaya jika 
+tertelan, 
+terkena kulit 
+atau bila 
+terhirup. 
+• Menyebabkan 
+kerusakan mata 
+yang serius. 
+• Berbahaya 
+pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+Mual, Muntah, Diare 
+Menyebabkan kerusakan 
+mata yang serius. 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+napas buatan mulut 
+ke mulut atau 
+secara mekanik. 
+Berikan masker 
+oksigen jika 
+mungkin. Segera 
+hubungi dokter. 
+• Jika kontak 
+dengan kulit  Bila 
+terjadi kontak kulit: 
+Tanggalkan segera 
+semua pakaian 
+yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+• Jika kontak 
+dengan mata 
+Lindungi dari 
+cahaya.Tertutup 
+sangat rapat. 
+Kering. 
+Jangan disimpan 
+dekat asam.
+
+===== HALAMAN 99 =====
+bersifat 
+oksidator kuat  
+17. Bersifat 
+toksik dan 
+iritan 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak.\ 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+94. Timbal(II) nitrat Pb(NO₃)₂(s
+) 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: 
+331,1 g/mol 
+Densitas: ± 4,53 
+g/cm³ 
+Titik leleh: ± 470 
+°C (terurai) 
+titik didih: Tidak 
+berlaku 
+(teruraiKelarutan
+: Sangat larut 
+dalam air 
+   Stabilitas: 
+Stabil pada 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan sedikit 
+asam) 
+• Terionisasi 
+dalam air → 
+Pb²⁺ dan 
+2NO₃⁻ 
+12. Oksidator 
+sedang saat 
+dipanaskan 
+13. Bereaksi 
+dengan basa 
+→ endapan 
+Pb(OH)₂ 
+14. Bereaksi 
+H302 + H332 
+Berbahaya jika 
+tertelan atau bila 
+terhirup. 
+H317 Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+H318 
+Menyebabkan 
+kerusakan mata 
+yang serius. 
+H351 Diduga 
+menyebabkan 
+kanker. 
+H360Df Dapat 
+merusak janin. 
+Menyebabkan kerusakan 
+mata yang serius. 
+Sensitisasi saluran 
+pernafasan atau pada kulit 
+Diduga menyebabkan 
+kanker. 
+Dapat membahayakan 
+janin. Bukti positif dari 
+penelitian epidemiologi 
+manusia. 
+Diduga dapat merusak 
+kesuburan. 
+Menyebabkan kerusakan 
+organ-organ melalui 
+eksposur yang lama atau 
+berulang-ulang. 
+Jika terhirup 
+Setelah terhirup: 
+hirup udara bersih. 
+Segera hubungi 
+dokter. Jika napas 
+terhenti: segera 
+berikan pernapasan 
+buatan secara 
+mekanik, jika 
+diperlukan berikan 
+oksigen. 
+Jika kontak 
+dengan kulit 
+Bila terjadi kontak 
+kulit: Tanggalkan 
+segera semua 
+pakaian yang 
+Tertutup sangat 
+rapat. Simpan 
+dalam tempat 
+terkunci atau di 
+tempat yang hanya 
+bisa 
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang. Jangan 
+gunakan 
+dekat bahan -bahan 
+yang mudah 
+terbakar.
+
+===== HALAMAN 100 =====
+kondisi normal 
+kering 
+ 
+dengan ion 
+halida (mis. I⁻) 
+→ endapan 
+PbI₂ 
+15. Stabil pada 
+suhu ruang  
+16. Tidak 
+mudah 
+terbakar 
+17. Sangat 
+toksik 
+Diduga dapat 
+merusak 
+kesuburan. 
+H372 
+Menyebabkan 
+kerusakan pada 
+organ (Darah, 
+Sistem saraf 
+pusat, Sistem 
+imun, Ginjal) 
+melalui paparan 
+yang lama atau 
+berulang. 
+H410 Sangat 
+toksik pada 
+kehidupan 
+perairan dengan 
+efek jangka 
+panjang. 
+- Darah, Sistem saraf 
+pusat, Sistem imun, 
+Ginjal 
+Salivasi/berliur 
+Muntah 
+tekanan darah turun 
+terkontaminasi. 
+Bilaslah 
+kulit dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter. 
+Jika kontak 
+dengan mata 
+Setelah kontak pada 
+mata : bilaslah 
+dengan air yang 
+banyak. Segera 
+hubungi dokter 
+mata. 
+Lepaskan lensa 
+kontak. 
+Jika tertelan 
+Setelah tertelan: 
+segera beri korban 
+minum air putih 
+(dua gelas paling 
+banyak). Periksakan 
+ke dokter. 
+95. Seng nitrat Zn(NO₃)₂(
+s) 
+Wujud: Padatan 
+kristal putih 
+(umumnya 
+sebagai hidrat) 
+Bau: Tidak 
+berbau 
+Massa molar: 
+189,41 g/mol 
+(anhidrat) 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan 
+bersifat asam) 
+• Terionisasi 
+dalam air → 
+Zn²⁺ dan 
+2NO₃⁻ 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+Korosi/iritasi kulit 
+Dapat menyebabkan 
+iritasi pada saluran 
+pernafasan. 
+• Jika terhirup  
+Setelah 
+menghirup: hirup 
+udara segar. 
+• Jika kontak 
+dengan kulit  
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+Jangan gunakan 
+dekat bahan -bahan 
+yang mudah 
+terbakar.
+
+===== HALAMAN 101 =====
+Densitas: ± 2,07 
+g/cm³ 
+Titik leleh: ± 36–
+45 °C (hidrat, 
+terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya 
+ 
+• Oksidator 
+sedang 
+• Bereaksi 
+dengan basa 
+→ endapan 
+Zn(OH)₂ 
+• Terurai saat 
+dipanaskan → 
+ZnO + NO₂ + 
+O₂ 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak mudah 
+terbakar 
+• Bersifat iritan 
+dan toksik 
+pada 
+konsentrasi 
+tinggi 
+• Menyebabkan 
+iritasi mata 
+yang serius. 
+• Dapat 
+menyebabkan 
+iritasi pada 
+saluran 
+pernafasan. 
+• Sangat toksik 
+pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+bilaslah dengan 
+air yang banyak. 
+Hubungi dokter 
+mata. Lepaskan 
+lensa kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+segera beri 
+korban minum air 
+putih (dua gelas 
+paling banyak). 
+Periksakan ke 
+dokter. 
+96. Mangan(II) 
+nitrat 
+Mn(NO₃)₂(
+s) 
+Wujud: Padatan 
+kristal merah 
+muda pucat 
+(umumnya 
+sebagai hidrat) 
+Bau: Tidak 
+berbau 
+• Garam dari 
+asam kuat dan 
+basa lemah 
+(larutan 
+bersifat asam) 
+• Terionisasi 
+dalam air → 
+Mn²⁺ dan 
+2NO₃⁻ 
+• Dapat 
+mengintensifka
+n api; 
+pengoksidasi. 
+• Berbahaya jika 
+tertelan. 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+Pria terkena debu mangan 
+menunjukkan penurunan 
+kesuburan. keracunan 
+mangan kronis 
+terutama melibatkan 
+sistem saraf pusat. Gejala 
+awal termasuk kelesuan, 
+mengantuk dan 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+• Jika kontak 
+dengan kulit  
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+Tertutup sangat 
+rapat. Jangan 
+gunakan dekat 
+bahan-bahan yang 
+mudah terbakar.
+
+===== HALAMAN 102 =====
+Massa molar: 
+178,95 g/mol 
+(anhidrat) 
+Densitas: ± 2,0 –
+2,2 g/cm³ 
+(tergantung 
+hidrat) 
+Titik leleh: ± 25–
+30 °C (hidrat, 
+terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: 
+Sangat larut 
+dalam air 
+Higroskopis: Ya 
+(mudah 
+menyerap 
+kelembapan) 
+ 
+• Bersifat 
+oksidator 
+sedang (karena 
+ion nitrat) 
+• Bereaksi 
+dengan basa 
+→ endapan 
+Mn(OH)₂ 
+• Terurai saat 
+dipanaskan → 
+MnO₂/Mn₂O₃ 
++ NO₂ + O₂ 
+• Mudah 
+teroksidasi 
+oleh udara 
+dalam kondisi 
+basa 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Bersifat iritan 
+dan toksik 
+pada 
+konsentrasi 
+tinggi 
+kerusakan 
+mata. 
+• Dapat 
+menyebabkan 
+kerusakan pada 
+organ (Otak) 
+melalui 
+paparan yang 
+lama atau 
+berulang jika 
+terhirup. 
+• Berbahaya 
+kelemahan di kaki. 
+Sebuah penampilan 
+seperti topeng -wajah 
+pendiam, gangguan 
+emosi 
+seperti tawa tak 
+terkendali dan gaya 
+berjalan spastik dengan 
+kecenderungan untuk 
+jatuh 
+saat berjalan adalah 
+temuan dalam kasus -
+kasus yang lebih maju. 
+tingginya insiden 
+pneumonia telah 
+ditemukan pada pekerja 
+yang terpapar debu atau 
+asap dari beberapa 
+senyawa mangan., Untuk 
+yang terbaik dari 
+pengetahuan kita, kimia, 
+fisik, dan sifat 
+toksikologi belum 
+diselidiki secara 
+menyeluruh. 
+Methaemoglobinaemia 
+dengan sakit kepala, 
+aritmia jantung, tekanan 
+darah turun, 
+dyspnoea dan sesak , 
+gejala kuncinya : 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Segera panggil 
+dokter. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+bilaslah dengan 
+air yang banyak. 
+Segera hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak.  
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak 
+dua gelas),
+
+===== HALAMAN 103 =====
+cyanosis (darah berwarna 
+biru). 
+97. Kalium 
+antimonil tartrat 
+K(SbO)C₄
+H₄O₆·½H₂
+O 
+Wujud: Padatan 
+kristal putih 
+Bau: Tidak 
+berbau 
+Massa molar: ± 
+333 g/mol 
+(hemihidrat) 
+Densitas: ± 2,6 
+g/cm³ 
+Titik leleh: 
+Terurai saat 
+dipanaskan 
+(tidak memiliki 
+titik leleh jelas) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Garam 
+kompleks 
+antimonil–
+tartrat 
+• Terionisasi 
+dalam air → 
+K⁺ dan 
+kompleks 
+SbO-tartrat 
+• Larutan 
+bersifat sedikit 
+asam 
+• Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam tertentu 
+• Terurai pada 
+pemanasan 
+kuat → oksida 
+antimon + gas 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+ 
+• Toksik bila 
+tertelan. 
+• Menyebabkan 
+iritasi kulit. 
+• Dapat 
+menyebabkan 
+reaksi alergi 
+pada kulit. 
+• Berbahaya jika 
+terhirup. 
+• Toksik pada 
+kehidupan 
+perairan 
+dengan efek 
+jangka 
+panjang. 
+ 
+Gangguan saluran cerna, 
+Sakit kepala, Pening, 
+Kelemahan, Cedera ginjal 
+dapat terjadi. 
+Sensitisasi saluran 
+pernafasan atau pada kulit 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara 
+segar.Jika napas 
+terhenti: berikan 
+napas buatan 
+mulut ke  mulut 
+atau secara 
+mekanik. Berikan 
+masker oksigen 
+jika mungkin. 
+Segera hubungi 
+dokter. 
+• Jika kontak 
+dengan kulit  
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Periksakan ke 
+dokter.  
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 104 =====
+• Bersifat toksik bilaslah dengan 
+air yang banyak. 
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Jika tertelan: beri 
+air minum 
+(paling banyak 
+dua gelas). 
+Segera cari 
+anjuran 
+pengobatan. 
+Hanya di dalam 
+kasus khusus, 
+jika pertolongan 
+tidak tersedia 
+dalam satu jam, 
+rangsang untuk 
+muntah (hanya 
+jika korban tidak 
+sadarkan diri), 
+telan karbon aktif 
+and 
+konsultasikan 
+kepada dokter 
+secepatnya. 
+98. Trietanolamin C₆H₁₅NO₃ Wujud: Cairan 
+kental tidak 
+berwarna hingga 
+kuning pucat 
+Bau: Lemah khas 
+amina 
+• Basa lemah 
+(amina tersier) 
+• Membentuk 
+garam dengan 
+asam 
+Bukan bahan 
+atau campuran 
+berbahaya 
+menurut 
+Peraturan (EC) 
+No 1272/2008. 
+Cedera ginjal dapat 
+terjadi., Dermatitis 
+• Jika terhirup  
+Setelah 
+menghirup: hirup 
+udara segar.  
+• Jika kontak 
+dengan kulit  
+Tertutup sangat 
+rapat.
+
+===== HALAMAN 105 =====
+Massa molar: 
+149,19 g/mol 
+Densitas: ± 1,12 
+g/cm³ (25 °C) 
+Titik leleh: ± 21 
+°C 
+Titik didih: ± 335 
+°C 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air dan 
+alkohol 
+Viskositas: 
+Tinggi 
+Tekanan uap: 
+Sangat rendah 
+ 
+• Bersifat 
+higroskopis 
+• Dapat 
+bertindak 
+sebagai agen 
+penyangga 
+(buffer) 
+•  Dapat 
+membentuk 
+kompleks 
+dengan ion 
+logam 
+16. Stabil pada 
+kondisi normal 
+17. Tidak 
+bersifat 
+oksidator 
+maupun 
+reduktor kuat  
+18. Bersifat 
+iritan ringan 
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+bilaslah dengan 
+air yang banyak. 
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak 
+dua gelas). 
+Konsultasi 
+kepada dokter 
+jika merasa tidak 
+sehat. 
+99. Asam laktat C₃H₆O₃ Wujud: Cairan 
+tidak berwarna 
+hingga kuning 
+pucat (kadang 
+sirup kental) 
+• Asam organik 
+lemah (asam 
+α-hidroksi) 
+• Menyebabkan 
+kulit terbakar 
+yang parah dan 
+kerusakan 
+mata. 
+iritasi mukosa, Batuk, 
+Napas tersengal, 
+Campuran 
+mengakibatkan luka 
+bakar. 
+• Jika terhirup  
+Setelah terhirup: 
+hirup udara segar. 
+Panggil dokter. 
+Tertutup sangat 
+rapat. Simpan 
+dalam tempat 
+terkunci atau di
+
+===== HALAMAN 106 =====
+Bau: Lemah khas 
+asam 
+Rasa: Asam 
+Massa molar: 
+90,08 g/mol 
+Densitas: ± 1,20 
+g/cm³ (larutan 
+pekat) 
+Titik leleh: ± 18 
+°C 
+Titik didih: ± 122 
+°C (terurai) 
+Kelarutan: 
+Campur 
+sempurna 
+dengan air dan 
+alkohol 
+Viskositas: 
+Relatif tinggi 
+ 
+• Terionisasi 
+dalam air → 
+laktat + H⁺ 
+• Bereaksi 
+dengan basa 
+→ garam 
+laktat + H₂O 
+• Dapat 
+mengalami 
+esterifikasi 
+dengan 
+alkohol 
+• Dapat 
+mengalami 
+oksidasi → 
+asam piruvat 
+• Stabil pada 
+kondisi normal 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Bersifat iritan 
+pada 
+konsentrasi 
+tinggi  
+• Korosi kulit 
+(Subkategori 
+1C),  
+• Kerusakan 
+mata serius 
+(Kategori 1),  
+Campuran menyebabkan 
+kerusakan mata berat. 
+• Jika kontak 
+dengan kulit  
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+Segera panggil 
+dokter.  
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+bilaslah dengan 
+air yang banyak. 
+Segera hubungi 
+dokter mata.  
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Setelah tertelan: 
+beri air minum 
+kepada korban 
+(paling banyak 
+dua gelas), hidari 
+muntah (resiko 
+perforasi!). 
+Segera panggil 
+tempat yang hanya 
+bisa 
+dimasuki oleh 
+orang-orang yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 107 =====
+dokter. Jangan 
+mencoba 
+menetralisir. 
+100. Metil jingga C₁₄H₁₄N₃N
+aO₃S 
+Wujud: Padatan 
+serbuk kristal 
+oranye 
+Bau: Tidak 
+berbau 
+Massa molar: 
+327,33 g/mol 
+Densitas: ± 1,28 
+g/cm³ 
+Titik leleh: ± 300 
+°C (terurai) 
+Titik didih: Tidak 
+berlaku (terurai) 
+Kelarutan: Larut 
+dalam air dan 
+alkohol 
+Stabilitas: Stabil 
+pada kondisi 
+normal kering 
+ 
+• Senyawa azo 
+aromatik 
+(indikator 
+asam–basa) 
+• Berwarna 
+merah dalam 
+suasana asam 
+• Berwarna 
+kuning dalam 
+suasana basa 
+• Rentang 
+perubahan 
+warna pH ± 
+3,1–4,4 
+• Stabil pada 
+suhu ruang 
+jika disimpan 
+kering 
+• Tidak bersifat 
+oksidator 
+maupun 
+reduktor kuat 
+• Dapat terurai 
+pada suhu 
+tinggi 
+• Bersifat iritan 
+ringan 
+Toksik bila 
+tertelan. 
+Menyebabkan mual, 
+muntah, sakit perut, dan 
+gangguan pencernaan. 
+• Jika terhirup  
+Setelah 
+menghirup: hirup 
+udara segar.  
+• Jika kontak 
+dengan kulit  
+Bila terjadi 
+kontak kulit: 
+Tanggalkan 
+segera semua 
+pakaian yang 
+terkontaminasi. 
+Bilaslah kulit 
+dengan air/ 
+pancuran air. 
+• Jika kontak 
+dengan mata  
+Setelah kontak 
+pada mata : 
+bilaslah dengan 
+air yang banyak. 
+Lepaskan lensa 
+kontak. 
+• Jika tertelan  
+Jika tertelan: beri 
+air minum 
+(paling banyak 
+dua gelas). 
+Segera cari 
+Tertutup sangat 
+rapat. Kering. 
+Simpan di tempat 
+yang berventilasi 
+baik. Simpan dalam 
+tempat terkunci atau 
+di tempat yang 
+hanya bisa dimasuki 
+oleh orang -orang 
+yang 
+mempunyai 
+kualifikasi atau 
+berwenang.
+
+===== HALAMAN 108 =====
+anjuran 
+pengobatan. 
+Hanya di dalam 
+kasus khusus, 
+jika pertolongan 
+tidak tersedia 
+dalam satu jam, 
+rangsang untuk 
+muntah (hanya 
+jika korban tidak 
+sadarkan diri), 
+telan karbon aktif 
+and 
+konsultasikan 
+kepada dokter 
+secepatnya.
+

@@ -6,7 +6,25 @@ using System.Text;
 
 public class NetworkManager : MonoBehaviour
 {
-    private string serverUrl = "http://31.56.56.8:5000/api/submit-score";
+    [SerializeField] private string serverUrl = "http://31.56.56.8:5000/api/submit-score";
+
+    public static NetworkManager Instance { get; private set; }
+    private const string LastUsernameKey = "last_username";
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            return;
+        }
+
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     /// <summary>
     /// Mengirim data lengkap (APD + Quiz) dari QuizSessionManager ke server Dashboard.
@@ -21,7 +39,7 @@ public class NetworkManager : MonoBehaviour
         }
 
         var attempt = QuizSessionManager.Instance.saveData.currentAttempt;
-        string studentName = AuthManager.IsLoggedIn ? AuthManager.CurrentUsername : "Guest";
+        string studentName = ResolveStudentName();
 
         // Bangun payload baru yang terklasifikasi
         StudentScorePayload payload = new StudentScorePayload
@@ -50,6 +68,18 @@ public class NetworkManager : MonoBehaviour
         StartCoroutine(PostScore(payload));
     }
 
+    public static void SubmitFullScoreSafe()
+    {
+        NetworkManager manager = EnsureInstance();
+        if (manager == null)
+        {
+            Debug.LogError("NetworkManager: Instance tidak ditemukan dan gagal dibuat otomatis.");
+            return;
+        }
+
+        manager.SubmitFullScore();
+    }
+
     /// <summary>
     /// Legacy: Kirim skor simpel (backward compatible).
     /// </summary>
@@ -76,11 +106,16 @@ public class NetworkManager : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"Error submitting score: {request.error}");
+                Debug.LogError($"Error submitting score: {request.error} | Code: {request.responseCode} | Body: {request.downloadHandler.text}");
             }
             else
             {
                 Debug.Log($"Full score submitted successfully! Response: {request.downloadHandler.text}");
+
+                if (QuizSessionManager.Instance != null && QuizSessionManager.Instance.FinalizeCurrentAttemptLocally())
+                {
+                    Debug.Log("NetworkManager: Attempt finalized locally after successful upload.");
+                }
             }
         }
     }
@@ -102,12 +137,39 @@ public class NetworkManager : MonoBehaviour
 
             if (request.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"Error submitting score: {request.error}");
+                Debug.LogError($"Error submitting legacy score: {request.error} | Code: {request.responseCode} | Body: {request.downloadHandler.text}");
             }
             else
             {
                 Debug.Log($"Legacy score submitted successfully! Response: {request.downloadHandler.text}");
             }
         }
+    }
+
+    private static NetworkManager EnsureInstance()
+    {
+        if (Instance != null) return Instance;
+
+        Instance = FindFirstObjectByType<NetworkManager>();
+        if (Instance != null) return Instance;
+
+        GameObject go = new GameObject("NetworkManager_Auto");
+        return go.AddComponent<NetworkManager>();
+    }
+
+    private static string ResolveStudentName()
+    {
+        if (AuthManager.IsLoggedIn && !string.IsNullOrWhiteSpace(AuthManager.CurrentUsername))
+        {
+            return AuthManager.CurrentUsername;
+        }
+
+        string cachedUsername = PlayerPrefs.GetString(LastUsernameKey, string.Empty);
+        if (!string.IsNullOrWhiteSpace(cachedUsername))
+        {
+            return cachedUsername;
+        }
+
+        return "Guest";
     }
 }

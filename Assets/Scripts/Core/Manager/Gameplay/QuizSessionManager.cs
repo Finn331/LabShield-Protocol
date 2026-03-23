@@ -173,6 +173,19 @@ public class QuizSessionManager : MonoBehaviour
     // ==========================================
     // BAGIAN PENGIRIMAN DATA KE WEBSITE GURU
     // ==========================================
+    public bool FinalizeCurrentAttemptLocally()
+    {
+        if (saveData.currentAttempt == null)
+        {
+            return false;
+        }
+
+        saveData.attemptHistory.Add(saveData.currentAttempt);
+        saveData.currentAttempt = null;
+        SaveData();
+        return true;
+    }
+
     // Panggil fungsi ini (SubmitAttemptToServer) ketika pemain selesai soal terakhir.
     // Jika sukses terkirim, datanya akan pindah ke "attemptHistory" dan mengijinkan Reset Game.
     public void SubmitAttemptToServer(System.Action<bool> onComplete)
@@ -184,10 +197,7 @@ public class QuizSessionManager : MonoBehaviour
 
         if (success)
         {
-            // Amankan data attempt ini ke daftar riwayat, hapus dari "progress jalan"
-            saveData.attemptHistory.Add(saveData.currentAttempt);
-            saveData.currentAttempt = null; 
-            SaveData();
+            FinalizeCurrentAttemptLocally();
             
             Debug.Log("Data berhasil dikirim ke Website Guru!");
             onComplete?.Invoke(true);

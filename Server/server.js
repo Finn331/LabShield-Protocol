@@ -35,6 +35,99 @@ const writeJSON = (file, data) => {
     fs.writeFileSync(file, JSON.stringify(data, null, 2));
 };
 
+const clamp01to100 = (value) => {
+    if (!Number.isFinite(value)) return 0;
+    if (value < 0) return 0;
+    if (value > 100) return 100;
+    return Math.round(value);
+};
+
+const computeStandardScore = (apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong) => {
+    const totalCorrect = apdTotalCorrect + quizTotalCorrect;
+    const totalWrong = apdTotalWrong + quizTotalWrong;
+    const totalAnswered = totalCorrect + totalWrong;
+    return totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
+};
+
+// Rubrik K3:
+// - Akurasi APD 60%
+// - Akurasi kuis 40%
+// - Penalti 5 poin untuk tiap APD salah (maks 20 poin)
+const computeK3Score = (apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong) => {
+    const apdAnswered = apdTotalCorrect + apdTotalWrong;
+    const quizAnswered = quizTotalCorrect + quizTotalWrong;
+
+    const apdAccuracy = apdAnswered > 0 ? (apdTotalCorrect / apdAnswered) * 100 : 0;
+    const quizAccuracy = quizAnswered > 0 ? (quizTotalCorrect / quizAnswered) * 100 : 0;
+
+    const weightedScore = (apdAccuracy * 0.6) + (quizAccuracy * 0.4);
+    const apdPenalty = Math.min(20, apdTotalWrong * 5);
+    return clamp01to100(weightedScore - apdPenalty);
+};
+
+const normalizeScoreRow = (row) => {
+    const apdTotalCorrect = Number(row.apdTotalCorrect || 0);
+    const apdTotalWrong = Number(row.apdTotalWrong || 0);
+    const quizTotalCorrect = Number(row.quizTotalCorrect || 0);
+    const quizTotalWrong = Number(row.quizTotalWrong || 0);
+    const apdTimeTakenSeconds = Number(row.apdTimeTakenSeconds || 0);
+
+    const finalScoreStandard = computeStandardScore(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
+    const finalScoreK3 = computeK3Score(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
+
+    return {
+        ...row,
+        apdTotalCorrect,
+        apdTotalWrong,
+        apdTimeTakenSeconds,
+        quizTotalCorrect,
+        quizTotalWrong,
+        finalScore: finalScoreStandard, // backward compatibility
+        finalScoreStandard,
+        finalScoreK3
+    };
+};
+
+const normalizeAttemptNumbers = (scores) => {
+    if (!Array.isArray(scores)) return [];
+
+    const sortable = scores.map((row, index) => ({ ...row, __index: index }));
+    sortable.sort((a, b) => {
+        const ta = Date.parse(a.timestamp || 0);
+        const tb = Date.parse(b.timestamp || 0);
+        if (Number.isNaN(ta) && Number.isNaN(tb)) return a.__index - b.__index;
+        if (Number.isNaN(ta)) return -1;
+        if (Number.isNaN(tb)) return 1;
+        if (ta === tb) return a.__index - b.__index;
+        return ta - tb;
+    });
+
+    const counterByStudent = new Map();
+    for (const row of sortable) {
+        const key = String(row.studentName || '').trim().toLowerCase();
+        if (!key) continue;
+        const next = (counterByStudent.get(key) || 0) + 1;
+        counterByStudent.set(key, next);
+        row.attemptNumber = next;
+    }
+
+    sortable.sort((a, b) => a.__index - b.__index);
+    return sortable.map(({ __index, ...row }) => row);
+};
+
+const getNextAttemptNumber = (scores, studentName) => {
+    const key = String(studentName || '').trim().toLowerCase();
+    if (!key) return 1;
+
+    let maxAttempt = 0;
+    for (const row of scores) {
+        if (String(row.studentName || '').trim().toLowerCase() !== key) continue;
+        const n = Number(row.attemptNumber || 0);
+        if (Number.isFinite(n) && n > maxAttempt) maxAttempt = n;
+    }
+    return maxAttempt + 1;
+};
+
 // Seed Admin Helper
 const seedAdmin = () => {
     const users = readJSON(USERS_DB);
@@ -146,30 +239,58 @@ app.post('/api/login', loginLimiter, (req, res) => {
 // Submit Score (Called by Unity - New Rich Payload)
 // Expected payload: { studentName, attemptNumber, apdTotalCorrect, apdTotalWrong, apdTimeTakenSeconds, quizTotalCorrect, quizTotalWrong, questionTimes: [{questionID, timeTaken, isCorrect}] }
 app.post('/api/submit-score', (req, res) => {
-    const scoreData = req.body;
+    const scoreData = req.body || {};
+    const studentName = String(scoreData.studentName || '').trim();
+
+    if (!studentName) {
+        return res.status(400).json({ error: 'studentName is required' });
+    }
+
+    const apdTotalCorrect = Number(scoreData.apdTotalCorrect || 0);
+    const apdTotalWrong = Number(scoreData.apdTotalWrong || 0);
+    const quizTotalCorrect = Number(scoreData.quizTotalCorrect || 0);
+    const quizTotalWrong = Number(scoreData.quizTotalWrong || 0);
+    const finalScoreStandard = computeStandardScore(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
+    const finalScoreK3 = computeK3Score(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
+
     console.log('Received Score:', JSON.stringify(scoreData).substring(0, 300));
 
-    const scores = readJSON(SCORES_DB);
+    let scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
+    const attemptNumber = getNextAttemptNumber(scores, studentName);
     scores.push({
         ...scoreData,
+        studentName,
+        attemptNumber,
+        apdTotalCorrect,
+        apdTotalWrong,
+        apdTimeTakenSeconds: Number(scoreData.apdTimeTakenSeconds || 0),
+        quizTotalCorrect,
+        quizTotalWrong,
+        questionTimes: Array.isArray(scoreData.questionTimes) ? scoreData.questionTimes : [],
+        finalScore: finalScoreStandard,
+        finalScoreStandard,
+        finalScoreK3,
         timestamp: new Date().toISOString()
     });
+    scores = normalizeAttemptNumbers(scores.map(normalizeScoreRow));
     writeJSON(SCORES_DB, scores);
 
-    res.json({ message: 'Score saved' });
+    res.json({ message: 'Score saved', finalScore: finalScoreStandard, finalScoreStandard, finalScoreK3, attemptNumber });
 });
 
 // Get All Scores (Called by Teacher Dashboard)
 app.get('/api/scores', (req, res) => {
-    const scores = readJSON(SCORES_DB);
+    const scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
+    writeJSON(SCORES_DB, scores);
     res.json(scores);
 });
 
 // Get Scores for a specific student (Called by Student Dashboard)
 app.get('/api/student-scores/:username', (req, res) => {
-    const { username } = req.params;
-    const scores = readJSON(SCORES_DB);
-    const studentScores = scores.filter(s => s.studentName === username);
+    const username = String(req.params.username || '').trim().toLowerCase();
+    const scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
+    writeJSON(SCORES_DB, scores);
+    const studentScores = scores.filter(s => String(s.studentName || '').trim().toLowerCase() === username);
     res.json(studentScores);
 });
 

@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran - LabShield Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="learning-page">
+    <main class="app-shell media-shell">
+        <header class="panel topbar media-hero">
+            <div class="media-hero-copy">
+                <span class="brand-mark">LabShield Protocol</span>
+                <h1>Media Pembelajaran</h1>
+                <p>Portal materi keselamatan laboratorium untuk pembelajaran siswa dan guru.</p>
+            </div>
+            <div class="nav-inline media-nav">
+                <a href="index.html" class="btn btn-soft">Home</a>
+                <a href="student-dashboard.html" class="btn btn-soft">Dashboard Siswa</a>
+                <a href="dashboard.html" class="btn btn-soft">Dashboard Guru</a>
+            </div>
+        </header>
+
+        <section class="panel section-panel media-workspace">
+            <div class="media-tabs media-tabs-pro">
+                <button id="tab-msds" class="btn btn-main media-tab-btn" type="button" onclick="switchTab('msds')">MSDS</button>
+                <button id="tab-video" class="btn btn-soft media-tab-btn" type="button" onclick="switchTab('video')">Video</button>
+            </div>
+
+            <article id="panel-msds" class="media-panel active">
+                <div class="media-grid media-kpi-grid">
+                    <div class="info-card media-kpi-card">
+                        <div class="info-key">Total Halaman</div>
+                        <div class="info-val media-kpi-value">108</div>
+                        <div class="media-kpi-caption">halaman dokumen</div>
+                    </div>
+                    <div class="info-card media-kpi-card">
+                        <div class="info-key">Total Data Bahan</div>
+                        <div class="info-val media-kpi-value" id="msds-total-entry">Memuat...</div>
+                        <div class="media-kpi-caption">item terstruktur</div>
+                    </div>
+                </div>
+
+                <div class="media-tools">
+                    <div class="media-search-wrap">
+                        <input id="msds-search" class="input media-search" type="text" placeholder="Cari nama bahan atau rumus kimia...">
+                    </div>
+                    <div class="media-actions">
+                        <a href="assets/msds/MSDS2.pdf" class="btn btn-soft" target="_blank" rel="noopener noreferrer">Lihat PDF Asli</a>
+                        <a href="assets/msds/MSDS2.pdf" class="btn btn-soft" download>Download MSDS PDF</a>
+                    </div>
+                </div>
+
+                <div class="media-note">
+                    Data tabel mengikuti dokumen MSDS asli. Nomor 88 tidak tersedia pada dokumen sumber.
+                </div>
+
+                <div class="table-wrap media-table-wrap">
+                    <table class="table media-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Bahan</th>
+                                <th>Rumus Kimia</th>
+                                <th>Bahaya Utama</th>
+                                <th>Dampak Kesehatan</th>
+                                <th>Pertolongan Pertama</th>
+                                <th>Penyimpanan</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody id="msds-table-body">
+                            <tr>
+                                <td colspan="8">Memuat data MSDS...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article id="panel-video" class="media-panel">
+                <div class="info-card">
+                    <div class="info-key">Status Video</div>
+                    <div class="info-val">
+                        Slot video sudah disiapkan. Nanti saat kamu kirim file video, saya tinggal sambungkan di halaman ini.
+                    </div>
+                </div>
+                <div class="info-card" style="margin-top:12px;">
+                    <div class="info-key">Rencana Integrasi</div>
+                    <div class="info-val">
+                        Video akan ditampilkan dalam player web (dengan judul, deskripsi singkat, dan kontrol play/pause).
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <div class="footer-note">Space Studio · 2026</div>
+    </main>
+
+    <div id="msds-modal" class="msds-modal hidden" aria-hidden="true">
+        <div class="msds-modal-backdrop" data-close-modal="1"></div>
+        <div class="msds-modal-card">
+            <div class="msds-modal-head">
+                <h3 id="msds-modal-title">Detail Bahan</h3>
+                <button type="button" class="btn btn-soft msds-close-btn" data-close-modal="1">Tutup</button>
+            </div>
+            <div id="msds-modal-body" class="msds-modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        let msdsRows = [];
+
+        function switchTab(tab) {
+            const isMsds = tab === "msds";
+            document.getElementById("panel-msds").classList.toggle("active", isMsds);
+            document.getElementById("panel-video").classList.toggle("active", !isMsds);
+
+            document.getElementById("tab-msds").className = isMsds ? "btn btn-main media-tab-btn" : "btn btn-soft media-tab-btn";
+            document.getElementById("tab-video").className = isMsds ? "btn btn-soft media-tab-btn" : "btn btn-main media-tab-btn";
+        }
+
+        function escapeHtml(text) {
+            return String(text || "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function formatCellText(text) {
+            return escapeHtml(text).replace(/\n/g, "<br>");
+        }
+
+        function shortText(text, max = 180) {
+            const normalized = String(text || "").replace(/\s+/g, " ").trim();
+            return normalized.length > max ? `${normalized.slice(0, max)}...` : normalized;
+        }
+
+        function formatFormula(text) {
+            return escapeHtml(String(text || "").replace(/\s+/g, ""));
+        }
+
+        function normalizeText(text) {
+            return String(text || "")
+                .replace(/•/g, " ")
+                .replace(/\r/g, "\n")
+                .replace(/\n+/g, " ")
+                .replace(/\s+/g, " ")
+                .trim();
+        }
+
+        function createSummaryCell(value, maxChars = 130) {
+            const cleaned = normalizeText(value);
+            if (!cleaned) return "-";
+            return `<div class="cell-summary">${escapeHtml(shortText(cleaned, maxChars))}</div>`;
+        }
+
+        function createModalSection(label, value) {
+            const cleaned = normalizeText(value);
+            const content = cleaned
+                ? `<div class="modal-paragraph">${escapeHtml(cleaned)}</div>`
+                : `<div class="muted">Tidak ada data.</div>`;
+            return `
+                <section class="modal-section">
+                    <div class="modal-label">${escapeHtml(label)}</div>
+                    ${content}
+                </section>
+            `;
+        }
+
+        function showDetailModal(sourceItem) {
+            const modal = document.getElementById("msds-modal");
+            const title = document.getElementById("msds-modal-title");
+            const body = document.getElementById("msds-modal-body");
+
+            title.textContent = `${sourceItem.no}. ${sourceItem.nama_bahan}`;
+            body.innerHTML = `
+                <div class="modal-meta">
+                    <div><strong>Rumus:</strong> ${formatFormula(sourceItem.rumus_kimia)}</div>
+                </div>
+                ${createModalSection("Sifat Fisik", sourceItem.sifat_fisik)}
+                ${createModalSection("Sifat Kimia", sourceItem.sifat_kimia)}
+                ${createModalSection("Bahaya Utama", sourceItem.bahaya_utama)}
+                ${createModalSection("Dampak Kesehatan", sourceItem.dampak_kesehatan)}
+                ${createModalSection("Pertolongan Pertama", sourceItem.pertolongan_pertama)}
+                ${createModalSection("Penyimpanan", sourceItem.penyimpanan)}
+            `;
+
+            modal.classList.remove("hidden");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+        }
+
+        function hideDetailModal() {
+            const modal = document.getElementById("msds-modal");
+            modal.classList.add("hidden");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+        }
+
+        function renderTable(data) {
+            const tbody = document.getElementById("msds-table-body");
+
+            if (!data.length) {
+                tbody.innerHTML = `<tr><td colspan="8">Data MSDS tidak ditemukan.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = data.map((item) => `
+                <tr>
+                    <td>${escapeHtml(item.no)}</td>
+                    <td>${escapeHtml(item.nama_bahan)}</td>
+                    <td>${formatFormula(item.rumus_kimia)}</td>
+                    <td>${createSummaryCell(item.bahaya_utama)}</td>
+                    <td>${createSummaryCell(item.dampak_kesehatan)}</td>
+                    <td>${createSummaryCell(item.pertolongan_pertama)}</td>
+                    <td>${createSummaryCell(item.penyimpanan, 100)}</td>
+                    <td>
+                        <button type="button" class="btn btn-soft btn-mini" data-detail-no="${escapeHtml(item.no)}">
+                            Detail
+                        </button>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        function applySearch() {
+            const keyword = document.getElementById("msds-search").value.trim().toLowerCase();
+            if (!keyword) {
+                renderTable(msdsRows);
+                return;
+            }
+
+            const filtered = msdsRows.filter((item) => {
+                const haystack = [
+                    item.no,
+                    item.nama_bahan,
+                    item.rumus_kimia,
+                    item.sifat_fisik,
+                    item.sifat_kimia,
+                    item.bahaya_utama,
+                    item.dampak_kesehatan,
+                    item.pertolongan_pertama,
+                    item.penyimpanan
+                ].join(" ").toLowerCase();
+                return haystack.includes(keyword);
+            });
+
+            renderTable(filtered);
+        }
+
+        async function loadMsdsTable() {
+            const totalEntry = document.getElementById("msds-total-entry");
+            try {
+                const res = await fetch("assets/msds/msds-table.json");
+                if (!res.ok) throw new Error("Gagal memuat data tabel MSDS.");
+                const raw = await res.json();
+                msdsRows = raw.sort((a, b) => Number(a.no) - Number(b.no));
+                totalEntry.textContent = `${msdsRows.length} bahan`;
+                renderTable(msdsRows);
+            } catch (error) {
+                totalEntry.textContent = "Gagal dimuat";
+                document.getElementById("msds-table-body").innerHTML = `
+                    <tr>
+                        <td colspan="8">${escapeHtml(error.message || "Data MSDS tidak tersedia.")}</td>
+                    </tr>
+                `;
+            }
+        }
+
+        document.getElementById("msds-table-body").addEventListener("click", (event) => {
+            const trigger = event.target.closest("[data-detail-no]");
+            if (!trigger) return;
+            const targetNo = trigger.getAttribute("data-detail-no");
+            const sourceItem = msdsRows.find((item) => String(item.no) === String(targetNo));
+            if (!sourceItem) return;
+            showDetailModal(sourceItem);
+        });
+
+        document.getElementById("msds-modal").addEventListener("click", (event) => {
+            if (event.target.closest("[data-close-modal='1']")) {
+                hideDetailModal();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                hideDetailModal();
+            }
+        });
+
+        document.getElementById("msds-search").addEventListener("input", applySearch);
+        loadMsdsTable();
+    </script>
+</body>
+</html>

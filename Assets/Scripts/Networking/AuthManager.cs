@@ -7,6 +7,7 @@ public class AuthManager : MonoBehaviour
 {
     private string baseUrl = "http://31.56.56.8:5000/api";
     private string registerUrl = "http://31.56.56.8:5000/register.html";
+    private const string LastUsernameKey = "last_username";
 
     public static AuthManager Instance { get; private set; }
     public static string CurrentUsername { get; private set; }
@@ -22,6 +23,11 @@ public class AuthManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        if (string.IsNullOrWhiteSpace(CurrentUsername))
+        {
+            CurrentUsername = PlayerPrefs.GetString(LastUsernameKey, string.Empty);
         }
     }
 
@@ -61,6 +67,8 @@ public class AuthManager : MonoBehaviour
             {
                 CurrentUsername = username;
                 IsLoggedIn = true;
+                PlayerPrefs.SetString(LastUsernameKey, username);
+                PlayerPrefs.Save();
                 Debug.Log($"Logged in as: {CurrentUsername}");
             }
             callback(result);
