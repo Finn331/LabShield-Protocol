@@ -65,6 +65,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public void NextCharacter()
     {
         if (characterModels.Count == 0) return;
+        if (mainMenuController != null) mainMenuController.PlayMenuClickSfx();
 
         currentIndex++;
         if (currentIndex >= characterModels.Count)
@@ -77,6 +78,7 @@ public class CharacterSelectionManager : MonoBehaviour
     public void PreviousCharacter()
     {
         if (characterModels.Count == 0) return;
+        if (mainMenuController != null) mainMenuController.PlayMenuClickSfx();
 
         currentIndex--;
         if (currentIndex < 0)
@@ -121,6 +123,8 @@ public class CharacterSelectionManager : MonoBehaviour
 
     public void StartGame()
     {
+        if (mainMenuController != null) mainMenuController.PlayStartClickSfx();
+
         // Sembunyikan panel pemilihan karakter sebelum pindah scene
         if (characterSelectionPanel) characterSelectionPanel.SetActive(false);
 
@@ -137,6 +141,8 @@ public class CharacterSelectionManager : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        if (mainMenuController != null) mainMenuController.PlayMenuClickSfx();
+
         // Berikan sinyal ke MainMenuController bahwa kita menekan tombol back
         // 1. Hide diri sendiri (dengan animasi keluar)
         // 2. Munculkan kembali MainMenu Panel dengan animasi

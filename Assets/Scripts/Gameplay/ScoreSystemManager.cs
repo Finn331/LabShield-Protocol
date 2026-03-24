@@ -15,6 +15,12 @@ public class ScoreSystemManager : MonoBehaviour
     public TextMeshProUGUI rightScoreText; // Dipakai untuk APD dan Quiz (Benar)
     public TextMeshProUGUI wrongScoreText; // Dipakai untuk Quiz (Salah)
 
+    private Transform scorePanelTransform;
+    private bool hasDefaultPlacement;
+    private Vector3 defaultPanelPosition;
+    private Quaternion defaultPanelRotation;
+    private Vector3 defaultPanelScale;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -37,6 +43,12 @@ public class ScoreSystemManager : MonoBehaviour
                     if (wxTr != null) wrongScoreText = wxTr.GetComponent<TextMeshProUGUI>();
                 }
             }
+        }
+
+        if (userScorePanel != null)
+        {
+            scorePanelTransform = userScorePanel.transform;
+            CacheDefaultPanelPlacement();
         }
     }
 
@@ -125,5 +137,38 @@ public class ScoreSystemManager : MonoBehaviour
             {
                 userScorePanel.gameObject.SetActive(false);
             });
+    }
+
+    public void SetScorePanelWorldPlacement(Vector3 position, Quaternion rotation, Vector3 scale)
+    {
+        if (scorePanelTransform == null)
+        {
+            if (userScorePanel == null) return;
+            scorePanelTransform = userScorePanel.transform;
+            CacheDefaultPanelPlacement();
+        }
+
+        scorePanelTransform.position = position;
+        scorePanelTransform.rotation = rotation;
+        scorePanelTransform.localScale = scale;
+    }
+
+    public void RestoreDefaultScorePanelPlacement()
+    {
+        if (!hasDefaultPlacement || scorePanelTransform == null) return;
+
+        scorePanelTransform.position = defaultPanelPosition;
+        scorePanelTransform.rotation = defaultPanelRotation;
+        scorePanelTransform.localScale = defaultPanelScale;
+    }
+
+    private void CacheDefaultPanelPlacement()
+    {
+        if (scorePanelTransform == null) return;
+
+        defaultPanelPosition = scorePanelTransform.position;
+        defaultPanelRotation = scorePanelTransform.rotation;
+        defaultPanelScale = scorePanelTransform.localScale;
+        hasDefaultPlacement = true;
     }
 }

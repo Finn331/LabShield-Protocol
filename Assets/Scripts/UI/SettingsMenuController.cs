@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // Assuming TextMeshPro for Dropdowns
+using System;
 
 public class SettingsMenuController : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class SettingsMenuController : MonoBehaviour
     public Button resetButton;
     public Button backButton;
 
+    [Header("Button SFX")]
+    [Tooltip("SFX klik untuk tombol Settings (Video, Audio, Apply, Reset, Back).")]
+    public AudioClip settingsButtonClickClip;
+
     [Header("Video Settings")]
     public TMP_Dropdown qualityDropdown; // For SGSR/Quality selection
     public TMP_Dropdown framerateDropdown; // Changed from Resolution to MaxFPS
@@ -47,6 +52,18 @@ public class SettingsMenuController : MonoBehaviour
     public Quaternion targetRotation = new Quaternion(0.0f, -0.7071095f, 0.0f, -0.7071041f);
     public Vector3 targetScale = new Vector3(0.1332075f, 0.1332075f, 0.1332075f);
 
+    private AudioSource uiSfxSource;
+    private float lastSfxPlayTime = -10f;
+    private const float MinSfxGap = 0.05f;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (settingsButtonClickClip == null)
+            settingsButtonClickClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/SFX/Button/Click Menu.mp3");
+    }
+#endif
+
     void Start()
     {
         // 1. Ensure Panel is INACTIVE initially
@@ -63,16 +80,38 @@ public class SettingsMenuController : MonoBehaviour
         // Initialize Options & Load Saves
         InitializeQualityDropdown();
         InitializeFramerateDropdown();
+        ResolveAndNormalizeAudioSliders();
         InitializeAudioSliders();
+        EnsureUiSfxSource();
 
         // Setup Tab Listeners
-        if (videoTabButton) videoTabButton.onClick.AddListener(ShowVideoTab);
-        if (audioTabButton) audioTabButton.onClick.AddListener(ShowAudioTab);
+        if (videoTabButton)
+        {
+            videoTabButton.onClick.RemoveAllListeners();
+            videoTabButton.onClick.AddListener(OnVideoTabPressed);
+        }
+        if (audioTabButton)
+        {
+            audioTabButton.onClick.RemoveAllListeners();
+            audioTabButton.onClick.AddListener(OnAudioTabPressed);
+        }
 
         // Setup Action Listeners
-        if (backButton) backButton.onClick.AddListener(CloseSettings);
-        if (applyButton) applyButton.onClick.AddListener(ApplySettings);
-        if (resetButton) resetButton.onClick.AddListener(ResetSettings);
+        if (backButton)
+        {
+            backButton.onClick.RemoveAllListeners();
+            backButton.onClick.AddListener(OnBackPressed);
+        }
+        if (applyButton)
+        {
+            applyButton.onClick.RemoveAllListeners();
+            applyButton.onClick.AddListener(OnApplyPressed);
+        }
+        if (resetButton)
+        {
+            resetButton.onClick.RemoveAllListeners();
+            resetButton.onClick.AddListener(OnResetPressed);
+        }
 
         // Setup Dropdown Listeners
         if (qualityDropdown) qualityDropdown.onValueChanged.AddListener((val) => SetGraphicsQuality(val, true));
@@ -109,9 +148,12 @@ public class SettingsMenuController : MonoBehaviour
 
     private void InitializeAudioSliders()
     {
+        ResolveAndNormalizeAudioSliders();
+
         // Set slider values based on what is saved, defaulting to 1 (max volume)
         if (masterVolSlider != null)
         {
+            masterVolSlider.onValueChanged.RemoveAllListeners();
             masterVolSlider.value = PlayerPrefs.GetFloat("SavedMasterVol", 1f);
             masterVolSlider.onValueChanged.AddListener((val) => 
             {
@@ -121,6 +163,7 @@ public class SettingsMenuController : MonoBehaviour
 
         if (musicVolSlider != null)
         {
+            musicVolSlider.onValueChanged.RemoveAllListeners();
             musicVolSlider.value = PlayerPrefs.GetFloat("SavedMusicVol", 1f);
             musicVolSlider.onValueChanged.AddListener((val) => 
             {
@@ -130,12 +173,84 @@ public class SettingsMenuController : MonoBehaviour
 
         if (sfxVolSlider != null)
         {
+            sfxVolSlider.onValueChanged.RemoveAllListeners();
             sfxVolSlider.value = PlayerPrefs.GetFloat("SavedSFXVol", 1f);
             sfxVolSlider.onValueChanged.AddListener((val) => 
             {
                 if (AudioManager.Instance != null) AudioManager.Instance.SetSFXVolume(val);
             });
         }
+    }
+
+    private void ResolveAndNormalizeAudioSliders()
+    {
+        // Fallback auto-wire jika ada reference kosong / salah mapping dari inspector.
+        if (settingsPanel == null) return;
+
+        Slider[] sliders = settingsPanel.GetComponentsInChildren<Slider>(true);
+
+        if (masterVolSlider == null) masterVolSlider = FindSliderByKeyword(sliders, "main", "master");
+        if (musicVolSlider == null) musicVolSlider = FindSliderByKeyword(sliders, "music", "bgm");
+        if (sfxVolSlider == null) sfxVolSlider = FindSliderByKeyword(sliders, "sfx", "effect");
+
+        // Auto-fix kasus reference tertukar (Music <-> SFX).
+        if (musicVolSlider != null && sfxVolSlider != null)
+        {
+            bool musicLooksLikeSfx = ContainsAnyKeyword(musicVolSlider.gameObject.name, "sfx", "effect");
+            bool sfxLooksLikeMusic = ContainsAnyKeyword(sfxVolSlider.gameObject.name, "music", "bgm");
+
+            if (musicLooksLikeSfx || sfxLooksLikeMusic)
+            {
+                Slider temp = musicVolSlider;
+                musicVolSlider = sfxVolSlider;
+                sfxVolSlider = temp;
+            }
+        }
+
+        NormalizeSlider(masterVolSlider);
+        NormalizeSlider(musicVolSlider);
+        NormalizeSlider(sfxVolSlider);
+    }
+
+    private static Slider FindSliderByKeyword(Slider[] sliders, params string[] keywords)
+    {
+        if (sliders == null) return null;
+
+        for (int i = 0; i < sliders.Length; i++)
+        {
+            Slider slider = sliders[i];
+            if (slider == null) continue;
+
+            string candidateName = slider.gameObject.name;
+            if (ContainsAnyKeyword(candidateName, keywords))
+                return slider;
+        }
+
+        return null;
+    }
+
+    private static bool ContainsAnyKeyword(string text, params string[] keywords)
+    {
+        if (string.IsNullOrEmpty(text) || keywords == null) return false;
+
+        for (int i = 0; i < keywords.Length; i++)
+        {
+            string keyword = keywords[i];
+            if (string.IsNullOrEmpty(keyword)) continue;
+            if (text.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0) return true;
+        }
+
+        return false;
+    }
+
+    private static void NormalizeSlider(Slider slider)
+    {
+        if (slider == null) return;
+
+        slider.wholeNumbers = false;
+        slider.minValue = 0.0001f;
+        slider.maxValue = 1f;
+        slider.value = Mathf.Clamp(slider.value, slider.minValue, slider.maxValue);
     }
 
     // ... (OpenSettings, CloseSettings, Tab methods remain unchanged)
@@ -290,6 +405,93 @@ public class SettingsMenuController : MonoBehaviour
             CanvasGroup cg = settingsPanel.GetComponent<CanvasGroup>();
             if (cg) cg.blocksRaycasts = active;
         }
+    }
+
+    private void OnVideoTabPressed()
+    {
+        PlaySettingsButtonSfxIfEnabled();
+        ShowVideoTab();
+    }
+
+    private void OnAudioTabPressed()
+    {
+        PlaySettingsButtonSfxIfEnabled();
+        ShowAudioTab();
+    }
+
+    private void OnApplyPressed()
+    {
+        PlaySettingsButtonSfxIfEnabled();
+        ApplySettings();
+    }
+
+    private void OnResetPressed()
+    {
+        PlaySettingsButtonSfxIfEnabled();
+        ResetSettings();
+    }
+
+    private void OnBackPressed()
+    {
+        PlaySettingsButtonSfxIfEnabled();
+        CloseSettings();
+    }
+
+    private void EnsureUiSfxSource()
+    {
+        if (uiSfxSource != null) return;
+
+        uiSfxSource = GetComponent<AudioSource>();
+        if (uiSfxSource == null)
+        {
+            uiSfxSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        uiSfxSource.playOnAwake = false;
+        uiSfxSource.loop = false;
+        uiSfxSource.spatialBlend = 0f;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.RouteSourceToSfxGroup(uiSfxSource);
+        }
+    }
+
+    private void PlaySettingsButtonSfxIfEnabled()
+    {
+        if (settingsButtonClickClip == null) return;
+        if (!ShouldPlaySettingsSfx()) return;
+
+        EnsureUiSfxSource();
+        if (uiSfxSource == null) return;
+
+        if (Time.unscaledTime - lastSfxPlayTime < MinSfxGap) return;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.RouteSourceToSfxGroup(uiSfxSource);
+        }
+
+        if (uiSfxSource.isPlaying)
+        {
+            uiSfxSource.Stop();
+        }
+
+        uiSfxSource.clip = settingsButtonClickClip;
+        uiSfxSource.Play();
+        lastSfxPlayTime = Time.unscaledTime;
+    }
+
+    private static bool ShouldPlaySettingsSfx()
+    {
+        if (AudioManager.Instance != null)
+        {
+            return AudioManager.Instance.IsSfxAudible();
+        }
+
+        float savedMaster = PlayerPrefs.GetFloat("SavedMasterVol", 1f);
+        float savedSfx = PlayerPrefs.GetFloat("SavedSFXVol", 1f);
+        return savedMaster > 0.001f && savedSfx > 0.001f;
     }
 }
 

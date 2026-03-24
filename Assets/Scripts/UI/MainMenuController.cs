@@ -59,6 +59,35 @@ public class MainMenuController : MonoBehaviour
     [Tooltip("Opsional: Masukkan TextMeshProUGUI untuk animasi teks (Loading...)")]
     public TextMeshProUGUI loadingText;
 
+    [Header("Menu SFX")]
+    [Tooltip("SFX untuk tombol menu biasa (Play, Settings, Exit, Next, Prev, Back).")]
+    public AudioClip clickMenuClip;
+    [Tooltip("SFX khusus saat tekan Start setelah pilih karakter.")]
+    public AudioClip clickStartClip;
+    [Tooltip("SFX transisi kamera.")]
+    public AudioClip whooshClip;
+    [Tooltip("Durasi tambahan di atas durasi whoosh untuk perpindahan kamera.")]
+    public float cameraTransitionExtraDuration = 0.5f;
+
+    private AudioSource sfxSource;
+    private float lastSfxPlayTime = -10f;
+    private const float MinSfxGap = 0.05f;
+    private bool isCameraTransitioning = false;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (clickMenuClip == null)
+            clickMenuClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/SFX/Button/Click Menu.mp3");
+
+        if (clickStartClip == null)
+            clickStartClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/SFX/Button/Click Start.mp3");
+
+        if (whooshClip == null)
+            whooshClip = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/SFX/Transition/whoosh.mp3");
+    }
+#endif
+
     private void OnEnable()
     {
         PrepareMenuInputState();
@@ -68,6 +97,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (mainCamera == null) mainCamera = Camera.main;
         PrepareMenuInputState();
+        EnsureSfxSource();
 
         // Hide Loading Screen if it exists
         if (loadingScreenUI != null) loadingScreenUI.SetActive(false);
@@ -228,15 +258,20 @@ public class MainMenuController : MonoBehaviour
         // 5. Move Camera
         if (mainCamera != null)
         {
+            float transitionDuration = GetCameraTransitionDuration(1.5f);
+            PlayWhooshSfx();
+            isCameraTransitioning = true;
+
             // Move
-            LeanTween.move(mainCamera.gameObject, targetPosition, 1.5f)
+            LeanTween.move(mainCamera.gameObject, targetPosition, transitionDuration)
                 .setEase(LeanTweenType.easeInOutCubic);
 
             // Rotate
-            LeanTween.rotate(mainCamera.gameObject, targetRotation.eulerAngles, 1.5f)
+            LeanTween.rotate(mainCamera.gameObject, targetRotation.eulerAngles, transitionDuration)
                 .setEase(LeanTweenType.easeInOutCubic)
                 .setOnComplete(() =>
                 {
+                    isCameraTransitioning = false;
                     Debug.Log("Camera Transition Complete. Opening Main Menu.");
 
                     // Animate Worldspace Menu Opening
@@ -280,6 +315,9 @@ public class MainMenuController : MonoBehaviour
 
     public void OnPlayClicked()
     {
+        if (isCameraTransitioning) return;
+        PlayMenuClickSfx();
+
         Debug.Log("[MainMenu] Play Clicked. Switching to Character Selection...");
 
         // Disable interaction
@@ -316,6 +354,8 @@ public class MainMenuController : MonoBehaviour
     // Fungsi baru ini dipanggil oleh CharacterSelectionManager saat tombol Start Game pada menu pemilihan karakter ditekan
     public void StartGameFromSelection()
     {
+        if (isCameraTransitioning) return;
+
         Debug.Log("[MainMenu] Start Game Clicked from Selection. Loading Scene Asynchronously...");
         
         if (characterSelectionPanel) characterSelectionPanel.SetActive(false);
@@ -379,6 +419,8 @@ public class MainMenuController : MonoBehaviour
     public void OnSettingsClicked()
     {
         if (settingsController == null || menuObjectToAnimate == null) return;
+        if (isCameraTransitioning) return;
+        PlayMenuClickSfx();
 
         // 1. Disable Main Menu Interaction
         SetMenuButtonsInteractive(false);
@@ -399,11 +441,16 @@ public class MainMenuController : MonoBehaviour
     {
         if (mainCamera == null) return;
 
-        LeanTween.move(mainCamera.gameObject, settingsCameraPos, 1.0f).setEase(LeanTweenType.easeInOutCubic);
-        LeanTween.rotate(mainCamera.gameObject, settingsCameraRot.eulerAngles, 1.0f)
+        float transitionDuration = GetCameraTransitionDuration(1.0f);
+        PlayWhooshSfx();
+        isCameraTransitioning = true;
+
+        LeanTween.move(mainCamera.gameObject, settingsCameraPos, transitionDuration).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.rotate(mainCamera.gameObject, settingsCameraRot.eulerAngles, transitionDuration)
             .setEase(LeanTweenType.easeInOutCubic)
             .setOnComplete(() =>
             {
+                isCameraTransitioning = false;
                 // 4. Open Settings Panel
                 if (settingsController)
                 {
@@ -429,11 +476,16 @@ public class MainMenuController : MonoBehaviour
     {
         if (mainCamera == null) return;
 
-        LeanTween.move(mainCamera.gameObject, targetPosition, 1.0f).setEase(LeanTweenType.easeInOutCubic);
-        LeanTween.rotate(mainCamera.gameObject, targetRotation.eulerAngles, 1.0f)
+        float transitionDuration = GetCameraTransitionDuration(1.0f);
+        PlayWhooshSfx();
+        isCameraTransitioning = true;
+
+        LeanTween.move(mainCamera.gameObject, targetPosition, transitionDuration).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.rotate(mainCamera.gameObject, targetRotation.eulerAngles, transitionDuration)
             .setEase(LeanTweenType.easeInOutCubic)
             .setOnComplete(() =>
             {
+                isCameraTransitioning = false;
                 // 3. Animate Main Menu IN
                 if (menuObjectToAnimate)
                 {
@@ -454,6 +506,8 @@ public class MainMenuController : MonoBehaviour
 
     public void OnExitClicked()
     {
+        if (isCameraTransitioning) return;
+        PlayMenuClickSfx();
         Debug.Log("[MainMenu] Exit Clicked. Quitting...");
         Application.Quit();
     }
@@ -465,6 +519,72 @@ public class MainMenuController : MonoBehaviour
             return UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
         }
         return false;
+    }
+
+    public void PlayMenuClickSfx()
+    {
+        PlaySfx(clickMenuClip);
+    }
+
+    public void PlayStartClickSfx()
+    {
+        PlaySfx(clickStartClip);
+    }
+
+    public void PlayWhooshSfx()
+    {
+        PlaySfx(whooshClip);
+    }
+
+    private void EnsureSfxSource()
+    {
+        if (sfxSource != null) return;
+
+        sfxSource = GetComponent<AudioSource>();
+        if (sfxSource == null)
+        {
+            sfxSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        sfxSource.playOnAwake = false;
+        sfxSource.loop = false;
+        sfxSource.spatialBlend = 0f;
+        EnsureSfxMixerRouting();
+    }
+
+    private void PlaySfx(AudioClip clip)
+    {
+        if (clip == null) return;
+        EnsureSfxSource();
+        EnsureSfxMixerRouting();
+        if (sfxSource == null) return;
+
+        // Hindari spam audio dari multi-click cepat.
+        if (Time.unscaledTime - lastSfxPlayTime < MinSfxGap) return;
+
+        // Stop clip sebelumnya agar tidak tabrakan/overlap.
+        if (sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+
+        sfxSource.clip = clip;
+        sfxSource.Play();
+        lastSfxPlayTime = Time.unscaledTime;
+    }
+
+    private void EnsureSfxMixerRouting()
+    {
+        if (sfxSource == null) return;
+        if (AudioManager.Instance == null) return;
+
+        AudioManager.Instance.RouteSourceToSfxGroup(sfxSource);
+    }
+
+    private float GetCameraTransitionDuration(float fallbackDuration)
+    {
+        if (whooshClip == null) return fallbackDuration;
+        return Mathf.Max(fallbackDuration, whooshClip.length + cameraTransitionExtraDuration);
     }
 
 }

@@ -37,6 +37,12 @@ public class ChairInteraction : Interactable
     [Tooltip("Pilih objek komponen QuizTrigger di ruangan ini (jika ada). Kuis akan dimulai saat player sudah selesai duduk.")]
     public QuizTrigger targetQuiz;
 
+    [Header("Posisi Score Panel Saat Duduk")]
+    [Tooltip("Jika aktif, Score Panel dipindah ke posisi ini saat player selesai duduk di kursi quiz.")]
+    public bool useSittingScorePanelPlacement = true;
+    public Vector3 sittingScorePanelPosition = new Vector3(405.9000244f, 1096.0500488f, 0f);
+    public Vector3 sittingScorePanelScale = Vector3.one;
+
     private GameObject player;
     private PlayerCustomAnim playerAnimScript;
     private CharacterController charController;
@@ -151,6 +157,11 @@ public class ChairInteraction : Interactable
         // Jika sedang DUDUK di KURSI INI -> BERDIRI
         else 
         {
+            if (ScoreSystemManager.Instance != null)
+            {
+                ScoreSystemManager.Instance.RestoreDefaultScorePanelPlacement();
+            }
+
             // Pindahkan player ke titik stand anim (jika ada) agar animasi berdiri tidak bertabrakan dengan mesh kursi
             if (standAnimPosition != null)
             {
@@ -288,6 +299,15 @@ public class ChairInteraction : Interactable
         mainCamera.transform.rotation = sittingCameraPosition.rotation;
 
         // --- BARU: Jalankan Event Kuis setelah Kamera Berhenti ---
+        if (useSittingScorePanelPlacement && ScoreSystemManager.Instance != null)
+        {
+            ScoreSystemManager.Instance.SetScorePanelWorldPlacement(
+                sittingScorePanelPosition,
+                Quaternion.identity,
+                sittingScorePanelScale
+            );
+        }
+
         if (targetQuiz != null)
         {
             targetQuiz.TriggerQuizManual();
