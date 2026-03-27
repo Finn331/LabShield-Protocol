@@ -839,6 +839,27 @@ body.modal-open {
     margin-bottom: 10px;
 }
 
+.learning-page .learning-video-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+    gap: 12px;
+}
+
+.learning-page .learning-video-player-card,
+.learning-page .learning-video-meta-card {
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: #fff;
+}
+
+.learning-page .learning-video-player {
+    display: block;
+    width: 100%;
+    max-height: 68vh;
+    border-radius: 10px;
+    background: #0f172a;
+}
+
 .learning-page .media-table-wrap {
     max-height: 72vh;
     border-radius: 14px;
@@ -996,6 +1017,10 @@ body.modal-open {
         flex: 1;
         justify-content: center;
         text-align: center;
+    }
+
+    .learning-page .learning-video-layout {
+        grid-template-columns: 1fr;
     }
 }
 

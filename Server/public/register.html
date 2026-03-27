@@ -14,9 +14,22 @@
         <div class="panel auth-card">
             <span class="brand-mark">LabShield Protocol</span>
             <h1 class="auth-title">Registrasi Siswa</h1>
-            <p class="auth-subtitle">Daftarkan akun agar bisa login dari game dan melihat dashboard hasil.</p>
+            <p class="auth-subtitle">Daftarkan akun dengan email terverifikasi OTP agar registrasi lebih aman.</p>
 
             <form id="registerForm" onsubmit="event.preventDefault(); register();">
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input id="email" class="input" type="email" required placeholder="misal: siswa@email.com">
+                </div>
+                <div class="form-row" style="display:flex; gap:8px; align-items:flex-end;">
+                    <div style="flex:1;">
+                        <label for="otp">Kode OTP</label>
+                        <input id="otp" class="input" type="text" required maxlength="6" minlength="6" placeholder="6 digit OTP">
+                    </div>
+                    <button id="sendOtpBtn" type="button" class="btn btn-soft" onclick="requestOtp()" style="width:auto; min-width:140px;">
+                        Kirim OTP
+                    </button>
+                </div>
                 <div class="form-row">
                     <label for="username">Username</label>
                     <input id="username" class="input" type="text" required placeholder="misal: siswa_kimia_1">
@@ -34,14 +47,77 @@
     </section>
 
     <script>
+        let otpCooldown = null;
+        let cooldownSeconds = 0;
+
+        function setMessage(type, text) {
+            const msg = document.getElementById('message');
+            msg.textContent = text || '';
+            msg.className = text ? `message ${type} active` : 'message';
+        }
+
+        function setOtpButtonState(disabled, label) {
+            const btn = document.getElementById('sendOtpBtn');
+            btn.disabled = disabled;
+            if (label) btn.textContent = label;
+        }
+
+        function startCooldown(seconds) {
+            const btn = document.getElementById('sendOtpBtn');
+            cooldownSeconds = seconds;
+            setOtpButtonState(true, `Kirim Ulang (${cooldownSeconds}s)`);
+
+            if (otpCooldown) clearInterval(otpCooldown);
+            otpCooldown = setInterval(() => {
+                cooldownSeconds -= 1;
+                if (cooldownSeconds <= 0) {
+                    clearInterval(otpCooldown);
+                    otpCooldown = null;
+                    setOtpButtonState(false, 'Kirim OTP');
+                } else {
+                    btn.textContent = `Kirim Ulang (${cooldownSeconds}s)`;
+                }
+            }, 1000);
+        }
+
+        async function requestOtp() {
+            const email = document.getElementById('email').value.trim();
+            if (!email) {
+                setMessage('error', 'Isi email terlebih dahulu.');
+                return;
+            }
+
+            setMessage('', '');
+            setOtpButtonState(true, 'Mengirim...');
+
+            try {
+                const res = await fetch('/api/register/request-otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || 'Gagal mengirim OTP.');
+                }
+
+                setMessage('success', data.message || 'OTP berhasil dikirim.');
+                startCooldown(60);
+            } catch (error) {
+                setMessage('error', error.message || 'Connection Error');
+                setOtpButtonState(false, 'Kirim OTP');
+            }
+        }
+
         async function register() {
+            const e = document.getElementById('email').value.trim();
+            const o = document.getElementById('otp').value.trim();
             const u = document.getElementById('username').value.trim();
             const p = document.getElementById('password').value;
-            const msg = document.getElementById('message');
             const btn = document.getElementById('registerBtn');
 
-            msg.className = 'message';
-            msg.textContent = '';
+            setMessage('', '');
             btn.disabled = true;
             btn.textContent = 'Memproses...';
 
@@ -49,7 +125,7 @@
                 const res = await fetch('/api/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username: u, password: p })
+                    body: JSON.stringify({ email: e, otp: o, username: u, password: p })
                 });
                 const data = await res.json();
 
@@ -57,15 +133,13 @@
                     throw new Error(data.error || 'Registrasi gagal.');
                 }
 
-                msg.textContent = data.message || 'Registrasi berhasil.';
-                msg.className = 'message success active';
+                setMessage('success', data.message || 'Registrasi berhasil.');
                 document.getElementById('registerForm').reset();
                 setTimeout(() => {
-                    window.location.href = 'student-dashboard.html';
+                    window.location.href = 'index.html';
                 }, 1200);
             } catch (error) {
-                msg.textContent = error.message || 'Connection Error';
-                msg.className = 'message error active';
+                setMessage('error', error.message || 'Connection Error');
             } finally {
                 btn.disabled = false;
                 btn.textContent = 'Buat Akun';

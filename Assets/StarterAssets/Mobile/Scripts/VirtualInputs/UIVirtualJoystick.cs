@@ -70,8 +70,17 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
             if (canvasInput == null) canvasInput = FindObjectOfType<StarterAssets.UICanvasControllerInput>();
             if (canvasInput != null)
             {
-                sprintOutputEvent.AddListener(canvasInput.VirtualSprintInput);
-                Debug.Log("[UIVirtualJoystick] Sprint event auto-wired ke UICanvasControllerInput");
+                if (joystickOutputEvent.GetPersistentEventCount() == 0)
+                {
+                    joystickOutputEvent.AddListener(canvasInput.VirtualMoveInput);
+                    Debug.Log("[UIVirtualJoystick] Move event auto-wired ke UICanvasControllerInput");
+                }
+
+                if (sprintOutputEvent.GetPersistentEventCount() == 0)
+                {
+                    sprintOutputEvent.AddListener(canvasInput.VirtualSprintInput);
+                    Debug.Log("[UIVirtualJoystick] Sprint event auto-wired ke UICanvasControllerInput");
+                }
             }
         }
 
@@ -85,7 +94,11 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
             if (canvasInput == null) canvasInput = FindObjectOfType<StarterAssets.UICanvasControllerInput>();
             if (canvasInput != null)
             {
-                joystickOutputEvent.AddListener(canvasInput.VirtualLookInput);
+                if (joystickOutputEvent.GetPersistentEventCount() == 0)
+                {
+                    joystickOutputEvent.AddListener(canvasInput.VirtualLookInput);
+                    Debug.Log("[UIVirtualJoystick] Look event auto-wired ke UICanvasControllerInput");
+                }
             }
         }
 

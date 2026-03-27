@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 using Cinemachine;
 
 /// <summary>
@@ -24,6 +26,16 @@ public class ChangingRoom : Interactable
     [Tooltip("The player to switch to (Player1-Lab with labcoat).")]
     public GameObject player1Lab;
 
+    [Header("Variant Lists (Optional)")]
+    [Tooltip("Daftar semua karakter uniform. Jika kosong, script akan auto-cari dari scene.")]
+    public List<GameObject> uniformPlayerVariants = new List<GameObject>();
+
+    [Tooltip("Daftar semua karakter labcoat. Jika kosong, script akan auto-cari dari scene.")]
+    public List<GameObject> labPlayerVariants = new List<GameObject>();
+
+    [Tooltip("Auto deteksi varian dari scene berdasarkan nama object + PlayerIdentity.")]
+    public bool autoResolveVariants = true;
+
     [Header("Camera Settings")]
     [Tooltip("The Cinemachine Virtual Camera that follows the player.")]
     public CinemachineVirtualCamera virtualCamera;
@@ -38,6 +50,18 @@ public class ChangingRoom : Interactable
     private bool hasChanged = false;
     private bool isChanging = false;
     private bool hasRevealedChecklist = false;
+
+    private void Awake()
+    {
+        ResolveSelectedCharacterVariant();
+        BindSceneSystemsToActivePlayer(player1);
+    }
+
+    private void Start()
+    {
+        // Safety pass after all scene objects are initialized.
+        BindSceneSystemsToActivePlayer(player1);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -91,6 +115,172 @@ public class ChangingRoom : Interactable
         }
     }
 
+    private void ResolveSelectedCharacterVariant()
+    {
+        if (autoResolveVariants)
+        {
+            AutoCollectVariantListsIfNeeded();
+        }
+
+        if (uniformPlayerVariants.Count == 0 && player1 != null)
+        {
+            uniformPlayerVariants.Add(player1);
+        }
+
+        if (labPlayerVariants.Count == 0 && player1Lab != null)
+        {
+            labPlayerVariants.Add(player1Lab);
+        }
+
+        if (uniformPlayerVariants.Count == 0 || labPlayerVariants.Count == 0)
+        {
+            Debug.LogWarning("ChangingRoom: Variant list uniform/lab masih kosong. Pakai referensi default inspector.");
+            return;
+        }
+
+        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        int uniformIndex = Mod(selectedCharacter, uniformPlayerVariants.Count);
+        int labIndex = Mod(selectedCharacter, labPlayerVariants.Count);
+
+        player1 = uniformPlayerVariants[uniformIndex];
+        player1Lab = labPlayerVariants[labIndex];
+
+        ApplyInitialVariantActivationState();
+        ResolveCameraTargetForLabVariant();
+
+        Debug.Log($"ChangingRoom: SelectedCharacter={selectedCharacter}, Uniform={SafeName(player1)}, Lab={SafeName(player1Lab)}");
+    }
+
+    private void AutoCollectVariantListsIfNeeded()
+    {
+        PlayerIdentity[] identities = FindObjectsByType<PlayerIdentity>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        List<GameObject> foundUniform = new List<GameObject>();
+        List<GameObject> foundLab = new List<GameObject>();
+
+        for (int i = 0; i < identities.Length; i++)
+        {
+            PlayerIdentity identity = identities[i];
+            if (identity == null || identity.gameObject == null) continue;
+
+            GameObject candidate = identity.gameObject;
+            bool isLab = IsLikelyLabVariant(candidate);
+            bool isUniform = IsLikelyUniformVariant(candidate);
+
+            if (isLab)
+            {
+                foundLab.Add(candidate);
+            }
+            else if (isUniform)
+            {
+                foundUniform.Add(candidate);
+            }
+        }
+
+        foundUniform.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+        foundLab.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+
+        if (foundUniform.Count > 0) uniformPlayerVariants = foundUniform;
+        if (foundLab.Count > 0) labPlayerVariants = foundLab;
+    }
+
+    private void ApplyInitialVariantActivationState()
+    {
+        for (int i = 0; i < uniformPlayerVariants.Count; i++)
+        {
+            GameObject variant = uniformPlayerVariants[i];
+            if (variant != null)
+            {
+                bool isSelectedUniform = variant == player1;
+                variant.SetActive(isSelectedUniform);
+                SetPlayerInputEnabled(variant, isSelectedUniform);
+            }
+        }
+
+        for (int i = 0; i < labPlayerVariants.Count; i++)
+        {
+            GameObject variant = labPlayerVariants[i];
+            if (variant != null)
+            {
+                variant.SetActive(false);
+                SetPlayerInputEnabled(variant, false);
+            }
+        }
+    }
+
+    private void ResolveCameraTargetForLabVariant()
+    {
+        if (player1Lab == null)
+        {
+            player1LabCameraTarget = null;
+            return;
+        }
+
+        Transform found = player1Lab.transform.Find("PlayerCameraRoot");
+        if (found != null)
+        {
+            player1LabCameraTarget = found;
+        }
+    }
+
+    private static int Mod(int value, int count)
+    {
+        if (count <= 0) return 0;
+        int result = value % count;
+        if (result < 0) result += count;
+        return result;
+    }
+
+    private static string SafeName(GameObject go)
+    {
+        return go == null ? "(null)" : go.name;
+    }
+
+    private static bool IsLikelyLabVariant(GameObject go)
+    {
+        if (go == null) return false;
+
+        if (ContainsAnyKeyword(go.name, "labcoat", " lab", "_lab")) return true;
+        return HasChildNameKeyword(go.transform, "labcoat", " lab", "_lab");
+    }
+
+    private static bool IsLikelyUniformVariant(GameObject go)
+    {
+        if (go == null) return false;
+
+        if (ContainsAnyKeyword(go.name, "uniform", "variant", "player")) return true;
+        return HasChildNameKeyword(go.transform, "uniform", "variant", "player");
+    }
+
+    private static bool HasChildNameKeyword(Transform root, params string[] keywords)
+    {
+        if (root == null) return false;
+
+        Transform[] all = root.GetComponentsInChildren<Transform>(true);
+        for (int i = 0; i < all.Length; i++)
+        {
+            Transform t = all[i];
+            if (t == null) continue;
+            if (ContainsAnyKeyword(t.name, keywords)) return true;
+        }
+
+        return false;
+    }
+
+    private static bool ContainsAnyKeyword(string text, params string[] keywords)
+    {
+        if (string.IsNullOrEmpty(text) || keywords == null) return false;
+
+        for (int i = 0; i < keywords.Length; i++)
+        {
+            string keyword = keywords[i];
+            if (string.IsNullOrEmpty(keyword)) continue;
+            if (text.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0) return true;
+        }
+
+        return false;
+    }
+
     private void RevealChecklist()
     {
         if (!hasRevealedChecklist && InventoryManager.Instance != null)
@@ -135,38 +325,14 @@ public class ChangingRoom : Interactable
         // Wait one frame for activation to propagate
         yield return null;
 
-        // 6. Update Camera to follow Player1-Lab
-        if (virtualCamera != null)
-        {
-            // Find camera target on Player1-Lab
-            Transform newFollowTarget = player1LabCameraTarget;
-
-            if (newFollowTarget == null)
-            {
-                // Try to find PlayerCameraRoot automatically
-                newFollowTarget = player1Lab.transform.Find("PlayerCameraRoot");
-            }
-
-            if (newFollowTarget != null)
-            {
-                virtualCamera.Follow = newFollowTarget;
-                // virtualCamera.LookAt = newFollowTarget; // Mencegah rotasi kamera rusak di StarterAssets
-                Debug.Log($"ChangingRoom: Camera now following {newFollowTarget.name}");
-            }
-            else
-            {
-                // Fallback to player root
-                virtualCamera.Follow = player1Lab.transform;
-                // virtualCamera.LookAt = player1Lab.transform; // Mencegah rotasi kamera rusak
-                Debug.LogWarning("ChangingRoom: PlayerCameraRoot not found, using player root.");
-            }
-        }
-
-        // 7. Transfer any necessary state (optional)
+        // 6. Transfer any necessary state (optional)
         TransferPlayerState(player1, player1Lab);
 
-        // 8. Handle PlayerInput - CRITICAL for movement to work!
+        // 7. Handle PlayerInput - CRITICAL for movement to work!
         TransferPlayerInput(player1, player1Lab);
+
+        // 8. Bind camera + mobile UI ke player baru
+        BindSceneSystemsToActivePlayer(player1Lab);
 
         // 9. Deactivate Player1
         player1.SetActive(false);
@@ -245,22 +411,23 @@ public class ChangingRoom : Interactable
         PlayerInput oldInput = oldPlayer.GetComponent<PlayerInput>();
         PlayerInput newInput = newPlayer.GetComponent<PlayerInput>();
 
-        if (oldInput != null && newInput != null)
+        if (oldInput != null)
         {
-            // CRITICAL: Destroy the old PlayerInput component to avoid dual-player conflict
-            // Just disabling it still keeps it in the Input System's player list
-            Destroy(oldInput);
+            oldInput.DeactivateInput();
+            oldInput.enabled = false;
+        }
 
-            // Make sure new input is enabled
+        if (newInput != null)
+        {
             newInput.enabled = true;
-
-            // Switch to KeyboardMouse control scheme explicitly
-            newInput.SwitchCurrentControlScheme("KeyboardMouse", UnityEngine.InputSystem.Keyboard.current, UnityEngine.InputSystem.Mouse.current);
-
-            // Activate the new player input
             newInput.ActivateInput();
 
-            Debug.Log($"ChangingRoom: PlayerInput transferred. Control Scheme: {newInput.currentControlScheme}");
+            if (oldInput != null && oldInput.currentActionMap != null)
+            {
+                newInput.SwitchCurrentActionMap(oldInput.currentActionMap.name);
+            }
+
+            Debug.Log($"ChangingRoom: PlayerInput transferred. Control Scheme now: {newInput.currentControlScheme}");
         }
         else
         {
@@ -280,6 +447,87 @@ public class ChangingRoom : Interactable
             newStarterInput.sprint = false;
 
             Debug.Log("ChangingRoom: StarterAssetsInputs reset on new player.");
+        }
+    }
+
+    private void BindSceneSystemsToActivePlayer(GameObject activePlayer)
+    {
+        if (activePlayer == null) return;
+
+        UpdateCameraFollowTarget(activePlayer);
+        RebindMobileInputs(activePlayer);
+        SetPlayerInputEnabled(activePlayer, true);
+    }
+
+    private void UpdateCameraFollowTarget(GameObject activePlayer)
+    {
+        if (activePlayer == null) return;
+
+        if (virtualCamera == null)
+        {
+            virtualCamera = FindFirstObjectByType<CinemachineVirtualCamera>(FindObjectsInactive.Include);
+        }
+
+        if (virtualCamera == null) return;
+
+        Transform followTarget = GetCameraTarget(activePlayer);
+        virtualCamera.Follow = followTarget;
+        Debug.Log($"ChangingRoom: Camera follow set to {followTarget.name} ({activePlayer.name})");
+    }
+
+    private Transform GetCameraTarget(GameObject player)
+    {
+        if (player == null) return transform;
+
+        var controller = player.GetComponent<StarterAssets.ThirdPersonController>();
+        if (controller != null && controller.CinemachineCameraTarget != null)
+        {
+            return controller.CinemachineCameraTarget.transform;
+        }
+
+        Transform root = player.transform.Find("PlayerCameraRoot");
+        if (root != null) return root;
+
+        return player.transform;
+    }
+
+    private void RebindMobileInputs(GameObject activePlayer)
+    {
+        var selectedInputs = activePlayer.GetComponent<StarterAssets.StarterAssetsInputs>();
+        if (selectedInputs == null)
+        {
+            Debug.LogWarning($"ChangingRoom: StarterAssetsInputs tidak ditemukan di {activePlayer.name}");
+            return;
+        }
+
+        selectedInputs.enabled = true;
+
+        StarterAssets.UICanvasControllerInput[] canvasInputs =
+            FindObjectsByType<StarterAssets.UICanvasControllerInput>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+
+        for (int i = 0; i < canvasInputs.Length; i++)
+        {
+            if (canvasInputs[i] == null) continue;
+            canvasInputs[i].starterAssetsInputs = selectedInputs;
+        }
+    }
+
+    private static void SetPlayerInputEnabled(GameObject player, bool enabled)
+    {
+        if (player == null) return;
+
+        PlayerInput input = player.GetComponent<PlayerInput>();
+        if (input == null) return;
+
+        if (enabled)
+        {
+            input.enabled = true;
+            input.ActivateInput();
+        }
+        else
+        {
+            input.DeactivateInput();
+            input.enabled = false;
         }
     }
 }

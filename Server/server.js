@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const app = express();
 
 // Use PORT from environment variable or default to 3000
@@ -15,6 +17,30 @@ app.use(express.static('public')); // Serve static files from 'public' folder
 const DATA_DIR = process.env.DATA_DIR || './';
 const SCORES_DB = path.join(DATA_DIR, 'student_scores.json');
 const USERS_DB = path.join(DATA_DIR, 'users.json');
+
+// Email OTP config
+const OTP_TTL_MS = 10 * 60 * 1000; // 10 minutes
+const OTP_RESEND_COOLDOWN_MS = 60 * 1000; // 60 seconds
+const OTP_MAX_VERIFY_ATTEMPTS = 5;
+const OTP_SECRET = process.env.OTP_SECRET || 'labshield-otp-secret-change-this';
+
+const SMTP_HOST = process.env.SMTP_HOST || '';
+const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
+const SMTP_SECURE = String(process.env.SMTP_SECURE || 'false').toLowerCase() === 'true';
+const SMTP_USER = process.env.SMTP_USER || '';
+const SMTP_PASS = process.env.SMTP_PASS || '';
+const SMTP_FROM = process.env.SMTP_FROM || '';
+
+const pendingOtps = new Map(); // key: normalized email
+
+const cleanupExpiredOtps = () => {
+    const now = Date.now();
+    for (const [email, state] of pendingOtps.entries()) {
+        if (!state || now > Number(state.expiresAt || 0)) {
+            pendingOtps.delete(email);
+        }
+    }
+};
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR) && DATA_DIR !== './') {
@@ -33,6 +59,72 @@ const readJSON = (file) => {
 
 const writeJSON = (file, data) => {
     fs.writeFileSync(file, JSON.stringify(data, null, 2));
+};
+
+const normalizeUsername = (value) => String(value || '').trim();
+const normalizeEmail = (value) => String(value || '').trim().toLowerCase();
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+const findUserByUsername = (users, username) => {
+    const normalized = normalizeUsername(username).toLowerCase();
+    return users.find(u => String(u.username || '').trim().toLowerCase() === normalized);
+};
+
+const findUserByEmail = (users, email) => {
+    const normalized = normalizeEmail(email);
+    return users.find(u => normalizeEmail(u.email) === normalized);
+};
+
+const findUserByLoginIdentifier = (users, identifier) => {
+    const normalized = normalizeUsername(identifier).toLowerCase();
+    return users.find(u =>
+        String(u.username || '').trim().toLowerCase() === normalized ||
+        normalizeEmail(u.email) === normalized
+    );
+};
+
+const createOtpCode = () => String(crypto.randomInt(100000, 1000000));
+const hashOtp = (email, otp) => crypto
+    .createHash('sha256')
+    .update(`${normalizeEmail(email)}|${otp}|${OTP_SECRET}`)
+    .digest('hex');
+
+const isSmtpConfigured = () => Boolean(SMTP_HOST && SMTP_USER && SMTP_PASS && SMTP_FROM);
+
+const createTransporter = () => {
+    if (!isSmtpConfigured()) return null;
+    return nodemailer.createTransport({
+        host: SMTP_HOST,
+        port: SMTP_PORT,
+        secure: SMTP_SECURE,
+        auth: {
+            user: SMTP_USER,
+            pass: SMTP_PASS
+        }
+    });
+};
+
+const sendOtpEmail = async (toEmail, otpCode) => {
+    const transporter = createTransporter();
+    if (!transporter) {
+        throw new Error('SMTP belum dikonfigurasi di server.');
+    }
+
+    await transporter.sendMail({
+        from: SMTP_FROM,
+        to: toEmail,
+        subject: 'Kode OTP Registrasi LabShield',
+        text: `Kode OTP Anda: ${otpCode}\nKode berlaku 10 menit.\nJangan bagikan kode ini ke siapa pun.`,
+        html: `
+            <div style="font-family:Arial,sans-serif;line-height:1.5">
+                <h2>LabShield Protocol</h2>
+                <p>Gunakan kode OTP berikut untuk menyelesaikan registrasi:</p>
+                <p style="font-size:28px;font-weight:700;letter-spacing:4px;margin:10px 0">${otpCode}</p>
+                <p>Kode berlaku selama <b>10 menit</b>.</p>
+                <p>Jangan bagikan kode ini kepada siapa pun.</p>
+            </div>
+        `
+    });
 };
 
 const clamp01to100 = (value) => {
@@ -175,22 +267,121 @@ const loginLimiter = (req, res, next) => {
 
 // --- AUTHENTICATION ROUTES ---
 
-// Register (Student Only - Public)
-app.post('/api/register', loginLimiter, (req, res) => {
-    const { username, password } = req.body;
-    if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
+// Request OTP (Student Registration)
+app.post('/api/register/request-otp', loginLimiter, async (req, res) => {
+    const email = normalizeEmail(req.body?.email);
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ success: false, error: 'Email tidak valid.' });
+    }
+
+    if (!isSmtpConfigured()) {
+        return res.status(500).json({
+            success: false,
+            error: 'Layanan email OTP belum aktif. Hubungi admin untuk konfigurasi SMTP.'
+        });
+    }
 
     const users = readJSON(USERS_DB);
-    if (users.find(u => u.username === username)) {
-        return res.status(400).json({ error: 'Username already exists' });
+    if (findUserByEmail(users, email)) {
+        return res.status(400).json({ success: false, error: 'Email sudah terdaftar.' });
+    }
+
+    const now = Date.now();
+    const existing = pendingOtps.get(email);
+    if (existing && (now - existing.createdAt) < OTP_RESEND_COOLDOWN_MS) {
+        const waitSeconds = Math.ceil((OTP_RESEND_COOLDOWN_MS - (now - existing.createdAt)) / 1000);
+        return res.status(429).json({
+            success: false,
+            error: `Tunggu ${waitSeconds} detik sebelum meminta OTP lagi.`
+        });
+    }
+
+    const otpCode = createOtpCode();
+    const otpHash = hashOtp(email, otpCode);
+    pendingOtps.set(email, {
+        otpHash,
+        createdAt: now,
+        expiresAt: now + OTP_TTL_MS,
+        attempts: 0,
+        requestIp: req.ip
+    });
+
+    try {
+        await sendOtpEmail(email, otpCode);
+        return res.json({
+            success: true,
+            message: 'OTP sudah dikirim ke email. Silakan cek inbox/spam.'
+        });
+    } catch (error) {
+        pendingOtps.delete(email);
+        console.error('Failed to send OTP email:', error.message);
+        return res.status(500).json({
+            success: false,
+            error: 'Gagal mengirim OTP ke email. Coba lagi nanti.'
+        });
+    }
+});
+
+// Register (Student Only - Public) with Email OTP verification
+app.post('/api/register', loginLimiter, (req, res) => {
+    const username = normalizeUsername(req.body?.username);
+    const password = String(req.body?.password || '');
+    const email = normalizeEmail(req.body?.email);
+    const otp = String(req.body?.otp || '').trim();
+
+    if (!username || !password || !email || !otp) {
+        return res.status(400).json({ success: false, error: 'Username, password, email, dan OTP wajib diisi.' });
+    }
+
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ success: false, error: 'Email tidak valid.' });
+    }
+
+    const users = readJSON(USERS_DB);
+    if (findUserByUsername(users, username)) {
+        return res.status(400).json({ success: false, error: 'Username sudah digunakan.' });
+    }
+    if (findUserByEmail(users, email)) {
+        return res.status(400).json({ success: false, error: 'Email sudah terdaftar.' });
+    }
+
+    const otpState = pendingOtps.get(email);
+    if (!otpState) {
+        return res.status(400).json({ success: false, error: 'OTP tidak ditemukan. Silakan kirim OTP terlebih dahulu.' });
+    }
+
+    const now = Date.now();
+    if (now > otpState.expiresAt) {
+        pendingOtps.delete(email);
+        return res.status(400).json({ success: false, error: 'OTP sudah kedaluwarsa. Silakan minta OTP baru.' });
+    }
+
+    if (otpState.attempts >= OTP_MAX_VERIFY_ATTEMPTS) {
+        pendingOtps.delete(email);
+        return res.status(429).json({ success: false, error: 'Percobaan OTP terlalu banyak. Minta OTP baru.' });
+    }
+
+    const isMatch = hashOtp(email, otp) === otpState.otpHash;
+    if (!isMatch) {
+        otpState.attempts += 1;
+        pendingOtps.set(email, otpState);
+        return res.status(400).json({ success: false, error: 'OTP salah.' });
     }
 
     // In a real app, HASH the password!
-    users.push({ username, password, role: 'student' });
+    users.push({
+        username,
+        password,
+        email,
+        role: 'student',
+        emailVerified: true,
+        createdAt: new Date().toISOString()
+    });
     writeJSON(USERS_DB, users);
+    pendingOtps.delete(email);
 
-    console.log(`User registered: ${username}`);
-    res.json({ success: true, message: 'Registration successful' });
+    console.log(`User registered with verified email: ${username} (${email})`);
+    res.json({ success: true, message: 'Registrasi berhasil. Email sudah terverifikasi.' });
 });
 
 // Create Teacher (Protected - Teacher Only)
@@ -221,7 +412,7 @@ app.post('/api/login', loginLimiter, (req, res) => {
     const { username, password } = req.body;
     const users = readJSON(USERS_DB);
 
-    const user = users.find(u => u.username === username);
+    const user = findUserByLoginIdentifier(users, username);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -395,4 +586,7 @@ app.listen(PORT, '0.0.0.0', () => {
 
     // Seed Admin
     seedAdmin();
+
+    // Cleanup OTP cache periodically
+    setInterval(cleanupExpiredOtps, 60 * 1000);
 });

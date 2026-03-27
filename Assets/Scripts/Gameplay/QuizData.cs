@@ -18,6 +18,13 @@ public class QuizData : ScriptableObject
     [Tooltip("Gambar referensi untuk soal (Boleh kosong, misalnya untuk tabel/simbol)")]
     public Sprite questionImage;
 
+    [Header("Presentasi Gambar (Opsional)")]
+    [Tooltip("Jika diisi, gambar akan ditampilkan berurutan sebelum tombol jawaban diaktifkan.")]
+    public Sprite[] questionPresentationImages;
+
+    [Tooltip("Durasi tampil per gambar saat presentasi berurutan.")]
+    public float presentationImageDuration = 1.5f;
+
     [Tooltip("Video pembuka yang akan diputar sebelum soal ini muncul (Opsional, bisa lebih dari 1)")]
     public VideoClip[] questionVideos;
 

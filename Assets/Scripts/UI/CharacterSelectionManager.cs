@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
@@ -23,10 +24,33 @@ public class CharacterSelectionManager : MonoBehaviour
     public List<GameObject> characterModels = new List<GameObject>();
     public List<string> characterNames = new List<string>();
 
+    [Header("Auto Collect (Recommended)")]
+    [Tooltip("Auto ambil semua model karakter dari scene supaya karakter baru langsung masuk selection.")]
+    public bool autoCollectCharacterModels = false;
+    [Tooltip("Root model karakter. Jika kosong, pakai object ini (Selection Character).")]
+    public Transform characterModelsRoot;
+    [Tooltip("Ikut scan object inactive.")]
+    public bool includeInactiveModels = true;
+    [Tooltip("Sembunyikan varian labcoat di menu selection (umumnya cukup tampilkan uniform).")]
+    public bool hideLabVariantsInSelection = true;
+
     private int currentIndex = 0;
+    private readonly List<Quaternion> initialModelRotations = new List<Quaternion>();
+
+    private void Awake()
+    {
+        RefreshCharacterModelsIfNeeded();
+    }
 
     void Start()
     {
+        RefreshCharacterModelsIfNeeded();
+
+        if (characterModels.Count <= 1)
+        {
+            Debug.LogWarning($"[CharacterSelection] Character models terdeteksi {characterModels.Count}. Next/Previous akan terlihat tidak berubah jika hanya 1 model.");
+        }
+
         // Load index dari PlayerPrefs kalau ada (supaya tidak reset ke awal jika sebelumnya sudah pilih)
         currentIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
 
@@ -42,10 +66,26 @@ public class CharacterSelectionManager : MonoBehaviour
 
     void SetupButtons()
     {
-        if (nextButton) nextButton.onClick.AddListener(NextCharacter);
-        if (prevButton) prevButton.onClick.AddListener(PreviousCharacter);
-        if (selectButton) selectButton.onClick.AddListener(StartGame);
-        if (backButton) backButton.onClick.AddListener(BackToMainMenu);
+        if (nextButton)
+        {
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(NextCharacter);
+        }
+        if (prevButton)
+        {
+            prevButton.onClick.RemoveAllListeners();
+            prevButton.onClick.AddListener(PreviousCharacter);
+        }
+        if (selectButton)
+        {
+            selectButton.onClick.RemoveAllListeners();
+            selectButton.onClick.AddListener(StartGame);
+        }
+        if (backButton)
+        {
+            backButton.onClick.RemoveAllListeners();
+            backButton.onClick.AddListener(BackToMainMenu);
+        }
     }
 
     void Update()
@@ -98,8 +138,11 @@ public class CharacterSelectionManager : MonoBehaviour
             if (characterModels[i] != null)
             {
                 characterModels[i].SetActive(i == currentIndex);
-                // Reset rotasi ke default tiap ganti model agar selalu menghadap depan saat pertama mucul?
-                // Optional: characterModels[i].transform.localRotation = Quaternion.identity;
+
+                if (i < initialModelRotations.Count)
+                {
+                    characterModels[i].transform.localRotation = initialModelRotations[i];
+                }
             }
         }
 
@@ -119,6 +162,122 @@ public class CharacterSelectionManager : MonoBehaviour
         // Simpan index sesekali ke playerprefs agar selalu up to date
         PlayerPrefs.SetInt("SelectedCharacter", currentIndex);
         PlayerPrefs.Save();
+    }
+
+    private void RefreshCharacterModelsIfNeeded()
+    {
+        if (!autoCollectCharacterModels) return;
+
+        Transform root = characterModelsRoot != null ? characterModelsRoot : transform;
+        if (root == null) return;
+
+        Transform[] allChildren = root.GetComponentsInChildren<Transform>(includeInactiveModels);
+        List<GameObject> foundModels = new List<GameObject>();
+
+        for (int i = 0; i < allChildren.Length; i++)
+        {
+            Transform child = allChildren[i];
+            if (child == null || child == root) continue;
+            if (!IsCharacterCandidate(child)) continue;
+
+            foundModels.Add(child.gameObject);
+        }
+
+        foundModels.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
+
+        if (foundModels.Count == 0)
+        {
+            CacheInitialRotations();
+            return;
+        }
+
+        // Jika user sudah isi manual list di Inspector (>=2), jangan ditimpa oleh hasil scan yang lebih sedikit.
+        if (characterModels != null && characterModels.Count >= 2 && foundModels.Count < characterModels.Count)
+        {
+            CacheInitialRotations();
+            return;
+        }
+
+        characterModels = foundModels;
+        RebuildCharacterNamesFromModels();
+        CacheInitialRotations();
+    }
+
+    private bool IsCharacterCandidate(Transform t)
+    {
+        if (t.GetComponent<RectTransform>() != null) return false;
+
+        if (hideLabVariantsInSelection && IsLikelyLabModel(t))
+            return false;
+
+        if (t.GetComponent<PlayerIdentity>() != null) return true;
+        if (t.GetComponent<CharacterController>() != null) return true;
+        if (t.GetComponent<Animator>() != null) return true;
+
+        return false;
+    }
+
+    private static bool IsLikelyLabModel(Transform t)
+    {
+        if (t == null) return false;
+        if (ContainsAnyKeyword(t.name, "labcoat", " lab", "_lab")) return true;
+
+        Transform[] all = t.GetComponentsInChildren<Transform>(true);
+        for (int i = 0; i < all.Length; i++)
+        {
+            Transform child = all[i];
+            if (child == null) continue;
+            if (ContainsAnyKeyword(child.name, "labcoat", " lab", "_lab")) return true;
+        }
+
+        return false;
+    }
+
+    private static bool ContainsAnyKeyword(string text, params string[] keywords)
+    {
+        if (string.IsNullOrEmpty(text) || keywords == null) return false;
+
+        for (int i = 0; i < keywords.Length; i++)
+        {
+            string keyword = keywords[i];
+            if (string.IsNullOrEmpty(keyword)) continue;
+            if (text.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0) return true;
+        }
+
+        return false;
+    }
+
+    private void RebuildCharacterNamesFromModels()
+    {
+        characterNames.Clear();
+        for (int i = 0; i < characterModels.Count; i++)
+        {
+            GameObject model = characterModels[i];
+            if (model == null)
+            {
+                characterNames.Add($"Character {i + 1}");
+            }
+            else
+            {
+                characterNames.Add(model.name.Replace("_", " "));
+            }
+        }
+    }
+
+    private void CacheInitialRotations()
+    {
+        initialModelRotations.Clear();
+        for (int i = 0; i < characterModels.Count; i++)
+        {
+            if (characterModels[i] == null)
+            {
+                initialModelRotations.Add(Quaternion.identity);
+            }
+            else
+            {
+                initialModelRotations.Add(characterModels[i].transform.localRotation);
+            }
+        }
     }
 
     public void StartGame()

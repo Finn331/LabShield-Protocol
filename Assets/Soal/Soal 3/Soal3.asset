@@ -16,6 +16,11 @@ MonoBehaviour:
   questionText: Lengkapilah penamaan pada gambar yang masih ditandai dengan tanda
     tanya!
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionPresentationImages:
+  - {fileID: 21300000, guid: 6f6884865cdbb4e4dbc5081d2cffdea6, type: 3}
+  presentationImageDuration: 1.5
+  questionVideos: []
   answers:
   - 'Korosif '
   - Iritant

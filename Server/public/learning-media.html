@@ -82,16 +82,23 @@
             </article>
 
             <article id="panel-video" class="media-panel">
-                <div class="info-card">
-                    <div class="info-key">Status Video</div>
-                    <div class="info-val">
-                        Slot video sudah disiapkan. Nanti saat kamu kirim file video, saya tinggal sambungkan di halaman ini.
+                <div class="learning-video-layout">
+                    <div class="info-card learning-video-player-card">
+                        <div class="info-key">Video Pembelajaran</div>
+                        <video class="learning-video-player" controls preload="metadata" playsinline>
+                            <source src="assets/videos/0314.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutar video HTML5.
+                        </video>
                     </div>
-                </div>
-                <div class="info-card" style="margin-top:12px;">
-                    <div class="info-key">Rencana Integrasi</div>
-                    <div class="info-val">
-                        Video akan ditampilkan dalam player web (dengan judul, deskripsi singkat, dan kontrol play/pause).
+
+                    <div class="info-card learning-video-meta-card">
+                        <div class="info-key">Judul</div>
+                        <div class="info-val">Materi Keselamatan Laboratorium</div>
+                        <div class="info-key" style="margin-top:12px;">Akses Cepat</div>
+                        <div class="media-actions">
+                            <a href="assets/videos/0314.mp4" class="btn btn-soft" target="_blank" rel="noopener noreferrer">Buka Video</a>
+                            <a href="assets/videos/0314.mp4" class="btn btn-soft" download>Download Video</a>
+                        </div>
                     </div>
                 </div>
             </article>

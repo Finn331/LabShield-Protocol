@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Video;
 
 public class QuizManager : MonoBehaviour
@@ -45,6 +46,8 @@ public class QuizManager : MonoBehaviour
     private bool isTimerRunning = false;
     private System.Action onQuizFinishedCallback;
     private Coroutine explainCoroutine;
+    private Coroutine question3PresentationCoroutine;
+    private bool isQuestion3ImagePresentationRunning = false;
 
     private void Awake()
     {
@@ -211,6 +214,8 @@ public class QuizManager : MonoBehaviour
 
     private void LoadNextQuestion()
     {
+        StopQuestion3ImagePresentation();
+
         // Cek apakah sudah selesai
         if (currentQuestionIndex >= currentQuizSequence.Length)
         {
@@ -379,31 +384,30 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        // Setup Teks Tombol (A, B, C, D) dan Kembalikan Warna Default
-        for (int i = 0; i < answerButtons.Length; i++)
+        ConfigureAnswerButtonsForCurrentQuestion();
+
+        // Khusus Soal 3: presentasikan gambar satu per satu dulu, baru tombol jawaban aktif.
+        if (IsQuestion3(currentQuiz))
         {
-            if (i < currentQuiz.answers.Length)
+            Sprite[] presentationImages = GetPresentationImagesForCurrentQuestion();
+            if (presentationImages.Length > 0)
             {
-                answerButtons[i].gameObject.SetActive(true);
-                answerButtons[i].interactable = true;
-                answerButtons[i].GetComponent<Image>().color = defaultButtonColor; // Reset Warna
-                answerTexts[i].text = currentQuiz.answers[i];
-                
-                // Hapus listener lama lalu tambahkan yang baru
-                int answerIndex = i; // Cache variable untuk lambda
-                answerButtons[i].onClick.RemoveAllListeners();
-                answerButtons[i].onClick.AddListener(() => OnAnswerSelected(answerIndex));
+                SetAnswerButtonsInteractable(false);
+                currentTimer = 0f;
+                isTimerRunning = false;
+                UpdateTimerUI();
+                question3PresentationCoroutine = StartCoroutine(PresentQuestion3ImagesThenEnableAnswers(presentationImages));
             }
             else
             {
-                answerButtons[i].gameObject.SetActive(false); // Sembunyikan jika tidak ada isinya
+                Debug.LogWarning("[QuizManager] Soal_3 tidak punya gambar presentasi. Tombol jawaban langsung aktif.");
+                BeginQuestionTimer();
             }
         }
-
-        // Reset & Mulai Timer
-        currentTimer = 0f;
-        isTimerRunning = true;
-        UpdateTimerUI();
+        else
+        {
+            BeginQuestionTimer();
+        }
 
         // Refresh Skor UI Top Bar
         UpdateScoreUI();
@@ -411,6 +415,8 @@ public class QuizManager : MonoBehaviour
 
     private void OnAnswerSelected(int selectedIndex)
     {
+        if (isQuestion3ImagePresentationRunning) return;
+
         // 1. Matikan Timer & Suara Soal
         isTimerRunning = false;
         if (teacherController != null) teacherController.StopVoice();
@@ -453,6 +459,143 @@ public class QuizManager : MonoBehaviour
         }
 
         UpdateScoreUI();
+    }
+
+    private void ConfigureAnswerButtonsForCurrentQuestion()
+    {
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            if (i < currentQuiz.answers.Length)
+            {
+                answerButtons[i].gameObject.SetActive(true);
+                answerButtons[i].interactable = true;
+
+                Image buttonImage = answerButtons[i].GetComponent<Image>();
+                if (buttonImage != null)
+                {
+                    buttonImage.color = defaultButtonColor;
+                }
+
+                if (i < answerTexts.Length && answerTexts[i] != null)
+                {
+                    answerTexts[i].text = currentQuiz.answers[i];
+                }
+
+                int answerIndex = i;
+                answerButtons[i].onClick.RemoveAllListeners();
+                answerButtons[i].onClick.AddListener(() => OnAnswerSelected(answerIndex));
+            }
+            else
+            {
+                answerButtons[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void SetAnswerButtonsInteractable(bool isInteractable)
+    {
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            if (answerButtons[i] != null && answerButtons[i].gameObject.activeSelf)
+            {
+                answerButtons[i].interactable = isInteractable;
+            }
+        }
+    }
+
+    private void BeginQuestionTimer()
+    {
+        currentTimer = 0f;
+        isTimerRunning = true;
+        UpdateTimerUI();
+    }
+
+    private bool IsQuestion3(QuizData quiz)
+    {
+        return quiz != null &&
+               !string.IsNullOrWhiteSpace(quiz.questionID) &&
+               quiz.questionID.Trim().Equals("Soal_3", System.StringComparison.OrdinalIgnoreCase);
+    }
+
+    private Sprite[] GetPresentationImagesForCurrentQuestion()
+    {
+        if (currentQuiz == null) return new Sprite[0];
+
+        if (currentQuiz.questionPresentationImages != null && currentQuiz.questionPresentationImages.Length > 0)
+        {
+            List<Sprite> filtered = new List<Sprite>();
+            for (int i = 0; i < currentQuiz.questionPresentationImages.Length; i++)
+            {
+                Sprite sprite = currentQuiz.questionPresentationImages[i];
+                if (sprite != null) filtered.Add(sprite);
+            }
+
+            if (filtered.Count > 0)
+            {
+                return filtered.ToArray();
+            }
+        }
+
+        // Fallback: jika baru ada 1 gambar, tetap dipresentasikan sekali.
+        if (currentQuiz.questionImage != null)
+        {
+            return new[] { currentQuiz.questionImage };
+        }
+
+        return new Sprite[0];
+    }
+
+    private IEnumerator PresentQuestion3ImagesThenEnableAnswers(Sprite[] presentationImages)
+    {
+        isQuestion3ImagePresentationRunning = true;
+        float perImageDuration = Mathf.Max(0.5f, currentQuiz != null ? currentQuiz.presentationImageDuration : 1.5f);
+        Sprite lastShown = null;
+
+        for (int i = 0; i < presentationImages.Length; i++)
+        {
+            Sprite sprite = presentationImages[i];
+            if (sprite == null) continue;
+
+            lastShown = sprite;
+            if (questionImageDisplay != null)
+            {
+                questionImageDisplay.gameObject.SetActive(true);
+                questionImageDisplay.sprite = sprite;
+            }
+
+            yield return new WaitForSeconds(perImageDuration);
+        }
+
+        // Pastikan gambar terakhir tetap tampil saat siswa menjawab.
+        if (questionImageDisplay != null)
+        {
+            if (currentQuiz != null && currentQuiz.questionImage != null)
+            {
+                questionImageDisplay.gameObject.SetActive(true);
+                questionImageDisplay.sprite = currentQuiz.questionImage;
+            }
+            else if (lastShown != null)
+            {
+                questionImageDisplay.gameObject.SetActive(true);
+                questionImageDisplay.sprite = lastShown;
+            }
+        }
+
+        isQuestion3ImagePresentationRunning = false;
+        question3PresentationCoroutine = null;
+        SetAnswerButtonsInteractable(true);
+        BeginQuestionTimer();
+    }
+
+    private void StopQuestion3ImagePresentation()
+    {
+        if (question3PresentationCoroutine != null)
+        {
+            StopCoroutine(question3PresentationCoroutine);
+            question3PresentationCoroutine = null;
+        }
+
+        isQuestion3ImagePresentationRunning = false;
     }
 
     private IEnumerator WaitAndLoadNextQuestion(float delay)
@@ -607,6 +750,7 @@ public class QuizManager : MonoBehaviour
 
     public void HideQuiz()
     {
+        StopQuestion3ImagePresentation();
         HideQuizContentOnly();
         if (videoPanel != null) videoPanel.SetActive(false);
     }
