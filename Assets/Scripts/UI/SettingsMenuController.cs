@@ -2,9 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // Assuming TextMeshPro for Dropdowns
 using System;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SettingsMenuController : MonoBehaviour
 {
+    private const string GraphicsQualityPrefKey = "GraphicsQuality";
+    private const string MaxFrameratePrefKey = "MaxFramerateIndex";
+
     [Header("Animation")]
     public float animationDuration = 0.5f;
     public LeanTweenType openEase = LeanTweenType.easeOutBack;
@@ -56,6 +61,20 @@ public class SettingsMenuController : MonoBehaviour
     private float lastSfxPlayTime = -10f;
     private const float MinSfxGap = 0.05f;
 
+    // Committed (sudah di-apply) values
+    private int appliedGraphicsQualityIndex = 2;
+    private int appliedFramerateIndex = 1;
+    private float appliedMasterVolume = 1f;
+    private float appliedMusicVolume = 1f;
+    private float appliedSfxVolume = 1f;
+
+    // Draft (belum di-apply) values
+    private int pendingGraphicsQualityIndex = 2;
+    private int pendingFramerateIndex = 1;
+    private float pendingMasterVolume = 1f;
+    private float pendingMusicVolume = 1f;
+    private float pendingSfxVolume = 1f;
+
 #if UNITY_EDITOR
     private void OnValidate()
     {
@@ -77,7 +96,11 @@ public class SettingsMenuController : MonoBehaviour
                 settingsPanel.AddComponent<CanvasGroup>();
         }
 
-        // Initialize Options & Load Saves
+        // Load committed values once, lalu siapkan draft.
+        LoadCommittedSettingsFromPrefs();
+        CopyCommittedToPending();
+
+        // Initialize Options & UI
         InitializeQualityDropdown();
         InitializeFramerateDropdown();
         ResolveAndNormalizeAudioSliders();
@@ -113,9 +136,23 @@ public class SettingsMenuController : MonoBehaviour
             resetButton.onClick.AddListener(OnResetPressed);
         }
 
-        // Setup Dropdown Listeners
-        if (qualityDropdown) qualityDropdown.onValueChanged.AddListener((val) => SetGraphicsQuality(val, true));
-        if (framerateDropdown) framerateDropdown.onValueChanged.AddListener(SetMaxFramerate);
+        // Setup Dropdown/Slider listeners dalam mode draft (tidak apply otomatis)
+        if (qualityDropdown)
+        {
+            qualityDropdown.onValueChanged.RemoveAllListeners();
+            qualityDropdown.onValueChanged.AddListener(OnDraftQualityChanged);
+        }
+
+        if (framerateDropdown)
+        {
+            framerateDropdown.onValueChanged.RemoveAllListeners();
+            framerateDropdown.onValueChanged.AddListener(OnDraftFramerateChanged);
+        }
+
+        BindAudioDraftListeners();
+
+        // Pastikan runtime mengikuti committed value yang tersimpan.
+        ApplyCommittedSettingsToRuntime(false);
 
         // Default to Video Tab
         ShowVideoTab();
@@ -141,44 +178,30 @@ public class SettingsMenuController : MonoBehaviour
         qualityDropdown.AddOptions(options);
 
         // Load Saved Quality
-        int savedQuality = PlayerPrefs.GetInt("GraphicsQuality", 2); // Default to Quality
-        qualityDropdown.value = savedQuality;
-        SetGraphicsQuality(savedQuality, false); // Set without saving again
+        qualityDropdown.SetValueWithoutNotify(Mathf.Clamp(pendingGraphicsQualityIndex, 0, 5));
     }
 
     private void InitializeAudioSliders()
     {
         ResolveAndNormalizeAudioSliders();
 
-        // Set slider values based on what is saved, defaulting to 1 (max volume)
+        // Tampilkan draft value ke slider tanpa langsung apply runtime.
         if (masterVolSlider != null)
         {
             masterVolSlider.onValueChanged.RemoveAllListeners();
-            masterVolSlider.value = PlayerPrefs.GetFloat("SavedMasterVol", 1f);
-            masterVolSlider.onValueChanged.AddListener((val) => 
-            {
-                if (AudioManager.Instance != null) AudioManager.Instance.SetMasterVolume(val);
-            });
+            masterVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingMasterVolume, masterVolSlider.minValue, masterVolSlider.maxValue));
         }
 
         if (musicVolSlider != null)
         {
             musicVolSlider.onValueChanged.RemoveAllListeners();
-            musicVolSlider.value = PlayerPrefs.GetFloat("SavedMusicVol", 1f);
-            musicVolSlider.onValueChanged.AddListener((val) => 
-            {
-                if (AudioManager.Instance != null) AudioManager.Instance.SetMusicVolume(val);
-            });
+            musicVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingMusicVolume, musicVolSlider.minValue, musicVolSlider.maxValue));
         }
 
         if (sfxVolSlider != null)
         {
             sfxVolSlider.onValueChanged.RemoveAllListeners();
-            sfxVolSlider.value = PlayerPrefs.GetFloat("SavedSFXVol", 1f);
-            sfxVolSlider.onValueChanged.AddListener((val) => 
-            {
-                if (AudioManager.Instance != null) AudioManager.Instance.SetSFXVolume(val);
-            });
+            sfxVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingSfxVolume, sfxVolSlider.minValue, sfxVolSlider.maxValue));
         }
     }
 
@@ -259,16 +282,16 @@ public class SettingsMenuController : MonoBehaviour
 
     public void SetGraphicsQuality(int index, bool save)
     {
+        index = Mathf.Clamp(index, 0, 5);
         Debug.Log($"[Settings] Graphics Quality Set to: {index}");
 
         if (save)
         {
-            PlayerPrefs.SetInt("GraphicsQuality", index);
+            PlayerPrefs.SetInt(GraphicsQualityPrefKey, index);
             PlayerPrefs.Save();
         }
 
-        // Standard Unity Quality (Optional mapping)
-        QualitySettings.SetQualityLevel(index, true);
+        ApplyGraphicsQualityProfile(index);
 
         /* 
          * TND / SGSR IMPLEMENTATION
@@ -284,6 +307,10 @@ public class SettingsMenuController : MonoBehaviour
     public void OpenSettings()
     {
         if (settingsPanel == null) return;
+
+        // Saat panel dibuka, draft direset ke committed supaya perubahan lama yang belum di-apply tidak nyangkut.
+        RevertDraftToCommitted();
+        RefreshUiFromPending();
 
         settingsPanel.SetActive(true);
         SetInteraction(false); // Disable interaction during animation
@@ -338,24 +365,21 @@ public class SettingsMenuController : MonoBehaviour
 
     public void ApplySettings()
     {
-        Debug.Log("[Settings] Settings Applied!");
-        // Save preferences here (PlayerPrefs)
-        PlayerPrefs.Save();
+        CommitPendingAsApplied();
+        ApplyCommittedSettingsToRuntime(true);
+        Debug.Log("[Settings] Settings Applied.");
     }
 
     public void ResetSettings()
     {
-        Debug.Log("[Settings] Settings Reset to Default.");
-
-        SetGraphicsQuality(2); // Quality
-        if (qualityDropdown) qualityDropdown.value = 2;
-
-        SetMaxFramerate(1); // 60 FPS
-        if (framerateDropdown) framerateDropdown.value = 1;
-
-        if (masterVolSlider) masterVolSlider.value = 1f;
-        if (musicVolSlider) musicVolSlider.value = 1f;
-        if (sfxVolSlider) sfxVolSlider.value = 1f;
+        // Reset hanya ke draft default. Tetap perlu Apply agar benar-benar diterapkan/disimpan.
+        pendingGraphicsQualityIndex = 2;
+        pendingFramerateIndex = 1;
+        pendingMasterVolume = 1f;
+        pendingMusicVolume = 1f;
+        pendingSfxVolume = 1f;
+        RefreshUiFromPending();
+        Debug.Log("[Settings] Draft reset to default. Press Apply to save.");
     }
     private void InitializeFramerateDropdown()
     {
@@ -374,13 +398,14 @@ public class SettingsMenuController : MonoBehaviour
         framerateDropdown.AddOptions(options);
 
         // Load Saved Framerate
-        int savedIndex = PlayerPrefs.GetInt("MaxFramerateIndex", 1); // Default to 60 FPS
-        framerateDropdown.value = savedIndex;
-        SetMaxFramerate(savedIndex);
+        framerateDropdown.SetValueWithoutNotify(Mathf.Clamp(pendingFramerateIndex, 0, 3));
     }
 
-    public void SetMaxFramerate(int index)
+    public void SetMaxFramerate(int index) => SetMaxFramerate(index, true);
+
+    public void SetMaxFramerate(int index, bool save)
     {
+        index = Mathf.Clamp(index, 0, 3);
         int targetFPS = -1;
         switch (index)
         {
@@ -391,8 +416,11 @@ public class SettingsMenuController : MonoBehaviour
         }
 
         Application.targetFrameRate = targetFPS;
-        PlayerPrefs.SetInt("MaxFramerateIndex", index);
-        PlayerPrefs.Save();
+        if (save)
+        {
+            PlayerPrefs.SetInt(MaxFrameratePrefKey, index);
+            PlayerPrefs.Save();
+        }
 
         Debug.Log($"[Settings] Max Framerate Set to: {targetFPS} (Index: {index})");
     }
@@ -434,6 +462,9 @@ public class SettingsMenuController : MonoBehaviour
     private void OnBackPressed()
     {
         PlaySettingsButtonSfxIfEnabled();
+        // Batalkan draft yang belum di-apply.
+        RevertDraftToCommitted();
+        RefreshUiFromPending();
         CloseSettings();
     }
 
@@ -492,6 +523,155 @@ public class SettingsMenuController : MonoBehaviour
         float savedMaster = PlayerPrefs.GetFloat("SavedMasterVol", 1f);
         float savedSfx = PlayerPrefs.GetFloat("SavedSFXVol", 1f);
         return savedMaster > 0.001f && savedSfx > 0.001f;
+    }
+
+    private void BindAudioDraftListeners()
+    {
+        if (masterVolSlider != null)
+        {
+            masterVolSlider.onValueChanged.RemoveAllListeners();
+            masterVolSlider.onValueChanged.AddListener((val) => pendingMasterVolume = Mathf.Clamp01(val));
+        }
+
+        if (musicVolSlider != null)
+        {
+            musicVolSlider.onValueChanged.RemoveAllListeners();
+            musicVolSlider.onValueChanged.AddListener((val) => pendingMusicVolume = Mathf.Clamp01(val));
+        }
+
+        if (sfxVolSlider != null)
+        {
+            sfxVolSlider.onValueChanged.RemoveAllListeners();
+            sfxVolSlider.onValueChanged.AddListener((val) => pendingSfxVolume = Mathf.Clamp01(val));
+        }
+    }
+
+    private void OnDraftQualityChanged(int index)
+    {
+        pendingGraphicsQualityIndex = Mathf.Clamp(index, 0, 5);
+    }
+
+    private void OnDraftFramerateChanged(int index)
+    {
+        pendingFramerateIndex = Mathf.Clamp(index, 0, 3);
+    }
+
+    private void LoadCommittedSettingsFromPrefs()
+    {
+        appliedGraphicsQualityIndex = Mathf.Clamp(PlayerPrefs.GetInt(GraphicsQualityPrefKey, 2), 0, 5);
+        appliedFramerateIndex = Mathf.Clamp(PlayerPrefs.GetInt(MaxFrameratePrefKey, 1), 0, 3);
+        appliedMasterVolume = Mathf.Clamp01(PlayerPrefs.GetFloat("SavedMasterVol", 1f));
+        appliedMusicVolume = Mathf.Clamp01(PlayerPrefs.GetFloat("SavedMusicVol", 1f));
+        appliedSfxVolume = Mathf.Clamp01(PlayerPrefs.GetFloat("SavedSFXVol", 1f));
+    }
+
+    private void CopyCommittedToPending()
+    {
+        pendingGraphicsQualityIndex = appliedGraphicsQualityIndex;
+        pendingFramerateIndex = appliedFramerateIndex;
+        pendingMasterVolume = appliedMasterVolume;
+        pendingMusicVolume = appliedMusicVolume;
+        pendingSfxVolume = appliedSfxVolume;
+    }
+
+    private void RevertDraftToCommitted()
+    {
+        CopyCommittedToPending();
+    }
+
+    private void CommitPendingAsApplied()
+    {
+        appliedGraphicsQualityIndex = pendingGraphicsQualityIndex;
+        appliedFramerateIndex = pendingFramerateIndex;
+        appliedMasterVolume = pendingMasterVolume;
+        appliedMusicVolume = pendingMusicVolume;
+        appliedSfxVolume = pendingSfxVolume;
+    }
+
+    private void RefreshUiFromPending()
+    {
+        if (qualityDropdown != null)
+        {
+            qualityDropdown.SetValueWithoutNotify(Mathf.Clamp(pendingGraphicsQualityIndex, 0, 5));
+        }
+
+        if (framerateDropdown != null)
+        {
+            framerateDropdown.SetValueWithoutNotify(Mathf.Clamp(pendingFramerateIndex, 0, 3));
+        }
+
+        if (masterVolSlider != null)
+        {
+            masterVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingMasterVolume, masterVolSlider.minValue, masterVolSlider.maxValue));
+        }
+
+        if (musicVolSlider != null)
+        {
+            musicVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingMusicVolume, musicVolSlider.minValue, musicVolSlider.maxValue));
+        }
+
+        if (sfxVolSlider != null)
+        {
+            sfxVolSlider.SetValueWithoutNotify(Mathf.Clamp(pendingSfxVolume, sfxVolSlider.minValue, sfxVolSlider.maxValue));
+        }
+    }
+
+    private void ApplyCommittedSettingsToRuntime(bool save)
+    {
+        SetGraphicsQuality(appliedGraphicsQualityIndex, save);
+        SetMaxFramerate(appliedFramerateIndex, save);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMasterVolume(appliedMasterVolume);
+            AudioManager.Instance.SetMusicVolume(appliedMusicVolume);
+            AudioManager.Instance.SetSFXVolume(appliedSfxVolume);
+        }
+        else if (save)
+        {
+            PlayerPrefs.SetFloat("SavedMasterVol", appliedMasterVolume);
+            PlayerPrefs.SetFloat("SavedMusicVol", appliedMusicVolume);
+            PlayerPrefs.SetFloat("SavedSFXVol", appliedSfxVolume);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public static void ApplyGraphicsQualityProfile(int index)
+    {
+        index = Mathf.Clamp(index, 0, 5);
+
+        // Project ini punya 2 quality level (Mobile, PC). Map 6 preset ke level tersebut.
+        int qualityLevelCount = QualitySettings.names != null ? QualitySettings.names.Length : 0;
+        if (qualityLevelCount > 0)
+        {
+            int targetQualityLevel = index <= 2 ? Mathf.Min(1, qualityLevelCount - 1) : 0;
+            targetQualityLevel = Mathf.Clamp(targetQualityLevel, 0, qualityLevelCount - 1);
+            QualitySettings.SetQualityLevel(targetQualityLevel, true);
+        }
+
+        // Pastikan efek kualitas terlihat di camera gameplay lewat URP render scale.
+        float targetRenderScale = GetRenderScaleForPreset(index);
+        UniversalRenderPipelineAsset urpAsset = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset;
+        if (urpAsset != null)
+        {
+            urpAsset.renderScale = targetRenderScale;
+        }
+
+        Debug.Log($"[Settings] Applied graphics preset {index} -> RenderScale {targetRenderScale:0.00}");
+    }
+
+    private static float GetRenderScaleForPreset(int index)
+    {
+        switch (Mathf.Clamp(index, 0, 5))
+        {
+            case 0: return 1.00f; // Native
+            case 1: return 0.85f; // Ultra Quality
+            case 2: return 0.75f; // Quality
+            case 3: return 0.67f; // Balanced
+            case 4: return 0.50f; // Performance
+            case 5: return 0.33f; // Ultra Performance
+            default: return 0.75f;
+        }
     }
 }
 

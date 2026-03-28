@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class PauseManager : MonoBehaviour
     [Tooltip("Daftar elemen UI yang harus disembunyikan saat pause (misal: Virtual Joystick, Tombol Jump, dsb.)")]
     [SerializeField] private List<GameObject> uiControlsToHide;
 
+    [Header("Optional Button References (Auto-Resolve if empty)")]
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Button backToMainMenuButton;
+    [SerializeField] private Button exitButton;
+
     [Header("Settings")]
     [Tooltip("Waktu tunggu setelah user menekan pause/unpause agar tidak bisa spam")]
     [SerializeField] private float buttonCooldown = 0.5f;
@@ -19,14 +26,135 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
     private bool isOnCooldown = false;
+    private GameplayManager gameplayManager;
 
-    private void Start()
+    private void Awake()
     {
-        // Pastikan pause panel mati/tidak terlihat saat mulai dan ukurannya dinolkan
+        gameplayManager = FindFirstObjectByType<GameplayManager>();
+        ResolveButtonReferences();
+        WireButtonListeners();
+        ForceResetPauseState();
+    }
+
+    private void OnEnable()
+    {
+        ResolveButtonReferences();
+        WireButtonListeners();
+        EnsurePauseButtonState();
+    }
+
+    private void OnDisable()
+    {
+        // Jika scene berpindah saat game masih pause, paksa pulihkan state UI.
+        ForceResetPauseState();
+    }
+
+    private void OnDestroy()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void ForceResetPauseState()
+    {
+        isPaused = false;
+        isOnCooldown = false;
+        Time.timeScale = 1f;
+
         if (pausePanel != null)
         {
             pausePanel.SetActive(false);
             pausePanel.transform.localScale = Vector3.zero;
+        }
+
+        SetUIControlsActive(true);
+        EnsurePauseButtonState();
+    }
+
+    private void ResolveButtonReferences()
+    {
+        if (pauseButton == null)
+        {
+            GameObject pauseButtonObject = GameObject.Find("UI_Canvas_StarterAssetsInputs_Joysticks Variant/Pause Button");
+            if (pauseButtonObject != null)
+            {
+                pauseButton = pauseButtonObject.GetComponent<Button>();
+            }
+        }
+
+        if (pausePanel == null) return;
+
+        if (resumeButton == null)
+        {
+            resumeButton = pausePanel.transform.Find("Button Pause Panel/Resume Button")?.GetComponent<Button>();
+        }
+
+        if (backToMainMenuButton == null)
+        {
+            backToMainMenuButton = pausePanel.transform.Find("Button Pause Panel/Back To Main Menu Button")?.GetComponent<Button>();
+        }
+
+        if (exitButton == null)
+        {
+            exitButton = pausePanel.transform.Find("Button Pause Panel/Exit Button")?.GetComponent<Button>();
+        }
+    }
+
+    private void WireButtonListeners()
+    {
+        if (pauseButton != null)
+        {
+            pauseButton.onClick.RemoveListener(TogglePause);
+            pauseButton.onClick.AddListener(TogglePause);
+        }
+
+        if (resumeButton != null)
+        {
+            resumeButton.onClick.RemoveListener(TogglePause);
+            resumeButton.onClick.AddListener(TogglePause);
+        }
+
+        if (backToMainMenuButton != null)
+        {
+            backToMainMenuButton.onClick.RemoveAllListeners();
+            backToMainMenuButton.onClick.AddListener(BackToMainMenuFromPause);
+        }
+
+        if (exitButton != null)
+        {
+            exitButton.onClick.RemoveAllListeners();
+            exitButton.onClick.AddListener(QuitFromPause);
+        }
+    }
+
+    private void EnsurePauseButtonState()
+    {
+        if (pauseButton == null) return;
+
+        if (!pauseButton.gameObject.activeSelf)
+        {
+            pauseButton.gameObject.SetActive(true);
+        }
+
+        pauseButton.interactable = true;
+    }
+
+    private void BackToMainMenuFromPause()
+    {
+        ForceResetPauseState();
+        if (gameplayManager == null) gameplayManager = FindFirstObjectByType<GameplayManager>();
+        if (gameplayManager != null)
+        {
+            gameplayManager.LoadMainMenu();
+        }
+    }
+
+    private void QuitFromPause()
+    {
+        ForceResetPauseState();
+        if (gameplayManager == null) gameplayManager = FindFirstObjectByType<GameplayManager>();
+        if (gameplayManager != null)
+        {
+            gameplayManager.QuitGame();
         }
     }
 
@@ -35,6 +163,7 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void TogglePause()
     {
+        if (!isActiveAndEnabled) return;
         if (isOnCooldown) return;
 
         isPaused = !isPaused;
@@ -78,6 +207,7 @@ public class PauseManager : MonoBehaviour
 
         // Munculkan kembali UI Kontrol Pergerakan
         SetUIControlsActive(true);
+        EnsurePauseButtonState();
 
         if (pausePanel != null)
         {

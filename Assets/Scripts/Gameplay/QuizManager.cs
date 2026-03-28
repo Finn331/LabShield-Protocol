@@ -11,6 +11,8 @@ public class QuizManager : MonoBehaviour
 
     [Header("Referensi UI Utama")]
     [SerializeField] private GameObject quizPanel;
+    [SerializeField] private GameObject quizAnswerPanel;
+    [SerializeField] private GameObject quizPicturePanel;
     [SerializeField] private TextMeshProUGUI questionText;
     [SerializeField] private Image questionImageDisplay; // NEW
     [SerializeField] private TextMeshProUGUI timerText;
@@ -54,6 +56,8 @@ public class QuizManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        ResolveQuizUiReferences();
+
         // BARU: Pastikan Canvas World Space memiliki Event Camera agar bisa diklik!
         if (quizPanel != null)
         {
@@ -86,8 +90,45 @@ public class QuizManager : MonoBehaviour
         SetupEndingScreenUI();
     }
 
+    private void ResolveQuizUiReferences()
+    {
+        if (questionImageDisplay != null && quizPicturePanel == null && questionImageDisplay.transform.parent != null)
+        {
+            quizPicturePanel = questionImageDisplay.transform.parent.gameObject;
+        }
+
+        if (answerButtons != null && answerButtons.Length > 0 && answerButtons[0] != null && quizAnswerPanel == null)
+        {
+            Transform answerParent = answerButtons[0].transform.parent;
+            if (answerParent != null)
+            {
+                quizAnswerPanel = answerParent.gameObject;
+            }
+        }
+
+        if (quizPanel == null && questionText != null)
+        {
+            Transform cursor = questionText.transform;
+            while (cursor != null)
+            {
+                if (cursor.name == "Quiz Panel")
+                {
+                    quizPanel = cursor.gameObject;
+                    break;
+                }
+
+                cursor = cursor.parent;
+            }
+        }
+    }
+
     private void OnDestroy()
     {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+
         if (videoPlayer != null) videoPlayer.loopPointReached -= OnVideoFinished;
     }
 
@@ -375,23 +416,25 @@ public class QuizManager : MonoBehaviour
         {
             if (currentQuiz.questionImage != null)
             {
-                questionImageDisplay.gameObject.SetActive(true);
+                SetQuestionImageVisible(true);
                 questionImageDisplay.sprite = currentQuiz.questionImage;
             }
             else
             {
-                questionImageDisplay.gameObject.SetActive(false);
+                SetQuestionImageVisible(false);
             }
         }
 
         ConfigureAnswerButtonsForCurrentQuestion();
+        SetAnswerButtonsVisible(true);
 
-        // Khusus Soal 3: presentasikan gambar satu per satu dulu, baru tombol jawaban aktif.
-        if (IsQuestion3(currentQuiz))
+        // Khusus soal yang butuh presentasi gambar: tampilkan image dulu, baru tampilkan tombol jawaban.
+        if (ShouldPresentImagesBeforeAnswers(currentQuiz))
         {
             Sprite[] presentationImages = GetPresentationImagesForCurrentQuestion();
             if (presentationImages.Length > 0)
             {
+                SetAnswerButtonsVisible(false);
                 SetAnswerButtonsInteractable(false);
                 currentTimer = 0f;
                 isTimerRunning = false;
@@ -503,6 +546,36 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    private void SetAnswerButtonsVisible(bool isVisible)
+    {
+        if (quizAnswerPanel != null)
+        {
+            quizAnswerPanel.SetActive(isVisible);
+            return;
+        }
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            if (answerButtons[i] != null)
+            {
+                answerButtons[i].gameObject.SetActive(isVisible);
+            }
+        }
+    }
+
+    private void SetQuestionImageVisible(bool isVisible)
+    {
+        if (quizPicturePanel != null)
+        {
+            quizPicturePanel.SetActive(isVisible);
+        }
+
+        if (questionImageDisplay != null)
+        {
+            questionImageDisplay.gameObject.SetActive(isVisible);
+        }
+    }
+
     private void BeginQuestionTimer()
     {
         currentTimer = 0f;
@@ -515,6 +588,13 @@ public class QuizManager : MonoBehaviour
         return quiz != null &&
                !string.IsNullOrWhiteSpace(quiz.questionID) &&
                quiz.questionID.Trim().Equals("Soal_3", System.StringComparison.OrdinalIgnoreCase);
+    }
+
+    private bool ShouldPresentImagesBeforeAnswers(QuizData quiz)
+    {
+        if (quiz == null) return false;
+        if (IsQuestion3(quiz)) return true;
+        return quiz.questionPresentationImages != null && quiz.questionPresentationImages.Length > 0;
     }
 
     private Sprite[] GetPresentationImagesForCurrentQuestion()
@@ -559,7 +639,7 @@ public class QuizManager : MonoBehaviour
             lastShown = sprite;
             if (questionImageDisplay != null)
             {
-                questionImageDisplay.gameObject.SetActive(true);
+                SetQuestionImageVisible(true);
                 questionImageDisplay.sprite = sprite;
             }
 
@@ -571,18 +651,19 @@ public class QuizManager : MonoBehaviour
         {
             if (currentQuiz != null && currentQuiz.questionImage != null)
             {
-                questionImageDisplay.gameObject.SetActive(true);
+                SetQuestionImageVisible(true);
                 questionImageDisplay.sprite = currentQuiz.questionImage;
             }
             else if (lastShown != null)
             {
-                questionImageDisplay.gameObject.SetActive(true);
+                SetQuestionImageVisible(true);
                 questionImageDisplay.sprite = lastShown;
             }
         }
 
         isQuestion3ImagePresentationRunning = false;
         question3PresentationCoroutine = null;
+        SetAnswerButtonsVisible(true);
         SetAnswerButtonsInteractable(true);
         BeginQuestionTimer();
     }
@@ -762,16 +843,16 @@ public class QuizManager : MonoBehaviour
 
         // Sembunyikan elemen teks & gambar
         if (questionText != null) questionText.gameObject.SetActive(false);
-        if (questionImageDisplay != null) questionImageDisplay.gameObject.SetActive(false);
+        SetQuestionImageVisible(false);
         if (timerText != null) timerText.gameObject.SetActive(false);
 
         // Kembalikan tombol agar bisa dipencet lagi dan sembunyikan dari layar
+        SetAnswerButtonsVisible(false);
         foreach (var btn in answerButtons) 
         {
             if (btn != null)
             {
                 btn.interactable = true;
-                btn.gameObject.SetActive(false);
             }
         }
     }

@@ -16,6 +16,10 @@ using Cinemachine;
 /// </summary>
 public class ChangingRoom : Interactable
 {
+    private const string PrefSelectedCharacterIndex = "SelectedCharacter";
+    private const string PrefSelectedCharacterName = "SelectedCharacterName";
+    private const string PrefSelectedCharacterKey = "SelectedCharacterKey";
+
     [Header("Changing Room Settings")]
     public float changeDuration = 2.5f;
 
@@ -138,12 +142,20 @@ public class ChangingRoom : Interactable
             return;
         }
 
-        int selectedCharacter = PlayerPrefs.GetInt("SelectedCharacter", 0);
-        int uniformIndex = Mod(selectedCharacter, uniformPlayerVariants.Count);
-        int labIndex = Mod(selectedCharacter, labPlayerVariants.Count);
+        int selectedCharacter = PlayerPrefs.GetInt(PrefSelectedCharacterIndex, 0);
+        string selectedCharacterName = PlayerPrefs.GetString(PrefSelectedCharacterName, string.Empty);
+        string selectedCharacterKey = PlayerPrefs.GetString(PrefSelectedCharacterKey, string.Empty);
 
-        player1 = uniformPlayerVariants[uniformIndex];
-        player1Lab = labPlayerVariants[labIndex];
+        if (!TryResolveSelectedVariants(selectedCharacter, selectedCharacterName, selectedCharacterKey, out GameObject resolvedUniform, out GameObject resolvedLab))
+        {
+            int uniformIndex = Mod(selectedCharacter, uniformPlayerVariants.Count);
+            int labIndex = Mod(selectedCharacter, labPlayerVariants.Count);
+            resolvedUniform = uniformPlayerVariants[uniformIndex];
+            resolvedLab = labPlayerVariants[labIndex];
+        }
+
+        player1 = resolvedUniform;
+        player1Lab = resolvedLab;
 
         ApplyInitialVariantActivationState();
         ResolveCameraTargetForLabVariant();
@@ -171,7 +183,7 @@ public class ChangingRoom : Interactable
             {
                 foundLab.Add(candidate);
             }
-            else if (isUniform)
+            else if (isUniform || !isLab)
             {
                 foundUniform.Add(candidate);
             }
@@ -182,6 +194,8 @@ public class ChangingRoom : Interactable
 
         if (foundUniform.Count > 0) uniformPlayerVariants = foundUniform;
         if (foundLab.Count > 0) labPlayerVariants = foundLab;
+
+        Debug.Log($"ChangingRoom AutoCollect -> Uniform:{uniformPlayerVariants.Count}, Lab:{labPlayerVariants.Count}");
     }
 
     private void ApplyInitialVariantActivationState()
@@ -236,34 +250,112 @@ public class ChangingRoom : Interactable
         return go == null ? "(null)" : go.name;
     }
 
+    private bool TryResolveSelectedVariants(int selectedCharacterIndex, string selectedCharacterName, string selectedCharacterKey, out GameObject resolvedUniform, out GameObject resolvedLab)
+    {
+        resolvedUniform = null;
+        resolvedLab = null;
+
+        if (!string.IsNullOrWhiteSpace(selectedCharacterName))
+        {
+            resolvedUniform = FindByExactName(uniformPlayerVariants, selectedCharacterName);
+        }
+
+        if (resolvedUniform == null && !string.IsNullOrWhiteSpace(selectedCharacterKey))
+        {
+            resolvedUniform = FindByKey(uniformPlayerVariants, selectedCharacterKey);
+        }
+
+        if (resolvedUniform == null && uniformPlayerVariants.Count > 0)
+        {
+            int uniformIndex = Mod(selectedCharacterIndex, uniformPlayerVariants.Count);
+            resolvedUniform = uniformPlayerVariants[uniformIndex];
+        }
+
+        string resolvedKey = !string.IsNullOrWhiteSpace(selectedCharacterKey)
+            ? selectedCharacterKey
+            : BuildCharacterKey(SafeName(resolvedUniform));
+
+        if (!string.IsNullOrWhiteSpace(resolvedKey))
+        {
+            resolvedLab = FindByKey(labPlayerVariants, resolvedKey);
+        }
+
+        if (resolvedLab == null && labPlayerVariants.Count > 0)
+        {
+            int labIndex = Mod(selectedCharacterIndex, labPlayerVariants.Count);
+            resolvedLab = labPlayerVariants[labIndex];
+        }
+
+        return resolvedUniform != null && resolvedLab != null;
+    }
+
+    private static GameObject FindByExactName(List<GameObject> list, string targetName)
+    {
+        if (list == null || string.IsNullOrWhiteSpace(targetName)) return null;
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject candidate = list[i];
+            if (candidate == null) continue;
+            if (string.Equals(candidate.name, targetName, StringComparison.OrdinalIgnoreCase))
+            {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    private static GameObject FindByKey(List<GameObject> list, string key)
+    {
+        if (list == null || string.IsNullOrWhiteSpace(key)) return null;
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject candidate = list[i];
+            if (candidate == null) continue;
+            if (BuildCharacterKey(candidate.name) == key)
+            {
+                return candidate;
+            }
+        }
+
+        return null;
+    }
+
+    private static string BuildCharacterKey(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return string.Empty;
+
+        string key = name.Trim().ToLowerInvariant();
+        key = key.Replace("labcoat", string.Empty);
+        key = key.Replace("_lab", string.Empty);
+        key = key.Replace("-lab", string.Empty);
+        key = key.Replace(" lab", string.Empty);
+        key = key.Replace("uniform", string.Empty);
+        key = key.Replace("variant", string.Empty);
+        key = key.Replace("_", string.Empty);
+        key = key.Replace("-", string.Empty);
+        key = key.Replace(" ", string.Empty);
+        return key;
+    }
+
     private static bool IsLikelyLabVariant(GameObject go)
     {
         if (go == null) return false;
 
-        if (ContainsAnyKeyword(go.name, "labcoat", " lab", "_lab")) return true;
-        return HasChildNameKeyword(go.transform, "labcoat", " lab", "_lab");
+        string name = go.name ?? string.Empty;
+        if (ContainsAnyKeyword(name, "lab variant", "- lab", "_lab", "labcoat")) return true;
+        return false;
     }
 
     private static bool IsLikelyUniformVariant(GameObject go)
     {
         if (go == null) return false;
 
-        if (ContainsAnyKeyword(go.name, "uniform", "variant", "player")) return true;
-        return HasChildNameKeyword(go.transform, "uniform", "variant", "player");
-    }
-
-    private static bool HasChildNameKeyword(Transform root, params string[] keywords)
-    {
-        if (root == null) return false;
-
-        Transform[] all = root.GetComponentsInChildren<Transform>(true);
-        for (int i = 0; i < all.Length; i++)
-        {
-            Transform t = all[i];
-            if (t == null) continue;
-            if (ContainsAnyKeyword(t.name, keywords)) return true;
-        }
-
+        string name = go.name ?? string.Empty;
+        if (ContainsAnyKeyword(name, "lab variant", "- lab", "_lab", "labcoat")) return false;
+        if (ContainsAnyKeyword(name, "uniform", "variant", "player")) return true;
         return false;
     }
 

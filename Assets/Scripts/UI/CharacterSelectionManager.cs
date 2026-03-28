@@ -6,6 +6,10 @@ using System;
 
 public class CharacterSelectionManager : MonoBehaviour
 {
+    private const string PrefSelectedCharacterIndex = "SelectedCharacter";
+    private const string PrefSelectedCharacterName = "SelectedCharacterName";
+    private const string PrefSelectedCharacterKey = "SelectedCharacterKey";
+
     [Header("UI References")]
     public Button nextButton;
     public Button prevButton;
@@ -52,7 +56,7 @@ public class CharacterSelectionManager : MonoBehaviour
         }
 
         // Load index dari PlayerPrefs kalau ada (supaya tidak reset ke awal jika sebelumnya sudah pilih)
-        currentIndex = PlayerPrefs.GetInt("SelectedCharacter", 0);
+        currentIndex = PlayerPrefs.GetInt(PrefSelectedCharacterIndex, 0);
 
         // Jika data listnya tidak pas dengan indeks, reset ke 0
         if (currentIndex < 0 || currentIndex >= characterModels.Count)
@@ -160,7 +164,16 @@ public class CharacterSelectionManager : MonoBehaviour
         }
 
         // Simpan index sesekali ke playerprefs agar selalu up to date
-        PlayerPrefs.SetInt("SelectedCharacter", currentIndex);
+        PlayerPrefs.SetInt(PrefSelectedCharacterIndex, currentIndex);
+
+        GameObject selectedModel = characterModels[currentIndex];
+        if (selectedModel != null)
+        {
+            string selectedName = selectedModel.name;
+            PlayerPrefs.SetString(PrefSelectedCharacterName, selectedName);
+            PlayerPrefs.SetString(PrefSelectedCharacterKey, BuildCharacterKey(selectedName));
+        }
+
         PlayerPrefs.Save();
     }
 
@@ -182,8 +195,6 @@ public class CharacterSelectionManager : MonoBehaviour
 
             foundModels.Add(child.gameObject);
         }
-
-        foundModels.Sort((a, b) => string.Compare(a.name, b.name, StringComparison.OrdinalIgnoreCase));
 
         if (foundModels.Count == 0)
         {
@@ -247,6 +258,23 @@ public class CharacterSelectionManager : MonoBehaviour
         return false;
     }
 
+    private static string BuildCharacterKey(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return string.Empty;
+
+        string key = name.Trim().ToLowerInvariant();
+        key = key.Replace("labcoat", string.Empty);
+        key = key.Replace("_lab", string.Empty);
+        key = key.Replace("-lab", string.Empty);
+        key = key.Replace(" lab", string.Empty);
+        key = key.Replace("uniform", string.Empty);
+        key = key.Replace("variant", string.Empty);
+        key = key.Replace("_", string.Empty);
+        key = key.Replace("-", string.Empty);
+        key = key.Replace(" ", string.Empty);
+        return key;
+    }
+
     private void RebuildCharacterNamesFromModels()
     {
         characterNames.Clear();
@@ -283,6 +311,12 @@ public class CharacterSelectionManager : MonoBehaviour
     public void StartGame()
     {
         if (mainMenuController != null) mainMenuController.PlayStartClickSfx();
+
+        // Pastikan pilihan terakhir benar-benar tersimpan tepat sebelum pindah scene.
+        if (characterModels.Count > 0 && currentIndex >= 0 && currentIndex < characterModels.Count)
+        {
+            UpdateCharacterDisplay();
+        }
 
         // Sembunyikan panel pemilihan karakter sebelum pindah scene
         if (characterSelectionPanel) characterSelectionPanel.SetActive(false);

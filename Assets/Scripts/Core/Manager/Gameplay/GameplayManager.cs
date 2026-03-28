@@ -53,12 +53,35 @@ public class GameplayManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ApplySavedRuntimeVideoSettings();
+
         if (introDialogClip != null && audioSource != null)
         {
             audioSource.clip = introDialogClip;
             audioSource.Play();
         }
         StartCoroutine(ShowInitialObjective());
+    }
+
+    private void ApplySavedRuntimeVideoSettings()
+    {
+        int savedGraphicsQuality = PlayerPrefs.GetInt("GraphicsQuality", 2);
+        SettingsMenuController.ApplyGraphicsQualityProfile(savedGraphicsQuality);
+
+        int maxFramerateIndex = PlayerPrefs.GetInt("MaxFramerateIndex", 1);
+        Application.targetFrameRate = FramerateFromIndex(maxFramerateIndex);
+    }
+
+    private static int FramerateFromIndex(int index)
+    {
+        switch (index)
+        {
+            case 0: return 30;
+            case 1: return 60;
+            case 2: return 120;
+            case 3: return -1;
+            default: return 60;
+        }
     }
 
     private System.Collections.IEnumerator ShowInitialObjective()
@@ -77,6 +100,12 @@ public class GameplayManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+        if (pauseManager != null)
+        {
+            pauseManager.ForceResetPauseState();
+        }
+
         // Pastikan time scale kembali normal sebelum pindah scene
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;

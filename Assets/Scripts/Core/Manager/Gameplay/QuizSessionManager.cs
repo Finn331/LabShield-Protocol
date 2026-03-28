@@ -46,13 +46,20 @@ public class QuizSessionManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             saveFilePath = Application.persistentDataPath + "/StudentQuizData.json";
             LoadData(); // Load data history kalau gamenya sempat ketutup/crash
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
         }
     }
 
