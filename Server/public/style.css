@@ -741,7 +741,24 @@ body.modal-open {
     border-color: #c8ddef;
     background: #f9fcff;
     box-shadow: 0 10px 30px rgba(15, 50, 84, 0.08);
-    padding: 14px;
+    padding: 16px;
+}
+
+.learning-page .media-workspace-head {
+    margin-bottom: 12px;
+}
+
+.learning-page .media-workspace-title {
+    margin: 0;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: clamp(22px, 2vw, 28px);
+    letter-spacing: -0.02em;
+}
+
+.learning-page .media-workspace-subtitle {
+    margin: 6px 0 0;
+    color: #5a6f84;
+    font-size: 14px;
 }
 
 .learning-page .media-tabs-pro {
@@ -754,7 +771,7 @@ body.modal-open {
 }
 
 .learning-page .media-tabs-pro .media-tab-btn {
-    min-width: 120px;
+    min-width: 132px;
     height: 38px;
     border-radius: 10px;
     font-size: 13px;
@@ -774,7 +791,7 @@ body.modal-open {
 
 .learning-page .media-kpi-grid {
     grid-template-columns: repeat(2, minmax(220px, 1fr));
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .learning-page .media-kpi-card {
@@ -836,13 +853,192 @@ body.modal-open {
 .learning-page .media-note {
     font-size: 12px;
     color: #5b6d80;
+    margin-bottom: 12px;
+}
+
+.learning-page .video-panel-intro {
+    border: 1px solid #d0e2f1;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 10px 12px;
+}
+
+.learning-page .learning-path {
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: linear-gradient(180deg, #ffffff, #f6fbff);
+    margin-bottom: 12px;
+}
+
+.learning-page .learning-path-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #2f475e;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.learning-page .learning-video-sections {
+    display: grid;
+    gap: 14px;
+}
+
+.learning-page .learning-video-hub {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.8fr);
+    gap: 12px;
+}
+
+.learning-page .video-playlist {
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: #ffffff;
+    padding: 12px;
+    align-self: start;
+    position: sticky;
+    top: 16px;
+}
+
+.learning-page .video-playlist-head h3 {
+    margin: 0;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: 20px;
+    color: #173f5c;
+}
+
+.learning-page .video-playlist-head p {
+    margin: 6px 0 10px;
+    color: #5a7187;
+    font-size: 13px;
+}
+
+.learning-page .playlist-group {
     margin-bottom: 10px;
 }
 
-.learning-page .learning-video-layout {
+.learning-page .playlist-group:last-child {
+    margin-bottom: 0;
+}
+
+.learning-page .playlist-group-title {
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #45627b;
+}
+
+.learning-page .playlist-item {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    border: 1px solid #d6e5f3;
+    background: #f8fcff;
+    border-radius: 10px;
+    padding: 9px;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.learning-page .playlist-item:hover {
+    border-color: #9ac8e8;
+    background: #f0f8ff;
+}
+
+.learning-page .playlist-item.is-active {
+    border-color: #1f92c2;
+    background: #eaf7ff;
+    transform: translateY(-1px);
+}
+
+.learning-page .playlist-index {
+    min-width: 34px;
+    height: 26px;
+    border-radius: 8px;
+    background: #deeffd;
+    color: #14597d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.learning-page .playlist-copy strong {
+    display: block;
+    color: #1d3f5b;
+    font-size: 13px;
+    line-height: 1.35;
+    margin-bottom: 2px;
+}
+
+.learning-page .playlist-copy small {
+    color: #5f768c;
+    font-size: 11px;
+}
+
+.learning-page .video-main {
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: #ffffff;
+    padding: 12px;
+}
+
+.learning-page .video-main-meta {
+    margin-bottom: 10px;
+}
+
+.learning-page .video-main-title {
+    margin: 6px 0 6px;
+    font-size: clamp(21px, 2vw, 28px);
+    font-family: "Sora", "Segoe UI", sans-serif;
+    line-height: 1.15;
+    color: #163c58;
+}
+
+.learning-page .video-main-desc {
+    margin: 0;
+    color: #30485f;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.learning-page .video-main-player-wrap {
+    width: 100%;
+}
+
+.learning-page .video-group {
+    border: 1px solid #c7dced;
+    border-radius: 14px;
+    background: #ffffff;
+    padding: 12px;
+}
+
+.learning-page .video-group-head {
+    margin-bottom: 10px;
+}
+
+.learning-page .video-group-head h3 {
+    margin: 0;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: 19px;
+    line-height: 1.2;
+    color: #173f5c;
+}
+
+.learning-page .video-group-head p {
+    margin: 6px 0 0;
+    color: #5a7187;
+    font-size: 13px;
+}
+
+.learning-page .learning-video-list {
     display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 10px;
 }
 
 .learning-page .learning-video-player-card,
@@ -850,14 +1046,89 @@ body.modal-open {
     border-radius: 14px;
     border: 1px solid #cddff0;
     background: #fff;
+    padding: 12px;
+    box-shadow: 0 8px 22px rgba(20, 47, 73, 0.06);
+}
+
+.learning-page .video-card-head {
+    margin-bottom: 10px;
+}
+
+.learning-page .video-card-title {
+    margin: 0;
+    font-size: 20px;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    line-height: 1.15;
+    color: #163c58;
+}
+
+.learning-page .video-tag {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.learning-page .video-tag-blue {
+    color: #0d4f75;
+    border: 1px solid #b9dbef;
+    background: #eaf7ff;
+}
+
+.learning-page .video-tag-orange {
+    color: #8a4b00;
+    border: 1px solid #f0d4a8;
+    background: #fff5e8;
+}
+
+.learning-page .video-tag-green {
+    color: #19633a;
+    border: 1px solid #b9e5c9;
+    background: #effcf4;
 }
 
 .learning-page .learning-video-player {
     display: block;
     width: 100%;
-    max-height: 68vh;
+    aspect-ratio: 16 / 9;
+    min-height: 220px;
     border-radius: 10px;
     background: #0f172a;
+    border: 0;
+}
+
+.learning-page .learning-video-player-portrait {
+    aspect-ratio: 9 / 16;
+    max-height: 72vh;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.learning-page .learning-video-desc {
+    margin-top: 10px;
+    color: #30485f;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.learning-page .learning-video-credit {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #4f6379;
+}
+
+.learning-page .learning-video-actions {
+    margin-top: 2px;
+}
+
+.learning-page .learning-video-actions .btn-soft {
+    min-width: 150px;
 }
 
 .learning-page .media-table-wrap {
@@ -996,6 +1267,10 @@ body.modal-open {
         font-size: 34px;
     }
 
+    .learning-page .media-workspace {
+        padding: 12px;
+    }
+
     .learning-page .media-kpi-grid {
         grid-template-columns: 1fr;
     }
@@ -1019,8 +1294,33 @@ body.modal-open {
         text-align: center;
     }
 
-    .learning-page .learning-video-layout {
+    .learning-page .learning-video-list {
         grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .learning-page .learning-video-hub {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-page .video-playlist {
+        position: static;
+    }
+
+    .learning-page .video-group {
+        padding: 10px;
+    }
+
+    .learning-page .video-group-head h3 {
+        font-size: 17px;
+    }
+
+    .learning-page .video-card-title {
+        font-size: 17px;
+    }
+
+    .learning-page .learning-video-player {
+        min-height: 190px;
     }
 }
 

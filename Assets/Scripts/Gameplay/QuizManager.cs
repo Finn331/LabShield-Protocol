@@ -631,6 +631,8 @@ public class QuizManager : MonoBehaviour
         float perImageDuration = Mathf.Max(0.5f, currentQuiz != null ? currentQuiz.presentationImageDuration : 1.5f);
         Sprite lastShown = null;
 
+        Debug.Log($"[QuizManager] Start image presentation for '{currentQuiz?.questionID}' with {presentationImages.Length} image(s), duration={perImageDuration:F2}s, timeScale={Time.timeScale:F2}");
+
         for (int i = 0; i < presentationImages.Length; i++)
         {
             Sprite sprite = presentationImages[i];
@@ -643,12 +645,18 @@ public class QuizManager : MonoBehaviour
                 questionImageDisplay.sprite = sprite;
             }
 
-            yield return new WaitForSeconds(perImageDuration);
+            // Gunakan waktu real agar flow tidak macet ketika Time.timeScale = 0.
+            yield return new WaitForSecondsRealtime(perImageDuration);
         }
 
-        // Pastikan gambar terakhir tetap tampil saat siswa menjawab.
-        if (questionImageDisplay != null)
+        // Untuk soal 3: tutup panel gambar setelah presentasi selesai, lalu tampilkan jawaban.
+        if (IsQuestion3(currentQuiz))
         {
+            SetQuestionImageVisible(false);
+        }
+        else if (questionImageDisplay != null)
+        {
+            // Untuk soal lain yang memakai presentationImages, tetap tampilkan image terakhir.
             if (currentQuiz != null && currentQuiz.questionImage != null)
             {
                 SetQuestionImageVisible(true);
@@ -665,6 +673,7 @@ public class QuizManager : MonoBehaviour
         question3PresentationCoroutine = null;
         SetAnswerButtonsVisible(true);
         SetAnswerButtonsInteractable(true);
+        Debug.Log($"[QuizManager] Image presentation finished for '{currentQuiz?.questionID}'. Answer buttons enabled.");
         BeginQuestionTimer();
     }
 

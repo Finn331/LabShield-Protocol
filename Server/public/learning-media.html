@@ -25,12 +25,17 @@
         </header>
 
         <section class="panel section-panel media-workspace">
-            <div class="media-tabs media-tabs-pro">
-                <button id="tab-msds" class="btn btn-main media-tab-btn" type="button" onclick="switchTab('msds')">MSDS</button>
-                <button id="tab-video" class="btn btn-soft media-tab-btn" type="button" onclick="switchTab('video')">Video</button>
+            <div class="media-workspace-head">
+                <h2 class="media-workspace-title">Pusat Materi</h2>
+                <p class="media-workspace-subtitle">Pilih tab untuk melihat dokumen MSDS atau materi video pembelajaran.</p>
             </div>
 
-            <article id="panel-msds" class="media-panel active">
+            <div class="media-tabs media-tabs-pro" role="tablist" aria-label="Pilih jenis materi">
+                <button id="tab-msds" class="btn btn-main media-tab-btn" type="button" role="tab" aria-controls="panel-msds" aria-selected="true" onclick="switchTab('msds')">MSDS</button>
+                <button id="tab-video" class="btn btn-soft media-tab-btn" type="button" role="tab" aria-controls="panel-video" aria-selected="false" onclick="switchTab('video')">Video</button>
+            </div>
+
+            <article id="panel-msds" class="media-panel active" role="tabpanel" aria-labelledby="tab-msds">
                 <div class="media-grid media-kpi-grid">
                     <div class="info-card media-kpi-card">
                         <div class="info-key">Total Halaman</div>
@@ -81,25 +86,73 @@
                 </div>
             </article>
 
-            <article id="panel-video" class="media-panel">
-                <div class="learning-video-layout">
-                    <div class="info-card learning-video-player-card">
-                        <div class="info-key">Video Pembelajaran</div>
-                        <video class="learning-video-player" controls preload="metadata" playsinline>
-                            <source src="assets/videos/0314.mp4" type="video/mp4">
-                            Browser Anda tidak mendukung pemutar video HTML5.
-                        </video>
-                    </div>
+            <article id="panel-video" class="media-panel" role="tabpanel" aria-labelledby="tab-video">
+                <div class="learning-path info-card">
+                    <div class="info-key">Alur Belajar Disarankan</div>
+                    <ol class="learning-path-list">
+                        <li><strong>Mulai dari Dasar:</strong> pahami definisi, jenis, dan karakteristik limbah B3.</li>
+                        <li><strong>Lanjut ke Praktik:</strong> pelajari cara pengelolaan sesuai ketentuan KLHK.</li>
+                        <li><strong>Tutup dengan Internal:</strong> lihat dokumentasi lapangan versi LabShield.</li>
+                    </ol>
+                </div>
 
-                    <div class="info-card learning-video-meta-card">
-                        <div class="info-key">Judul</div>
-                        <div class="info-val">Materi Keselamatan Laboratorium</div>
-                        <div class="info-key" style="margin-top:12px;">Akses Cepat</div>
-                        <div class="media-actions">
-                            <a href="assets/videos/0314.mp4" class="btn btn-soft" target="_blank" rel="noopener noreferrer">Buka Video</a>
-                            <a href="assets/videos/0314.mp4" class="btn btn-soft" download>Download Video</a>
+                <div class="learning-video-hub">
+                    <aside class="video-playlist info-card" aria-label="Daftar Materi Video">
+                        <div class="video-playlist-head">
+                            <h3>Daftar Materi</h3>
+                            <p>Pilih satu materi untuk diputar pada player utama.</p>
                         </div>
-                    </div>
+
+                        <div class="playlist-group">
+                            <div class="playlist-group-title">Kategori A · Dasar Limbah B3</div>
+                            <button class="playlist-item is-active" type="button" data-video-id="yt-basic">
+                                <span class="playlist-index">A1</span>
+                                <span class="playlist-copy">
+                                    <strong>Limbah B3: Definisi, Jenis, Karakteristik, dan Contoh</strong>
+                                    <small>Channel: Ireksa Engineer</small>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="playlist-group">
+                            <div class="playlist-group-title">Kategori B · Pengelolaan Limbah B3</div>
+                            <button class="playlist-item" type="button" data-video-id="yt-management">
+                                <span class="playlist-index">B1</span>
+                                <span class="playlist-copy">
+                                    <strong>Cara Mengelola Limbah B3 Sesuai Aturan KLHK</strong>
+                                    <small>Channel: Ireksa Engineer</small>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="playlist-group">
+                            <div class="playlist-group-title">Kategori C · Dokumentasi Internal</div>
+                            <button class="playlist-item" type="button" data-video-id="internal-field">
+                                <span class="playlist-index">C1</span>
+                                <span class="playlist-copy">
+                                    <strong>Materi Video Internal LabShield</strong>
+                                    <small>Sumber: Tim LabShield</small>
+                                </span>
+                            </button>
+                        </div>
+                    </aside>
+
+                    <section class="video-main info-card">
+                        <div class="video-main-meta">
+                            <span id="video-current-tag" class="video-tag video-tag-blue">Dasar</span>
+                            <h3 id="video-current-title" class="video-main-title">Limbah B3: Definisi, Jenis, Karakteristik, dan Contoh</h3>
+                            <p id="video-current-desc" class="video-main-desc">
+                                Menjelaskan pengertian limbah B3, klasifikasi umum, karakteristik bahaya, dan contoh kasus.
+                            </p>
+                            <p id="video-current-source" class="learning-video-credit">
+                                Sumber resmi: <strong>Ireksa Engineer</strong> (YouTube)
+                            </p>
+                        </div>
+
+                        <div id="video-main-player" class="video-main-player-wrap"></div>
+
+                        <div id="video-current-actions" class="media-actions learning-video-actions"></div>
+                    </section>
                 </div>
             </article>
         </section>
@@ -120,14 +173,130 @@
 
     <script>
         let msdsRows = [];
+        const learningVideoCatalog = {
+            "yt-basic": {
+                type: "youtube",
+                tagText: "Dasar",
+                tagClass: "video-tag-blue",
+                title: "Limbah B3: Definisi, Jenis, Karakteristik, dan Contoh",
+                description: "Menjelaskan pengertian limbah B3, klasifikasi umum, karakteristik bahaya, dan contoh kasus.",
+                sourceHtml: "Sumber resmi: <strong>Ireksa Engineer</strong> (YouTube)",
+                embedUrl: "https://www.youtube.com/embed/YHvJsplGj5A?rel=0",
+                actions: [
+                    { href: "https://www.youtube.com/watch?v=YHvJsplGj5A", label: "Buka di YouTube" },
+                    { href: "https://www.youtube.com/@ireksaengineer387", label: "Channel Uploader" }
+                ]
+            },
+            "yt-management": {
+                type: "youtube",
+                tagText: "Praktik",
+                tagClass: "video-tag-orange",
+                title: "Cara Mengelola Limbah B3 Sesuai Aturan KLHK",
+                description: "Fokus pada langkah pengelolaan limbah B3 dan aspek kepatuhan terhadap aturan KLHK.",
+                sourceHtml: "Sumber resmi: <strong>Ireksa Engineer</strong> (YouTube)",
+                embedUrl: "https://www.youtube.com/embed/zQo5Jw-3a-0?rel=0",
+                actions: [
+                    { href: "https://www.youtube.com/watch?v=zQo5Jw-3a-0", label: "Buka di YouTube" },
+                    { href: "https://www.youtube.com/@ireksaengineer387", label: "Channel Uploader" }
+                ]
+            },
+            "internal-field": {
+                type: "internal",
+                tagText: "Internal",
+                tagClass: "video-tag-green",
+                title: "Materi Video Internal LabShield",
+                description: "Dokumentasi internal sebagai pengantar konteks lingkungan kerja/simulasi LabShield.",
+                sourceHtml: "Sumber internal: <strong>LabShield Protocol</strong>",
+                fileUrl: "assets/videos/0314.mp4",
+                actions: [
+                    { href: "assets/videos/0314.mp4", label: "Buka Video Internal", target: "_blank" },
+                    { href: "assets/videos/0314.mp4", label: "Download Video Internal", download: true }
+                ]
+            }
+        };
 
         function switchTab(tab) {
             const isMsds = tab === "msds";
-            document.getElementById("panel-msds").classList.toggle("active", isMsds);
-            document.getElementById("panel-video").classList.toggle("active", !isMsds);
+            const panelMsds = document.getElementById("panel-msds");
+            const panelVideo = document.getElementById("panel-video");
+            const tabMsds = document.getElementById("tab-msds");
+            const tabVideo = document.getElementById("tab-video");
 
-            document.getElementById("tab-msds").className = isMsds ? "btn btn-main media-tab-btn" : "btn btn-soft media-tab-btn";
-            document.getElementById("tab-video").className = isMsds ? "btn btn-soft media-tab-btn" : "btn btn-main media-tab-btn";
+            panelMsds.classList.toggle("active", isMsds);
+            panelVideo.classList.toggle("active", !isMsds);
+
+            tabMsds.className = isMsds ? "btn btn-main media-tab-btn" : "btn btn-soft media-tab-btn";
+            tabVideo.className = isMsds ? "btn btn-soft media-tab-btn" : "btn btn-main media-tab-btn";
+            tabMsds.setAttribute("aria-selected", isMsds ? "true" : "false");
+            tabVideo.setAttribute("aria-selected", isMsds ? "false" : "true");
+
+            // Saat pindah tab, hentikan video internal agar tidak tetap berjalan di background.
+            if (isMsds) {
+                stopMainVideoIfAny();
+            }
+        }
+
+        function stopMainVideoIfAny() {
+            const playerWrap = document.getElementById("video-main-player");
+            if (!playerWrap) return;
+            const activeVideo = playerWrap.querySelector("video");
+            if (activeVideo && !activeVideo.paused) {
+                activeVideo.pause();
+            }
+        }
+
+        function renderMainVideo(videoId) {
+            const data = learningVideoCatalog[videoId];
+            if (!data) return;
+
+            const tagEl = document.getElementById("video-current-tag");
+            const titleEl = document.getElementById("video-current-title");
+            const descEl = document.getElementById("video-current-desc");
+            const sourceEl = document.getElementById("video-current-source");
+            const playerWrap = document.getElementById("video-main-player");
+            const actionsWrap = document.getElementById("video-current-actions");
+
+            if (!tagEl || !titleEl || !descEl || !sourceEl || !playerWrap || !actionsWrap) return;
+
+            stopMainVideoIfAny();
+
+            tagEl.textContent = data.tagText;
+            tagEl.className = `video-tag ${data.tagClass}`;
+            titleEl.textContent = data.title;
+            descEl.textContent = data.description;
+            sourceEl.innerHTML = data.sourceHtml;
+
+            if (data.type === "youtube") {
+                playerWrap.innerHTML = `
+                    <iframe
+                        class="learning-video-player"
+                        src="${data.embedUrl}"
+                        title="${data.title}"
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                `;
+            } else {
+                playerWrap.innerHTML = `
+                    <video class="learning-video-player learning-video-player-portrait" controls preload="metadata" playsinline>
+                        <source src="${data.fileUrl}" type="video/mp4">
+                        Browser Anda tidak mendukung pemutar video HTML5.
+                    </video>
+                `;
+            }
+
+            actionsWrap.innerHTML = data.actions.map((item) => {
+                const target = item.target || "_blank";
+                const rel = target === "_blank" ? ' rel="noopener noreferrer"' : "";
+                const downloadAttr = item.download ? " download" : "";
+                return `<a href="${item.href}" class="btn btn-soft"${downloadAttr} target="${target}"${rel}>${item.label}</a>`;
+            }).join("");
+
+            document.querySelectorAll(".playlist-item").forEach((el) => {
+                el.classList.toggle("is-active", el.getAttribute("data-video-id") === videoId);
+            });
         }
 
         function escapeHtml(text) {
@@ -301,8 +470,16 @@
             }
         });
 
+        document.querySelectorAll(".playlist-item").forEach((item) => {
+            item.addEventListener("click", () => {
+                const videoId = item.getAttribute("data-video-id");
+                renderMainVideo(videoId);
+            });
+        });
+
         document.getElementById("msds-search").addEventListener("input", applySearch);
         loadMsdsTable();
+        renderMainVideo("yt-basic");
     </script>
 </body>
 </html>

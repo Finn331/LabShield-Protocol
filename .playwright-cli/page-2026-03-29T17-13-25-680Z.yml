@@ -1,0 +1,34 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: LabShield Protocol
+      - heading "Media Pembelajaran" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Portal materi keselamatan laboratorium untuk pembelajaran siswa dan guru.
+    - generic [ref=e8]:
+      - link "Home" [ref=e9] [cursor=pointer]:
+        - /url: index.html
+      - link "Dashboard Siswa" [ref=e10] [cursor=pointer]:
+        - /url: student-dashboard.html
+      - link "Dashboard Guru" [ref=e11] [cursor=pointer]:
+        - /url: dashboard.html
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - button "MSDS" [ref=e14] [cursor=pointer]
+      - button "Video" [active] [ref=e15] [cursor=pointer]
+    - article [ref=e1435]:
+      - generic [ref=e1436]:
+        - generic [ref=e1437]:
+          - generic [ref=e1438]: Materi Video 1
+          - iframe [ref=e1439]:
+            
+          - generic [ref=e1440]: "Sumber resmi: YouTube uploader"
+          - link "Buka di YouTube" [ref=e1442] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=zQo5Jw-3a-0
+        - generic [ref=e1443]:
+          - generic [ref=e1444]: Materi Video 2
+          - iframe [ref=e1445]:
+            
+          - generic [ref=e1446]: "Sumber resmi: YouTube uploader"
+          - link "Buka di YouTube" [ref=e1448] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=YHvJsplGj5A
+  - generic [ref=e48]: Space Studio · 2026

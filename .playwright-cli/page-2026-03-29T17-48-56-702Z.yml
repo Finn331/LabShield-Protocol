@@ -1,0 +1,53 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: LabShield Protocol
+      - heading "Media Pembelajaran" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Portal materi keselamatan laboratorium untuk pembelajaran siswa dan guru.
+    - generic [ref=e8]:
+      - link "Home" [ref=e9] [cursor=pointer]:
+        - /url: index.html
+      - link "Dashboard Siswa" [ref=e10] [cursor=pointer]:
+        - /url: student-dashboard.html
+      - link "Dashboard Guru" [ref=e11] [cursor=pointer]:
+        - /url: dashboard.html
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - heading "Pusat Materi" [level=2] [ref=e14]
+      - paragraph [ref=e15]: Pilih tab untuk melihat dokumen MSDS atau materi video pembelajaran.
+    - tablist "Pilih jenis materi" [ref=e16]:
+      - tab "MSDS" [selected] [ref=e17] [cursor=pointer]
+      - tab "Video" [ref=e18] [cursor=pointer]
+    - tabpanel "MSDS" [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - generic [ref=e22]: Total Halaman
+          - generic [ref=e23]: "108"
+          - generic [ref=e24]: halaman dokumen
+        - generic [ref=e25]:
+          - generic [ref=e26]: Total Data Bahan
+          - generic [ref=e27]: Memuat...
+          - generic [ref=e28]: item terstruktur
+      - generic [ref=e29]:
+        - textbox "Cari nama bahan atau rumus kimia..." [ref=e31]
+        - generic [ref=e32]:
+          - link "Lihat PDF Asli" [ref=e33] [cursor=pointer]:
+            - /url: assets/msds/MSDS2.pdf
+          - link "Download MSDS PDF" [ref=e34] [cursor=pointer]:
+            - /url: assets/msds/MSDS2.pdf
+      - generic [ref=e35]: Data tabel mengikuti dokumen MSDS asli. Nomor 88 tidak tersedia pada dokumen sumber.
+      - table [ref=e37]:
+        - rowgroup [ref=e38]:
+          - row "No Nama Bahan Rumus Kimia Bahaya Utama Dampak Kesehatan Pertolongan Pertama Penyimpanan Detail" [ref=e39]:
+            - columnheader "No" [ref=e40]
+            - columnheader "Nama Bahan" [ref=e41]
+            - columnheader "Rumus Kimia" [ref=e42]
+            - columnheader "Bahaya Utama" [ref=e43]
+            - columnheader "Dampak Kesehatan" [ref=e44]
+            - columnheader "Pertolongan Pertama" [ref=e45]
+            - columnheader "Penyimpanan" [ref=e46]
+            - columnheader "Detail" [ref=e47]
+        - rowgroup [ref=e48]:
+          - row "Memuat data MSDS..." [ref=e49]:
+            - cell "Memuat data MSDS..." [ref=e50]
+  - generic [ref=e51]: Space Studio · 2026

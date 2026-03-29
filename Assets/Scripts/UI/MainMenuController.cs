@@ -40,6 +40,10 @@ public class MainMenuController : MonoBehaviour
     public UnityEngine.UI.Button settingsButton;
     public UnityEngine.UI.Button exitButton;
 
+    [Header("External Links")]
+    public UnityEngine.UI.Button exploreLessonButton;
+    [SerializeField] private string exploreLessonUrl = "https://labshieldprotocol.my.id/learning-media.html";
+
     // Optional: Reference to Gameplay components to activate on Play
     [Header("Gameplay References (Optional if loading new scene)")]
     public GameObject hudCanvas;
@@ -296,21 +300,60 @@ public class MainMenuController : MonoBehaviour
 
     private void SetupMenuButtons()
     {
+        if (menuObjectToAnimate != null)
+        {
+            if (playButton == null)
+                playButton = menuObjectToAnimate.transform.Find("Play Button")?.GetComponent<UnityEngine.UI.Button>();
+
+            if (exploreLessonButton == null)
+                exploreLessonButton = menuObjectToAnimate.transform.Find("Explore the lesson Button")?.GetComponent<UnityEngine.UI.Button>();
+
+            if (settingsButton == null)
+                settingsButton = menuObjectToAnimate.transform.Find("Setting Button")?.GetComponent<UnityEngine.UI.Button>();
+
+            if (exitButton == null)
+                exitButton = menuObjectToAnimate.transform.Find("Exit Button")?.GetComponent<UnityEngine.UI.Button>();
+        }
+
         if (playButton)
         {
             playButton.onClick.RemoveAllListeners();
             playButton.onClick.AddListener(OnPlayClicked);
         }
+
+        if (exploreLessonButton)
+        {
+            exploreLessonButton.onClick.RemoveAllListeners();
+            exploreLessonButton.onClick.AddListener(OnExploreLessonClicked);
+        }
+
         if (settingsButton)
         {
             settingsButton.onClick.RemoveAllListeners();
             settingsButton.onClick.AddListener(OnSettingsClicked);
         }
+
         if (exitButton)
         {
             exitButton.onClick.RemoveAllListeners();
             exitButton.onClick.AddListener(OnExitClicked);
         }
+    }
+
+
+    public void OnExploreLessonClicked()
+    {
+        if (isCameraTransitioning) return;
+        PlayMenuClickSfx();
+
+        if (string.IsNullOrWhiteSpace(exploreLessonUrl))
+        {
+            Debug.LogWarning("[MainMenu] Explore lesson URL kosong.");
+            return;
+        }
+
+        Application.OpenURL(exploreLessonUrl);
+        Debug.Log($"[MainMenu] Opening Explore Lesson URL: {exploreLessonUrl}");
     }
 
     public void OnPlayClicked()

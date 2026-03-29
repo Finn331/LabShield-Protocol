@@ -1,0 +1,43 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: LabShield Protocol
+      - heading "Media Pembelajaran" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Portal materi keselamatan laboratorium untuk pembelajaran siswa dan guru.
+    - generic [ref=e8]:
+      - link "Home" [ref=e9] [cursor=pointer]:
+        - /url: index.html
+      - link "Dashboard Siswa" [ref=e10] [cursor=pointer]:
+        - /url: student-dashboard.html
+      - link "Dashboard Guru" [ref=e11] [cursor=pointer]:
+        - /url: dashboard.html
+  - generic [ref=e12]:
+    - generic [ref=e13]:
+      - button "MSDS" [ref=e14] [cursor=pointer]
+      - button "Video" [active] [ref=e15] [cursor=pointer]
+    - article [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: Materi Video Internal
+          - generic [ref=e53]: Browser Anda tidak mendukung pemutar video HTML5.
+          - generic [ref=e54]: "Sumber internal: LabShield Protocol"
+          - generic [ref=e55]:
+            - link "Buka Video Internal" [ref=e56] [cursor=pointer]:
+              - /url: assets/videos/0314.mp4
+            - link "Download Video Internal" [ref=e57] [cursor=pointer]:
+              - /url: assets/videos/0314.mp4
+        - generic [ref=e58]:
+          - generic [ref=e59]: Materi Video 1
+          - iframe [ref=e60]:
+            - generic "YouTube Video Player" [ref=f1e3]
+          - generic [ref=e61]: "Sumber resmi: YouTube uploader"
+          - link "Buka di YouTube" [ref=e63] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=zQo5Jw-3a-0
+        - generic [ref=e64]:
+          - generic [ref=e65]: Materi Video 2
+          - iframe [ref=e66]:
+            - generic "YouTube Video Player" [ref=f2e3]
+          - generic [ref=e67]: "Sumber resmi: YouTube uploader"
+          - link "Buka di YouTube" [ref=e69] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=YHvJsplGj5A
+  - generic [ref=e48]: Space Studio · 2026

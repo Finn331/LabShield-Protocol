@@ -6,7 +6,7 @@ using System.Text;
 public class AuthManager : MonoBehaviour
 {
     private string baseUrl = "http://31.56.56.8:5000/api";
-    private string registerUrl = "http://31.56.56.8:5000/register.html";
+    private string registerUrl = "https://labshieldprotocol.my.id/register.html";
     private const string LastUsernameKey = "last_username";
 
     public static AuthManager Instance { get; private set; }
