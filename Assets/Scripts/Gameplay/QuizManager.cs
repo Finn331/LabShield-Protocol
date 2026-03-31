@@ -23,6 +23,8 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private GameObject videoPanel;
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RawImage videoRawImage;
+    [SerializeField] private TextMeshProUGUI videoProblemText;
+    [SerializeField] private GameObject videoProblemTextPanel;
 
     [Header("Referensi UI Jawaban")]
     [SerializeField] private Button[] answerButtons;
@@ -118,6 +120,61 @@ public class QuizManager : MonoBehaviour
                 }
 
                 cursor = cursor.parent;
+            }
+        }
+
+        if (videoProblemText == null)
+        {
+            if (videoPanel != null)
+            {
+                Transform videoTextTransform = videoPanel.transform.Find("Video Text");
+                if (videoTextTransform == null)
+                {
+                    videoTextTransform = videoPanel.transform.Find("Video Text Panel/Video Text");
+                }
+
+                if (videoTextTransform == null)
+                {
+                    TextMeshProUGUI[] candidateTexts = videoPanel.GetComponentsInChildren<TextMeshProUGUI>(true);
+                    foreach (TextMeshProUGUI candidate in candidateTexts)
+                    {
+                        if (candidate != null && candidate.name == "Video Text")
+                        {
+                            videoProblemText = candidate;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    videoProblemText = videoTextTransform.GetComponent<TextMeshProUGUI>();
+                }
+            }
+
+            if (videoProblemText == null)
+            {
+                GameObject fallbackVideoText = GameObject.Find("Video Text");
+                if (fallbackVideoText != null)
+                {
+                    videoProblemText = fallbackVideoText.GetComponent<TextMeshProUGUI>();
+                }
+            }
+        }
+
+        if (videoProblemTextPanel == null)
+        {
+            if (videoPanel != null)
+            {
+                Transform panelTransform = videoPanel.transform.Find("Video Text Panel");
+                if (panelTransform != null)
+                {
+                    videoProblemTextPanel = panelTransform.gameObject;
+                }
+            }
+
+            if (videoProblemTextPanel == null && videoProblemText != null && videoProblemText.transform.parent != null)
+            {
+                videoProblemTextPanel = videoProblemText.transform.parent.gameObject;
             }
         }
     }
@@ -286,14 +343,30 @@ public class QuizManager : MonoBehaviour
         
         // 2. Tampilkan panel video dengan animasi LeanTween
         ShowVideoPanel();
+        if (videoProblemText != null)
+        {
+            videoProblemText.text = string.Empty;
+            SetVideoProblemTextVisible(false);
+        }
+
         yield return new WaitForSeconds(0.5f); // Tunggu animasi masuk selesai
+
+        int totalPlayableVideos = 0;
+        for (int i = 0; i < currentQuiz.questionVideos.Length; i++)
+        {
+            if (currentQuiz.questionVideos[i] != null) totalPlayableVideos++;
+        }
+
+        int currentPlayableIndex = 0;
 
         // 3. Putar setiap video satu per satu
         for (int i = 0; i < currentQuiz.questionVideos.Length; i++)
         {
             if (currentQuiz.questionVideos[i] == null) continue; // Skip jika slot kosong
 
+            currentPlayableIndex++;
             introVideoFinished = false;
+            UpdateVideoProblemText(currentPlayableIndex, totalPlayableVideos, currentQuiz.questionVideos[i]);
 
             // Siapkan video
             videoPlayer.clip = currentQuiz.questionVideos[i];
@@ -326,6 +399,7 @@ public class QuizManager : MonoBehaviour
 
         // 4. Semua video selesai, matikan panel video dengan animasi LeanTween
         isPlayingQuestionVideos = false;
+        SetVideoProblemTextVisible(false);
         HideVideoPanel();
         yield return new WaitForSeconds(0.4f); // Tunggu animasi keluar selesai
 
@@ -382,6 +456,7 @@ public class QuizManager : MonoBehaviour
         LeanTween.alphaCanvas(cg, 0f, 0.3f).setEaseInCubic()
             .setOnComplete(() =>
             {
+                SetVideoProblemTextVisible(false);
                 videoPanel.SetActive(false);
             });
     }
@@ -391,6 +466,56 @@ public class QuizManager : MonoBehaviour
         // Set flag agar coroutine tahu video sudah selesai
         introVideoFinished = true;
     }
+
+    private void SetVideoProblemTextVisible(bool isVisible)
+    {
+        if (videoProblemTextPanel != null)
+        {
+            videoProblemTextPanel.SetActive(isVisible);
+        }
+
+        if (videoProblemText != null)
+        {
+            videoProblemText.gameObject.SetActive(isVisible);
+        }
+    }
+
+    private void UpdateVideoProblemText(int currentVideoIndex, int totalVideoCount, VideoClip activeClip)
+    {
+        if (videoProblemText == null) return;
+
+        string videoIssueLabel = GetVideoIssueLabel(currentVideoIndex, activeClip);
+        videoProblemText.text = videoIssueLabel;
+        SetVideoProblemTextVisible(true);
+    }
+
+    private string GetVideoIssueLabel(int currentVideoIndex, VideoClip activeClip)
+    {
+        int zeroBasedIndex = currentVideoIndex - 1;
+
+        if (currentQuiz != null && currentQuiz.questionVideoIssueTexts != null &&
+            zeroBasedIndex >= 0 && zeroBasedIndex < currentQuiz.questionVideoIssueTexts.Length)
+        {
+            string customIssue = currentQuiz.questionVideoIssueTexts[zeroBasedIndex];
+            if (!string.IsNullOrWhiteSpace(customIssue))
+            {
+                return customIssue.Replace("\r", " ").Replace("\n", " ").Trim();
+            }
+        }
+
+        if (activeClip != null && !string.IsNullOrWhiteSpace(activeClip.name))
+        {
+            return activeClip.name.Trim();
+        }
+
+        if (currentQuiz != null && !string.IsNullOrWhiteSpace(currentQuiz.questionID))
+        {
+            return currentQuiz.questionID.Trim();
+        }
+
+        return "Permasalahan belum tersedia.";
+    }
+
 
     private void ShowQuestionContent()
     {
@@ -842,6 +967,7 @@ public class QuizManager : MonoBehaviour
     {
         StopQuestion3ImagePresentation();
         HideQuizContentOnly();
+        SetVideoProblemTextVisible(false);
         if (videoPanel != null) videoPanel.SetActive(false);
     }
 

@@ -16,8 +16,12 @@ MonoBehaviour:
   questionText: Apa yang sebaiknya dilakukan jika terkena bahan kimia pada mata?
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
   questionVideos:
   - {fileID: 32900000, guid: 4cd90e3d723ceba47aace9b049839177, type: 3}
+  questionVideoIssueTexts:
+  - Terkena percikan pada mata
   answers:
   - Mencuci mata dengan air mengalir selama 10 detik dan segera meminta bantuan medis
   - Membilas mata dengan minyak

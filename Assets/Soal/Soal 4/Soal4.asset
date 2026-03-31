@@ -18,8 +18,12 @@ MonoBehaviour:
     Menurut Anda, sikap manakah berikut ini yang berbahaya di laboratorium?
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
   questionVideos:
   - {fileID: 32900000, guid: f3ff7f41a9245e342974c8bdab80f375, type: 3}
+  questionVideoIssueTexts:
+  - Permasalahan makan dan minum di lab
   answers:
   - Tidak di perbolehkan makan dan minum di dalam laboratorium
   - Tidak di izinkan bercanda dan bermain-main dengan alat atau bahan kimia

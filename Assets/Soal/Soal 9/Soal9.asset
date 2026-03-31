@@ -16,8 +16,12 @@ MonoBehaviour:
   questionText: Apa yang sebaiknya dilakukan jika terjadi ledakan di laboratorium?
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
   questionVideos:
   - {fileID: 32900000, guid: 814c382e2c99c87418bc69032a86caa9, type: 3}
+  questionVideoIssueTexts:
+  - Berita ledakan di lab
   answers:
   - Berlari menuju pintu keluar tanpa memeriksa kondisi lain
   - Menggunakan bahan kimia untuk memadamkan api

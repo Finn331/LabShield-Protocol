@@ -34,6 +34,11 @@ MonoBehaviour:
   - {fileID: 32900000, guid: 6b65bb2544247a94ba42046bbe4f2e58, type: 3}
   - {fileID: 32900000, guid: 8fd0c5cc6bf88a744bbd66cd6a42a0d3, type: 3}
   - {fileID: 32900000, guid: 4be7c5379aee856499922337a49d6277, type: 3}
+  questionVideoIssueTexts:
+  - Bahan kimia bersifat mudah menguap di taruh di lemari terbuka
+  - Ventilasi berfungsi tetapi pintu terhalang
+  - Label pada bahan kimia sudah tidak bisa terbaca dengan jelas
+  - Tidak menggunakan APD yang lengkap
   answers:
   - (1) dan (2)
   - (1) dan (3)

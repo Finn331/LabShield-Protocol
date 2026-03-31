@@ -90,9 +90,9 @@
                 <div class="learning-path info-card">
                     <div class="info-key">Alur Belajar Disarankan</div>
                     <ol class="learning-path-list">
-                        <li><strong>Mulai dari Dasar:</strong> pahami definisi, jenis, dan karakteristik limbah B3.</li>
-                        <li><strong>Lanjut ke Praktik:</strong> pelajari cara pengelolaan sesuai ketentuan KLHK.</li>
-                        <li><strong>Tutup dengan Internal:</strong> lihat dokumentasi lapangan versi LabShield.</li>
+                        <li><strong>Mulai dari Safety Induction:</strong> pahami orientasi keselamatan laboratorium kimia.</li>
+                        <li><strong>Lanjut ke Dasar:</strong> pahami definisi, jenis, dan karakteristik limbah B3.</li>
+                        <li><strong>Terapkan di Praktik:</strong> pelajari cara pengelolaan sesuai ketentuan KLHK.</li>
                     </ol>
                 </div>
 
@@ -104,9 +104,20 @@
                         </div>
 
                         <div class="playlist-group">
-                            <div class="playlist-group-title">Kategori A · Dasar Limbah B3</div>
-                            <button class="playlist-item is-active" type="button" data-video-id="yt-basic">
+                            <div class="playlist-group-title">Kategori A · Safety Induction</div>
+                            <button class="playlist-item is-active" type="button" data-video-id="internal-field">
                                 <span class="playlist-index">A1</span>
+                                <span class="playlist-copy">
+                                    <strong>Safety Induction Laboratorium Kimia</strong>
+                                    <small>Sumber: Tim LabShield</small>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="playlist-group">
+                            <div class="playlist-group-title">Kategori B · Dasar Limbah B3</div>
+                            <button class="playlist-item" type="button" data-video-id="yt-basic">
+                                <span class="playlist-index">B1</span>
                                 <span class="playlist-copy">
                                     <strong>Limbah B3: Definisi, Jenis, Karakteristik, dan Contoh</strong>
                                     <small>Channel: Ireksa Engineer</small>
@@ -115,23 +126,12 @@
                         </div>
 
                         <div class="playlist-group">
-                            <div class="playlist-group-title">Kategori B · Pengelolaan Limbah B3</div>
+                            <div class="playlist-group-title">Kategori C · Pengelolaan Limbah B3</div>
                             <button class="playlist-item" type="button" data-video-id="yt-management">
-                                <span class="playlist-index">B1</span>
+                                <span class="playlist-index">C1</span>
                                 <span class="playlist-copy">
                                     <strong>Cara Mengelola Limbah B3 Sesuai Aturan KLHK</strong>
                                     <small>Channel: Ireksa Engineer</small>
-                                </span>
-                            </button>
-                        </div>
-
-                        <div class="playlist-group">
-                            <div class="playlist-group-title">Kategori C · Dokumentasi Internal</div>
-                            <button class="playlist-item" type="button" data-video-id="internal-field">
-                                <span class="playlist-index">C1</span>
-                                <span class="playlist-copy">
-                                    <strong>Materi Video Internal LabShield</strong>
-                                    <small>Sumber: Tim LabShield</small>
                                 </span>
                             </button>
                         </div>
@@ -164,13 +164,13 @@
 
                     <section class="video-main info-card">
                         <div class="video-main-meta">
-                            <span id="video-current-tag" class="video-tag video-tag-blue">Dasar</span>
-                            <h3 id="video-current-title" class="video-main-title">Limbah B3: Definisi, Jenis, Karakteristik, dan Contoh</h3>
+                            <span id="video-current-tag" class="video-tag video-tag-blue">Safety</span>
+                            <h3 id="video-current-title" class="video-main-title">Safety Induction Laboratorium Kimia</h3>
                             <p id="video-current-desc" class="video-main-desc">
-                                Menjelaskan pengertian limbah B3, klasifikasi umum, karakteristik bahaya, dan contoh kasus.
+                                Materi internal pengenalan aturan dasar keselamatan dan orientasi kerja di laboratorium kimia.
                             </p>
                             <p id="video-current-source" class="learning-video-credit">
-                                Sumber resmi: <strong>Ireksa Engineer</strong> (YouTube)
+                                Sumber internal: <strong>LabShield Protocol</strong>
                             </p>
                         </div>
 
@@ -227,10 +227,10 @@
             },
             "internal-field": {
                 type: "internal",
-                tagText: "Internal",
-                tagClass: "video-tag-green",
-                title: "Materi Video Internal LabShield",
-                description: "Dokumentasi internal sebagai pengantar konteks lingkungan kerja/simulasi LabShield.",
+                tagText: "Safety",
+                tagClass: "video-tag-blue",
+                title: "Safety Induction Laboratorium Kimia",
+                description: "Materi internal pengenalan aturan dasar keselamatan dan orientasi kerja di laboratorium kimia.",
                 sourceHtml: "Sumber internal: <strong>LabShield Protocol</strong>",
                 fileUrl: "assets/videos/0314.mp4",
                 actions: [
@@ -394,6 +394,41 @@
                 .trim();
         }
 
+        function normalizeSearchText(text) {
+            const formulaDigitMap = {
+                "₀": "0", "₁": "1", "₂": "2", "₃": "3", "₄": "4",
+                "₅": "5", "₆": "6", "₇": "7", "₈": "8", "₉": "9",
+                "⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4",
+                "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"
+            };
+
+            return String(text || "")
+                .replace(/[₀₁₂₃₄₅₆₇₈₉⁰¹²³⁴⁵⁶⁷⁸⁹]/g, (char) => formulaDigitMap[char] || char)
+                .replace(/•/g, " ")
+                .replace(/\r/g, "\n")
+                .replace(/\n+/g, " ")
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-zA-Z0-9]+/g, " ")
+                .replace(/\s+/g, " ")
+                .trim()
+                .toLowerCase();
+        }
+
+        function buildSearchBlob(item) {
+            return normalizeSearchText([
+                item.no,
+                item.nama_bahan,
+                item.rumus_kimia,
+                item.sifat_fisik,
+                item.sifat_kimia,
+                item.bahaya_utama,
+                item.dampak_kesehatan,
+                item.pertolongan_pertama,
+                item.penyimpanan
+            ].join(" "));
+        }
+
         function createSummaryCell(value, maxChars = 130) {
             const cleaned = normalizeText(value);
             if (!cleaned) return "-";
@@ -470,24 +505,14 @@
         }
 
         function applySearch() {
-            const keyword = document.getElementById("msds-search").value.trim().toLowerCase();
+            const keyword = normalizeSearchText(document.getElementById("msds-search").value);
             if (!keyword) {
                 renderTable(msdsRows);
                 return;
             }
 
             const filtered = msdsRows.filter((item) => {
-                const haystack = [
-                    item.no,
-                    item.nama_bahan,
-                    item.rumus_kimia,
-                    item.sifat_fisik,
-                    item.sifat_kimia,
-                    item.bahaya_utama,
-                    item.dampak_kesehatan,
-                    item.pertolongan_pertama,
-                    item.penyimpanan
-                ].join(" ").toLowerCase();
+                const haystack = item._searchBlob || buildSearchBlob(item);
                 return haystack.includes(keyword);
             });
 
@@ -500,8 +525,13 @@
                 const res = await fetch("assets/msds/msds-table.json");
                 if (!res.ok) throw new Error("Gagal memuat data tabel MSDS.");
                 const raw = await res.json();
-                msdsRows = raw.sort((a, b) => Number(a.no) - Number(b.no));
-                totalEntry.textContent = `${msdsRows.length} bahan`;
+                msdsRows = raw
+                    .sort((a, b) => Number(a.no) - Number(b.no))
+                    .map((item) => ({
+                        ...item,
+                        _searchBlob: buildSearchBlob(item)
+                    }));
+                totalEntry.textContent = "100 bahan";
                 renderTable(msdsRows);
             } catch (error) {
                 totalEntry.textContent = "Gagal dimuat";
@@ -543,7 +573,7 @@
 
         document.getElementById("msds-search").addEventListener("input", applySearch);
         loadMsdsTable();
-        renderMainVideo("yt-basic");
+        renderMainVideo("internal-field");
     </script>
 </body>
 </html>

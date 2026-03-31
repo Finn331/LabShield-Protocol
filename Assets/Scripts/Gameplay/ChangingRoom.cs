@@ -489,8 +489,35 @@ public class ChangingRoom : Interactable
                 }
             }
         }
+        SyncPlayerIdentity(oldPlayer, newPlayer);
 
         Debug.Log("ChangingRoom: Player state transferred.");
+    }
+
+    private static void SyncPlayerIdentity(GameObject oldPlayer, GameObject newPlayer)
+    {
+        if (oldPlayer == null || newPlayer == null) return;
+
+        PlayerIdentity sourceIdentity = oldPlayer.GetComponent<PlayerIdentity>();
+        if (sourceIdentity == null)
+        {
+            sourceIdentity = oldPlayer.GetComponentInChildren<PlayerIdentity>(true);
+        }
+
+        if (sourceIdentity == null) return;
+
+        PlayerIdentity targetIdentity = newPlayer.GetComponent<PlayerIdentity>();
+        if (targetIdentity == null)
+        {
+            targetIdentity = newPlayer.GetComponentInChildren<PlayerIdentity>(true);
+        }
+
+        if (targetIdentity == null)
+        {
+            targetIdentity = newPlayer.AddComponent<PlayerIdentity>();
+        }
+
+        targetIdentity.gender = sourceIdentity.gender;
     }
 
     /// <summary>

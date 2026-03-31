@@ -138,6 +138,20 @@ public class PauseManager : MonoBehaviour
         pauseButton.interactable = true;
     }
 
+    public void SetPauseButtonVisible(bool isVisible)
+    {
+        ResolveButtonReferences();
+        if (pauseButton == null) return;
+
+        if (!isVisible && isPaused)
+        {
+            ForceResetPauseState();
+        }
+
+        pauseButton.gameObject.SetActive(isVisible);
+        pauseButton.interactable = isVisible;
+    }
+
     private void BackToMainMenuFromPause()
     {
         ForceResetPauseState();

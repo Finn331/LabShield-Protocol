@@ -15,7 +15,7 @@ public class DoorInteraction : Interactable
     public AllowedGender allowedGender = AllowedGender.BebasSemua;
 
     [Tooltip("Pesan penolakan jika gender pemain tidak sesuai.")]
-    public string accessDeniedMessage = "Akses Ditolak: Bukan Toilet Anda!";
+    public string accessDeniedMessage = "Akses Ditolak: Bukan Ruang Ganti Anda!";
 
     [Header("Door Access (Akses APD)")]
     [Tooltip("Centang jika pintu ini hanya bisa dibuka setelah pemain menggunakan APD lengkap.")]
@@ -115,28 +115,32 @@ public class DoorInteraction : Interactable
             {
                 // Temukan player yang sedang aktif
                 GameObject activePlayer = GetActivePlayer();
-                if (activePlayer != null)
+                if (activePlayer == null)
                 {
-                    PlayerIdentity identity = activePlayer.GetComponent<PlayerIdentity>();
-                    if (identity != null)
-                    {
-                        // Apakah player ini Laki-Laki mencoba masuk pintu Perempuan?
-                        if (allowedGender == AllowedGender.HanyaPerempuan && identity.gender != PlayerGender.Female)
-                        {
-                            if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
-                            return; // Batal buka
-                        }
-                        // Apakah player ini Perempuan mencoba masuk pintu Laki-Laki?
-                        else if (allowedGender == AllowedGender.HanyaLakiLaki && identity.gender != PlayerGender.Male)
-                        {
-                            if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
-                            return; // Batal buka
-                        }
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Pemain tidak memiliki komponen PlayerIdentity. Mengizinkan masuk karena tidak ada data gender.");
-                    }
+                    Debug.LogWarning("DoorInteraction: Active player tidak ditemukan. Menolak akses demi keamanan.");
+                    if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                    return;
+                }
+
+                if (!TryGetPlayerGender(activePlayer, out PlayerGender playerGender))
+                {
+                    Debug.LogWarning($"DoorInteraction: Gender player tidak valid di {activePlayer.name}. Menolak akses demi keamanan.");
+                    if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                    return;
+                }
+
+                // Apakah player ini Laki-Laki mencoba masuk pintu Perempuan?
+                if (allowedGender == AllowedGender.HanyaPerempuan && playerGender != PlayerGender.Female)
+                {
+                    if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                    return; // Batal buka
+                }
+
+                // Apakah player ini Perempuan mencoba masuk pintu Laki-Laki?
+                if (allowedGender == AllowedGender.HanyaLakiLaki && playerGender != PlayerGender.Male)
+                {
+                    if (HUDManager.Instance != null) HUDManager.Instance.ShowInteraction(accessDeniedMessage);
+                    return; // Batal buka
                 }
             }
         } // Penutup if (!isOpen)
@@ -155,6 +159,28 @@ public class DoorInteraction : Interactable
             }
         }
         return null; // Fallback
+    }
+
+    private bool TryGetPlayerGender(GameObject activePlayer, out PlayerGender gender)
+    {
+        gender = PlayerGender.Unknown;
+        if (activePlayer == null) return false;
+
+        PlayerIdentity identity = activePlayer.GetComponent<PlayerIdentity>();
+        if (identity == null)
+        {
+            identity = activePlayer.GetComponentInChildren<PlayerIdentity>(true);
+        }
+
+        if (identity == null)
+        {
+            identity = activePlayer.GetComponentInParent<PlayerIdentity>();
+        }
+
+        if (identity == null) return false;
+
+        gender = identity.gender;
+        return gender != PlayerGender.Unknown;
     }
 
     private IEnumerator ToggleDoorRoutine()

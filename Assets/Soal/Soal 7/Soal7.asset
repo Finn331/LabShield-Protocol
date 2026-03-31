@@ -28,6 +28,9 @@ MonoBehaviour:
   questionVideos:
   - {fileID: 32900000, guid: b30b90ff64a5e3648aa03a745da17e6f, type: 3}
   - {fileID: 32900000, guid: 378e1df170da6b04c8f224ba31c78181, type: 3}
+  questionVideoIssueTexts:
+  - Terjadi kebakaran kecil
+  - APAR (Alat Pemadam Kebakaran)
   answers:
   - Segera mengarahkan APAR ke sumber api agar kebakaran tidak meluas
   - Memastikan jenis kebakaran dan kesesuaian APAR dengan sumber api yang terjadi

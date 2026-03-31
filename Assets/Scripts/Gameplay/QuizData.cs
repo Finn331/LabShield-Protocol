@@ -28,6 +28,9 @@ public class QuizData : ScriptableObject
     [Tooltip("Video pembuka yang akan diputar sebelum soal ini muncul (Opsional, bisa lebih dari 1)")]
     public VideoClip[] questionVideos;
 
+
+    [Tooltip("Label permasalahan untuk setiap video pembuka. Urutan harus sama dengan questionVideos. Jika kosong, sistem pakai nama video clip.")]
+    public string[] questionVideoIssueTexts;
     [Tooltip("Pilihan jawaban A, B, C, D")]
     public string[] answers = new string[4];
 

@@ -18,8 +18,12 @@ MonoBehaviour:
     tepat sesuai urutan penanganan darurat adalah \u2026"
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
   questionVideos:
   - {fileID: 32900000, guid: 65772550afb4e7b42a7268c4a362c44f, type: 3}
+  questionVideoIssueTexts:
+  - Permasalahan tangan terkena bahan kimia yang bersifat korosif
   answers:
   - Menghentikan praktikum dan membersihkan area kejadian
   - Memberikan pertolongan pertama tanpa mengamankan area

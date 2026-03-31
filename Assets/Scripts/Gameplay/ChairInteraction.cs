@@ -153,6 +153,12 @@ public class ChairInteraction : Interactable
                     HUDManager.Instance.HideAllHUD();
                 }
             }
+
+            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            if (pauseManager != null)
+            {
+                pauseManager.SetPauseButtonVisible(false);
+            }
         }
         // Jika sedang DUDUK di KURSI INI -> BERDIRI
         else 
@@ -204,6 +210,12 @@ public class ChairInteraction : Interactable
                 }
             }
 
+
+            PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+            if (pauseManager != null)
+            {
+                pauseManager.SetPauseButtonVisible(true);
+            }
             // Jangan langsung kembalikan kontrol jalan! Tunggu durasi berdiri selesai
             StartCoroutine(EnableMovementRoutine());
         }
