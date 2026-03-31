@@ -245,6 +245,161 @@ const getNextAttemptNumber = (scores, studentName) => {
     return maxAttempt + 1;
 };
 
+const toSortableTime = (value) => {
+    const t = Date.parse(value || 0);
+    return Number.isNaN(t) ? 0 : t;
+};
+
+const toLeaderboardRow = (entry) => ({
+    studentName: entry.studentName,
+    attempts: entry.attempts,
+    avgStandard: entry.avgStandard,
+    avgK3: entry.avgK3,
+    bestStandard: entry.bestStandard,
+    bestK3: entry.bestK3,
+    avgApdTimeSeconds: entry.avgApdTimeSeconds,
+    avgQuizTimeSeconds: entry.avgQuizTimeSeconds,
+    totalCorrect: entry.totalCorrect,
+    totalWrong: entry.totalWrong,
+    lastSubmitAt: entry.lastSubmitAt
+});
+
+const buildLeaderboardData = (scoresRaw) => {
+    const scores = normalizeAttemptNumbers((Array.isArray(scoresRaw) ? scoresRaw : []).map(normalizeScoreRow));
+    const students = new Map();
+
+    for (const row of scores) {
+        const studentName = String(row.studentName || '').trim();
+        if (!studentName) continue;
+
+        const key = studentName.toLowerCase();
+        const scoreStandard = Number.isFinite(Number(row.finalScoreStandard))
+            ? Number(row.finalScoreStandard)
+            : Number(row.finalScore || 0);
+        const scoreK3 = Number.isFinite(Number(row.finalScoreK3))
+            ? Number(row.finalScoreK3)
+            : computeK3Score(
+                Number(row.apdTotalCorrect || 0),
+                Number(row.apdTotalWrong || 0),
+                Number(row.quizTotalCorrect || 0),
+                Number(row.quizTotalWrong || 0)
+            );
+        const apdDuration = Math.max(0, Number(row.apdTimeTakenSeconds || 0));
+        const quizDuration = Math.max(0, Number(row.quizTimeTakenSeconds || computeQuizDurationSeconds(row.questionTimes)));
+        const totalCorrect = Number(row.apdTotalCorrect || 0) + Number(row.quizTotalCorrect || 0);
+        const totalWrong = Number(row.apdTotalWrong || 0) + Number(row.quizTotalWrong || 0);
+        const ts = toSortableTime(row.timestamp);
+
+        if (!students.has(key)) {
+            students.set(key, {
+                studentName,
+                attempts: 0,
+                totalStandard: 0,
+                totalK3: 0,
+                bestStandard: 0,
+                bestK3: 0,
+                totalApdTimeSeconds: 0,
+                totalQuizTimeSeconds: 0,
+                totalCorrect: 0,
+                totalWrong: 0,
+                lastSubmitAt: row.timestamp || null,
+                lastSubmitSortable: ts
+            });
+        }
+
+        const entry = students.get(key);
+        entry.attempts += 1;
+        entry.totalStandard += scoreStandard;
+        entry.totalK3 += scoreK3;
+        entry.bestStandard = Math.max(entry.bestStandard, scoreStandard);
+        entry.bestK3 = Math.max(entry.bestK3, scoreK3);
+        entry.totalApdTimeSeconds += apdDuration;
+        entry.totalQuizTimeSeconds += quizDuration;
+        entry.totalCorrect += totalCorrect;
+        entry.totalWrong += totalWrong;
+
+        if (ts >= entry.lastSubmitSortable) {
+            entry.lastSubmitSortable = ts;
+            entry.lastSubmitAt = row.timestamp || entry.lastSubmitAt;
+        }
+    }
+
+    const rows = Array.from(students.values()).map((entry) => {
+        const attempts = Math.max(1, Number(entry.attempts || 0));
+        return {
+            studentName: entry.studentName,
+            attempts: entry.attempts,
+            avgStandard: clamp01to100(entry.totalStandard / attempts),
+            avgK3: clamp01to100(entry.totalK3 / attempts),
+            bestStandard: clamp01to100(entry.bestStandard),
+            bestK3: clamp01to100(entry.bestK3),
+            avgApdTimeSeconds: Math.max(0, entry.totalApdTimeSeconds / attempts),
+            avgQuizTimeSeconds: Math.max(0, entry.totalQuizTimeSeconds / attempts),
+            totalCorrect: Math.max(0, entry.totalCorrect),
+            totalWrong: Math.max(0, entry.totalWrong),
+            lastSubmitAt: entry.lastSubmitAt,
+            lastSubmitSortable: entry.lastSubmitSortable
+        };
+    });
+
+    const withRank = (list) => list.map((entry, idx) => ({ rank: idx + 1, ...toLeaderboardRow(entry) }));
+
+    const overall = withRank([...rows].sort((a, b) =>
+        b.avgK3 - a.avgK3 ||
+        b.avgStandard - a.avgStandard ||
+        b.totalCorrect - a.totalCorrect ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    const k3 = withRank([...rows].sort((a, b) =>
+        b.avgK3 - a.avgK3 ||
+        b.bestK3 - a.bestK3 ||
+        b.avgStandard - a.avgStandard ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    const standard = withRank([...rows].sort((a, b) =>
+        b.avgStandard - a.avgStandard ||
+        b.bestStandard - a.bestStandard ||
+        b.avgK3 - a.avgK3 ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    const fastestQuiz = withRank([...rows].sort((a, b) =>
+        a.avgQuizTimeSeconds - b.avgQuizTimeSeconds ||
+        b.avgK3 - a.avgK3 ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    const fastestApd = withRank([...rows].sort((a, b) =>
+        a.avgApdTimeSeconds - b.avgApdTimeSeconds ||
+        b.avgK3 - a.avgK3 ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    const mostActive = withRank([...rows].sort((a, b) =>
+        b.attempts - a.attempts ||
+        b.avgK3 - a.avgK3 ||
+        b.lastSubmitSortable - a.lastSubmitSortable
+    ));
+
+    return {
+        generatedAt: new Date().toISOString(),
+        summary: {
+            studentCount: rows.length,
+            totalAttempts: scores.length
+        },
+        rankings: {
+            overall,
+            k3,
+            standard,
+            fastestQuiz,
+            fastestApd,
+            mostActive
+        }
+    };
+};
+
 // Seed Admin Helper
 const seedAdmin = () => {
     const users = readJSON(USERS_DB);
@@ -500,6 +655,48 @@ app.get('/api/scores', (req, res) => {
     const scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
     writeJSON(SCORES_DB, scores);
     res.json(scores);
+});
+
+// Get Leaderboard (aggregated by student)
+// Query params:
+// - limit: jumlah data per kategori (default 10, max 100)
+app.get('/api/leaderboard', (req, res) => {
+    const limitRaw = Number(req.query.limit || 10);
+    const limit = Math.max(1, Math.min(100, Number.isFinite(limitRaw) ? Math.floor(limitRaw) : 10));
+    const username = String(req.query.username || '').trim().toLowerCase();
+
+    const scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
+    writeJSON(SCORES_DB, scores);
+
+    const leaderboard = buildLeaderboardData(scores);
+    const pickTop = (rows) => (Array.isArray(rows) ? rows.slice(0, limit) : []);
+    const findSelf = (rows) => {
+        if (!username || !Array.isArray(rows)) return null;
+        const item = rows.find((row) => String(row.studentName || '').trim().toLowerCase() === username);
+        return item || null;
+    };
+
+    res.json({
+        generatedAt: leaderboard.generatedAt,
+        summary: leaderboard.summary,
+        limit,
+        self: {
+            overall: findSelf(leaderboard.rankings.overall),
+            k3: findSelf(leaderboard.rankings.k3),
+            standard: findSelf(leaderboard.rankings.standard),
+            fastestQuiz: findSelf(leaderboard.rankings.fastestQuiz),
+            fastestApd: findSelf(leaderboard.rankings.fastestApd),
+            mostActive: findSelf(leaderboard.rankings.mostActive)
+        },
+        rankings: {
+            overall: pickTop(leaderboard.rankings.overall),
+            k3: pickTop(leaderboard.rankings.k3),
+            standard: pickTop(leaderboard.rankings.standard),
+            fastestQuiz: pickTop(leaderboard.rankings.fastestQuiz),
+            fastestApd: pickTop(leaderboard.rankings.fastestApd),
+            mostActive: pickTop(leaderboard.rankings.mostActive)
+        }
+    });
 });
 
 // Get Scores for a specific student (Called by Student Dashboard)

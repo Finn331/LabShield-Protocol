@@ -355,6 +355,22 @@ a {
     flex-wrap: wrap;
 }
 
+.leaderboard-toolbar {
+    align-items: center;
+}
+
+.leaderboard-select {
+    width: auto;
+    min-width: 190px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 12px;
+}
+
+.leaderboard-kpi-grid {
+    margin-bottom: 8px;
+}
+
 .table-wrap {
     overflow-x: auto;
     border: 1px solid var(--line);
@@ -1253,6 +1269,11 @@ body.modal-open {
 
     .topbar {
         padding: 16px;
+    }
+
+    .leaderboard-select {
+        width: 100%;
+        min-width: 0;
     }
 
     .media-search {

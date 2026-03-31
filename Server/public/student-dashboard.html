@@ -79,6 +79,63 @@
 
         <section class="panel section-panel">
             <div class="section-head">
+                <h2 class="section-title">Leaderboard Siswa</h2>
+                <div class="toolbar leaderboard-toolbar">
+                    <select id="student-leaderboard-metric" class="input leaderboard-select" onchange="renderStudentLeaderboard()">
+                        <option value="overall">Overall (K3 + Standar)</option>
+                        <option value="k3">Top Nilai K3</option>
+                        <option value="standard">Top Nilai Standar</option>
+                        <option value="fastestQuiz">Tercepat Quiz</option>
+                        <option value="fastestApd">Tercepat APD</option>
+                        <option value="mostActive">Paling Aktif</option>
+                    </select>
+                    <select id="student-leaderboard-limit" class="input leaderboard-select" onchange="loadStudentLeaderboard()">
+                        <option value="10" selected>Top 10</option>
+                        <option value="20">Top 20</option>
+                        <option value="50">Top 50</option>
+                    </select>
+                    <button class="btn btn-soft" onclick="loadStudentLeaderboard()">Refresh</button>
+                </div>
+            </div>
+
+            <div class="kpi-grid leaderboard-kpi-grid">
+                <article class="kpi-card">
+                    <div class="kpi-label">Peringkat Saya</div>
+                    <div id="student-self-rank" class="kpi-value">-</div>
+                </article>
+                <article class="kpi-card">
+                    <div class="kpi-label">Skor Saya (Kategori Aktif)</div>
+                    <div id="student-self-score" class="kpi-value">-</div>
+                </article>
+                <article class="kpi-card">
+                    <div class="kpi-label">Total Siswa Ranked</div>
+                    <div id="student-ranked-count" class="kpi-value">0</div>
+                </article>
+            </div>
+
+            <p id="student-leaderboard-caption" class="muted" style="margin:8px 0 10px;">Menampilkan leaderboard siswa.</p>
+
+            <div class="table-wrap">
+                <table id="student-leaderboard-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Peringkat</th>
+                            <th>Siswa</th>
+                            <th>Percobaan</th>
+                            <th>Rata Nilai Standar</th>
+                            <th>Rata Nilai K3</th>
+                            <th>Rata Durasi Quiz</th>
+                            <th>Rata Durasi APD</th>
+                            <th>Submit Terakhir</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="panel section-panel">
+            <div class="section-head">
                 <h2 class="section-title">Riwayat Percobaan</h2>
                 <button class="btn btn-soft" onclick="loadStudentData()">Refresh</button>
             </div>
@@ -92,6 +149,7 @@
 
     <script>
         let currentUser = null;
+        let studentLeaderboardCache = null;
 
         function escapeHtml(input) {
             return String(input || '')
@@ -169,6 +227,130 @@
             return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         }
 
+        function getLeaderboardMetricLabel(metric) {
+            const labels = {
+                overall: 'Overall (kombinasi rata-rata K3 dan Standar)',
+                k3: 'Top Nilai K3',
+                standard: 'Top Nilai Standar',
+                fastestQuiz: 'Siswa dengan rata-rata durasi Quiz tercepat',
+                fastestApd: 'Siswa dengan rata-rata durasi APD tercepat',
+                mostActive: 'Siswa paling aktif berdasarkan jumlah percobaan'
+            };
+            return labels[metric] || 'Leaderboard Siswa';
+        }
+
+        function getStudentLeaderboardMetricRows() {
+            const metricSelect = document.getElementById('student-leaderboard-metric');
+            const metric = metricSelect ? metricSelect.value : 'overall';
+            const rows = studentLeaderboardCache?.rankings?.[metric];
+            return Array.isArray(rows) ? rows : [];
+        }
+
+        function getLeaderboardSelfValue(metric, selfRow) {
+            if (!selfRow) return '-';
+
+            if (metric === 'fastestQuiz') {
+                return formatDuration(Number(selfRow.avgQuizTimeSeconds || 0));
+            }
+
+            if (metric === 'fastestApd') {
+                return formatDuration(Number(selfRow.avgApdTimeSeconds || 0));
+            }
+
+            if (metric === 'mostActive') {
+                return `${Number(selfRow.attempts || 0)} percobaan`;
+            }
+
+            if (metric === 'k3') {
+                return String(Number(selfRow.avgK3 || 0));
+            }
+
+            if (metric === 'standard') {
+                return String(Number(selfRow.avgStandard || 0));
+            }
+
+            return String(Number(selfRow.combinedScore || 0));
+        }
+
+        function renderStudentLeaderboardSummary(metric) {
+            const selfRow = studentLeaderboardCache?.self?.[metric] || null;
+            const rankedCount = Number(studentLeaderboardCache?.summary?.studentCount || 0);
+            const rankText = selfRow ? `#${Number(selfRow.rank || 0)}` : '-';
+            const scoreText = getLeaderboardSelfValue(metric, selfRow);
+
+            document.getElementById('student-self-rank').textContent = rankText;
+            document.getElementById('student-self-score').textContent = scoreText;
+            document.getElementById('student-ranked-count').textContent = String(rankedCount);
+        }
+
+        function renderStudentLeaderboard() {
+            const tbody = document.querySelector('#student-leaderboard-table tbody');
+            const metricSelect = document.getElementById('student-leaderboard-metric');
+            const metric = metricSelect ? metricSelect.value : 'overall';
+
+            if (!studentLeaderboardCache) {
+                tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+                return;
+            }
+
+            document.getElementById('student-leaderboard-caption').textContent = getLeaderboardMetricLabel(metric);
+            renderStudentLeaderboardSummary(metric);
+            const rows = getStudentLeaderboardMetricRows();
+
+            if (!rows.length) {
+                tbody.innerHTML = '<tr><td colspan="8" class="muted">Belum ada data leaderboard.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = rows.map((row) => {
+                const lastSubmit = row.lastSubmitAt
+                    ? new Date(row.lastSubmitAt).toLocaleString('id-ID')
+                    : '-';
+                const rowClass = String(row.studentName || '').toLowerCase() === String(currentUser || '').toLowerCase()
+                    ? ' style="background:#eaf7ff;"'
+                    : '';
+
+                return `
+                    <tr${rowClass}>
+                        <td><span class="chip brand">#${Number(row.rank || 0)}</span></td>
+                        <td>${escapeHtml(row.studentName || '-')}</td>
+                        <td>${Number(row.attempts || 0)}</td>
+                        <td>${Number(row.avgStandard || 0)}</td>
+                        <td>${Number(row.avgK3 || 0)}</td>
+                        <td>${formatDuration(Number(row.avgQuizTimeSeconds || 0))}</td>
+                        <td>${formatDuration(Number(row.avgApdTimeSeconds || 0))}</td>
+                        <td class="muted">${escapeHtml(lastSubmit)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        async function loadStudentLeaderboard() {
+            if (!currentUser) return;
+
+            const tbody = document.querySelector('#student-leaderboard-table tbody');
+            const limitSelect = document.getElementById('student-leaderboard-limit');
+            const limit = Number(limitSelect ? limitSelect.value : 10) || 10;
+
+            tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+
+            try {
+                const response = await fetch(`/api/leaderboard?limit=${encodeURIComponent(limit)}&username=${encodeURIComponent(currentUser)}`);
+                if (!response.ok) {
+                    throw new Error('Gagal memuat leaderboard siswa.');
+                }
+                const data = await response.json();
+                studentLeaderboardCache = data;
+                renderStudentLeaderboard();
+            } catch (error) {
+                studentLeaderboardCache = null;
+                document.getElementById('student-self-rank').textContent = '-';
+                document.getElementById('student-self-score').textContent = '-';
+                document.getElementById('student-ranked-count').textContent = '0';
+                tbody.innerHTML = `<tr><td colspan="8" class="muted">${escapeHtml(error.message || 'Gagal memuat leaderboard.')}</td></tr>`;
+            }
+        }
+
         async function login() {
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
@@ -198,7 +380,7 @@
                 document.getElementById('display-name').textContent = currentUser;
                 document.getElementById('login-section').classList.add('hidden');
                 document.getElementById('dashboard-section').classList.remove('hidden');
-                await loadStudentData();
+                await Promise.all([loadStudentData(), loadStudentLeaderboard()]);
             } catch (error) {
                 setLoginError(error.message || 'Terjadi kesalahan login.');
             } finally {
