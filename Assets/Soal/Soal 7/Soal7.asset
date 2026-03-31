@@ -23,8 +23,10 @@ MonoBehaviour:
     tepat yang harus dilakukan siswa sebelum menggunakan APAR adalah...'
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 5c7814e3f67953e43a8a01b091c5294b, type: 3}
+  - {fileID: 32900000, guid: b30b90ff64a5e3648aa03a745da17e6f, type: 3}
   - {fileID: 32900000, guid: 378e1df170da6b04c8f224ba31c78181, type: 3}
   answers:
   - Segera mengarahkan APAR ke sumber api agar kebakaran tidak meluas

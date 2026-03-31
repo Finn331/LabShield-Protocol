@@ -67,6 +67,14 @@
                 <div class="kpi-label">Rata-rata Nilai K3</div>
                 <div id="stat-avg-k3" class="kpi-value">0</div>
             </article>
+            <article class="kpi-card">
+                <div class="kpi-label">Rata-rata Durasi APD</div>
+                <div id="stat-avg-apd-time" class="kpi-value">00:00</div>
+            </article>
+            <article class="kpi-card">
+                <div class="kpi-label">Rata-rata Durasi Quiz</div>
+                <div id="stat-avg-quiz-time" class="kpi-value">00:00</div>
+            </article>
         </section>
 
         <section class="panel section-panel">
@@ -142,6 +150,25 @@
             return computeK3Score(apdCorrect, apdWrong, quizCorrect, quizWrong);
         }
 
+        function readQuizDurationSeconds(row) {
+            if (Number.isFinite(Number(row.quizTimeTakenSeconds))) {
+                return Math.max(0, Number(row.quizTimeTakenSeconds));
+            }
+
+            if (!Array.isArray(row.questionTimes)) return 0;
+            return row.questionTimes.reduce((sum, item) => {
+                const time = Number(item?.timeTakenSeconds ?? item?.timeTaken ?? 0);
+                return sum + (Number.isFinite(time) ? Math.max(0, time) : 0);
+            }, 0);
+        }
+
+        function formatDuration(totalSeconds) {
+            const safeSeconds = Math.max(0, Math.round(Number(totalSeconds) || 0));
+            const minutes = Math.floor(safeSeconds / 60);
+            const seconds = safeSeconds % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
         async function login() {
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
@@ -207,6 +234,8 @@
             let totalWrong = 0;
             let totalScoreStandard = 0;
             let totalScoreK3 = 0;
+            let totalApdTimeSeconds = 0;
+            let totalQuizTimeSeconds = 0;
 
             for (const row of scores) {
                 const apdCorrect = Number(row.apdTotalCorrect || 0);
@@ -217,22 +246,30 @@
                 const wrong = apdWrong + quizWrong;
                 const scoreStandard = readScoreStandard(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
                 const scoreK3 = readScoreK3(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
+                const apdTimeSeconds = Math.max(0, Number(row.apdTimeTakenSeconds || 0));
+                const quizTimeSeconds = readQuizDurationSeconds(row);
 
                 totalCorrect += correct;
                 totalWrong += wrong;
                 totalScoreStandard += scoreStandard;
                 totalScoreK3 += scoreK3;
+                totalApdTimeSeconds += apdTimeSeconds;
+                totalQuizTimeSeconds += quizTimeSeconds;
             }
 
             const attempts = scores.length;
             const averageScoreStandard = attempts > 0 ? Math.round(totalScoreStandard / attempts) : 0;
             const averageScoreK3 = attempts > 0 ? Math.round(totalScoreK3 / attempts) : 0;
+            const averageApdTimeSeconds = attempts > 0 ? (totalApdTimeSeconds / attempts) : 0;
+            const averageQuizTimeSeconds = attempts > 0 ? (totalQuizTimeSeconds / attempts) : 0;
 
             document.getElementById('stat-attempts').textContent = String(attempts);
             document.getElementById('stat-correct').textContent = String(totalCorrect);
             document.getElementById('stat-wrong').textContent = String(totalWrong);
             document.getElementById('stat-avg-standard').textContent = String(averageScoreStandard);
             document.getElementById('stat-avg-k3').textContent = String(averageScoreK3);
+            document.getElementById('stat-avg-apd-time').textContent = formatDuration(averageApdTimeSeconds);
+            document.getElementById('stat-avg-quiz-time').textContent = formatDuration(averageQuizTimeSeconds);
 
             renderAttempts(scores);
         }
@@ -262,7 +299,8 @@
                 usedAttemptNumbers.add(attemptNo);
 
                 const date = row.timestamp ? new Date(row.timestamp).toLocaleString('id-ID') : '-';
-                const apdTime = Number(row.apdTimeTakenSeconds || 0).toFixed(1);
+                const apdTimeSeconds = Math.max(0, Number(row.apdTimeTakenSeconds || 0));
+                const quizTimeSeconds = readQuizDurationSeconds(row);
 
                 return `
                     <article class="attempt-card">
@@ -287,8 +325,15 @@
                                 <div class="metric-key">Kuis</div>
                                 <div class="metric-val">${quizCorrect}/${quizWrong}</div>
                             </div>
+                            <div class="metric-box">
+                                <div class="metric-key">Durasi APD</div>
+                                <div class="metric-val">${formatDuration(apdTimeSeconds)}</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="metric-key">Durasi Quiz</div>
+                                <div class="metric-val">${formatDuration(quizTimeSeconds)}</div>
+                            </div>
                         </div>
-                        <div class="muted" style="margin-top:10px; font-size:12px;">Waktu APD: ${apdTime} detik</div>
                     </article>
                 `;
             });

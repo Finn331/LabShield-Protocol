@@ -21,6 +21,14 @@ namespace StarterAssets
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
 
+
+        [Tooltip("Enable automatic sprint when analog stick is pushed near max range")]
+        public bool AutoSprintOnFullAnalog = true;
+
+        [Tooltip("Analog magnitude required to trigger auto sprint")]
+        [Range(0.5f, 1.0f)]
+        public float AutoSprintThreshold = 0.9f;
+
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
         public float RotationSmoothTime = 0.12f;
@@ -213,20 +221,26 @@ namespace StarterAssets
 
         private void Move()
         {
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            // read analog magnitude first so we can decide when to auto-sprint
+            float rawInputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+            bool hasMoveInput = _input.move != Vector2.zero;
+            bool autoSprintActive = AutoSprintOnFullAnalog && _input.analogMovement && hasMoveInput && rawInputMagnitude >= AutoSprintThreshold;
+            float movementMagnitude = hasMoveInput ? 1f : 0f;
+
+
+            // set target speed based on move speed, sprint speed, and analog auto-sprint
+            float targetSpeed = (_input.sprint || autoSprintActive) ? SprintSpeed : MoveSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (!hasMoveInput) targetSpeed = 0.0f;
 
             // a reference to the players current horizontal velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
-            float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
             // accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
@@ -234,7 +248,7 @@ namespace StarterAssets
             {
                 // creates curved result rather than a linear one giving a more organic speed change
                 // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
+                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * movementMagnitude,
                     Time.deltaTime * SpeedChangeRate);
 
                 // round speed to 3 decimal places
@@ -245,7 +259,7 @@ namespace StarterAssets
                 _speed = targetSpeed;
             }
 
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed * movementMagnitude, Time.deltaTime * SpeedChangeRate);
             if (_animationBlend < 0.01f) _animationBlend = 0f;
 
             // normalise input direction
@@ -253,7 +267,7 @@ namespace StarterAssets
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving
-            if (_input.move != Vector2.zero)
+            if (hasMoveInput)
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
@@ -275,7 +289,7 @@ namespace StarterAssets
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
-                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
+                _animator.SetFloat(_animIDMotionSpeed, movementMagnitude);
             }
         }
 

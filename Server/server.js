@@ -157,12 +157,35 @@ const computeK3Score = (apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTo
     return clamp01to100(weightedScore - apdPenalty);
 };
 
+const normalizeQuestionTimes = (questionTimes) => {
+    if (!Array.isArray(questionTimes)) return [];
+
+    return questionTimes.map((item) => {
+        const questionID = String(item?.questionID || '').trim();
+        const timeTakenSeconds = Number(item?.timeTakenSeconds ?? item?.timeTaken ?? 0);
+        const isCorrect = Boolean(item?.isCorrect);
+
+        return {
+            questionID,
+            timeTakenSeconds: Number.isFinite(timeTakenSeconds) ? Math.max(0, timeTakenSeconds) : 0,
+            isCorrect
+        };
+    });
+};
+
+const computeQuizDurationSeconds = (questionTimes) => {
+    const normalized = normalizeQuestionTimes(questionTimes);
+    return normalized.reduce((sum, item) => sum + Number(item.timeTakenSeconds || 0), 0);
+};
+
 const normalizeScoreRow = (row) => {
     const apdTotalCorrect = Number(row.apdTotalCorrect || 0);
     const apdTotalWrong = Number(row.apdTotalWrong || 0);
     const quizTotalCorrect = Number(row.quizTotalCorrect || 0);
     const quizTotalWrong = Number(row.quizTotalWrong || 0);
     const apdTimeTakenSeconds = Number(row.apdTimeTakenSeconds || 0);
+    const questionTimes = normalizeQuestionTimes(row.questionTimes);
+    const quizTimeTakenSeconds = computeQuizDurationSeconds(questionTimes);
 
     const finalScoreStandard = computeStandardScore(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
     const finalScoreK3 = computeK3Score(apdTotalCorrect, apdTotalWrong, quizTotalCorrect, quizTotalWrong);
@@ -174,6 +197,8 @@ const normalizeScoreRow = (row) => {
         apdTimeTakenSeconds,
         quizTotalCorrect,
         quizTotalWrong,
+        questionTimes,
+        quizTimeTakenSeconds,
         finalScore: finalScoreStandard, // backward compatibility
         finalScoreStandard,
         finalScoreK3
@@ -457,7 +482,8 @@ app.post('/api/submit-score', (req, res) => {
         apdTimeTakenSeconds: Number(scoreData.apdTimeTakenSeconds || 0),
         quizTotalCorrect,
         quizTotalWrong,
-        questionTimes: Array.isArray(scoreData.questionTimes) ? scoreData.questionTimes : [],
+        questionTimes: normalizeQuestionTimes(scoreData.questionTimes),
+        quizTimeTakenSeconds: computeQuizDurationSeconds(scoreData.questionTimes),
         finalScore: finalScoreStandard,
         finalScoreStandard,
         finalScoreK3,

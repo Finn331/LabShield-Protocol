@@ -897,6 +897,8 @@ body.modal-open {
     align-self: start;
     position: sticky;
     top: 16px;
+    max-height: calc(100vh - 36px);
+    overflow: auto;
 }
 
 .learning-page .video-playlist-head h3 {
@@ -1089,6 +1091,12 @@ body.modal-open {
     color: #19633a;
     border: 1px solid #b9e5c9;
     background: #effcf4;
+}
+
+.learning-page .video-tag-purple {
+    color: #5b2d88;
+    border: 1px solid #dbc6f4;
+    background: #f6efff;
 }
 
 .learning-page .learning-video-player {

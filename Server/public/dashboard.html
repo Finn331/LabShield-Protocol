@@ -67,6 +67,14 @@
                 <div class="kpi-label">Total Guru</div>
                 <div id="teacher-count" class="kpi-value">0</div>
             </article>
+            <article class="kpi-card">
+                <div class="kpi-label">Rata-rata Durasi APD</div>
+                <div id="avg-apd-time" class="kpi-value">00:00</div>
+            </article>
+            <article class="kpi-card">
+                <div class="kpi-label">Rata-rata Durasi Quiz</div>
+                <div id="avg-quiz-time" class="kpi-value">00:00</div>
+            </article>
         </section>
 
         <section class="grid-2">
@@ -83,13 +91,15 @@
                             <tr>
                                 <th>Siswa</th>
                                 <th>Percobaan</th>
-                                <th>APD ?</th>
-                                <th>APD ?</th>
-                                <th>Quiz ?</th>
-                                <th>Quiz ?</th>
+                                <th>APD Benar</th>
+                                <th>APD Salah</th>
+                                <th>Quiz Benar</th>
+                                <th>Quiz Salah</th>
+                                <th>Durasi APD</th>
+                                <th>Durasi Quiz</th>
                                 <th>Nilai Standar</th>
                                 <th>Nilai K3</th>
-                                <th>Waktu</th>
+                                <th>Waktu Submit</th>
                             </tr>
                         </thead>
                         <tbody></tbody>
@@ -182,6 +192,25 @@
             el.className = `message ${type} active`;
         }
 
+        function readQuizDurationSeconds(row) {
+            if (Number.isFinite(Number(row.quizTimeTakenSeconds))) {
+                return Math.max(0, Number(row.quizTimeTakenSeconds));
+            }
+
+            if (!Array.isArray(row.questionTimes)) return 0;
+            return row.questionTimes.reduce((sum, item) => {
+                const time = Number(item?.timeTakenSeconds ?? item?.timeTaken ?? 0);
+                return sum + (Number.isFinite(time) ? Math.max(0, time) : 0);
+            }, 0);
+        }
+
+        function formatDuration(totalSeconds) {
+            const safeSeconds = Math.max(0, Math.round(Number(totalSeconds) || 0));
+            const minutes = Math.floor(safeSeconds / 60);
+            const seconds = safeSeconds % 60;
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
         async function login() {
             const u = document.getElementById('username').value.trim();
             const p = document.getElementById('password').value;
@@ -224,7 +253,7 @@
 
         async function loadScores() {
             const tbody = document.querySelector('#score-table tbody');
-            tbody.innerHTML = '<tr><td colspan="9" class="muted">Memuat data...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="11" class="muted">Memuat data...</td></tr>';
 
             try {
                 const res = await fetch('/api/scores');
@@ -246,15 +275,21 @@
                         : 0;
                     return sum + value;
                 }, 0);
+                const totalApdTimeSeconds = rows.reduce((sum, row) => sum + Math.max(0, Number(row.apdTimeTakenSeconds || 0)), 0);
+                const totalQuizTimeSeconds = rows.reduce((sum, row) => sum + readQuizDurationSeconds(row), 0);
                 const averageScoreStandard = rows.length ? Math.round(totalScoreStandard / rows.length) : 0;
                 const averageScoreK3 = rows.length ? Math.round(totalScoreK3 / rows.length) : 0;
+                const averageApdTimeSeconds = rows.length ? (totalApdTimeSeconds / rows.length) : 0;
+                const averageQuizTimeSeconds = rows.length ? (totalQuizTimeSeconds / rows.length) : 0;
 
                 document.getElementById('score-count').textContent = String(rows.length);
                 document.getElementById('avg-score-standard').textContent = String(averageScoreStandard);
                 document.getElementById('avg-score-k3').textContent = String(averageScoreK3);
+                document.getElementById('avg-apd-time').textContent = formatDuration(averageApdTimeSeconds);
+                document.getElementById('avg-quiz-time').textContent = formatDuration(averageQuizTimeSeconds);
 
                 if (!rows.length) {
-                    tbody.innerHTML = '<tr><td colspan="9" class="muted">Belum ada skor yang tersimpan.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="11" class="muted">Belum ada skor yang tersimpan.</td></tr>';
                     return;
                 }
 
@@ -267,6 +302,8 @@
                     const scoreK3 = Number.isFinite(Number(row.finalScoreK3))
                         ? Number(row.finalScoreK3)
                         : 0;
+                    const apdDuration = formatDuration(Number(row.apdTimeTakenSeconds || 0));
+                    const quizDuration = formatDuration(readQuizDurationSeconds(row));
                     return `
                         <tr>
                             <td>${escapeHtml(row.studentName || '-')}</td>
@@ -275,6 +312,8 @@
                             <td><span class="chip bad">${Number(row.apdTotalWrong || 0)}</span></td>
                             <td><span class="chip ok">${Number(row.quizTotalCorrect || 0)}</span></td>
                             <td><span class="chip bad">${Number(row.quizTotalWrong || 0)}</span></td>
+                            <td>${apdDuration}</td>
+                            <td>${quizDuration}</td>
                             <td>${scoreStandard}</td>
                             <td>${scoreK3}</td>
                             <td class="muted">${escapeHtml(date)}</td>
@@ -282,7 +321,7 @@
                     `;
                 }).join('');
             } catch (error) {
-                tbody.innerHTML = `<tr><td colspan="9" class="muted">${escapeHtml(error.message || 'Gagal memuat data.')}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="11" class="muted">${escapeHtml(error.message || 'Gagal memuat data.')}</td></tr>`;
             }
         }
 
