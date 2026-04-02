@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizData
   questionID: Soal_8
   questionText: "Berikut ini merupakan bentuk perencanaan yang dapat dilakukan untuk
-    mendukung\r\npenerapan keselamatan dan kesehatan kerja (K3) di tempat kerja,
-    kecuali \u2026"
+    mendukung penerapan keselamatan dan kesehatan kerja (K3) di tempat kerja, kecuali
+    \u2026"
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: c51f51e3e8e16c040881057a9c886994, type: 3}
+  - {fileID: 32900000, guid: cc7cbb571fb1b4745b04b6016a1be448, type: 3}
   questionVideoIssueTexts:
   - Beban kerja kimia analisis laboran
   answers:

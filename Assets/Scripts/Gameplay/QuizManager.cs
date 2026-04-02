@@ -590,7 +590,10 @@ public class QuizManager : MonoBehaviour
         if (teacherController != null) teacherController.StopVoice();
         
         // Disable semua tombol agar tidak di-spam
-        foreach (var btn in answerButtons) btn.interactable = false;
+        foreach (var btn in answerButtons)
+        {
+            if (btn != null) btn.interactable = false;
+        }
 
         // 2. Evaluasi Benar atau Salah
         bool isCorrect = (selectedIndex == currentQuiz.correctAnswerIndex);
@@ -598,11 +601,29 @@ public class QuizManager : MonoBehaviour
         // 3. Simpan ke sistem (Persistence Local JSON)
         QuizSessionManager.Instance.RecordQuestionResult(currentQuiz.questionID, currentTimer, isCorrect);
 
-        // 4. Ubah Warna Tombol yang Dipilih
-        if (isCorrect)
-            answerButtons[selectedIndex].GetComponent<Image>().color = Color.green;
-        else
-            answerButtons[selectedIndex].GetComponent<Image>().color = Color.red;
+        // 4. Highlight jawaban: pilihan user + jawaban benar
+        if (selectedIndex >= 0 && selectedIndex < answerButtons.Length && answerButtons[selectedIndex] != null)
+        {
+            Image selectedImage = answerButtons[selectedIndex].GetComponent<Image>();
+            if (selectedImage != null)
+            {
+                selectedImage.color = isCorrect ? Color.green : Color.red;
+            }
+        }
+
+        // Jika salah, tampilkan juga tombol jawaban yang benar dengan highlight hijau
+        if (!isCorrect && currentQuiz != null)
+        {
+            int correctIndex = currentQuiz.correctAnswerIndex;
+            if (correctIndex >= 0 && correctIndex < answerButtons.Length && answerButtons[correctIndex] != null)
+            {
+                Image correctImage = answerButtons[correctIndex].GetComponent<Image>();
+                if (correctImage != null)
+                {
+                    correctImage.color = Color.green;
+                }
+            }
+        }
 
         // 5. Feedback Audio / Visual (Centang / Silang) dari Manager Lama
         if (QuizFeedbackManager.Instance != null)

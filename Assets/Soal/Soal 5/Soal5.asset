@@ -21,7 +21,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 65772550afb4e7b42a7268c4a362c44f, type: 3}
+  - {fileID: 32900000, guid: 57c3cb73fbff90f48be9004147eace6e, type: 3}
   questionVideoIssueTexts:
   - Permasalahan tangan terkena bahan kimia yang bersifat korosif
   answers:

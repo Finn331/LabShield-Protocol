@@ -13,21 +13,17 @@ MonoBehaviour:
   m_Name: Soal7
   m_EditorClassIdentifier: Assembly-CSharp::QuizData
   questionID: Soal_7
-  questionText: 'Di sebuah laboratorium kimia sekolah kejuruan, terjadi kebakaran
-    kecil akibat
-
-    tumpahan bahan mudah terbakar saat kegiatan praktikum. APAR
-    tersedia dan berada dalam kondisi siap digunakan oleh siswa.
-
-    Tindakan paling
-    tepat yang harus dilakukan siswa sebelum menggunakan APAR adalah...'
+  questionText: Di sebuah laboratorium kimia sekolah kejuruan, terjadi kebakaran
+    kecil akibat tumpahan bahan mudah terbakar saat kegiatan praktikum. APAR tersedia
+    dan berada dalam kondisi siap digunakan oleh siswa. Tindakan paling tepat yang
+    harus dilakukan siswa sebelum menggunakan APAR adalah...
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: b30b90ff64a5e3648aa03a745da17e6f, type: 3}
-  - {fileID: 32900000, guid: 378e1df170da6b04c8f224ba31c78181, type: 3}
+  - {fileID: 32900000, guid: 9b21f8ac2d02e264880dfece59a47f51, type: 3}
+  - {fileID: 32900000, guid: 86bbba05b8b796a46a3beb56128aa422, type: 3}
   questionVideoIssueTexts:
   - Terjadi kebakaran kecil
   - APAR (Alat Pemadam Kebakaran)

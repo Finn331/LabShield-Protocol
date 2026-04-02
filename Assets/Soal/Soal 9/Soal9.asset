@@ -19,7 +19,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 814c382e2c99c87418bc69032a86caa9, type: 3}
+  - {fileID: 32900000, guid: 5eeab7a7136b2424a907e2a98401292b, type: 3}
   questionVideoIssueTexts:
   - Berita ledakan di lab
   answers:

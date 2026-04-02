@@ -19,8 +19,9 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages:
   - {fileID: 21300000, guid: 7ad57d476b25e684693b9d6f51bf2673, type: 3}
-  presentationImageDuration: 1.5
+  presentationImageDuration: 3
   questionVideos: []
+  questionVideoIssueTexts: []
   answers:
   - 'Korosif '
   - Iritant

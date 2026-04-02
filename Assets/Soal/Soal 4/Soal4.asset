@@ -21,7 +21,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: f3ff7f41a9245e342974c8bdab80f375, type: 3}
+  - {fileID: 32900000, guid: 76d321d588f10084a9e9674d5247bdf2, type: 3}
   questionVideoIssueTexts:
   - Permasalahan makan dan minum di lab
   answers:

@@ -12536,7 +12536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 739630605904587930, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: m_Intensity
-      value: 0.072104685
+      value: 0.04094235
       objectReference: {fileID: 0}
     - target: {fileID: 768610824830200836, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -20308,7 +20308,7 @@ VideoPlayer:
   m_AspectRatio: 2
   m_DataSource: 0
   m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
+  m_PlaybackSpeed: 5
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
@@ -35548,7 +35548,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4982554904981358312, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_Intensity
-      value: 0.0605323
+      value: 0.054750245
       objectReference: {fileID: 0}
     - target: {fileID: 5029538020231890548, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_RootOrder
@@ -64225,6 +64225,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2332301460422034080, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 28.578
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332301460422034080, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332301460422034080, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.269
+      objectReference: {fileID: 0}
     - target: {fileID: 2857826578003527280, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -64368,6 +64380,14 @@ PrefabInstance:
     - target: {fileID: 4409425140960156829, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
       propertyPath: m_fontSizeMin
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786467712533188894, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786467712533188894, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4970152981183962887, guid: dc43ff1385047ef49925ed33a93a4859, type: 3}
       propertyPath: m_AnchorMax.x
