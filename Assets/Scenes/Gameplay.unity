@@ -9021,6 +9021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Window_Large_R (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6214949974856287685, guid: 69f098e81a69f3d4f930984f73be8853, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6890557a720ef4699f24bc3b24c588, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12536,7 +12540,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 739630605904587930, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: m_Intensity
-      value: 0.04094235
+      value: 0.044793453
       objectReference: {fileID: 0}
     - target: {fileID: 768610824830200836, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -18432,6 +18436,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2008368985}
     m_Modifications:
+    - target: {fileID: 3379850317281291653, guid: 16cb4952937f3134c9465147035fd774, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6890557a720ef4699f24bc3b24c588, type: 2}
     - target: {fileID: 3884178228015090768, guid: 16cb4952937f3134c9465147035fd774, type: 3}
       propertyPath: m_Name
       value: Wall_Window_Large_Mid (5)
@@ -35548,7 +35556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4982554904981358312, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_Intensity
-      value: 0.054750245
+      value: 0.034136645
       objectReference: {fileID: 0}
     - target: {fileID: 5029538020231890548, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_RootOrder
@@ -40760,6 +40768,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2008368985}
     m_Modifications:
+    - target: {fileID: 3379850317281291653, guid: 16cb4952937f3134c9465147035fd774, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6890557a720ef4699f24bc3b24c588, type: 2}
     - target: {fileID: 3884178228015090768, guid: 16cb4952937f3134c9465147035fd774, type: 3}
       propertyPath: m_Name
       value: Wall_Window_Large_Mid (4)
@@ -73655,6 +73667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Window_Large_L (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3816766791546245052, guid: 6c1630767dd9b094b9544562c2880db3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f6890557a720ef4699f24bc3b24c588, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
