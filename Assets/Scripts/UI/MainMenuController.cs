@@ -201,24 +201,73 @@ public class MainMenuController : MonoBehaviour
         if (!isLoggedIn || hasStarted) return;
         if (Time.unscaledTime < startInputUnlockTime) return;
 
-        // Touch-first input untuk mobile (tanpa keyboard).
-        bool pressed = false;
-
-        // New Input System pointer (mouse/touch unified)
-        if (UnityEngine.InputSystem.Pointer.current != null && UnityEngine.InputSystem.Pointer.current.press.wasPressedThisFrame)
-            pressed = true;
-
-        // Explicit touchscreen fallback
-        if (UnityEngine.InputSystem.Touchscreen.current != null &&
-            UnityEngine.InputSystem.Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
-        {
-            pressed = true;
-        }
-
-        if (pressed)
+        if (IsStartPressedThisFrame())
         {
             StartGameSequence();
         }
+    }
+
+    private bool IsStartPressedThisFrame()
+    {
+        bool pressed = false;
+
+#if ENABLE_INPUT_SYSTEM
+        if (UnityEngine.InputSystem.Pointer.current != null)
+        {
+            var press = UnityEngine.InputSystem.Pointer.current.press;
+            if (press.wasPressedThisFrame || press.wasReleasedThisFrame)
+            {
+                pressed = true;
+            }
+        }
+
+        if (!pressed && UnityEngine.InputSystem.Mouse.current != null)
+        {
+            var left = UnityEngine.InputSystem.Mouse.current.leftButton;
+            if (left.wasPressedThisFrame || left.wasReleasedThisFrame)
+            {
+                pressed = true;
+            }
+        }
+
+        if (!pressed && UnityEngine.InputSystem.Touchscreen.current != null)
+        {
+            var touch = UnityEngine.InputSystem.Touchscreen.current.primaryTouch;
+            if (touch.press.wasPressedThisFrame || touch.press.wasReleasedThisFrame)
+            {
+                pressed = true;
+            }
+        }
+
+        if (!pressed && UnityEngine.InputSystem.Keyboard.current != null &&
+            UnityEngine.InputSystem.Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            pressed = true;
+        }
+#endif
+
+#if ENABLE_LEGACY_INPUT_MANAGER
+        if (!pressed && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)))
+        {
+            pressed = true;
+        }
+
+        if (!pressed && Input.touchCount > 0)
+        {
+            Touch t = Input.GetTouch(0);
+            if (t.phase == TouchPhase.Began || t.phase == TouchPhase.Ended)
+            {
+                pressed = true;
+            }
+        }
+
+        if (!pressed && Input.anyKeyDown)
+        {
+            pressed = true;
+        }
+#endif
+
+        return pressed;
     }
 
     private void PrepareMenuInputState()

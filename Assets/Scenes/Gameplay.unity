@@ -12540,7 +12540,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 739630605904587930, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: m_Intensity
-      value: 0.10790018
+      value: 0.046172872
       objectReference: {fileID: 0}
     - target: {fileID: 768610824830200836, guid: f5cdfb41605de034d9f097e003c671d4, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -35556,7 +35556,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4982554904981358312, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_Intensity
-      value: 0.08871782
+      value: 0.03849753
       objectReference: {fileID: 0}
     - target: {fileID: 5029538020231890548, guid: d8ea6cd59a5eae5478bd038884a93f87, type: 3}
       propertyPath: m_RootOrder
@@ -73203,6 +73203,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1466871378063538169, guid: 06df99dd7790d2a4aa6891d185926af8, type: 3}
   m_PrefabInstance: {fileID: 1745041153}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1745638943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1745638944}
+  m_Layer: 0
+  m_Name: === Env 2 ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1745638944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745638943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.46432, y: 0.08862, z: -3.10494}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1745943175
 GameObject:
   m_ObjectHideFlags: 0
@@ -87840,6 +87871,7 @@ SceneRoots:
   - {fileID: 1425529255}
   - {fileID: 960403671}
   - {fileID: 1379278852}
+  - {fileID: 1745638944}
   - {fileID: 165423640}
-  - {fileID: 363656115}
   - {fileID: 53793772}
+  - {fileID: 363656115}
