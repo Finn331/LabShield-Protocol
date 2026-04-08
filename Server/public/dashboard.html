@@ -52,12 +52,8 @@
                 <div id="score-count" class="kpi-value">0</div>
             </article>
             <article class="kpi-card">
-                <div class="kpi-label">Rata-rata Nilai Standar</div>
+                <div class="kpi-label">Rata-rata Nilai</div>
                 <div id="avg-score-standard" class="kpi-value warn">0</div>
-            </article>
-            <article class="kpi-card">
-                <div class="kpi-label">Rata-rata Nilai K3</div>
-                <div id="avg-score-k3" class="kpi-value">0</div>
             </article>
             <article class="kpi-card">
                 <div class="kpi-label">Total Siswa</div>
@@ -82,9 +78,8 @@
                 <h2 class="section-title">Leaderboard Siswa</h2>
                 <div class="toolbar leaderboard-toolbar">
                     <select id="leaderboard-metric" class="input leaderboard-select" onchange="renderLeaderboard()">
-                        <option value="overall">Overall (K3 + Standar)</option>
-                        <option value="k3">Top Nilai K3</option>
-                        <option value="standard">Top Nilai Standar</option>
+                        <option value="overall">Overall (Nilai)</option>
+                        <option value="standard">Top Nilai</option>
                         <option value="fastestQuiz">Tercepat Quiz</option>
                         <option value="fastestApd">Tercepat APD</option>
                         <option value="mostActive">Paling Aktif</option>
@@ -102,10 +97,6 @@
                 <article class="kpi-card">
                     <div class="kpi-label">Juara Overall</div>
                     <div id="leaderboard-top-overall" class="kpi-value" style="font-size:22px;">-</div>
-                </article>
-                <article class="kpi-card">
-                    <div class="kpi-label">Juara K3</div>
-                    <div id="leaderboard-top-k3" class="kpi-value" style="font-size:22px;">-</div>
                 </article>
                 <article class="kpi-card">
                     <div class="kpi-label">Paling Aktif</div>
@@ -126,8 +117,7 @@
                             <th>Peringkat</th>
                             <th>Siswa</th>
                             <th>Percobaan</th>
-                            <th>Rata Nilai Standar</th>
-                            <th>Rata Nilai K3</th>
+                            <th>Rata Nilai</th>
                             <th>Rata Durasi Quiz</th>
                             <th>Rata Durasi APD</th>
                             <th>Submit Terakhir</th>
@@ -158,8 +148,7 @@
                                 <th>Quiz Salah</th>
                                 <th>Durasi APD</th>
                                 <th>Durasi Quiz</th>
-                                <th>Nilai Standar</th>
-                                <th>Nilai K3</th>
+                                <th>Nilai</th>
                                 <th>Waktu Submit</th>
                             </tr>
                         </thead>
@@ -275,9 +264,8 @@
 
         function getLeaderboardMetricLabel(metric) {
             const labels = {
-                overall: 'Overall (kombinasi rata-rata K3 dan Standar)',
-                k3: 'Top Nilai K3',
-                standard: 'Top Nilai Standar',
+                overall: 'Overall (berdasarkan rata-rata Nilai)',
+                standard: 'Top Nilai',
                 fastestQuiz: 'Siswa dengan rata-rata durasi Quiz tercepat',
                 fastestApd: 'Siswa dengan rata-rata durasi APD tercepat',
                 mostActive: 'Siswa paling aktif berdasarkan jumlah percobaan'
@@ -294,12 +282,10 @@
 
         function renderLeaderboardHighlights() {
             const overallTop = leaderboardCache?.rankings?.overall?.[0];
-            const k3Top = leaderboardCache?.rankings?.k3?.[0];
             const activeTop = leaderboardCache?.rankings?.mostActive?.[0];
             const studentCount = Number(leaderboardCache?.summary?.studentCount || 0);
 
             document.getElementById('leaderboard-top-overall').textContent = overallTop ? String(overallTop.studentName || '-') : '-';
-            document.getElementById('leaderboard-top-k3').textContent = k3Top ? String(k3Top.studentName || '-') : '-';
             document.getElementById('leaderboard-top-active').textContent = activeTop ? String(activeTop.studentName || '-') : '-';
             document.getElementById('leaderboard-student-count').textContent = String(studentCount);
         }
@@ -310,7 +296,7 @@
             const metric = metricSelect ? metricSelect.value : 'overall';
 
             if (!leaderboardCache) {
-                tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" class="muted">Memuat leaderboard...</td></tr>';
                 return;
             }
 
@@ -319,7 +305,7 @@
             renderLeaderboardHighlights();
 
             if (!rows.length) {
-                tbody.innerHTML = '<tr><td colspan="8" class="muted">Belum ada data leaderboard.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" class="muted">Belum ada data leaderboard.</td></tr>';
                 return;
             }
 
@@ -333,7 +319,6 @@
                         <td>${escapeHtml(row.studentName || '-')}</td>
                         <td>${Number(row.attempts || 0)}</td>
                         <td>${Number(row.avgStandard || 0)}</td>
-                        <td>${Number(row.avgK3 || 0)}</td>
                         <td>${formatDuration(Number(row.avgQuizTimeSeconds || 0))}</td>
                         <td>${formatDuration(Number(row.avgApdTimeSeconds || 0))}</td>
                         <td class="muted">${escapeHtml(lastSubmit)}</td>
@@ -347,7 +332,7 @@
             const limitSelect = document.getElementById('leaderboard-limit');
             const limit = Number(limitSelect ? limitSelect.value : 20) || 20;
 
-            tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" class="muted">Memuat leaderboard...</td></tr>';
 
             try {
                 const res = await fetch(`/api/leaderboard?limit=${encodeURIComponent(limit)}`);
@@ -358,10 +343,9 @@
             } catch (error) {
                 leaderboardCache = null;
                 document.getElementById('leaderboard-top-overall').textContent = '-';
-                document.getElementById('leaderboard-top-k3').textContent = '-';
                 document.getElementById('leaderboard-top-active').textContent = '-';
                 document.getElementById('leaderboard-student-count').textContent = '0';
-                tbody.innerHTML = `<tr><td colspan="8" class="muted">${escapeHtml(error.message || 'Gagal memuat leaderboard.')}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="muted">${escapeHtml(error.message || 'Gagal memuat leaderboard.')}</td></tr>`;
             }
         }
 
@@ -407,7 +391,7 @@
 
         async function loadScores() {
             const tbody = document.querySelector('#score-table tbody');
-            tbody.innerHTML = '<tr><td colspan="11" class="muted">Memuat data...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="10" class="muted">Memuat data...</td></tr>';
 
             try {
                 const res = await fetch('/api/scores');
@@ -423,27 +407,19 @@
                         : Number(row.finalScore || 0);
                     return sum + value;
                 }, 0);
-                const totalScoreK3 = rows.reduce((sum, row) => {
-                    const value = Number.isFinite(Number(row.finalScoreK3))
-                        ? Number(row.finalScoreK3)
-                        : 0;
-                    return sum + value;
-                }, 0);
                 const totalApdTimeSeconds = rows.reduce((sum, row) => sum + Math.max(0, Number(row.apdTimeTakenSeconds || 0)), 0);
                 const totalQuizTimeSeconds = rows.reduce((sum, row) => sum + readQuizDurationSeconds(row), 0);
                 const averageScoreStandard = rows.length ? Math.round(totalScoreStandard / rows.length) : 0;
-                const averageScoreK3 = rows.length ? Math.round(totalScoreK3 / rows.length) : 0;
                 const averageApdTimeSeconds = rows.length ? (totalApdTimeSeconds / rows.length) : 0;
                 const averageQuizTimeSeconds = rows.length ? (totalQuizTimeSeconds / rows.length) : 0;
 
                 document.getElementById('score-count').textContent = String(rows.length);
                 document.getElementById('avg-score-standard').textContent = String(averageScoreStandard);
-                document.getElementById('avg-score-k3').textContent = String(averageScoreK3);
                 document.getElementById('avg-apd-time').textContent = formatDuration(averageApdTimeSeconds);
                 document.getElementById('avg-quiz-time').textContent = formatDuration(averageQuizTimeSeconds);
 
                 if (!rows.length) {
-                    tbody.innerHTML = '<tr><td colspan="11" class="muted">Belum ada skor yang tersimpan.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="10" class="muted">Belum ada skor yang tersimpan.</td></tr>';
                     return;
                 }
 
@@ -453,9 +429,6 @@
                     const scoreStandard = Number.isFinite(Number(row.finalScoreStandard))
                         ? Number(row.finalScoreStandard)
                         : Number(row.finalScore || 0);
-                    const scoreK3 = Number.isFinite(Number(row.finalScoreK3))
-                        ? Number(row.finalScoreK3)
-                        : 0;
                     const apdDuration = formatDuration(Number(row.apdTimeTakenSeconds || 0));
                     const quizDuration = formatDuration(readQuizDurationSeconds(row));
                     return `
@@ -469,13 +442,12 @@
                             <td>${apdDuration}</td>
                             <td>${quizDuration}</td>
                             <td>${scoreStandard}</td>
-                            <td>${scoreK3}</td>
                             <td class="muted">${escapeHtml(date)}</td>
                         </tr>
                     `;
                 }).join('');
             } catch (error) {
-                tbody.innerHTML = `<tr><td colspan="11" class="muted">${escapeHtml(error.message || 'Gagal memuat data.')}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="10" class="muted">${escapeHtml(error.message || 'Gagal memuat data.')}</td></tr>`;
             }
         }
 

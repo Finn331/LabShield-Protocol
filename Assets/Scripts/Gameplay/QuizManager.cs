@@ -26,6 +26,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI videoProblemText;
     [SerializeField] private GameObject videoProblemTextPanel;
 
+    [Header("Video Playback Tuning")]
+    [SerializeField] private bool prioritizeSmoothPlayback = true;
+    [SerializeField, Range(30, 120)] private int videoBoostTargetFps = 60;
+
     [Header("Referensi UI Jawaban")]
     [SerializeField] private Button[] answerButtons;
     [SerializeField] private TextMeshProUGUI[] answerTexts;
@@ -86,7 +90,12 @@ public class QuizManager : MonoBehaviour
             teacherController = FindFirstObjectByType<TeacherController>();
         // Pastikan Video UI mati di awal
         if (videoPanel != null) videoPanel.SetActive(false);
-        if (videoPlayer != null) videoPlayer.loopPointReached += OnVideoFinished;
+        if (videoPlayer != null)
+        {
+            ConfigureVideoPlayer();
+            videoPlayer.loopPointReached += OnVideoFinished;
+            videoPlayer.errorReceived += OnVideoError;
+        }
 
         // Rapikan UI ending agar tombol selalu bisa diklik dan teks ringkas pakai Total Nilai Panel
         SetupEndingScreenUI();
@@ -186,7 +195,47 @@ public class QuizManager : MonoBehaviour
             Instance = null;
         }
 
-        if (videoPlayer != null) videoPlayer.loopPointReached -= OnVideoFinished;
+        if (videoPlayer != null)
+        {
+            videoPlayer.loopPointReached -= OnVideoFinished;
+            videoPlayer.errorReceived -= OnVideoError;
+        }
+
+        RestoreVideoPerformanceMode();
+    }
+
+    private void ConfigureVideoPlayer()
+    {
+        if (videoPlayer == null) return;
+
+        videoPlayer.playOnAwake = false;
+        videoPlayer.waitForFirstFrame = true;
+        videoPlayer.skipOnDrop = !prioritizeSmoothPlayback;
+        videoPlayer.isLooping = false;
+        videoPlayer.source = VideoSource.VideoClip;
+        videoPlayer.timeUpdateMode = VideoTimeUpdateMode.UnscaledGameTime;
+    }
+
+    private void ApplyVideoPerformanceMode()
+    {
+        if (videoPerformanceModeActive) return;
+
+        prevTargetFrameRate = Application.targetFrameRate;
+        prevVSyncCount = QualitySettings.vSyncCount;
+
+        // Saat video diputar, nonaktifkan VSync dan dorong FPS agar decode/render lebih stabil di mobile.
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = Mathf.Max(30, videoBoostTargetFps);
+        videoPerformanceModeActive = true;
+    }
+
+    private void RestoreVideoPerformanceMode()
+    {
+        if (!videoPerformanceModeActive) return;
+
+        QualitySettings.vSyncCount = prevVSyncCount;
+        Application.targetFrameRate = prevTargetFrameRate;
+        videoPerformanceModeActive = false;
     }
 
     private void SetupEndingScreenUI()
@@ -265,6 +314,18 @@ public class QuizManager : MonoBehaviour
 
     private bool introVideoFinished = false;
     private bool isPlayingQuestionVideos = false;
+    private bool introVideoHasError = false;
+
+    private const float VideoPrepareTimeoutSeconds = 8f;
+    private const float VideoStartTimeoutSeconds = 3f;
+    private const float VideoStallTimeoutSeconds = 2.5f;
+    private const float VideoFallbackPaddingSeconds = 8f;
+    private const float VideoFallbackMinWaitSeconds = 12f;
+    private const float VideoFallbackMaxWaitSeconds = 180f;
+
+    private int prevTargetFrameRate = -1;
+    private int prevVSyncCount = 0;
+    private bool videoPerformanceModeActive = false;
 
     /// <summary>
     /// Memulai serangkaian pertanyaan kuis
@@ -337,6 +398,7 @@ public class QuizManager : MonoBehaviour
     private IEnumerator PlayVideoBeforeQuestionRoutine()
     {
         isPlayingQuestionVideos = true;
+        ApplyVideoPerformanceMode();
 
         // 1. Matikan UI Kuis (supaya bersih saat nonton video)
         HideQuizContentOnly();
@@ -364,19 +426,32 @@ public class QuizManager : MonoBehaviour
         {
             if (currentQuiz.questionVideos[i] == null) continue; // Skip jika slot kosong
 
+            VideoClip activeClip = currentQuiz.questionVideos[i];
             currentPlayableIndex++;
             introVideoFinished = false;
-            UpdateVideoProblemText(currentPlayableIndex, totalPlayableVideos, currentQuiz.questionVideos[i]);
+            introVideoHasError = false;
+            UpdateVideoProblemText(currentPlayableIndex, totalPlayableVideos, activeClip);
 
             // Siapkan video
-            videoPlayer.clip = currentQuiz.questionVideos[i];
+            videoPlayer.Stop();
+            videoPlayer.clip = activeClip;
             videoPlayer.Prepare();
 
-            // Tunggu sampai siap
-            while (!videoPlayer.isPrepared)
+            float prepareDeadline = Time.unscaledTime + VideoPrepareTimeoutSeconds;
+            while (!videoPlayer.isPrepared && !introVideoHasError && Time.unscaledTime < prepareDeadline)
             {
                 yield return null;
             }
+
+            if (!videoPlayer.isPrepared || introVideoHasError)
+            {
+                Debug.LogWarning($"[QuizManager] Video gagal dipersiapkan, skip: {activeClip.name}");
+                continue;
+            }
+
+            // Beri 1-2 frame untuk warm-up texture decode di device yang lambat.
+            yield return null;
+            yield return null;
 
             // Tampilkan texture video ke RawImage (texture sudah tersedia setelah Prepare)
             if (videoRawImage != null)
@@ -388,17 +463,73 @@ public class QuizManager : MonoBehaviour
             // Putar
             videoPlayer.Play();
 
-            Debug.Log($"[QuizManager] Memutar video soal {i + 1}/{currentQuiz.questionVideos.Length}: {currentQuiz.questionVideos[i].name}");
-
-            // Tunggu sampai video selesai (flag diset oleh OnVideoFinished)
-            while (!introVideoFinished)
+            // Tunggu sampai benar-benar jalan, kalau tidak jalan dalam beberapa detik maka skip
+            float startDeadline = Time.unscaledTime + VideoStartTimeoutSeconds;
+            while (!videoPlayer.isPlaying && !introVideoFinished && !introVideoHasError && Time.unscaledTime < startDeadline)
             {
                 yield return null;
             }
+
+            if (!videoPlayer.isPlaying && !introVideoFinished)
+            {
+                Debug.LogWarning($"[QuizManager] Video tidak mulai diputar tepat waktu, skip: {activeClip.name}");
+                videoPlayer.Stop();
+                continue;
+            }
+
+            Debug.Log($"[QuizManager] Memutar video soal {i + 1}/{currentQuiz.questionVideos.Length}: {activeClip.name}");
+
+            float clipLength = activeClip != null ? (float)activeClip.length : 0f;
+            float maxPlaybackWait = Mathf.Clamp(clipLength + VideoFallbackPaddingSeconds, VideoFallbackMinWaitSeconds, VideoFallbackMaxWaitSeconds);
+            float playbackDeadline = Time.unscaledTime + maxPlaybackWait;
+            double lastVideoTime = videoPlayer.time;
+            float stallStartTime = -1f;
+
+            // Tunggu sampai video selesai (flag diset oleh OnVideoFinished)
+            while (!introVideoFinished && !introVideoHasError)
+            {
+                if (Time.unscaledTime >= playbackDeadline)
+                {
+                    Debug.LogWarning($"[QuizManager] Video timeout, skip: {activeClip.name}");
+                    break;
+                }
+
+                if (videoPlayer.isPlaying)
+                {
+                    double currentVideoTime = videoPlayer.time;
+                    if (currentVideoTime > lastVideoTime + 0.02d)
+                    {
+                        lastVideoTime = currentVideoTime;
+                        stallStartTime = -1f;
+                    }
+                    else
+                    {
+                        if (stallStartTime < 0f)
+                        {
+                            stallStartTime = Time.unscaledTime;
+                        }
+                        else if (Time.unscaledTime - stallStartTime >= VideoStallTimeoutSeconds)
+                        {
+                            Debug.LogWarning($"[QuizManager] Video terdeteksi stuck, skip: {activeClip.name}");
+                            break;
+                        }
+                    }
+                }
+
+                yield return null;
+            }
+
+            if (introVideoHasError)
+            {
+                Debug.LogWarning($"[QuizManager] Video error saat playback, skip: {activeClip.name}");
+            }
+
+            videoPlayer.Stop();
         }
 
         // 4. Semua video selesai, matikan panel video dengan animasi LeanTween
         isPlayingQuestionVideos = false;
+        RestoreVideoPerformanceMode();
         SetVideoProblemTextVisible(false);
         HideVideoPanel();
         yield return new WaitForSeconds(0.4f); // Tunggu animasi keluar selesai
@@ -465,6 +596,13 @@ public class QuizManager : MonoBehaviour
     {
         // Set flag agar coroutine tahu video sudah selesai
         introVideoFinished = true;
+    }
+
+    private void OnVideoError(VideoPlayer vp, string message)
+    {
+        introVideoHasError = true;
+        introVideoFinished = true;
+        Debug.LogWarning($"[QuizManager] VideoPlayer error: {message}");
     }
 
     private void SetVideoProblemTextVisible(bool isVisible)
@@ -962,19 +1100,7 @@ public class QuizManager : MonoBehaviour
                     ? Mathf.RoundToInt((totalCorrect / (float)totalJawaban) * 100f)
                     : 0;
 
-                int apdAnswered = attempt.apdTotalCorrect + attempt.apdTotalWrong;
-                int quizAnswered = attempt.quizTotalCorrect + attempt.quizTotalWrong;
-                float apdAccuracy = apdAnswered > 0
-                    ? (attempt.apdTotalCorrect / (float)apdAnswered) * 100f
-                    : 0f;
-                float quizAccuracy = quizAnswered > 0
-                    ? (attempt.quizTotalCorrect / (float)quizAnswered) * 100f
-                    : 0f;
-                float weightedK3 = (apdAccuracy * 0.6f) + (quizAccuracy * 0.4f);
-                int apdPenalty = Mathf.Min(20, attempt.apdTotalWrong * 5);
-                int nilaiK3 = Mathf.Clamp(Mathf.RoundToInt(weightedK3 - apdPenalty), 0, 100);
-
-                endingPerformanceText.text = $"Std:{nilaiStandar} | K3:{nilaiK3}";
+                endingPerformanceText.text = "Nilai:" + nilaiStandar;
             }
 
             // Simpan Ke Server
@@ -988,6 +1114,7 @@ public class QuizManager : MonoBehaviour
     {
         StopQuestion3ImagePresentation();
         HideQuizContentOnly();
+        RestoreVideoPerformanceMode();
         SetVideoProblemTextVisible(false);
         if (videoPanel != null) videoPanel.SetActive(false);
     }
@@ -1041,4 +1168,5 @@ public class QuizManager : MonoBehaviour
         }
     }
 }
+
 

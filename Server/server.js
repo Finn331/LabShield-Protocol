@@ -254,9 +254,7 @@ const toLeaderboardRow = (entry) => ({
     studentName: entry.studentName,
     attempts: entry.attempts,
     avgStandard: entry.avgStandard,
-    avgK3: entry.avgK3,
     bestStandard: entry.bestStandard,
-    bestK3: entry.bestK3,
     avgApdTimeSeconds: entry.avgApdTimeSeconds,
     avgQuizTimeSeconds: entry.avgQuizTimeSeconds,
     totalCorrect: entry.totalCorrect,
@@ -276,14 +274,6 @@ const buildLeaderboardData = (scoresRaw) => {
         const scoreStandard = Number.isFinite(Number(row.finalScoreStandard))
             ? Number(row.finalScoreStandard)
             : Number(row.finalScore || 0);
-        const scoreK3 = Number.isFinite(Number(row.finalScoreK3))
-            ? Number(row.finalScoreK3)
-            : computeK3Score(
-                Number(row.apdTotalCorrect || 0),
-                Number(row.apdTotalWrong || 0),
-                Number(row.quizTotalCorrect || 0),
-                Number(row.quizTotalWrong || 0)
-            );
         const apdDuration = Math.max(0, Number(row.apdTimeTakenSeconds || 0));
         const quizDuration = Math.max(0, Number(row.quizTimeTakenSeconds || computeQuizDurationSeconds(row.questionTimes)));
         const totalCorrect = Number(row.apdTotalCorrect || 0) + Number(row.quizTotalCorrect || 0);
@@ -295,9 +285,7 @@ const buildLeaderboardData = (scoresRaw) => {
                 studentName,
                 attempts: 0,
                 totalStandard: 0,
-                totalK3: 0,
                 bestStandard: 0,
-                bestK3: 0,
                 totalApdTimeSeconds: 0,
                 totalQuizTimeSeconds: 0,
                 totalCorrect: 0,
@@ -310,9 +298,7 @@ const buildLeaderboardData = (scoresRaw) => {
         const entry = students.get(key);
         entry.attempts += 1;
         entry.totalStandard += scoreStandard;
-        entry.totalK3 += scoreK3;
         entry.bestStandard = Math.max(entry.bestStandard, scoreStandard);
-        entry.bestK3 = Math.max(entry.bestK3, scoreK3);
         entry.totalApdTimeSeconds += apdDuration;
         entry.totalQuizTimeSeconds += quizDuration;
         entry.totalCorrect += totalCorrect;
@@ -330,9 +316,7 @@ const buildLeaderboardData = (scoresRaw) => {
             studentName: entry.studentName,
             attempts: entry.attempts,
             avgStandard: clamp01to100(entry.totalStandard / attempts),
-            avgK3: clamp01to100(entry.totalK3 / attempts),
             bestStandard: clamp01to100(entry.bestStandard),
-            bestK3: clamp01to100(entry.bestK3),
             avgApdTimeSeconds: Math.max(0, entry.totalApdTimeSeconds / attempts),
             avgQuizTimeSeconds: Math.max(0, entry.totalQuizTimeSeconds / attempts),
             totalCorrect: Math.max(0, entry.totalCorrect),
@@ -345,41 +329,32 @@ const buildLeaderboardData = (scoresRaw) => {
     const withRank = (list) => list.map((entry, idx) => ({ rank: idx + 1, ...toLeaderboardRow(entry) }));
 
     const overall = withRank([...rows].sort((a, b) =>
-        b.avgK3 - a.avgK3 ||
         b.avgStandard - a.avgStandard ||
         b.totalCorrect - a.totalCorrect ||
-        b.lastSubmitSortable - a.lastSubmitSortable
-    ));
-
-    const k3 = withRank([...rows].sort((a, b) =>
-        b.avgK3 - a.avgK3 ||
-        b.bestK3 - a.bestK3 ||
-        b.avgStandard - a.avgStandard ||
         b.lastSubmitSortable - a.lastSubmitSortable
     ));
 
     const standard = withRank([...rows].sort((a, b) =>
         b.avgStandard - a.avgStandard ||
         b.bestStandard - a.bestStandard ||
-        b.avgK3 - a.avgK3 ||
         b.lastSubmitSortable - a.lastSubmitSortable
     ));
 
     const fastestQuiz = withRank([...rows].sort((a, b) =>
         a.avgQuizTimeSeconds - b.avgQuizTimeSeconds ||
-        b.avgK3 - a.avgK3 ||
+        b.avgStandard - a.avgStandard ||
         b.lastSubmitSortable - a.lastSubmitSortable
     ));
 
     const fastestApd = withRank([...rows].sort((a, b) =>
         a.avgApdTimeSeconds - b.avgApdTimeSeconds ||
-        b.avgK3 - a.avgK3 ||
+        b.avgStandard - a.avgStandard ||
         b.lastSubmitSortable - a.lastSubmitSortable
     ));
 
     const mostActive = withRank([...rows].sort((a, b) =>
         b.attempts - a.attempts ||
-        b.avgK3 - a.avgK3 ||
+        b.avgStandard - a.avgStandard ||
         b.lastSubmitSortable - a.lastSubmitSortable
     ));
 
@@ -391,7 +366,6 @@ const buildLeaderboardData = (scoresRaw) => {
         },
         rankings: {
             overall,
-            k3,
             standard,
             fastestQuiz,
             fastestApd,
@@ -682,7 +656,6 @@ app.get('/api/leaderboard', (req, res) => {
         limit,
         self: {
             overall: findSelf(leaderboard.rankings.overall),
-            k3: findSelf(leaderboard.rankings.k3),
             standard: findSelf(leaderboard.rankings.standard),
             fastestQuiz: findSelf(leaderboard.rankings.fastestQuiz),
             fastestApd: findSelf(leaderboard.rankings.fastestApd),
@@ -690,7 +663,6 @@ app.get('/api/leaderboard', (req, res) => {
         },
         rankings: {
             overall: pickTop(leaderboard.rankings.overall),
-            k3: pickTop(leaderboard.rankings.k3),
             standard: pickTop(leaderboard.rankings.standard),
             fastestQuiz: pickTop(leaderboard.rankings.fastestQuiz),
             fastestApd: pickTop(leaderboard.rankings.fastestApd),

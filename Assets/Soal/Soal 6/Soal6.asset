@@ -24,7 +24,10 @@ MonoBehaviour:
     Ventilasi berfungsi namun jalur evakuasi terhalang
 
     (4) APD tersedia tetapi
-    tidak seluruh siswa menggunakannya'
+    tidak seluruh siswa menggunakannya
+
+    Kombinasi kondisi yang menunjukkan potensi
+    bahaya paling kritis berdasarkan kemungkinan dan dampak adalah ...'
   questionAudio: {fileID: 0}
   questionImage: {fileID: 0}
   questionPresentationImages: []

@@ -60,12 +60,8 @@
                 <div id="stat-wrong" class="kpi-value bad">0</div>
             </article>
             <article class="kpi-card">
-                <div class="kpi-label">Rata-rata Nilai Standar</div>
+                <div class="kpi-label">Rata-rata Nilai</div>
                 <div id="stat-avg-standard" class="kpi-value warn">0</div>
-            </article>
-            <article class="kpi-card">
-                <div class="kpi-label">Rata-rata Nilai K3</div>
-                <div id="stat-avg-k3" class="kpi-value">0</div>
             </article>
             <article class="kpi-card">
                 <div class="kpi-label">Rata-rata Durasi APD</div>
@@ -82,9 +78,8 @@
                 <h2 class="section-title">Leaderboard Siswa</h2>
                 <div class="toolbar leaderboard-toolbar">
                     <select id="student-leaderboard-metric" class="input leaderboard-select" onchange="renderStudentLeaderboard()">
-                        <option value="overall">Overall (K3 + Standar)</option>
-                        <option value="k3">Top Nilai K3</option>
-                        <option value="standard">Top Nilai Standar</option>
+                        <option value="overall">Overall (Nilai)</option>
+                        <option value="standard">Top Nilai</option>
                         <option value="fastestQuiz">Tercepat Quiz</option>
                         <option value="fastestApd">Tercepat APD</option>
                         <option value="mostActive">Paling Aktif</option>
@@ -122,8 +117,7 @@
                             <th>Peringkat</th>
                             <th>Siswa</th>
                             <th>Percobaan</th>
-                            <th>Rata Nilai Standar</th>
-                            <th>Rata Nilai K3</th>
+                            <th>Rata Nilai</th>
                             <th>Rata Durasi Quiz</th>
                             <th>Rata Durasi APD</th>
                             <th>Submit Terakhir</th>
@@ -179,18 +173,6 @@
             return totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : 0;
         }
 
-        // Rubrik K3:
-        // APD 60%, Kuis 40%, penalti 5 poin per APD salah (maks 20).
-        function computeK3Score(apdCorrect, apdWrong, quizCorrect, quizWrong) {
-            const apdAnswered = apdCorrect + apdWrong;
-            const quizAnswered = quizCorrect + quizWrong;
-            const apdAccuracy = apdAnswered > 0 ? (apdCorrect / apdAnswered) * 100 : 0;
-            const quizAccuracy = quizAnswered > 0 ? (quizCorrect / quizAnswered) * 100 : 0;
-            const weighted = (apdAccuracy * 0.6) + (quizAccuracy * 0.4);
-            const apdPenalty = Math.min(20, apdWrong * 5);
-            return Math.max(0, Math.min(100, Math.round(weighted - apdPenalty)));
-        }
-
         function readScoreStandard(row, apdCorrect, apdWrong, quizCorrect, quizWrong) {
             if (Number.isFinite(Number(row.finalScoreStandard))) {
                 return Number(row.finalScoreStandard);
@@ -199,13 +181,6 @@
                 return Number(row.finalScore);
             }
             return computeStandardScore(apdCorrect, apdWrong, quizCorrect, quizWrong);
-        }
-
-        function readScoreK3(row, apdCorrect, apdWrong, quizCorrect, quizWrong) {
-            if (Number.isFinite(Number(row.finalScoreK3))) {
-                return Number(row.finalScoreK3);
-            }
-            return computeK3Score(apdCorrect, apdWrong, quizCorrect, quizWrong);
         }
 
         function readQuizDurationSeconds(row) {
@@ -229,9 +204,8 @@
 
         function getLeaderboardMetricLabel(metric) {
             const labels = {
-                overall: 'Overall (kombinasi rata-rata K3 dan Standar)',
-                k3: 'Top Nilai K3',
-                standard: 'Top Nilai Standar',
+                overall: 'Overall (berdasarkan Rata-rata Nilai)',
+                standard: 'Top Nilai',
                 fastestQuiz: 'Siswa dengan rata-rata durasi Quiz tercepat',
                 fastestApd: 'Siswa dengan rata-rata durasi APD tercepat',
                 mostActive: 'Siswa paling aktif berdasarkan jumlah percobaan'
@@ -261,15 +235,11 @@
                 return `${Number(selfRow.attempts || 0)} percobaan`;
             }
 
-            if (metric === 'k3') {
-                return String(Number(selfRow.avgK3 || 0));
-            }
-
             if (metric === 'standard') {
                 return String(Number(selfRow.avgStandard || 0));
             }
 
-            return String(Number(selfRow.combinedScore || 0));
+            return String(Number(selfRow.avgStandard || 0));
         }
 
         function renderStudentLeaderboardSummary(metric) {
@@ -289,7 +259,7 @@
             const metric = metricSelect ? metricSelect.value : 'overall';
 
             if (!studentLeaderboardCache) {
-                tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" class="muted">Memuat leaderboard...</td></tr>';
                 return;
             }
 
@@ -298,7 +268,7 @@
             const rows = getStudentLeaderboardMetricRows();
 
             if (!rows.length) {
-                tbody.innerHTML = '<tr><td colspan="8" class="muted">Belum ada data leaderboard.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" class="muted">Belum ada data leaderboard.</td></tr>';
                 return;
             }
 
@@ -316,7 +286,6 @@
                         <td>${escapeHtml(row.studentName || '-')}</td>
                         <td>${Number(row.attempts || 0)}</td>
                         <td>${Number(row.avgStandard || 0)}</td>
-                        <td>${Number(row.avgK3 || 0)}</td>
                         <td>${formatDuration(Number(row.avgQuizTimeSeconds || 0))}</td>
                         <td>${formatDuration(Number(row.avgApdTimeSeconds || 0))}</td>
                         <td class="muted">${escapeHtml(lastSubmit)}</td>
@@ -332,7 +301,7 @@
             const limitSelect = document.getElementById('student-leaderboard-limit');
             const limit = Number(limitSelect ? limitSelect.value : 10) || 10;
 
-            tbody.innerHTML = '<tr><td colspan="8" class="muted">Memuat leaderboard...</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" class="muted">Memuat leaderboard...</td></tr>';
 
             try {
                 const response = await fetch(`/api/leaderboard?limit=${encodeURIComponent(limit)}&username=${encodeURIComponent(currentUser)}`);
@@ -347,7 +316,7 @@
                 document.getElementById('student-self-rank').textContent = '-';
                 document.getElementById('student-self-score').textContent = '-';
                 document.getElementById('student-ranked-count').textContent = '0';
-                tbody.innerHTML = `<tr><td colspan="8" class="muted">${escapeHtml(error.message || 'Gagal memuat leaderboard.')}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="7" class="muted">${escapeHtml(error.message || 'Gagal memuat leaderboard.')}</td></tr>`;
             }
         }
 
@@ -415,7 +384,6 @@
             let totalCorrect = 0;
             let totalWrong = 0;
             let totalScoreStandard = 0;
-            let totalScoreK3 = 0;
             let totalApdTimeSeconds = 0;
             let totalQuizTimeSeconds = 0;
 
@@ -427,21 +395,18 @@
                 const correct = apdCorrect + quizCorrect;
                 const wrong = apdWrong + quizWrong;
                 const scoreStandard = readScoreStandard(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
-                const scoreK3 = readScoreK3(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
                 const apdTimeSeconds = Math.max(0, Number(row.apdTimeTakenSeconds || 0));
                 const quizTimeSeconds = readQuizDurationSeconds(row);
 
                 totalCorrect += correct;
                 totalWrong += wrong;
                 totalScoreStandard += scoreStandard;
-                totalScoreK3 += scoreK3;
                 totalApdTimeSeconds += apdTimeSeconds;
                 totalQuizTimeSeconds += quizTimeSeconds;
             }
 
             const attempts = scores.length;
             const averageScoreStandard = attempts > 0 ? Math.round(totalScoreStandard / attempts) : 0;
-            const averageScoreK3 = attempts > 0 ? Math.round(totalScoreK3 / attempts) : 0;
             const averageApdTimeSeconds = attempts > 0 ? (totalApdTimeSeconds / attempts) : 0;
             const averageQuizTimeSeconds = attempts > 0 ? (totalQuizTimeSeconds / attempts) : 0;
 
@@ -449,7 +414,6 @@
             document.getElementById('stat-correct').textContent = String(totalCorrect);
             document.getElementById('stat-wrong').textContent = String(totalWrong);
             document.getElementById('stat-avg-standard').textContent = String(averageScoreStandard);
-            document.getElementById('stat-avg-k3').textContent = String(averageScoreK3);
             document.getElementById('stat-avg-apd-time').textContent = formatDuration(averageApdTimeSeconds);
             document.getElementById('stat-avg-quiz-time').textContent = formatDuration(averageQuizTimeSeconds);
 
@@ -472,7 +436,6 @@
                 const quizCorrect = Number(row.quizTotalCorrect || 0);
                 const quizWrong = Number(row.quizTotalWrong || 0);
                 const scoreStandard = readScoreStandard(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
-                const scoreK3 = readScoreK3(row, apdCorrect, apdWrong, quizCorrect, quizWrong);
 
                 let attemptNo = Number(row.attemptNumber || 0);
                 if (!Number.isFinite(attemptNo) || attemptNo <= 0 || usedAttemptNumbers.has(attemptNo)) {
@@ -492,12 +455,8 @@
                         </div>
                         <div class="attempt-metrics">
                             <div class="metric-box">
-                                <div class="metric-key">Nilai Standar</div>
+                                <div class="metric-key">Nilai</div>
                                 <div class="metric-val">${scoreStandard}</div>
-                            </div>
-                            <div class="metric-box">
-                                <div class="metric-key">Nilai Rubrik K3</div>
-                                <div class="metric-val">${scoreK3}</div>
                             </div>
                             <div class="metric-box">
                                 <div class="metric-key">APD</div>
@@ -525,4 +484,5 @@
     </script>
 </body>
 </html>
+
 
