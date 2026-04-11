@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7961628d1af96524cb962f178d0babe6, type: 3}
+  m_Name: Soal19
+  m_EditorClassIdentifier: Assembly-CSharp::QuizData
+  questionID: Soal_19
+  questionText: Bagaimana susunan tahapan 5R yang tepat?
+  questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
+  questionVideos: []
+  questionVideoIssueTexts: []
+  answers:
+  - Ringkas, rawat, rapi, rajin
+  - Rapi, rawat, rajin, ringkas
+  - Rajin, rapi, rias, rawat, ringkas
+  - Ringkas, rapi, resik, rawat, rajin
+  correctAnswerIndex: 3
+  evaluationText: Urutan 5R yang umum dipakai adalah Ringkas, Rapi, Resik, Rawat,
+    dan Rajin.
+  explainAudio: {fileID: 0}

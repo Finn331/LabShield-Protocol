@@ -66,24 +66,25 @@
                 <div class="table-wrap media-table-wrap">
                     <table class="table media-table">
                         <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Bahan</th>
-                                <th>Rumus Kimia</th>
-                                <th>Bahaya Utama</th>
-                                <th>Dampak Kesehatan</th>
-                                <th>Pertolongan Pertama</th>
-                                <th>Penyimpanan</th>
-                                <th>Detail</th>
-                            </tr>
+                             <tr>
+                                 <th>No</th>
+                                 <th>Nama Bahan</th>
+                                 <th>Rumus Kimia</th>
+                                 <th>Fasa</th>
+                                 <th>Bahaya Utama</th>
+                                 <th>Dampak Kesehatan</th>
+                                 <th>Pertolongan Pertama</th>
+                                 <th>Penyimpanan</th>
+                                 <th>Detail</th>
+                             </tr>
                         </thead>
-                        <tbody id="msds-table-body">
-                            <tr>
-                                <td colspan="8">Memuat data MSDS...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                         <tbody id="msds-table-body">
+                             <tr>
+                                 <td colspan="9">Memuat data MSDS...</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
             </article>
 
             <article id="panel-video" class="media-panel" role="tabpanel" aria-labelledby="tab-video">
@@ -381,9 +382,20 @@
             return normalized.length > max ? `${normalized.slice(0, max)}...` : normalized;
         }
 
-        function formatFormula(text) {
-            return escapeHtml(String(text || "").replace(/\s+/g, ""));
-        }
+         function formatFormula(text) {
+             return escapeHtml(String(text || "").replace(/\s+/g, ""));
+         }
+
+         function formatFormulaWithoutPhase(text) {
+             const compact = String(text || "").replace(/\s+/g, "");
+             return escapeHtml(compact.replace(/\(([^()]+)\)$/, ""));
+         }
+
+         function extractPhase(formulaText) {
+             const compact = String(formulaText || "").replace(/\s+/g, "");
+             const match = compact.match(/\(([^()]+)\)$/);
+             return match ? `(${match[1]})` : "-";
+         }
 
         function normalizeText(text) {
             return String(text || "")
@@ -478,23 +490,24 @@
             document.body.classList.remove("modal-open");
         }
 
-        function renderTable(data) {
-            const tbody = document.getElementById("msds-table-body");
+         function renderTable(data) {
+             const tbody = document.getElementById("msds-table-body");
 
-            if (!data.length) {
-                tbody.innerHTML = `<tr><td colspan="8">Data MSDS tidak ditemukan.</td></tr>`;
-                return;
-            }
+             if (!data.length) {
+                 tbody.innerHTML = `<tr><td colspan="9">Data MSDS tidak ditemukan.</td></tr>`;
+                 return;
+             }
 
-            tbody.innerHTML = data.map((item) => `
-                <tr>
-                    <td>${escapeHtml(item.no)}</td>
-                    <td>${escapeHtml(item.nama_bahan)}</td>
-                    <td>${formatFormula(item.rumus_kimia)}</td>
-                    <td>${createSummaryCell(item.bahaya_utama)}</td>
-                    <td>${createSummaryCell(item.dampak_kesehatan)}</td>
-                    <td>${createSummaryCell(item.pertolongan_pertama)}</td>
-                    <td>${createSummaryCell(item.penyimpanan, 100)}</td>
+             tbody.innerHTML = data.map((item) => `
+                 <tr>
+                     <td>${escapeHtml(item.no)}</td>
+                     <td>${escapeHtml(item.nama_bahan)}</td>
+                     <td>${formatFormulaWithoutPhase(item.rumus_kimia)}</td>
+                     <td>${escapeHtml(extractPhase(item.rumus_kimia))}</td>
+                     <td>${createSummaryCell(item.bahaya_utama)}</td>
+                     <td>${createSummaryCell(item.dampak_kesehatan)}</td>
+                     <td>${createSummaryCell(item.pertolongan_pertama)}</td>
+                     <td>${createSummaryCell(item.penyimpanan, 100)}</td>
                     <td>
                         <button type="button" class="btn btn-soft btn-mini" data-detail-no="${escapeHtml(item.no)}">
                             Detail
@@ -535,13 +548,13 @@
                 renderTable(msdsRows);
             } catch (error) {
                 totalEntry.textContent = "Gagal dimuat";
-                document.getElementById("msds-table-body").innerHTML = `
-                    <tr>
-                        <td colspan="8">${escapeHtml(error.message || "Data MSDS tidak tersedia.")}</td>
-                    </tr>
-                `;
-            }
-        }
+                 document.getElementById("msds-table-body").innerHTML = `
+                     <tr>
+                         <td colspan="9">${escapeHtml(error.message || "Data MSDS tidak tersedia.")}</td>
+                     </tr>
+                 `;
+             }
+         }
 
         document.getElementById("msds-table-body").addEventListener("click", (event) => {
             const trigger = event.target.closest("[data-detail-no]");

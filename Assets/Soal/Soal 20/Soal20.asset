@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7961628d1af96524cb962f178d0babe6, type: 3}
+  m_Name: Soal20
+  m_EditorClassIdentifier: Assembly-CSharp::QuizData
+  questionID: Soal_20
+  questionText: Di bawah ini, perilaku yang termasuk melanggar etika kerja adalah...
+  questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
+  questionVideos: []
+  questionVideoIssueTexts: []
+  answers:
+  - Datang ke tempat kerja tepat waktu sesuai jadwal
+  - Menggunakan alat kerja sesuai dengan fungsinya
+  - Mengabaikan aturan keselamatan demi menyelesaikan pekerjaan lebih cepat
+  - Bekerja sama dengan rekan kerja dalam menyelesaikan tugas
+  correctAnswerIndex: 2
+  evaluationText: Mengabaikan aturan keselamatan adalah pelanggaran etika kerja karena
+    membahayakan diri sendiri dan orang lain.
+  explainAudio: {fileID: 0}

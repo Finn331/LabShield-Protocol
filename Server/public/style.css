@@ -581,22 +581,30 @@ a {
 
 .media-table th:nth-child(1),
 .media-table td:nth-child(1) {
-    width: 38px;
+    width: 52px;
+    text-align: center;
 }
 
 .media-table th:nth-child(2),
 .media-table td:nth-child(2) {
-    width: 130px;
+    width: 170px;
 }
 
 .media-table th:nth-child(3),
 .media-table td:nth-child(3) {
-    width: 86px;
+    width: 130px;
+    text-align: center;
 }
 
-.media-table th:nth-child(8),
-.media-table td:nth-child(8) {
-    width: 86px;
+.media-table th:nth-child(4),
+.media-table td:nth-child(4) {
+    width: 72px;
+    text-align: center;
+}
+
+.media-table th:nth-child(9),
+.media-table td:nth-child(9) {
+    width: 110px;
     text-align: center;
 }
 
@@ -1163,9 +1171,10 @@ body.modal-open {
 }
 
 .learning-page .media-table {
-    min-width: 1140px;
+    min-width: 1360px;
     border-collapse: separate;
     border-spacing: 0;
+    table-layout: fixed;
 }
 
 .learning-page .media-table th {
@@ -1176,11 +1185,16 @@ body.modal-open {
     border-bottom: 1px solid #c7dced;
     color: #44576a;
     font-size: 11px;
+    line-height: 1.35;
+    white-space: normal;
+    text-align: left;
 }
 
 .learning-page .media-table td {
     border-bottom: 1px solid #e5edf5;
     color: #2e3f51;
+    line-height: 1.5;
+    word-break: break-word;
 }
 
 .learning-page .media-table tbody tr:nth-child(even) td {
@@ -1189,6 +1203,55 @@ body.modal-open {
 
 .learning-page .media-table tbody tr:hover td {
     background: #f2f8ff;
+}
+
+.learning-page .media-table th:nth-child(1),
+.learning-page .media-table td:nth-child(1) {
+    width: 52px;
+    text-align: center;
+}
+
+.learning-page .media-table th:nth-child(2),
+.learning-page .media-table td:nth-child(2) {
+    width: 170px;
+}
+
+.learning-page .media-table th:nth-child(3),
+.learning-page .media-table td:nth-child(3) {
+    width: 130px;
+    text-align: center;
+}
+
+.learning-page .media-table th:nth-child(4),
+.learning-page .media-table td:nth-child(4) {
+    width: 72px;
+    text-align: center;
+}
+
+.learning-page .media-table th:nth-child(5),
+.learning-page .media-table td:nth-child(5) {
+    width: 190px;
+}
+
+.learning-page .media-table th:nth-child(6),
+.learning-page .media-table td:nth-child(6) {
+    width: 190px;
+}
+
+.learning-page .media-table th:nth-child(7),
+.learning-page .media-table td:nth-child(7) {
+    width: 190px;
+}
+
+.learning-page .media-table th:nth-child(8),
+.learning-page .media-table td:nth-child(8) {
+    width: 190px;
+}
+
+.learning-page .media-table th:nth-child(9),
+.learning-page .media-table td:nth-child(9) {
+    width: 110px;
+    text-align: center;
 }
 
 .learning-page .cell-summary {
