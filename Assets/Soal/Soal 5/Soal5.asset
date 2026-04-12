@@ -21,9 +21,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 57c3cb73fbff90f48be9004147eace6e, type: 3}
-  questionVideoIssueTexts:
-  - Permasalahan tangan terkena bahan kimia yang bersifat korosif
+  - {fileID: 32900000, guid: 06399749315bb91408445d74355a3d75, type: 3}
   answers:
   - Menghentikan praktikum dan membersihkan area kejadian
   - Memberikan pertolongan pertama tanpa mengamankan area

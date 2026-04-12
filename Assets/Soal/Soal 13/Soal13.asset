@@ -18,8 +18,8 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: 4725dc843bb996b4d9ce882cfb9ec084, type: 3}
   answers:
   - Reduce, Reuse, Recycle
   - Remove, Replace, Repair
@@ -28,4 +28,4 @@ MonoBehaviour:
   correctAnswerIndex: 0
   evaluationText: Prinsip 3R bertujuan mengurangi timbulan limbah melalui pengurangan,
     penggunaan kembali, dan daur ulang.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 976b63d00cc87f54184ca84216d96716, type: 3}

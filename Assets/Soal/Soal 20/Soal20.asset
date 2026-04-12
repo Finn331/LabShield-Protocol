@@ -18,14 +18,14 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: ef7b84cfb19bdcd498720e59ba026f09, type: 3}
   answers:
   - Datang ke tempat kerja tepat waktu sesuai jadwal
   - Menggunakan alat kerja sesuai dengan fungsinya
   - Mengabaikan aturan keselamatan demi menyelesaikan pekerjaan lebih cepat
   - Bekerja sama dengan rekan kerja dalam menyelesaikan tugas
-  correctAnswerIndex: 2
+  correctAnswerIndex: 3
   evaluationText: Mengabaikan aturan keselamatan adalah pelanggaran etika kerja karena
     membahayakan diri sendiri dan orang lain.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 1d285e757175a214c8e86654c22d6765, type: 3}

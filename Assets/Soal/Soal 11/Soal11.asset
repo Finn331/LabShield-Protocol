@@ -19,8 +19,8 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: 7bf6fef2515ac4949a01807cb096bd83, type: 3}
   answers:
   - Membantu menetralkan zat dalam limbah
   - Tidak ada efek
@@ -29,4 +29,4 @@ MonoBehaviour:
   correctAnswerIndex: 2
   evaluationText: Limbah kimia yang dibiarkan terbuka dapat mencemari udara dan meningkatkan
     risiko gangguan kesehatan bagi pengguna laboratorium.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 3b65abc88b09cdb4c822ae52948da375, type: 3}

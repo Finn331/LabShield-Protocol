@@ -24,7 +24,6 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private RawImage videoRawImage;
     [SerializeField] private TextMeshProUGUI videoProblemText;
-    [SerializeField] private GameObject videoProblemTextPanel;
 
     [Header("Video Playback Tuning")]
     [SerializeField] private bool prioritizeSmoothPlayback = true;
@@ -137,10 +136,6 @@ public class QuizManager : MonoBehaviour
             if (videoPanel != null)
             {
                 Transform videoTextTransform = videoPanel.transform.Find("Video Text");
-                if (videoTextTransform == null)
-                {
-                    videoTextTransform = videoPanel.transform.Find("Video Text Panel/Video Text");
-                }
 
                 if (videoTextTransform == null)
                 {
@@ -170,22 +165,6 @@ public class QuizManager : MonoBehaviour
             }
         }
 
-        if (videoProblemTextPanel == null)
-        {
-            if (videoPanel != null)
-            {
-                Transform panelTransform = videoPanel.transform.Find("Video Text Panel");
-                if (panelTransform != null)
-                {
-                    videoProblemTextPanel = panelTransform.gameObject;
-                }
-            }
-
-            if (videoProblemTextPanel == null && videoProblemText != null && videoProblemText.transform.parent != null)
-            {
-                videoProblemTextPanel = videoProblemText.transform.parent.gameObject;
-            }
-        }
     }
 
     private void OnDestroy()
@@ -607,11 +586,6 @@ public class QuizManager : MonoBehaviour
 
     private void SetVideoProblemTextVisible(bool isVisible)
     {
-        if (videoProblemTextPanel != null)
-        {
-            videoProblemTextPanel.SetActive(isVisible);
-        }
-
         if (videoProblemText != null)
         {
             videoProblemText.gameObject.SetActive(isVisible);
@@ -629,18 +603,6 @@ public class QuizManager : MonoBehaviour
 
     private string GetVideoIssueLabel(int currentVideoIndex, VideoClip activeClip)
     {
-        int zeroBasedIndex = currentVideoIndex - 1;
-
-        if (currentQuiz != null && currentQuiz.questionVideoIssueTexts != null &&
-            zeroBasedIndex >= 0 && zeroBasedIndex < currentQuiz.questionVideoIssueTexts.Length)
-        {
-            string customIssue = currentQuiz.questionVideoIssueTexts[zeroBasedIndex];
-            if (!string.IsNullOrWhiteSpace(customIssue))
-            {
-                return customIssue.Replace("\r", " ").Replace("\n", " ").Trim();
-            }
-        }
-
         if (activeClip != null && !string.IsNullOrWhiteSpace(activeClip.name))
         {
             return activeClip.name.Trim();

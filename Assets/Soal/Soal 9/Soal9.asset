@@ -19,9 +19,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 5eeab7a7136b2424a907e2a98401292b, type: 3}
-  questionVideoIssueTexts:
-  - Berita ledakan di lab
+  - {fileID: 32900000, guid: b1defae6da9264444bca4080a643b448, type: 3}
   answers:
   - Berlari menuju pintu keluar tanpa memeriksa kondisi lain
   - Menggunakan bahan kimia untuk memadamkan api

@@ -29,8 +29,6 @@ public class QuizData : ScriptableObject
     public VideoClip[] questionVideos;
 
 
-    [Tooltip("Label permasalahan untuk setiap video pembuka. Urutan harus sama dengan questionVideos. Jika kosong, sistem pakai nama video clip.")]
-    public string[] questionVideoIssueTexts;
     [Tooltip("Pilihan jawaban A, B, C, D")]
     public string[] answers = new string[4];
 

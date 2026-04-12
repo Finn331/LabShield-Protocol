@@ -18,8 +18,8 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: c6b5fa637e544b14a9ee941b32190236, type: 3}
   answers:
   - Mudah bereaksi dengan bahan lain
   - Tidak berwarna
@@ -28,4 +28,4 @@ MonoBehaviour:
   correctAnswerIndex: 2
   evaluationText: Limbah B3 memiliki karakteristik berbahaya, termasuk potensi korosif,
     toksik, reaktif, dan mudah mencemari lingkungan.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 967b0f68bade0a146ae32a7708d29582, type: 3}

@@ -21,9 +21,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 76d321d588f10084a9e9674d5247bdf2, type: 3}
-  questionVideoIssueTexts:
-  - Permasalahan makan dan minum di lab
+  - {fileID: 32900000, guid: 20ffa84c27110be4995c2c345c073e13, type: 3}
   answers:
   - Tidak di perbolehkan makan dan minum di dalam laboratorium
   - Tidak di izinkan bercanda dan bermain-main dengan alat atau bahan kimia

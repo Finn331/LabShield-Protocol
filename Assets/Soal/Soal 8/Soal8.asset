@@ -21,9 +21,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: cc7cbb571fb1b4745b04b6016a1be448, type: 3}
-  questionVideoIssueTexts:
-  - Beban kerja kimia analisis laboran
+  - {fileID: 32900000, guid: a5a9602e387e0b743b708fd0501e494c, type: 3}
   answers:
   - Pengurangan beban kerja dan kegiatan pengangkutan material
   - Penyediaan ruang gerak yang aman serta permukaan lantai yang tidak licin

@@ -18,8 +18,8 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: ff007c7a09b0bfc4eba4a73608587757, type: 3}
   answers:
   - Perubahan udara yang mengganggu keseimbangan lingkungan
   - Meningkatnya kadar oksigen di udara bebas
@@ -28,4 +28,4 @@ MonoBehaviour:
   correctAnswerIndex: 0
   evaluationText: Gas beracun yang dilepas tanpa pengolahan dapat menurunkan kualitas
     udara dan mengganggu kesehatan serta keseimbangan lingkungan.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 728a857dc8c48d648909fd6da5416bfe, type: 3}

@@ -18,8 +18,8 @@ MonoBehaviour:
   questionImage: {fileID: 0}
   questionPresentationImages: []
   presentationImageDuration: 1.5
-  questionVideos: []
-  questionVideoIssueTexts: []
+  questionVideos:
+  - {fileID: 32900000, guid: 6be3135d2817a3c4ab8b1298ee5a86ca, type: 3}
   answers:
   - Ringkas, rawat, rapi, rajin
   - Rapi, rawat, rajin, ringkas
@@ -28,4 +28,4 @@ MonoBehaviour:
   correctAnswerIndex: 3
   evaluationText: Urutan 5R yang umum dipakai adalah Ringkas, Rapi, Resik, Rawat,
     dan Rajin.
-  explainAudio: {fileID: 0}
+  explainAudio: {fileID: 8300000, guid: 2349e4bc049238f4e9ba6fa8268f49e2, type: 3}

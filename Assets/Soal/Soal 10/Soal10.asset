@@ -19,9 +19,7 @@ MonoBehaviour:
   questionPresentationImages: []
   presentationImageDuration: 1.5
   questionVideos:
-  - {fileID: 32900000, guid: 9ee49c7916d55eb4996ef5cbec56940d, type: 3}
-  questionVideoIssueTexts:
-  - Terkena percikan pada mata
+  - {fileID: 32900000, guid: 3e5b24777d739f14699d4d2b2c7eab7d, type: 3}
   answers:
   - Mencuci mata dengan air mengalir selama 10 detik dan segera meminta bantuan medis
   - Membilas mata dengan minyak

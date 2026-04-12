@@ -15,6 +15,11 @@ MonoBehaviour:
   questionID: Soal_2
   questionText: "Undang-Undang Nomor 1 Tahun 1970 mengatur tentang \u2026"
   questionAudio: {fileID: 0}
+  questionImage: {fileID: 0}
+  questionPresentationImages: []
+  presentationImageDuration: 1.5
+  questionVideos:
+  - {fileID: 32900000, guid: 41310df6a5cd4094e9350af9b5a75489, type: 3}
   answers:
   - Kesehatan lingkungan kerja
   - Keselamatan kerja di tempat kerja
