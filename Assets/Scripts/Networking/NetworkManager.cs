@@ -6,7 +6,7 @@ using System.Text;
 
 public class NetworkManager : MonoBehaviour
 {
-    [SerializeField] private string serverUrl = "http://31.56.56.8:5000/api/submit-score";
+    [SerializeField] private string serverUrl = "http://paste your vps ip:5000/api/submit-score";
 
     public static NetworkManager Instance { get; private set; }
     private const string LastUsernameKey = "last_username";
