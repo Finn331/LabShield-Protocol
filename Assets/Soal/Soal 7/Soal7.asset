@@ -28,6 +28,6 @@ MonoBehaviour:
   - Memastikan jenis kebakaran dan kesesuaian APAR dengan sumber api yang terjadi
   - Menggunakan APAR dari jarak sedekat mungkin agar api cepat padam
   - Menyemprotkan APAR ke arah api tanpa memperhatikan posisi berdiri
-  correctAnswerIndex: 2
+  correctAnswerIndex: 1
   evaluationText: 
   explainAudio: {fileID: 8300000, guid: f552d778f48436b4ba3c671d2753a660, type: 3}

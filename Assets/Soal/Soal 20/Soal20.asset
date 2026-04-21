@@ -25,7 +25,7 @@ MonoBehaviour:
   - Menggunakan alat kerja sesuai dengan fungsinya
   - Mengabaikan aturan keselamatan demi menyelesaikan pekerjaan lebih cepat
   - Bekerja sama dengan rekan kerja dalam menyelesaikan tugas
-  correctAnswerIndex: 3
+  correctAnswerIndex: 2
   evaluationText: Mengabaikan aturan keselamatan adalah pelanggaran etika kerja karena
     membahayakan diri sendiri dan orang lain.
   explainAudio: {fileID: 8300000, guid: 1d285e757175a214c8e86654c22d6765, type: 3}
