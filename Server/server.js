@@ -83,6 +83,12 @@ const findUserByLoginIdentifier = (users, identifier) => {
     );
 };
 
+const findTeacherByCredentials = (username, password) => {
+    const users = readJSON(USERS_DB);
+    const user = findUserByUsername(users, username);
+    return user && user.password === password && user.role === 'teacher' ? user : null;
+};
+
 const createOtpCode = () => String(crypto.randomInt(100000, 1000000));
 const hashOtp = (email, otp) => crypto
     .createHash('sha256')
@@ -203,6 +209,54 @@ const normalizeScoreRow = (row) => {
         finalScoreStandard,
         finalScoreK3
     };
+};
+
+const csvEscape = (value) => {
+    const text = String(value ?? '');
+    if (/[",\r\n]/.test(text)) {
+        return `"${text.replace(/"/g, '""')}"`;
+    }
+    return text;
+};
+
+const buildScoresCsv = (scores) => {
+    const headers = [
+        'Siswa',
+        'Percobaan',
+        'APD Benar',
+        'APD Salah',
+        'Quiz Benar',
+        'Quiz Salah',
+        'Durasi APD (detik)',
+        'Durasi Quiz (detik)',
+        'Nilai',
+        'Nilai K3',
+        'Waktu Submit'
+    ];
+
+    const rows = scores.map((row) => {
+        const scoreStandard = Number.isFinite(Number(row.finalScoreStandard))
+            ? Number(row.finalScoreStandard)
+            : Number(row.finalScore || 0);
+
+        return [
+            row.studentName || '',
+            row.attemptNumber || '',
+            Number(row.apdTotalCorrect || 0),
+            Number(row.apdTotalWrong || 0),
+            Number(row.quizTotalCorrect || 0),
+            Number(row.quizTotalWrong || 0),
+            Math.max(0, Number(row.apdTimeTakenSeconds || 0)),
+            Math.max(0, Number(row.quizTimeTakenSeconds || computeQuizDurationSeconds(row.questionTimes))),
+            scoreStandard,
+            Number(row.finalScoreK3 || 0),
+            row.timestamp || ''
+        ];
+    });
+
+    return [headers, ...rows]
+        .map((row) => row.map(csvEscape).join(','))
+        .join('\r\n');
 };
 
 const normalizeAttemptNumbers = (scores) => {
@@ -631,6 +685,22 @@ app.get('/api/scores', (req, res) => {
     res.json(scores);
 });
 
+app.post('/api/export-scores.csv', (req, res) => {
+    const { requesterUsername, requesterPassword } = req.body || {};
+    const requester = findTeacherByCredentials(requesterUsername, requesterPassword);
+
+    if (!requester || requester.role !== 'teacher') {
+        return res.status(403).json({ error: 'Unauthorized: Teacher access required' });
+    }
+
+    const scores = normalizeAttemptNumbers(readJSON(SCORES_DB).map(normalizeScoreRow));
+    writeJSON(SCORES_DB, scores);
+
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="labshield-scores.csv"');
+    res.send(`\uFEFF${buildScoresCsv(scores)}`);
+});
+
 // Get Leaderboard (aggregated by student)
 // Query params:
 // - limit: jumlah data per kategori (default 10, max 100)
@@ -770,12 +840,113 @@ app.post('/api/delete-users', (req, res) => {
     res.json({ success: true, message: `Deleted ${deletedCount} users. ${failedCount > 0 ? `Failed to delete ${failedCount} protected users.` : ''}` });
 });
 
+// --- ANGKET RESPON SISWA ---
+
+const ANGKET_DB = path.join(DATA_DIR, 'angket_responses.json');
+
+app.get('/api/angket/status', (req, res) => {
+    const username = String(req.query.username || '').trim().toLowerCase();
+    if (!username) return res.status(400).json({ error: 'Username required' });
+    const responses = readJSON(ANGKET_DB);
+    const filled = responses.some(r => r.username === username);
+    res.json({ filled });
+});
+
+app.post('/api/angket/submit', (req, res) => {
+    const { username, jawaban } = req.body || {};
+    if (!username || !Array.isArray(jawaban) || jawaban.length !== 20) {
+        return res.status(400).json({ error: 'Data tidak valid. Harus username + 20 jawaban.' });
+    }
+    if (!jawaban.every(n => [1, 2, 3, 4].includes(n))) {
+        return res.status(400).json({ error: 'Nilai jawaban harus 1-4 (STS/TS/S/SS).' });
+    }
+    const normalizedUser = String(username).trim().toLowerCase();
+    const responses = readJSON(ANGKET_DB);
+    if (responses.some(r => r.username === normalizedUser)) {
+        return res.status(403).json({ error: 'Kamu sudah pernah mengisi angket ini.' });
+    }
+    responses.push({
+        username: normalizedUser,
+        jawaban,
+        timestamp: new Date().toISOString()
+    });
+    writeJSON(ANGKET_DB, responses);
+    res.json({ success: true, message: 'Angket berhasil disimpan. Terima kasih!' });
+});
+
+const buildAngketCsv = (responses, questions) => {
+    const header = ['Siswa', ...questions.map((_, i) => `Q${i + 1}`)];
+    const rows = responses.map(r => {
+        return [r.username, ...r.jawaban];
+    });
+    return [header, ...rows].map(row => row.join(',')).join('\r\n');
+};
+
+app.get('/api/angket/responses', (req, res) => {
+    const { requesterUsername, requesterPassword } = req.query;
+    const requester = findTeacherByCredentials(requesterUsername, requesterPassword);
+    if (!requester) {
+        return res.status(403).json({ error: 'Unauthorized: Teacher access required' });
+    }
+    const responses = readJSON(ANGKET_DB);
+    const questions = [
+        'Materi dalam game dan website mempermudah saya dalam mempelajari dan memahami konsep K3LH.',
+        'Game ini memberikan wawasan baru serta inovasi dalam pembelajaran kimia bagi saya.',
+        'Game ini memberikan pengalaman belajar yang kontekstual atau sesuai dengan situasi nyata.',
+        'Permasalahan dalam game membantu saya dalam memecahkan masalah lingkungan sekitar laboratorium.',
+        'Tersedia bahan bacaan dan video pengenalan K3LH yang membantu peserta didik lebih memahami konsep materi yang disampaikan.',
+        'Tersedia skor dalam game yang membantu saya mengetahui tingkat kemampuan diri saya sendiri.',
+        'Desain game yang menampilkan umpan balik saat jawaban salah membantu saya mengevaluasi dan memahami jawaban yang benar.',
+        'Latihan soal dengan kasus nyata membantu saya memperdalam pemahaman terhadap materi yang disajikan.',
+        'Tampilan game aplikasi 3D berbantuan website membuat saya tertarik untuk mengikuti pembelajaran kimia.',
+        'Kualitas gambar, warna, ukuran, dan video pendukung dalam aplikasi berbantuan website menarik dan sesuai.',
+        'Media ajar menggunakan aplikasi yang dikembangkan dalam bentuk media game mempermudah saya dalam memahami konsep K3LH.',
+        'Game menggunakan bahasa yang komunikatif sehingga mudah dipahami.',
+        'Penggunaan kalimat dalam game berbantuan website telah sesuai dengan kaidah tata bahasa Indonesia yang baik dan benar.',
+        'Ketepatan penulisan dan animasi dalam game dan website mudah dipahami oleh peserta didik.',
+        'Game dapat dengan mudah diakses dan digunakan melalui perangkat handphone.',
+        'Secara keseluruhan, game K3LH ini bermanfaat dalam pembelajaran.',
+        'Game memberikan pengalaman belajar yang menyenangkan.',
+        'Game ini membantu saya mengetahui tindakan yang benar saat bekerja di laboratorium.',
+        'Game membantu saya menghubungkan materi K3LH dengan praktik di laboratorium.',
+        'Alur permainan dalam game mudah diikuti dari awal hingga akhir.',
+    ];
+    const stats = questions.map((q, i) => {
+        const scores = responses.map(r => r.jawaban[i]).filter(v => v !== undefined);
+        const count = scores.length;
+        const dist = { STS: 0, TS: 0, S: 0, SS: 0 };
+        scores.forEach(s => {
+            if (s === 1) dist.STS++;
+            else if (s === 2) dist.TS++;
+            else if (s === 3) dist.S++;
+            else if (s === 4) dist.SS++;
+        });
+        return { question: q, count, distribution: dist };
+    });
+    res.json({ total: responses.length, questions, responses, stats });
+});
+
+app.post('/api/export-angket.csv', (req, res) => {
+    const { requesterUsername, requesterPassword } = req.body || {};
+    const requester = findTeacherByCredentials(requesterUsername, requesterPassword);
+    if (!requester) {
+        return res.status(403).json({ error: 'Unauthorized: Teacher access required' });
+    }
+    const responses = readJSON(ANGKET_DB);
+    const questions = Array.from({ length: 20 }, (_, i) => `Q${i + 1}`);
+    const csv = buildAngketCsv(responses, questions);
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename="labshield-angket.csv"');
+    res.send(`\uFEFF${csv}`);
+});
+
 // Start Server
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
     // Create DB files if not exist
     if (!fs.existsSync(USERS_DB)) writeJSON(USERS_DB, []);
     if (!fs.existsSync(SCORES_DB)) writeJSON(SCORES_DB, []);
+    if (!fs.existsSync(ANGKET_DB)) writeJSON(ANGKET_DB, []);
     // Create public folder for dashboard
     if (!fs.existsSync('public')) fs.mkdirSync('public', { recursive: true });
 

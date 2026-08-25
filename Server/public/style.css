@@ -843,6 +843,96 @@ body.modal-open {
     color: #61758a;
 }
 
+.learning-page .media-feature-video {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+    gap: 16px;
+    align-items: center;
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: linear-gradient(135deg, #ffffff, #f1f9ff);
+    padding: 16px;
+    margin-bottom: 14px;
+}
+
+.learning-page .media-feature-video h3 {
+    margin: 6px 0 8px;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: clamp(20px, 2vw, 26px);
+    line-height: 1.15;
+    color: #163c58;
+}
+
+.learning-page .media-feature-video p {
+    margin: 0 0 12px;
+    color: #30485f;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.learning-page .media-feature-video .btn-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    text-decoration: none;
+}
+
+.learning-page .media-feature-video-player {
+    display: flex;
+    justify-content: center;
+}
+
+.learning-page .media-feature-video-player .learning-video-player-portrait {
+    max-height: 420px;
+}
+
+.learning-page .media-document-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 14px;
+    align-items: center;
+    border-radius: 14px;
+    border: 1px solid #cddff0;
+    background: #fff;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.learning-page .media-document-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    color: #8a4b00;
+    background: #fff5e8;
+    border: 1px solid #f0d4a8;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.learning-page .media-document-copy h3 {
+    margin: 4px 0 6px;
+    font-family: "Sora", "Segoe UI", sans-serif;
+    font-size: 20px;
+    line-height: 1.15;
+    color: #163c58;
+}
+
+.learning-page .media-document-copy p {
+    margin: 0;
+    color: #30485f;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.learning-page .media-document-actions {
+    justify-content: flex-end;
+}
+
 .learning-page .media-tools {
     justify-content: space-between;
     margin-bottom: 8px;
@@ -1365,6 +1455,23 @@ body.modal-open {
 
     .learning-page .media-kpi-grid {
         grid-template-columns: 1fr;
+    }
+
+    .learning-page .media-feature-video {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-page .media-feature-video-player .learning-video-player-portrait {
+        max-height: 520px;
+    }
+
+    .learning-page .media-document-card {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .learning-page .media-document-actions {
+        justify-content: stretch;
     }
 
     .learning-page .media-tools {

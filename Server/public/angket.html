@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angket - LabShield Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .angket-page { width: min(900px, 100%); margin: 0 auto; padding: 24px 16px 60px; }
+        .angket-header { text-align: center; margin-bottom: 28px; }
+        .angket-header h1 { font-family: "Sora","Segoe UI",sans-serif; font-size: clamp(18px,2.2vw,28px); line-height: 1.25; color: var(--brand-700); margin: 12px 0 8px; }
+        .angket-header .subtitle { color: var(--ink-500); font-size: 15px; max-width: 680px; margin: 0 auto; }
+        .angket-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 24px 20px; margin-bottom: 20px; }
+        .angket-card h2 { font-family: "Sora","Segoe UI",sans-serif; font-size: 17px; color: var(--brand-600); margin: 0 0 12px; }
+        .petunjuk-list { margin: 0; padding-left: 20px; color: var(--ink-700); font-size: 14px; line-height: 1.7; }
+        .skala-box { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+        .skala-item { background: var(--surface-soft); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 6px 14px; font-size: 13px; font-weight: 600; color: var(--ink-700); }
+        .skala-item strong { color: var(--brand-600); }
+        .soal-table-wrap { overflow-x: auto; }
+        .soal-table { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+        .soal-table th { text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-500); padding: 4px 6px; position: sticky; top: 0; background: var(--surface); z-index: 1; }
+        .soal-table th:first-child { text-align: left; width: 40px; }
+        .soal-table th:nth-child(2) { text-align: left; }
+        .soal-table td { padding: 8px 6px; font-size: 13px; line-height: 1.5; color: var(--ink-900); vertical-align: middle; }
+        .soal-table td:first-child { font-weight: 700; color: var(--ink-500); text-align: center; width: 40px; }
+        .soal-table td:nth-child(2) { text-align: left; }
+        .soal-table tr { background: var(--surface-soft); border-radius: var(--radius-sm); transition: background 0.15s; }
+        .soal-table tr:hover { background: #e8f4ff; }
+        .soal-table td:not(:first-child):not(:nth-child(2)) { text-align: center; }
+        .radio-label { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 36px; border-radius: var(--radius-sm); border: 1.5px solid var(--line-strong); background: var(--surface); cursor: pointer; font-size: 12px; font-weight: 700; color: var(--ink-500); transition: all 0.12s; user-select: none; }
+        .radio-label:hover { border-color: var(--brand-500); color: var(--brand-600); background: #e8f4ff; }
+        .soal-table input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+        .soal-table input[type="radio"]:checked + .radio-label { border-color: var(--brand-600); background: var(--brand-600); color: #fff; }
+        .angket-actions { display: flex; justify-content: center; margin-top: 24px; gap: 12px; }
+        .angket-finished { text-align: center; padding: 40px 20px; }
+        .angket-finished .icon { font-size: 56px; margin-bottom: 12px; }
+        .angket-finished h2 { font-family: "Sora","Segoe UI",sans-serif; font-size: 22px; color: var(--ok-600); margin: 8px 0; }
+        .angket-finished p { color: var(--ink-500); font-size: 15px; max-width: 480px; margin: 0 auto 20px; }
+        .loading-state { text-align: center; padding: 60px 20px; color: var(--ink-500); }
+        .loading-state .spinner { display: inline-block; width: 32px; height: 32px; border: 3px solid var(--line); border-top-color: var(--brand-500); border-radius: 50%; animation: spin 0.7s linear infinite; margin-bottom: 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error-state { text-align: center; padding: 40px 20px; color: var(--bad-600); }
+        @media (max-width:640px) { .soal-table td { font-size: 12px; padding: 6px 4px; } .radio-label { width: 36px; height: 32px; font-size: 11px; } }
+    </style>
+</head>
+<body class="learning-page">
+    <div class="angket-page">
+        <div class="angket-header">
+            <span class="brand-mark">Angket Penelitian</span>
+            <h1>ANGKET RESPON PESERTA DIDIK PADA GAME EDUKASI BERBASIS APLIKASI UNTUK MENINGKATKAN PEMAHAMAN K3LH DI LABORATORIUM KIMIA SEKOLAH</h1>
+            <p class="subtitle">Isilah angket ini dengan jujur berdasarkan pengalaman Anda setelah menggunakan game LabShield Protocol.</p>
+        </div>
+        <div id="main-content"><div class="loading-state"><div class="spinner"></div><p>Memuat angket...</p></div></div>
+    </div>
+    <script>
+        const QUESTIONS = [
+            "Materi dalam game dan website mempermudah saya dalam mempelajari dan memahami konsep K3LH.",
+            "Game ini memberikan wawasan baru serta inovasi dalam pembelajaran kimia bagi saya.",
+            "Game ini memberikan pengalaman belajar yang kontekstual atau sesuai dengan situasi nyata.",
+            "Permasalahan dalam game membantu saya dalam memecahkan masalah lingkungan sekitar laboratorium.",
+            "Tersedia bahan bacaan dan video pengenalan K3LH yang membantu peserta didik lebih memahami konsep materi yang disampaikan.",
+            "Tersedia skor dalam game yang membantu saya mengetahui tingkat kemampuan diri saya sendiri.",
+            "Desain game yang menampilkan umpan balik saat jawaban salah membantu saya mengevaluasi dan memahami jawaban yang benar.",
+            "Latihan soal dengan kasus nyata membantu saya memperdalam pemahaman terhadap materi yang disajikan.",
+            "Tampilan game aplikasi 3D berbantuan website membuat saya tertarik untuk mengikuti pembelajaran kimia.",
+            "Kualitas gambar, warna, ukuran, dan video pendukung dalam aplikasi berbantuan website menarik dan sesuai.",
+            "Media ajar menggunakan aplikasi yang dikembangkan dalam bentuk media game mempermudah saya dalam memahami konsep K3LH.",
+            "Game menggunakan bahasa yang komunikatif sehingga mudah dipahami.",
+            "Penggunaan kalimat dalam game berbantuan website telah sesuai dengan kaidah tata bahasa Indonesia yang baik dan benar.",
+            "Ketepatan penulisan dan animasi dalam game dan website mudah dipahami oleh peserta didik.",
+            "Game dapat dengan mudah diakses dan digunakan melalui perangkat handphone.",
+            "Secara keseluruhan, game K3LH ini bermanfaat dalam pembelajaran.",
+            "Game memberikan pengalaman belajar yang menyenangkan.",
+            "Game ini membantu saya mengetahui tindakan yang benar saat bekerja di laboratorium.",
+            "Game membantu saya menghubungkan materi K3LH dengan praktik di laboratorium.",
+            "Alur permainan dalam game mudah diikuti dari awal hingga akhir."
+        ];
+        const OPSI = [
+            { value:1, label:"STS", full:"Sangat Tidak Setuju" },
+            { value:2, label:"TS", full:"Tidak Setuju" },
+            { value:3, label:"S", full:"Setuju" },
+            { value:4, label:"SS", full:"Sangat Setuju" }
+        ];
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get("username") || "";
+
+        async function checkStatus() {
+            if (!username) { showError("Username tidak ditemukan. Silakan login terlebih dahulu."); return; }
+            try {
+                const res = await fetch("/api/angket/status?username=" + encodeURIComponent(username));
+                const data = await res.json();
+                if (data.filled) showFinished();
+                else showForm();
+            } catch(e) { showError("Gagal memuat status angket. Periksa koneksi Anda."); }
+        }
+
+        function showFinished() {
+            document.getElementById("main-content").innerHTML =
+                '<div class="angket-card angket-finished"><div class="icon">&#10004;</div>' +
+                '<h2>Terima Kasih!</h2>' +
+                '<p>Kamu sudah mengisi angket ini. Jawaban kamu telah tercatat dan sangat membantu penelitian kami.</p>' +
+                '<a href="student-dashboard.html" class="btn btn-main">Kembali ke Dashboard</a></div>';
+        }
+
+        function showError(msg) {
+            document.getElementById("main-content").innerHTML =
+                '<div class="angket-card error-state"><p style="font-size:18px;font-weight:700;margin-bottom:8px;">Terjadi Kesalahan</p>' +
+                "<p>" + msg + '</p><div class="angket-actions">' +
+                '<a href="student-dashboard.html" class="btn btn-soft">Kembali</a>' +
+                '<button onclick="location.reload()" class="btn btn-main">Coba Lagi</button></div></div>';
+        }
+
+        function showForm() {
+            let rows = "";
+            for (let i = 0; i < QUESTIONS.length; i++) {
+                let num = i + 1;
+                let cells = "";
+                for (let o of OPSI) {
+                    cells += '<td><input type="radio" name="q' + num + '" id="q' + num + "_" + o.value +
+                        '" value="' + o.value + '" required>' +
+                        '<label class="radio-label" for="q' + num + "_" + o.value + '" title="' + o.full + '">' + o.label + "</label></td>";
+                }
+                rows += "<tr><td>" + num + "</td><td>" + QUESTIONS[i] + "</td>" + cells + "</tr>";
+            }
+            let opsiHeaders = "";
+            for (let o of OPSI) opsiHeaders += '<th title="' + o.full + '">' + o.label + "</th>";
+
+            document.getElementById("main-content").innerHTML =
+                '<form id="angket-form" onsubmit="return submitAngket(event)">' +
+                '<div class="angket-card"><h2>Petunjuk Pengisian</h2>' +
+                '<ol class="petunjuk-list"><li>Bacalah setiap pernyataan dengan teliti.</li><li>Pilih salah satu jawaban yang tersedia.</li><li>Berikan jawaban sesuai dengan pendapat Anda.</li></ol>' +
+                '<div class="skala-box">' +
+                '<span class="skala-item"><strong>SS</strong> = Sangat Setuju</span>' +
+                '<span class="skala-item"><strong>S</strong> = Setuju</span>' +
+                '<span class="skala-item"><strong>TS</strong> = Tidak Setuju</span>' +
+                '<span class="skala-item"><strong>STS</strong> = Sangat Tidak Setuju</span></div></div>' +
+                '<div class="angket-card"><h2>Pernyataan</h2><div class="soal-table-wrap">' +
+                '<table class="soal-table"><thead><tr><th>No</th><th>Pernyataan</th>' + opsiHeaders + "</tr></thead><tbody>" +
+                rows + "</tbody></table></div></div>" +
+                '<div class="angket-actions"><button type="submit" id="submit-btn" class="btn btn-main">Kirim Angket</button></div>' +
+                '<div id="form-message" class="message" style="text-align:center;margin-top:12px;"></div></form>';
+        }
+
+        async function submitAngket(event) {
+            event.preventDefault();
+            const btn = document.getElementById("submit-btn");
+            const msgEl = document.getElementById("form-message");
+            msgEl.className = "message";
+            const jawaban = [];
+            for (let i = 1; i <= QUESTIONS.length; i++) {
+                const sel = document.querySelector('input[name="q' + i + '"]:checked');
+                if (!sel) {
+                    msgEl.textContent = "Jawab pernyataan nomor " + i + " terlebih dahulu.";
+                    msgEl.className = "message error active";
+                    document.querySelector('input[name="q' + i + '"]').focus();
+                    return;
+                }
+                jawaban.push(parseInt(sel.value));
+            }
+            btn.disabled = true; btn.textContent = "Mengirim...";
+            try {
+                const res = await fetch("/api/angket/submit", {
+                    method:"POST", headers:{"Content-Type":"application/json"},
+                    body: JSON.stringify({username, jawaban})
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    msgEl.textContent = data.message || "Angket berhasil dikirim!";
+                    msgEl.className = "message success active";
+                    setTimeout(showFinished, 1500);
+                } else {
+                    msgEl.textContent = data.error || "Gagal mengirim angket.";
+                    msgEl.className = "message error active";
+                    btn.disabled = false; btn.textContent = "Kirim Angket";
+                    if (res.status === 403) setTimeout(showFinished, 1500);
+                }
+            } catch(e) {
+                msgEl.textContent = "Gagal terhubung ke server. Coba lagi.";
+                msgEl.className = "message error active";
+                btn.disabled = false; btn.textContent = "Kirim Angket";
+            }
+        }
+        checkStatus();
+    </script>
+</body>
+</html>

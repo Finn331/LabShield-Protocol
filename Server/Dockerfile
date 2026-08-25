@@ -13,8 +13,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the application port
-EXPOSE 3000
+# Expose the application port used by docker-compose.yml
+EXPOSE 5000
 
 # Start the application
 CMD ["node", "server.js"]

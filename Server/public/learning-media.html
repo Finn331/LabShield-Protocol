@@ -49,6 +49,34 @@
                     </div>
                 </div>
 
+                <section class="media-feature-video info-card" aria-label="Video pembelajaran utama">
+                    <div class="media-feature-video-copy">
+                        <span class="video-tag video-tag-blue">Video Utama</span>
+                        <h3>Safety Induction Laboratorium Kimia</h3>
+                        <p>Putar video pengantar keselamatan laboratorium sebelum membaca tabel bahan dan dokumen MSDS.</p>
+                        <a href="assets/videos/0314.mp4" class="btn btn-soft" target="_blank" rel="noopener noreferrer">Buka Video Internal</a>
+                    </div>
+                    <div class="media-feature-video-player">
+                        <video class="learning-video-player learning-video-player-portrait" controls preload="metadata" playsinline>
+                            <source src="assets/videos/0314.mp4" type="video/mp4">
+                            Browser Anda tidak mendukung pemutar video HTML5.
+                        </video>
+                    </div>
+                </section>
+
+                <section class="media-document-card info-card" aria-label="Materi presentasi K3LH">
+                    <div class="media-document-icon">PDF</div>
+                    <div class="media-document-copy">
+                        <span class="video-tag video-tag-orange">Materi K3LH</span>
+                        <h3>Persentasi K3LH</h3>
+                        <p>Materi presentasi Keselamatan dan Kesehatan Kerja serta Lingkungan Hidup untuk pendamping pembelajaran.</p>
+                    </div>
+                    <div class="media-document-actions media-actions">
+                        <a href="assets/materials/persentasi-K3LH.pdf" class="btn btn-soft" target="_blank" rel="noopener noreferrer">Lihat PDF K3LH</a>
+                        <a href="assets/materials/persentasi-K3LH.pdf" class="btn btn-soft" download>Download PDF K3LH</a>
+                    </div>
+                </section>
+
                 <div class="media-tools">
                     <div class="media-search-wrap">
                         <input id="msds-search" class="input media-search" type="text" placeholder="Cari nama bahan atau rumus kimia...">
@@ -544,7 +572,7 @@
                         ...item,
                         _searchBlob: buildSearchBlob(item)
                     }));
-                totalEntry.textContent = "100 bahan";
+                totalEntry.textContent = "100 Bahan";
                 renderTable(msdsRows);
             } catch (error) {
                 totalEntry.textContent = "Gagal dimuat";

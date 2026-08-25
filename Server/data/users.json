@@ -1,0 +1,15 @@
+[
+  {
+    "username": "admin",
+    "password": "aloganteng03.",
+    "role": "teacher"
+  },
+  {
+    "username": "testing_siswa",
+    "password": "testing123",
+    "role": "student",
+    "email": "testing@example.com",
+    "emailVerified": true,
+    "createdAt": "2026-07-05T16:24:23.494Z"
+  }
+]

@@ -133,6 +133,7 @@
                 <div class="section-head">
                     <h2 class="section-title">Riwayat Skor</h2>
                     <div class="toolbar">
+                        <button onclick="exportScoresCsv()" class="btn btn-soft">Export CSV</button>
                         <button onclick="loadScores()" class="btn btn-soft">Refresh</button>
                     </div>
                 </div>
@@ -212,6 +213,50 @@
                     </table>
                 </div>
             </article>
+        </section>
+
+        <section class="panel section-panel" style="margin-top:12px;">
+            <div class="section-head">
+                <h2 class="section-title">Hasil Angket Siswa</h2>
+                <div class="toolbar">
+                    <button onclick="exportAngketCsv()" class="btn btn-soft">Export CSV Angket</button>
+                    <button onclick="loadAngket()" class="btn btn-soft">Refresh</button>
+                </div>
+            </div>
+            <div id="angket-summary" class="panel-soft" style="padding:12px;margin-bottom:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;"></div>
+            <div class="table-wrap">
+                <table id="angket-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Siswa</th>
+                            <th title="Sangat Tidak Setuju">STS</th>
+                            <th title="Tidak Setuju">TS</th>
+                            <th title="Setuju">S</th>
+                            <th title="Sangat Setuju">SS</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="panel-soft" style="padding:12px;margin-top:10px;">
+                <h3 style="font-size:14px;font-weight:700;margin:0 0 8px;color:var(--brand-700);">Statistik Per Pernyataan</h3>
+                <div class="table-wrap">
+                    <table id="angket-stats-table" class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:40px;">No</th>
+                                <th>Pernyataan</th>
+                                <th style="width:50px;">STS</th>
+                                <th style="width:50px;">TS</th>
+                                <th style="width:50px;">S</th>
+                                <th style="width:50px;">SS</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
         </section>
 
         <div class="footer-note">Space Studio · 2026</div>
@@ -376,7 +421,7 @@
                 document.getElementById('login-section').classList.add('hidden');
                 document.getElementById('dashboard-section').classList.remove('hidden');
 
-                await Promise.all([loadScores(), loadStudents(), loadTeachers(), loadLeaderboard()]);
+                await Promise.all([loadScores(), loadStudents(), loadTeachers(), loadLeaderboard(), loadAngket()]);
             } catch (error) {
                 setMessage('login-error', error.message || 'Terjadi kesalahan login.', 'error');
             } finally {
@@ -448,6 +493,127 @@
                 }).join('');
             } catch (error) {
                 tbody.innerHTML = `<tr><td colspan="10" class="muted">${escapeHtml(error.message || 'Gagal memuat data.')}</td></tr>`;
+            }
+        }
+
+        async function exportScoresCsv() {
+            if (!currentUser || !currentPass) {
+                alert('Silakan login ulang sebelum export CSV.');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/export-scores.csv', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        requesterUsername: currentUser,
+                        requesterPassword: currentPass
+                    })
+                });
+
+                if (!res.ok) {
+                    let message = 'Gagal export CSV.';
+                    try {
+                        const data = await res.json();
+                        message = data.error || message;
+                    } catch (_) {
+                        // Response bukan JSON, gunakan pesan default.
+                    }
+                    throw new Error(message);
+                }
+
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const today = new Date().toISOString().slice(0, 10);
+                link.href = url;
+                link.download = `labshield-scores-${today}.csv`;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                alert(error.message || 'Gagal export CSV.');
+            }
+        }
+
+        async function loadAngket() {
+            if (!currentUser || !currentPass) return;
+            const tbody = document.querySelector('#angket-table tbody');
+            const statsBody = document.querySelector('#angket-stats-table tbody');
+            const summary = document.getElementById('angket-summary');
+            tbody.innerHTML = '<tr><td colspan="6" class="muted">Memuat data...</td></tr>';
+            statsBody.innerHTML = '';
+            summary.innerHTML = '';
+            try {
+                const res = await fetch('/api/angket/responses?requesterUsername=' + encodeURIComponent(currentUser) + '&requesterPassword=' + encodeURIComponent(currentPass));
+                if (!res.ok) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="muted">Gagal memuat data angket.</td></tr>';
+                    return;
+                }
+                const data = await res.json();
+                if (!data.responses || data.responses.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="muted">Belum ada siswa yang mengisi angket.</td></tr>';
+                    summary.innerHTML = '<div class="muted" style="text-align:center;">Belum ada data angket.</div>';
+                    return;
+                }
+
+                summary.innerHTML = `
+                    <div style="background:var(--surface-soft);border-radius:var(--radius-sm);padding:10px;text-align:center;"><strong>Total Responden</strong><br><span style="font-size:24px;font-weight:700;color:var(--brand-600);">${data.total}</span></div>
+                    <div style="background:var(--surface-soft);border-radius:var(--radius-sm);padding:10px;text-align:center;"><strong>STS (Sangat Tidak Setuju)</strong><br><span style="font-size:24px;font-weight:700;color:var(--bad-600);">${data.stats.reduce((a, s) => a + s.distribution.STS, 0)}</span></div>
+                    <div style="background:var(--surface-soft);border-radius:var(--radius-sm);padding:10px;text-align:center;"><strong>SS (Sangat Setuju)</strong><br><span style="font-size:24px;font-weight:700;color:var(--ok-600);">${data.stats.reduce((a, s) => a + s.distribution.SS, 0)}</span></div>
+                `;
+
+                let rows = '';
+                data.responses.forEach((r, i) => {
+                    const sts = r.jawaban.filter(v => v === 1).length;
+                    const ts = r.jawaban.filter(v => v === 2).length;
+                    const s = r.jawaban.filter(v => v === 3).length;
+                    const ss = r.jawaban.filter(v => v === 4).length;
+                rows += `<tr><td>${i + 1}</td><td style="font-weight:600;">${r.username}</td><td>${sts}</td><td>${ts}</td><td>${s}</td><td>${ss}</td></tr>`;
+                });
+                tbody.innerHTML = rows;
+
+                let statRows = '';
+                data.stats.forEach((s, i) => {
+                    const qShort = s.question.length > 50 ? s.question.slice(0, 50) + '...' : s.question;
+                    statRows += `<tr><td>${i + 1}</td><td title="${s.question.replace(/"/g, '&quot;')}">${qShort}</td><td>${s.distribution.STS}</td><td>${s.distribution.TS}</td><td>${s.distribution.S}</td><td>${s.distribution.SS}</td></tr>`;
+                });
+                statsBody.innerHTML = statRows;
+            } catch (e) {
+                tbody.innerHTML = '<tr><td colspan="6" class="muted">Error: ' + e.message + '</td></tr>';
+            }
+        }
+
+        async function exportAngketCsv() {
+            if (!currentUser || !currentPass) {
+                alert('Silakan login ulang sebelum export CSV.');
+                return;
+            }
+            try {
+                const res = await fetch('/api/export-angket.csv', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ requesterUsername: currentUser, requesterPassword: currentPass })
+                });
+                if (!res.ok) {
+                    let msg = 'Gagal export CSV angket.';
+                    try { const d = await res.json(); msg = d.error || msg; } catch (_) {}
+                    throw new Error(msg);
+                }
+                const blob = await res.blob();
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                const today = new Date().toISOString().slice(0, 10);
+                link.href = url;
+                link.download = `labshield-angket-${today}.csv`;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                alert(error.message || 'Gagal export CSV angket.');
             }
         }
 

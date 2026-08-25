@@ -42,6 +42,7 @@
             </div>
             <div class="nav-inline">
                 <a href="learning-media.html" class="btn btn-soft">Media Pembelajaran</a>
+                <a id="angket-link" href="#" class="btn btn-soft" style="display:none;" onclick="openAngket(event)">Isi Angket</a>
                 <button onclick="logout()" class="btn btn-soft">Logout</button>
             </div>
         </header>
@@ -349,7 +350,7 @@
                 document.getElementById('display-name').textContent = currentUser;
                 document.getElementById('login-section').classList.add('hidden');
                 document.getElementById('dashboard-section').classList.remove('hidden');
-                await Promise.all([loadStudentData(), loadStudentLeaderboard()]);
+                await Promise.all([loadStudentData(), loadStudentLeaderboard(), checkAngketStatus()]);
             } catch (error) {
                 setLoginError(error.message || 'Terjadi kesalahan login.');
             } finally {
@@ -480,6 +481,34 @@
             });
 
             container.innerHTML = rows.join('');
+        }
+
+        async function checkAngketStatus() {
+            if (!currentUser) return;
+            const link = document.getElementById('angket-link');
+            try {
+                const res = await fetch('/api/angket/status?username=' + encodeURIComponent(currentUser));
+                const data = await res.json();
+                if (data.filled) {
+                    link.textContent = 'Angket Terisi';
+                    link.style.display = 'inline-flex';
+                    link.style.opacity = '0.7';
+                    link.style.pointerEvents = 'none';
+                } else {
+                    link.href = 'angket.html?username=' + encodeURIComponent(currentUser);
+                    link.style.display = 'inline-flex';
+                }
+            } catch(e) {
+                link.style.display = 'none';
+            }
+        }
+
+        function openAngket(e) {
+            e.preventDefault();
+            const link = document.getElementById('angket-link');
+            if (link.href && link.href !== '#') {
+                window.open(link.href, '_blank');
+            }
         }
     </script>
 </body>

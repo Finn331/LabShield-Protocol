@@ -2,18 +2,23 @@ version: '3.8'
 
 services:
   labshield-backend:
-    # GANTI 'YOUR_DOCKERHUB_USERNAME' dengan username asli kamu!
-    image: carlomuzaqi/labshield-server:latest
+    build: .
+    image: labshield-server:local
     container_name: labshield-server
-    
-    # Selalu coba tarik image terbaru saat start
-    pull_policy: always
-    
+    env_file:
+      - .env
     ports:
       - "${PORT:-5000}:${PORT:-5000}"
     environment:
       - PORT=${PORT:-5000}
       - DATA_DIR=/app/data
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURE=${SMTP_SECURE}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - SMTP_FROM=${SMTP_FROM}
+      - OTP_SECRET=${OTP_SECRET}
     volumes:
       - ./data:/app/data
     restart: always
